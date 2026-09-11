@@ -3,3 +3,5 @@ compiler-study/*.olean*
 compiler-study/*.ilean
 compiler-study/*.ir
 **/__pycache__/
+compiler-study/results/
+compiler-study/contract-validation.json
