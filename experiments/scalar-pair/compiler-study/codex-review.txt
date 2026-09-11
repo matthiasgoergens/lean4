@@ -1,0 +1,18 @@
+Found one **P2 measurement-provenance defect**; no concrete P1/P2 compiler-correctness defect found.
+
+**P2 — Isolate build attempts and require a successful build manifest.** [build.py:17](/home/matthias/prog/lean/faster-lean/compiler-study/build.py:17) resets command history, and [build.py:34](/home/matthias/prog/lean/faster-lean/compiler-study/build.py:34) overwrites `commands.json`. Retrying a failed build therefore loses its raw commands, status and streams unless manually archived.
+
+The same in-place build leaves the previous `hashes.json` until [build.py:56](/home/matthias/prog/lean/faster-lean/compiler-study/build.py:56). Concrete failure path: successfully build, retry with unchanged sources, then fail during plugin compilation. Previous executable hashes and transformation traces still pass [measure.py:163](/home/matthias/prog/lean/faster-lean/compiler-study/measure.py:163), allowing measurements accompanied by the failed attempt’s command log. `verify.py` would subsequently reject that log, but measurement admission does not. Use unique build-attempt directories and publish a success manifest binding binaries, traces and commands only after completion. This is a source-level failure scenario, not evidence that existing campaigns followed it.
+
+For the compiler claims, source inspection found:
+
+- `redirect` leaves undersaturated calls targeting the wrapper. Declaration updates synchronise Lean’s local context; the replaced parameter is explicitly erased and reintroduced.
+- `collectUsed` traverses nested function/join-point bodies and arguments, covering captures. Downward placement retains native-field dependencies in scope.
+- The `.local` extension remains visible within the sequential mono-pass execution. The worker retains recursive metadata, providing an inlining barrier behind the wrapper.
+- Current [split.c:818](/home/matthias/prog/lean/faster-lean/compiler-study/build/split.c:818) constructs the returned pair only in the terminating arm.
+
+**Untested limitations:** the external partial-application case does not specifically exercise a partial self-reference inside a transformed worker; mutual recursion and retained local captures lack dedicated cases here. These are coverage gaps, not demonstrated defects.
+
+**Performance:** no additional P1/P2 defect found in the stated randomisation, fresh-process timing, raw measurement logging or descriptive bootstrap calculation. Host drift and code-layout sensitivity remain performance hypotheses; these sources and diagnostics do not certify a general optimisation.
+
+No builds, tests, benchmarks, delegation or file modifications performed.

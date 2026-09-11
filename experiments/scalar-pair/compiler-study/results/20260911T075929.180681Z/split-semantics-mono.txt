@@ -1,0 +1,1064 @@
+[Compiler.saveMono] size: 13
+    def CompilerStudy.mix i x : UInt64 :=
+      let _x.1 := 11400714819323198485;
+      let _x.2 := UInt64.add i _x.1;
+      let _x.3 := UInt64.xor x _x.2;
+      let _x.4 := 13787848793156543929;
+      let x := UInt64.mul _x.3 _x.4;
+      let _x.5 := 29;
+      let _x.6 := UInt64.shiftRight x _x.5;
+      let x := UInt64.xor x _x.6;
+      let _x.7 := 10723151780598845931;
+      let x := UInt64.mul x _x.7;
+      let _x.8 := 31;
+      let _x.9 := UInt64.shiftRight x _x.8;
+      let _x.10 := UInt64.xor x _x.9;
+      return _x.10
+[Compiler.saveMono] splitProd transformed CompilerStudy.tailPair
+[Compiler.saveMono] size: 21
+    def CompilerStudy.tailPair._splitProd n splitFst splitSnd : UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : UInt64
+      | Bool.false =>
+        return splitSnd
+      | Bool.true =>
+        let _x.2 := 1;
+        let splitFst := USize.add splitFst _x.2;
+        let _x.3 := USize.toUInt64 splitFst;
+        let _x.4 := 11400714819323198485;
+        let _x.5 := UInt64.add _x.3 _x.4;
+        let _x.6 := UInt64.xor splitSnd _x.5;
+        let _x.7 := 13787848793156543929;
+        let x := UInt64.mul _x.6 _x.7;
+        let _x.8 := 29;
+        let _x.9 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.9;
+        let _x.10 := 10723151780598845931;
+        let x := UInt64.mul x _x.10;
+        let _x.11 := 31;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let splitSnd := UInt64.xor x _x.12;
+        let _x.13 := CompilerStudy.tailPair._splitProd n splitFst splitSnd;
+        return _x.13
+[Compiler.saveMono] size: 3
+    def CompilerStudy.tailPair n s : UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.tailPair._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed CompilerStudy.returnPair
+[Compiler.saveMono] splitProd sink moved s into one cases arm
+[Compiler.saveMono] size: 22
+    def CompilerStudy.returnPair._splitProd n splitFst splitSnd : Prod USize UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : Prod USize UInt64
+      | Bool.false =>
+        let s := Prod.mk ◾ ◾ splitFst splitSnd;
+        return s
+      | Bool.true =>
+        let _x.2 := 1;
+        let splitFst := USize.add splitFst _x.2;
+        let _x.3 := USize.toUInt64 splitFst;
+        let _x.4 := 11400714819323198485;
+        let _x.5 := UInt64.add _x.3 _x.4;
+        let _x.6 := UInt64.xor splitSnd _x.5;
+        let _x.7 := 13787848793156543929;
+        let x := UInt64.mul _x.6 _x.7;
+        let _x.8 := 29;
+        let _x.9 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.9;
+        let _x.10 := 10723151780598845931;
+        let x := UInt64.mul x _x.10;
+        let _x.11 := 31;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let splitSnd := UInt64.xor x _x.12;
+        let _x.13 := CompilerStudy.returnPair._splitProd n splitFst splitSnd;
+        return _x.13
+[Compiler.saveMono] size: 3
+    def CompilerStudy.returnPair n s : Prod USize UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.returnPair._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed CompilerStudy.sharedPair
+[Compiler.saveMono] size: 21
+    def CompilerStudy.sharedPair._splitProd n splitFst splitSnd : UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : UInt64
+      | Bool.false =>
+        return splitSnd
+      | Bool.true =>
+        let _x.2 := 1;
+        let splitFst := USize.add splitFst _x.2;
+        let _x.3 := USize.toUInt64 splitFst;
+        let _x.4 := 11400714819323198485;
+        let _x.5 := UInt64.add _x.3 _x.4;
+        let _x.6 := UInt64.xor splitSnd _x.5;
+        let _x.7 := 13787848793156543929;
+        let x := UInt64.mul _x.6 _x.7;
+        let _x.8 := 29;
+        let _x.9 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.9;
+        let _x.10 := 10723151780598845931;
+        let x := UInt64.mul x _x.10;
+        let _x.11 := 31;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let splitSnd := UInt64.xor x _x.12;
+        let _x.13 := CompilerStudy.sharedPair._splitProd n splitFst splitSnd;
+        return _x.13
+[Compiler.saveMono] size: 3
+    def CompilerStudy.sharedPair n s : UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.sharedPair._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed CompilerStudy.nonTailPair
+[Compiler.saveMono] size: 28
+    def CompilerStudy.nonTailPair._splitProd n splitFst splitSnd : UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : UInt64
+      | Bool.false =>
+        return splitSnd
+      | Bool.true =>
+        let _x.2 := 1;
+        let splitFst := USize.add splitFst _x.2;
+        let _x.3 := USize.toUInt64 splitFst;
+        let _x.4 := 11400714819323198485;
+        let _x.5 := UInt64.add _x.3 _x.4;
+        let _x.6 := UInt64.xor splitSnd _x.5;
+        let _x.7 := 13787848793156543929;
+        let x := UInt64.mul _x.6 _x.7;
+        let _x.8 := 29;
+        let _x.9 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.9;
+        let _x.10 := 10723151780598845931;
+        let x := UInt64.mul x _x.10;
+        let _x.11 := 31;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let splitSnd := UInt64.xor x _x.12;
+        let rest := CompilerStudy.nonTailPair._splitProd n splitFst splitSnd;
+        let _x.13 := UInt64.xor rest _x.5;
+        let x := UInt64.mul _x.13 _x.7;
+        let _x.14 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.14;
+        let x := UInt64.mul x _x.10;
+        let _x.15 := UInt64.shiftRight x _x.11;
+        let _x.16 := UInt64.xor x _x.15;
+        return _x.16
+[Compiler.saveMono] size: 3
+    def CompilerStudy.nonTailPair n s : UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.nonTailPair._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] size: 1
+    def CompilerStudy.applyPair worker s : UInt64 :=
+      let _x.1 := worker s;
+      return _x.1
+[Compiler.saveMono] size: 2
+    def CompilerStudy.partialApplied n s : UInt64 :=
+      let _x.1 := tailPair n;
+      let _x.2 := applyPair _x.1 s;
+      return _x.2
+[Compiler.saveMono] splitProd transformed CompilerStudy.pair32
+[Compiler.saveMono] size: 25
+    def CompilerStudy.pair32._splitProd n splitFst splitSnd : UInt64 :=
+      let _x.1 := UInt32.toUInt64 splitFst;
+      let _x.2 := USize.toUInt64 n;
+      let _x.3 := UInt64.decLt _x.1 _x.2;
+      cases _x.3 : UInt64
+      | Bool.false =>
+        let _x.4 := UInt16.toUInt64 splitSnd;
+        return _x.4
+      | Bool.true =>
+        let _x.5 := UInt16.toUInt64 splitSnd;
+        let _x.6 := 11400714819323198485;
+        let _x.7 := UInt64.add _x.1 _x.6;
+        let _x.8 := UInt64.xor _x.5 _x.7;
+        let _x.9 := 13787848793156543929;
+        let x := UInt64.mul _x.8 _x.9;
+        let _x.10 := 29;
+        let _x.11 := UInt64.shiftRight x _x.10;
+        let x := UInt64.xor x _x.11;
+        let _x.12 := 10723151780598845931;
+        let x := UInt64.mul x _x.12;
+        let _x.13 := 31;
+        let _x.14 := UInt64.shiftRight x _x.13;
+        let x := UInt64.xor x _x.14;
+        let _x.15 := 1;
+        let splitFst := UInt32.add splitFst _x.15;
+        let splitSnd := UInt64.toUInt16 x;
+        let _x.16 := CompilerStudy.pair32._splitProd n splitFst splitSnd;
+        return _x.16
+[Compiler.saveMono] size: 3
+    def CompilerStudy.pair32 n s : UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.pair32._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed CompilerStudy.pair8
+[Compiler.saveMono] size: 22
+    def CompilerStudy.pair8._splitProd n splitFst splitSnd : UInt64 :=
+      let _x.1 := UInt8.toUInt64 splitFst;
+      let _x.2 := USize.toUInt64 n;
+      let _x.3 := UInt64.decLt _x.1 _x.2;
+      cases _x.3 : UInt64
+      | Bool.false =>
+        return splitSnd
+      | Bool.true =>
+        let _x.4 := 1;
+        let splitFst := UInt8.add splitFst _x.4;
+        let _x.5 := 11400714819323198485;
+        let _x.6 := UInt64.add _x.1 _x.5;
+        let _x.7 := UInt64.xor splitSnd _x.6;
+        let _x.8 := 13787848793156543929;
+        let x := UInt64.mul _x.7 _x.8;
+        let _x.9 := 29;
+        let _x.10 := UInt64.shiftRight x _x.9;
+        let x := UInt64.xor x _x.10;
+        let _x.11 := 10723151780598845931;
+        let x := UInt64.mul x _x.11;
+        let _x.12 := 31;
+        let _x.13 := UInt64.shiftRight x _x.12;
+        let splitSnd := UInt64.xor x _x.13;
+        let _x.14 := CompilerStudy.pair8._splitProd n splitFst splitSnd;
+        return _x.14
+[Compiler.saveMono] size: 3
+    def CompilerStudy.pair8 n s : UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.pair8._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed CompilerStudy.effectPair
+[Compiler.saveMono] size: 29
+    def CompilerStudy.effectPair._splitProd log n splitFst splitSnd a.1 : EST.Out IO.Error lcAny UInt64 :=
+      let _x.2 := USize.decLt splitFst n;
+      cases _x.2 : EST.Out IO.Error lcAny UInt64
+      | Bool.false =>
+        let _x.3 := @EST.Out.ok ◾ ◾ ◾ splitSnd a.1;
+        return _x.3
+      | Bool.true =>
+        let _x.4 := @ST.Prim.Ref.take ◾ ◾ log a.1;
+        cases _x.4 : EST.Out IO.Error lcAny UInt64
+        | ST.Out.mk val.5 state.6 =>
+          let _x.7 := USize.toUInt64 splitFst;
+          let _x.8 := Array.push ◾ val.5 _x.7;
+          let _x.9 := @ST.Prim.Ref.set ◾ ◾ log _x.8 state.6;
+          cases _x.9 : EST.Out IO.Error lcAny UInt64
+          | ST.Out.mk val.10 state.11 =>
+            let _x.12 := 1;
+            let splitFst := USize.add splitFst _x.12;
+            let _x.13 := 11400714819323198485;
+            let _x.14 := UInt64.add _x.7 _x.13;
+            let _x.15 := UInt64.xor splitSnd _x.14;
+            let _x.16 := 13787848793156543929;
+            let x := UInt64.mul _x.15 _x.16;
+            let _x.17 := 29;
+            let _x.18 := UInt64.shiftRight x _x.17;
+            let x := UInt64.xor x _x.18;
+            let _x.19 := 10723151780598845931;
+            let x := UInt64.mul x _x.19;
+            let _x.20 := 31;
+            let _x.21 := UInt64.shiftRight x _x.20;
+            let splitSnd := UInt64.xor x _x.21;
+            let _x.22 := CompilerStudy.effectPair._splitProd log n splitFst splitSnd state.11;
+            return _x.22
+[Compiler.saveMono] size: 3
+    def CompilerStudy.effectPair log n s a.1 : EST.Out IO.Error lcAny UInt64 :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.2 := CompilerStudy.effectPair._splitProd log n splitFst splitSnd a.1;
+      return _x.2
+[Compiler.saveMono] size: 17
+    def CompilerStudy.observeEffect n seed a.1 : EST.Out IO.Error lcAny (Prod UInt64 (Array UInt64)) :=
+      let _x.2 := 0;
+      let _x.3 := Array.mkEmpty ◾ _x.2;
+      let _x.4 := @ST.Prim.mkRef ◾ ◾ _x.3 a.1;
+      cases _x.4 : EST.Out IO.Error lcAny (Prod UInt64 (Array UInt64))
+      | ST.Out.mk val.5 state.6 =>
+        let _x.7 := 0;
+        let _x.8 := Prod.mk ◾ ◾ _x.7 seed;
+        let _x.9 := effectPair val.5 n _x.8 state.6;
+        cases _x.9 : EST.Out IO.Error lcAny (Prod UInt64 (Array UInt64))
+        | EST.Out.ok a.10 a.11 =>
+          let _x.12 := @ST.Prim.Ref.get ◾ ◾ val.5 a.11;
+          cases _x.12 : EST.Out IO.Error lcAny (Prod UInt64 (Array UInt64))
+          | ST.Out.mk val.13 state.14 =>
+            let _x.15 := Prod.mk ◾ ◾ a.10 val.13;
+            let _x.16 := @EST.Out.ok ◾ ◾ ◾ _x.15 state.14;
+            return _x.16
+        | EST.Out.error a.17 a.18 =>
+          let _x.19 := @EST.Out.error ◾ ◾ ◾ a.17 a.18;
+          return _x.19
+[Compiler.saveMono] splitProd transformed CompilerStudy.escapingPair
+[Compiler.saveMono] size: 23
+    def CompilerStudy.escapingPair._splitProd n seen splitFst splitSnd : Array (Prod USize UInt64) :=
+      let s := Prod.mk ◾ ◾ splitFst splitSnd;
+      let seen := Array.push ◾ seen s;
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : Array (Prod USize UInt64)
+      | Bool.false =>
+        return seen
+      | Bool.true =>
+        let _x.2 := 1;
+        let splitFst := USize.add splitFst _x.2;
+        let _x.3 := USize.toUInt64 splitFst;
+        let _x.4 := 11400714819323198485;
+        let _x.5 := UInt64.add _x.3 _x.4;
+        let _x.6 := UInt64.xor splitSnd _x.5;
+        let _x.7 := 13787848793156543929;
+        let x := UInt64.mul _x.6 _x.7;
+        let _x.8 := 29;
+        let _x.9 := UInt64.shiftRight x _x.8;
+        let x := UInt64.xor x _x.9;
+        let _x.10 := 10723151780598845931;
+        let x := UInt64.mul x _x.10;
+        let _x.11 := 31;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let splitSnd := UInt64.xor x _x.12;
+        let _x.13 := CompilerStudy.escapingPair._splitProd n seen splitFst splitSnd;
+        return _x.13
+[Compiler.saveMono] size: 3
+    def CompilerStudy.escapingPair n seen s : Array (Prod USize UInt64) :=
+      let splitFst := s # 0;
+      let splitSnd := s # 1;
+      let _x.1 := CompilerStudy.escapingPair._splitProd n seen splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] splitProd transformed _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg
+[Compiler.saveMono] size: 43
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n splitFst splitSnd : Prod
+      USize UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : Prod USize UInt64
+      | Bool.false =>
+        let _x.2 := Prod.mk ◾ ◾ splitFst splitSnd;
+        return _x.2
+      | Bool.true =>
+        let i := 0;
+        let _x.3 := 1;
+        let splitFst := USize.add splitFst _x.3;
+        jp _jp.4 _y.5 : Prod USize UInt64 :=
+          cases _y.5 : Prod USize UInt64
+          | Bool.false =>
+            let _x.6 := USize.toUInt64 splitFst;
+            let _x.7 := 11400714819323198485;
+            let _x.8 := UInt64.add _x.6 _x.7;
+            let _x.9 := UInt64.xor splitSnd _x.8;
+            let _x.10 := 13787848793156543929;
+            let x := UInt64.mul _x.9 _x.10;
+            let _x.11 := 29;
+            let _x.12 := UInt64.shiftRight x _x.11;
+            let x := UInt64.xor x _x.12;
+            let _x.13 := 10723151780598845931;
+            let x := UInt64.mul x _x.13;
+            let _x.14 := 31;
+            let _x.15 := UInt64.shiftRight x _x.14;
+            let splitSnd := UInt64.xor x _x.15;
+            let _x.16 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n splitFst splitSnd;
+            return _x.16
+          | Bool.true =>
+            let _x.17 := Prod.mk ◾ ◾ splitFst splitSnd;
+            return _x.17;
+        let _x.18 := 3;
+        let _x.19 := USize.mod splitFst _x.18;
+        let _x.20 := USize.decEq _x.19 i;
+        cases _x.20 : Prod USize UInt64
+        | Bool.false =>
+          let _x.21 := USize.decLt _x.18 splitFst;
+          cases _x.21 : Prod USize UInt64
+          | Bool.false =>
+            goto _jp.4 _x.21
+          | Bool.true =>
+            let _x.22 := 7;
+            let _x.23 := USize.mod splitFst _x.22;
+            let _x.24 := USize.decEq _x.23 i;
+            goto _jp.4 _x.24
+        | Bool.true =>
+          let _x.25 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n splitFst splitSnd;
+          return _x.25
+[Compiler.saveMono] size: 4
+    def CompilerStudy.whileBreakContinue n seed : UInt64 :=
+      let i := 0;
+      let _x.1 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n i seed;
+      cases _x.1 : lcAny
+      | Prod.mk fst snd =>
+        return snd
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg n a : Prod USize
+      UInt64 :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.1 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0 n inst.1 a : Prod USize
+      UInt64 :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg._splitProd n splitFst splitSnd;
+      return _x.2
+[Compiler.saveMono] size: 46
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileEarlyReturn.spec_0._redArg n a : Prod
+      (Option UInt64) (Prod USize UInt64) :=
+      cases a : Prod (Option UInt64) (Prod USize UInt64)
+      | Prod.mk fst snd =>
+        cases snd : Prod (Option UInt64) (Prod USize UInt64)
+        | Prod.mk fst snd =>
+          let _x.1 := none ◾;
+          jp _jp.2 _y.3 : Prod (Option UInt64) (Prod USize UInt64) :=
+            cases _y.3 : Prod (Option UInt64) (Prod USize UInt64)
+            | Bool.false =>
+              let _x.4 := USize.toUInt64 fst;
+              let _x.5 := 11400714819323198485;
+              let _x.6 := UInt64.add _x.4 _x.5;
+              let _x.7 := UInt64.xor snd _x.6;
+              let _x.8 := 13787848793156543929;
+              let x := UInt64.mul _x.7 _x.8;
+              let _x.9 := 29;
+              let _x.10 := UInt64.shiftRight x _x.9;
+              let x := UInt64.xor x _x.10;
+              let _x.11 := 10723151780598845931;
+              let x := UInt64.mul x _x.11;
+              let _x.12 := 31;
+              let _x.13 := UInt64.shiftRight x _x.12;
+              let _x.14 := UInt64.xor x _x.13;
+              let _x.15 := 1;
+              let _x.16 := USize.add fst _x.15;
+              let _x.17 := Prod.mk ◾ ◾ _x.16 _x.14;
+              let _x.18 := Prod.mk ◾ ◾ _x.1 _x.17;
+              let _x.19 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileEarlyReturn.spec_0._redArg n _x.18;
+              return _x.19
+            | Bool.true =>
+              let _x.20 := some ◾ snd;
+              let _x.21 := Prod.mk ◾ ◾ fst snd;
+              let _x.22 := Prod.mk ◾ ◾ _x.20 _x.21;
+              return _x.22;
+          let _x.23 := USize.decLt fst n;
+          cases _x.23 : Prod (Option UInt64) (Prod USize UInt64)
+          | Bool.false =>
+            let _x.24 := Prod.mk ◾ ◾ fst snd;
+            let _x.25 := Prod.mk ◾ ◾ _x.1 _x.24;
+            return _x.25
+          | Bool.true =>
+            let _x.26 := 3;
+            let _x.27 := USize.decLt _x.26 n;
+            cases _x.27 : Prod (Option UInt64) (Prod USize UInt64)
+            | Bool.false =>
+              goto _jp.2 _x.27
+            | Bool.true =>
+              let _x.28 := 1;
+              let _x.29 := USize.shiftRight n _x.28;
+              let _x.30 := USize.decEq fst _x.29;
+              goto _jp.2 _x.30
+[Compiler.saveMono] size: 12
+    def CompilerStudy.whileEarlyReturn n seed : UInt64 :=
+      let i := 0;
+      let _x.1 := none ◾;
+      let _x.2 := Prod.mk ◾ ◾ i seed;
+      let _x.3 := Prod.mk ◾ ◾ _x.1 _x.2;
+      let _x.4 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileEarlyReturn.spec_0._redArg n _x.3;
+      cases _x.4 : UInt64
+      | Prod.mk fst snd =>
+        cases fst : UInt64
+        | Option.none =>
+          cases snd : lcAny
+          | Prod.mk fst snd =>
+            return snd
+        | Option.some val.5 =>
+          return val.5
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileEarlyReturn.spec_0 n inst.1 a : Prod
+      (Option UInt64) (Prod USize UInt64) :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileEarlyReturn.spec_0._redArg n a;
+      return _x.2
+[Compiler.saveMono] splitProd transformed _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg
+[Compiler.saveMono] splitProd transformed _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg
+[Compiler.saveMono] size: 24
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg._splitProd _x.1 splitFst splitSnd : Prod
+      UInt64 USize :=
+      let _x.2 := USize.decLe splitSnd _x.1;
+      cases _x.2 : Prod UInt64 USize
+      | Bool.false =>
+        let _x.3 := Prod.mk ◾ ◾ splitFst splitSnd;
+        return _x.3
+      | Bool.true =>
+        let _x.4 := USize.toUInt64 _x.1;
+        let _x.5 := USize.toUInt64 splitSnd;
+        let _x.6 := UInt64.add _x.4 _x.5;
+        let _x.7 := 11400714819323198485;
+        let _x.8 := UInt64.add _x.6 _x.7;
+        let _x.9 := UInt64.xor splitFst _x.8;
+        let _x.10 := 13787848793156543929;
+        let x := UInt64.mul _x.9 _x.10;
+        let _x.11 := 29;
+        let _x.12 := UInt64.shiftRight x _x.11;
+        let x := UInt64.xor x _x.12;
+        let _x.13 := 10723151780598845931;
+        let x := UInt64.mul x _x.13;
+        let _x.14 := 31;
+        let _x.15 := UInt64.shiftRight x _x.14;
+        let splitFst := UInt64.xor x _x.15;
+        let _x.16 := 1;
+        let splitSnd := USize.add splitSnd _x.16;
+        let _x.17 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg._splitProd _x.1 splitFst splitSnd;
+        return _x.17
+[Compiler.saveMono] size: 12
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg._splitProd n splitFst splitSnd : Prod
+      USize UInt64 :=
+      let _x.1 := USize.decLt splitFst n;
+      cases _x.1 : Prod USize UInt64
+      | Bool.false =>
+        let _x.2 := Prod.mk ◾ ◾ splitFst splitSnd;
+        return _x.2
+      | Bool.true =>
+        let outer := 0;
+        let _x.3 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg._splitProd splitFst splitSnd outer;
+        cases _x.3 : Prod USize UInt64
+        | Prod.mk fst snd =>
+          let _x.4 := 1;
+          let splitFst := USize.add splitFst _x.4;
+          let _x.5 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg._splitProd n splitFst fst;
+          return _x.5
+[Compiler.saveMono] size: 4
+    def CompilerStudy.nestedLoops n seed : UInt64 :=
+      let outer := 0;
+      let _x.1 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg._splitProd n outer seed;
+      cases _x.1 : lcAny
+      | Prod.mk fst snd =>
+        return snd
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg _x.1 a : Prod UInt64 USize :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg._splitProd _x.1 splitFst splitSnd;
+      return _x.2
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0 _x.1 inst.2 a : Prod UInt64 USize :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.3 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg._splitProd _x.1 splitFst splitSnd;
+      return _x.3
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg n a : Prod USize UInt64 :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.1 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg._splitProd n splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1 n inst.1 a : Prod USize UInt64 :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg._splitProd n splitFst splitSnd;
+      return _x.2
+[Compiler.saveMono] size: 38
+    def CompilerStudy.mixedObjectPair fuel s : UInt64 :=
+      let _x.1 := 0;
+      let _x.2 := USize.decEq fuel _x.1;
+      cases _x.2 : UInt64
+      | Bool.false =>
+        cases s : UInt64
+        | Prod.mk fst snd =>
+          cases fst : UInt64
+          | CompilerStudy.Box.mk label value =>
+            let _x.3 := 1;
+            let _x.4 := USize.sub fuel _x.3;
+            let _x.5 := ".";
+            let _x.6 := String.append label _x.5;
+            let _x.7 := 1;
+            let _x.8 := UInt64.add value _x.7;
+            let _x.9 := Box.mk _x.6 _x.8;
+            let _x.10 := 11400714819323198485;
+            let _x.11 := UInt64.add snd _x.10;
+            let _x.12 := UInt64.xor value _x.11;
+            let _x.13 := 13787848793156543929;
+            let x := UInt64.mul _x.12 _x.13;
+            let _x.14 := 29;
+            let _x.15 := UInt64.shiftRight x _x.14;
+            let x := UInt64.xor x _x.15;
+            let _x.16 := 10723151780598845931;
+            let x := UInt64.mul x _x.16;
+            let _x.17 := 31;
+            let _x.18 := UInt64.shiftRight x _x.17;
+            let _x.19 := UInt64.xor x _x.18;
+            let _x.20 := Prod.mk ◾ ◾ _x.9 _x.19;
+            let _x.21 := mixedObjectPair _x.4 _x.20;
+            return _x.21
+      | Bool.true =>
+        cases s : UInt64
+        | Prod.mk fst snd =>
+          cases fst : UInt64
+          | CompilerStudy.Box.mk label value =>
+            let _x.22 := String.utf8ByteSize label;
+            let _x.23 := UInt64.ofNat _x.22;
+            let _x.24 := UInt64.add value _x.23;
+            return _x.24
+[Compiler.saveMono] size: 30
+    def CompilerStudy.multiplePairs n a b : UInt64 :=
+      cases a : UInt64
+      | Prod.mk fst snd =>
+        let _x.1 := USize.decLt fst n;
+        cases _x.1 : UInt64
+        | Bool.false =>
+          cases b : UInt64
+          | Prod.mk fst snd =>
+            let _x.2 := UInt32.toUInt64 fst;
+            let _x.3 := UInt16.toUInt64 snd;
+            let _x.4 := UInt64.add _x.2 _x.3;
+            let _x.5 := UInt64.add _x.4 snd;
+            return _x.5
+        | Bool.true =>
+          let _x.6 := 1;
+          let _x.7 := USize.add fst _x.6;
+          let _x.8 := USize.toUInt64 fst;
+          let _x.9 := 11400714819323198485;
+          let _x.10 := UInt64.add _x.8 _x.9;
+          let _x.11 := UInt64.xor snd _x.10;
+          let _x.12 := 13787848793156543929;
+          let x := UInt64.mul _x.11 _x.12;
+          let _x.13 := 29;
+          let _x.14 := UInt64.shiftRight x _x.13;
+          let x := UInt64.xor x _x.14;
+          let _x.15 := 10723151780598845931;
+          let x := UInt64.mul x _x.15;
+          let _x.16 := 31;
+          let _x.17 := UInt64.shiftRight x _x.16;
+          let _x.18 := UInt64.xor x _x.17;
+          let _x.19 := Prod.mk ◾ ◾ _x.7 _x.18;
+          let _x.20 := multiplePairs n _x.19 b;
+          return _x.20
+[Compiler.saveMono] size: 22
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0._redArg range b i : UInt64 :=
+      cases range : UInt64
+      | Std.Legacy.Range.mk start stop step step_pos =>
+        let _x.1 := Nat.decLt i stop;
+        cases _x.1 : UInt64
+        | Bool.false =>
+          return b
+        | Bool.true =>
+          let _x.2 := UInt64.ofNat i;
+          let _x.3 := 11400714819323198485;
+          let _x.4 := UInt64.add _x.2 _x.3;
+          let _x.5 := UInt64.xor b _x.4;
+          let _x.6 := 13787848793156543929;
+          let x := UInt64.mul _x.5 _x.6;
+          let _x.7 := 29;
+          let _x.8 := UInt64.shiftRight x _x.7;
+          let x := UInt64.xor x _x.8;
+          let _x.9 := 10723151780598845931;
+          let x := UInt64.mul x _x.9;
+          let _x.10 := 31;
+          let _x.11 := UInt64.shiftRight x _x.10;
+          let _x.12 := UInt64.xor x _x.11;
+          let _x.13 := Nat.add i step;
+          let _x.14 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0._redArg range _x.12 _x.13;
+          return _x.14
+[Compiler.saveMono] size: 5
+    def CompilerStudy.referenceTail n seed : UInt64 :=
+      let _x.1 := 0;
+      let _x.2 := USize.toNat n;
+      let _x.3 := 1;
+      let _x.4 := Std.Legacy.Range.mk _x.1 _x.2 _x.3 ◾;
+      let _x.5 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0._redArg _x.4 seed _x.1;
+      return _x.5
+[Compiler.saveMono] size: 1
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0 range b i hs hl : UInt64 :=
+      let _x.1 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0._redArg range b i;
+      return _x.1
+[Compiler.saveMono] size: 24
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.reference32.spec_0._redArg range b i : UInt16 :=
+      cases range : UInt16
+      | Std.Legacy.Range.mk start stop step step_pos =>
+        let _x.1 := Nat.decLt i stop;
+        cases _x.1 : UInt16
+        | Bool.false =>
+          return b
+        | Bool.true =>
+          let _x.2 := UInt64.ofNat i;
+          let _x.3 := UInt16.toUInt64 b;
+          let _x.4 := 11400714819323198485;
+          let _x.5 := UInt64.add _x.2 _x.4;
+          let _x.6 := UInt64.xor _x.3 _x.5;
+          let _x.7 := 13787848793156543929;
+          let x := UInt64.mul _x.6 _x.7;
+          let _x.8 := 29;
+          let _x.9 := UInt64.shiftRight x _x.8;
+          let x := UInt64.xor x _x.9;
+          let _x.10 := 10723151780598845931;
+          let x := UInt64.mul x _x.10;
+          let _x.11 := 31;
+          let _x.12 := UInt64.shiftRight x _x.11;
+          let _x.13 := UInt64.xor x _x.12;
+          let _x.14 := UInt64.toUInt16 _x.13;
+          let _x.15 := Nat.add i step;
+          let _x.16 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.reference32.spec_0._redArg range _x.14 _x.15;
+          return _x.16
+[Compiler.saveMono] size: 6
+    def CompilerStudy.reference32 n seed : UInt64 :=
+      let _x.1 := 0;
+      let _x.2 := USize.toNat n;
+      let _x.3 := 1;
+      let _x.4 := Std.Legacy.Range.mk _x.1 _x.2 _x.3 ◾;
+      let _x.5 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.reference32.spec_0._redArg _x.4 seed _x.1;
+      let _x.6 := UInt16.toUInt64 _x.5;
+      return _x.6
+[Compiler.saveMono] size: 1
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.reference32.spec_0 range b i hs hl : UInt16 :=
+      let _x.1 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.reference32.spec_0._redArg range b i;
+      return _x.1
+[Compiler.saveMono] size: 5
+    def CompilerStudy.reference8 n seed : UInt64 :=
+      let _x.1 := 0;
+      let _x.2 := USize.toNat n;
+      let _x.3 := 1;
+      let _x.4 := Std.Legacy.Range.mk _x.1 _x.2 _x.3 ◾;
+      let _x.5 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.referenceTail.spec_0._redArg _x.4 seed _x.1;
+      return _x.5
+[Compiler.saveMono] size: 7
+    def CompilerStudy.parseNat s fallback : Nat :=
+      let _x.1 := 0;
+      let _x.2 := String.utf8ByteSize s;
+      let _x.3 := String.Slice.mk s _x.1 _x.2 ◾;
+      let _x.4 := String.Slice.toNat? _x.3;
+      cases _x.4 : Nat
+      | Option.none =>
+        return fallback
+      | Option.some val.5 =>
+        return val.5
+[Compiler.saveMono] size: 8
+    def List.mapTR.loop._at_.CompilerStudy.formatTrace.spec_0 a.1 a.2 : List String :=
+      cases a.1 : List String
+      | List.nil =>
+        let _x.3 := List.reverse._redArg a.2;
+        return _x.3
+      | List.cons head.4 tail.5 =>
+        let _x.6 := UInt64.toNat head.4;
+        let _x.7 := Nat.reprFast _x.6;
+        let _x.8 := List.cons ◾ _x.7 a.2;
+        let _x.9 := List.mapTR.loop._at_.CompilerStudy.formatTrace.spec_0 tail.5 _x.8;
+        return _x.9
+[Compiler.saveMono] size: 9
+    def CompilerStudy.formatTrace xs : String :=
+      let _x.1 := "[";
+      let _x.2 := ",";
+      let _x.3 := Array.toList ◾ xs;
+      let _x.4 := [] ◾;
+      let _x.5 := List.mapTR.loop._at_.CompilerStudy.formatTrace.spec_0 _x.3 _x.4;
+      let _x.6 := String.intercalate _x.2 _x.5;
+      let _x.7 := String.append _x.1 _x.6;
+      let _x.8 := "]";
+      let _x.9 := String.append _x.7 _x.8;
+      return _x.9
+[Compiler.saveMono] size: 19
+    def List.mapTR.loop._at_.CompilerStudy.formatPairs.spec_0 a.1 a.2 : List String :=
+      cases a.1 : List String
+      | List.nil =>
+        let _x.3 := List.reverse._redArg a.2;
+        return _x.3
+      | List.cons head.4 tail.5 =>
+        cases head.4 : List String
+        | Prod.mk fst snd =>
+          let _x.6 := ",";
+          let _x.7 := "(";
+          let _x.8 := USize.toNat fst;
+          let _x.9 := Nat.reprFast _x.8;
+          let _x.10 := String.append _x.7 _x.9;
+          let _x.11 := String.append _x.10 _x.6;
+          let _x.12 := UInt64.toNat snd;
+          let _x.13 := Nat.reprFast _x.12;
+          let _x.14 := String.append _x.11 _x.13;
+          let _x.15 := ")";
+          let _x.16 := String.append _x.14 _x.15;
+          let _x.17 := List.cons ◾ _x.16 a.2;
+          let _x.18 := List.mapTR.loop._at_.CompilerStudy.formatPairs.spec_0 tail.5 _x.17;
+          return _x.18
+[Compiler.saveMono] size: 9
+    def CompilerStudy.formatPairs xs : String :=
+      let _x.1 := "[";
+      let _x.2 := ",";
+      let _x.3 := Array.toList ◾ xs;
+      let _x.4 := [] ◾;
+      let _x.5 := List.mapTR.loop._at_.CompilerStudy.formatPairs.spec_0 _x.3 _x.4;
+      let _x.6 := String.intercalate _x.2 _x.5;
+      let _x.7 := String.append _x.1 _x.6;
+      let _x.8 := "]";
+      let _x.9 := String.append _x.7 _x.8;
+      return _x.9
+[Compiler.saveMono] size: 23
+    def CompilerStudy.check name actual expected a.1 : EST.Out IO.Error lcAny PUnit :=
+      let _x.2 := UInt64.decEq actual expected;
+      cases _x.2 : EST.Out IO.Error lcAny PUnit
+      | Bool.false =>
+        let _x.3 := "check failed: ";
+        let _x.4 := String.append _x.3 name;
+        let _x.5 := ": ";
+        let _x.6 := String.append _x.4 _x.5;
+        let _x.7 := UInt64.toNat actual;
+        let _x.8 := Nat.reprFast _x.7;
+        let _x.9 := String.append _x.6 _x.8;
+        let _x.10 := " != ";
+        let _x.11 := String.append _x.9 _x.10;
+        let _x.12 := UInt64.toNat expected;
+        let _x.13 := Nat.reprFast _x.12;
+        let _x.14 := String.append _x.11 _x.13;
+        let _x.15 := IO.Error.userError _x.14;
+        let _x.16 := @EST.Out.error ◾ ◾ ◾ _x.15 a.1;
+        return _x.16
+      | Bool.true =>
+        let _x.17 := "check.";
+        let _x.18 := String.append _x.17 name;
+        let _x.19 := "=ok";
+        let _x.20 := String.append _x.18 _x.19;
+        let _x.21 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.20 a.1;
+        return _x.21
+[Compiler.saveMono] size: 222
+    def CompilerStudy.main args a.1 : EST.Out IO.Error lcAny PUnit :=
+      jp _jp.2 _y.3 : EST.Out IO.Error lcAny PUnit :=
+        let n := USize.ofNat _y.3;
+        let _x.4 := 1;
+        let _x.5 := "2611923443488327891";
+        let _x.6 := List.getD._redArg args _x.4 _x.5;
+        let _x.7 := 2611923443488327891;
+        let _x.8 := parseNat _x.6 _x.7;
+        let seed := UInt64.ofNat _x.8;
+        let _x.9 := 0;
+        let _x.10 := Prod.mk ◾ ◾ _x.9 seed;
+        let tail := tailPair n _x.10;
+        let returned := returnPair n _x.10;
+        let shared := sharedPair n _x.10;
+        let nonTail := nonTailPair n _x.10;
+        let partialResult := partialApplied n _x.10;
+        let _x.11 := 0;
+        let _x.12 := Array.mkEmpty ◾ _x.11;
+        let escaped := escapingPair n _x.12 _x.10;
+        let _x.13 := 0;
+        let _x.14 := UInt64.toUInt16 seed;
+        let _x.15 := Prod.mk ◾ ◾ _x.13 _x.14;
+        let out32 := pair32 n _x.15;
+        let _x.16 := 0;
+        let _x.17 := Prod.mk ◾ ◾ _x.16 seed;
+        let out8 := pair8 n _x.17;
+        let _x.18 := observeEffect n seed a.1;
+        cases _x.18 : EST.Out IO.Error lcAny PUnit
+        | EST.Out.ok a.19 a.20 =>
+          cases a.19 : EST.Out IO.Error lcAny PUnit
+          | Prod.mk fst.21 snd.22 =>
+            let _x.23 := whileBreakContinue n seed;
+            let _x.24 := whileEarlyReturn n seed;
+            let _x.25 := nestedLoops n seed;
+            let _x.26 := "seed";
+            let _x.27 := Box.mk _x.26 seed;
+            let _x.28 := Prod.mk ◾ ◾ _x.27 seed;
+            let _x.29 := "input.n=";
+            let _x.30 := Nat.reprFast _y.3;
+            let _x.31 := String.append _x.29 _x.30;
+            let _x.32 := " input.seed=";
+            let _x.33 := String.append _x.31 _x.32;
+            let _x.34 := UInt64.toNat seed;
+            let _x.35 := Nat.reprFast _x.34;
+            let _x.36 := String.append _x.33 _x.35;
+            let _x.37 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.36 a.20;
+            cases _x.37 : EST.Out IO.Error lcAny PUnit
+            | EST.Out.ok a.38 a.39 =>
+              let _x.40 := "tailPair=";
+              let _x.41 := UInt64.toNat tail;
+              let _x.42 := Nat.reprFast _x.41;
+              let _x.43 := String.append _x.40 _x.42;
+              let _x.44 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.43 a.39;
+              cases _x.44 : EST.Out IO.Error lcAny PUnit
+              | EST.Out.ok a.45 a.46 =>
+                cases returned : EST.Out IO.Error lcAny PUnit
+                | Prod.mk fst snd =>
+                  let _x.47 := "returnPair=(";
+                  let _x.48 := USize.toNat fst;
+                  let _x.49 := Nat.reprFast _x.48;
+                  let _x.50 := String.append _x.47 _x.49;
+                  let _x.51 := ",";
+                  let _x.52 := String.append _x.50 _x.51;
+                  let _x.53 := UInt64.toNat snd;
+                  let _x.54 := Nat.reprFast _x.53;
+                  let _x.55 := String.append _x.52 _x.54;
+                  let _x.56 := ")";
+                  let _x.57 := String.append _x.55 _x.56;
+                  let _x.58 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.57 a.46;
+                  cases _x.58 : EST.Out IO.Error lcAny PUnit
+                  | EST.Out.ok a.59 a.60 =>
+                    let _x.61 := "sharedPair=";
+                    let _x.62 := UInt64.toNat shared;
+                    let _x.63 := Nat.reprFast _x.62;
+                    let _x.64 := String.append _x.61 _x.63;
+                    let _x.65 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.64 a.60;
+                    cases _x.65 : EST.Out IO.Error lcAny PUnit
+                    | EST.Out.ok a.66 a.67 =>
+                      let _x.68 := "nonTailPair=";
+                      let _x.69 := UInt64.toNat nonTail;
+                      let _x.70 := Nat.reprFast _x.69;
+                      let _x.71 := String.append _x.68 _x.70;
+                      let _x.72 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.71 a.67;
+                      cases _x.72 : EST.Out IO.Error lcAny PUnit
+                      | EST.Out.ok a.73 a.74 =>
+                        let _x.75 := "partialApplied=";
+                        let _x.76 := UInt64.toNat partialResult;
+                        let _x.77 := Nat.reprFast _x.76;
+                        let _x.78 := String.append _x.75 _x.77;
+                        let _x.79 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.78 a.74;
+                        cases _x.79 : EST.Out IO.Error lcAny PUnit
+                        | EST.Out.ok a.80 a.81 =>
+                          let _x.82 := "escapingPair=";
+                          let _x.83 := formatPairs escaped;
+                          let _x.84 := String.append _x.82 _x.83;
+                          let _x.85 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.84 a.81;
+                          cases _x.85 : EST.Out IO.Error lcAny PUnit
+                          | EST.Out.ok a.86 a.87 =>
+                            let _x.88 := "pair32=";
+                            let _x.89 := UInt64.toNat out32;
+                            let _x.90 := Nat.reprFast _x.89;
+                            let _x.91 := String.append _x.88 _x.90;
+                            let _x.92 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.91 a.87;
+                            cases _x.92 : EST.Out IO.Error lcAny PUnit
+                            | EST.Out.ok a.93 a.94 =>
+                              let _x.95 := "pair8=";
+                              let _x.96 := UInt64.toNat out8;
+                              let _x.97 := Nat.reprFast _x.96;
+                              let _x.98 := String.append _x.95 _x.97;
+                              let _x.99 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.98 a.94;
+                              cases _x.99 : EST.Out IO.Error lcAny PUnit
+                              | EST.Out.ok a.100 a.101 =>
+                                let _x.102 := "effectPair=";
+                                let _x.103 := UInt64.toNat fst.21;
+                                let _x.104 := Nat.reprFast _x.103;
+                                let _x.105 := String.append _x.102 _x.104;
+                                let _x.106 := " effectTrace=";
+                                let _x.107 := String.append _x.105 _x.106;
+                                let _x.108 := formatTrace snd.22;
+                                let _x.109 := String.append _x.107 _x.108;
+                                let _x.110 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.109 a.101;
+                                cases _x.110 : EST.Out IO.Error lcAny PUnit
+                                | EST.Out.ok a.111 a.112 =>
+                                  let _x.113 := "whileBreakContinue=";
+                                  let _x.114 := UInt64.toNat _x.23;
+                                  let _x.115 := Nat.reprFast _x.114;
+                                  let _x.116 := String.append _x.113 _x.115;
+                                  let _x.117 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.116 a.112;
+                                  cases _x.117 : EST.Out IO.Error lcAny PUnit
+                                  | EST.Out.ok a.118 a.119 =>
+                                    let _x.120 := "whileEarlyReturn=";
+                                    let _x.121 := UInt64.toNat _x.24;
+                                    let _x.122 := Nat.reprFast _x.121;
+                                    let _x.123 := String.append _x.120 _x.122;
+                                    let _x.124 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.123 a.119;
+                                    cases _x.124 : EST.Out IO.Error lcAny PUnit
+                                    | EST.Out.ok a.125 a.126 =>
+                                      let _x.127 := "nestedLoops=";
+                                      let _x.128 := UInt64.toNat _x.25;
+                                      let _x.129 := Nat.reprFast _x.128;
+                                      let _x.130 := String.append _x.127 _x.129;
+                                      let _x.131 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.130 a.126;
+                                      cases _x.131 : EST.Out IO.Error lcAny PUnit
+                                      | EST.Out.ok a.132 a.133 =>
+                                        let _x.134 := mixedObjectPair n _x.28;
+                                        let _x.135 := "mixedObjectPair=";
+                                        let _x.136 := UInt64.toNat _x.134;
+                                        let _x.137 := Nat.reprFast _x.136;
+                                        let _x.138 := String.append _x.135 _x.137;
+                                        let _x.139 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.138 a.133;
+                                        cases _x.139 : EST.Out IO.Error lcAny PUnit
+                                        | EST.Out.ok a.140 a.141 =>
+                                          let _x.142 := multiplePairs n _x.10 _x.15;
+                                          let _x.143 := "multiplePairs=";
+                                          let _x.144 := UInt64.toNat _x.142;
+                                          let _x.145 := Nat.reprFast _x.144;
+                                          let _x.146 := String.append _x.143 _x.145;
+                                          let _x.147 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.146 a.141;
+                                          cases _x.147 : EST.Out IO.Error lcAny PUnit
+                                          | EST.Out.ok a.148 a.149 =>
+                                            let _x.150 := "tailPair";
+                                            let _x.151 := referenceTail n seed;
+                                            let _x.152 := check _x.150 tail _x.151 a.149;
+                                            cases _x.152 : EST.Out IO.Error lcAny PUnit
+                                            | EST.Out.ok a.153 a.154 =>
+                                              let _x.155 := "returnPair";
+                                              let _x.156 := check _x.155 snd _x.151 a.154;
+                                              cases _x.156 : EST.Out IO.Error lcAny PUnit
+                                              | EST.Out.ok a.157 a.158 =>
+                                                let _x.159 := "sharedPair";
+                                                let _x.160 := check _x.159 shared _x.151 a.158;
+                                                cases _x.160 : EST.Out IO.Error lcAny PUnit
+                                                | EST.Out.ok a.161 a.162 =>
+                                                  let _x.163 := "partialApplied";
+                                                  let _x.164 := check _x.163 partialResult _x.151 a.162;
+                                                  cases _x.164 : EST.Out IO.Error lcAny PUnit
+                                                  | EST.Out.ok a.165 a.166 =>
+                                                    let _x.167 := "pair32";
+                                                    let _x.168 := reference32 n _x.14;
+                                                    let _x.169 := check _x.167 out32 _x.168 a.166;
+                                                    cases _x.169 : EST.Out IO.Error lcAny PUnit
+                                                    | EST.Out.ok a.170 a.171 =>
+                                                      let _x.172 := "pair8";
+                                                      let _x.173 := reference8 n seed;
+                                                      let _x.174 := check _x.172 out8 _x.173 a.171;
+                                                      cases _x.174 : EST.Out IO.Error lcAny PUnit
+                                                      | EST.Out.ok a.175 a.176 =>
+                                                        let _x.177 := "effectPair";
+                                                        let _x.178 := check _x.177 fst.21 _x.151 a.176;
+                                                        return _x.178
+                                                      | EST.Out.error a.179 a.180 =>
+                                                        return _x.174
+                                                    | EST.Out.error a.181 a.182 =>
+                                                      return _x.169
+                                                  | EST.Out.error a.183 a.184 =>
+                                                    return _x.164
+                                                | EST.Out.error a.185 a.186 =>
+                                                  return _x.160
+                                              | EST.Out.error a.187 a.188 =>
+                                                return _x.156
+                                            | EST.Out.error a.189 a.190 =>
+                                              return _x.152
+                                          | EST.Out.error a.191 a.192 =>
+                                            return _x.147
+                                        | EST.Out.error a.193 a.194 =>
+                                          return _x.139
+                                      | EST.Out.error a.195 a.196 =>
+                                        return _x.131
+                                    | EST.Out.error a.197 a.198 =>
+                                      return _x.124
+                                  | EST.Out.error a.199 a.200 =>
+                                    return _x.117
+                                | EST.Out.error a.201 a.202 =>
+                                  return _x.110
+                              | EST.Out.error a.203 a.204 =>
+                                return _x.99
+                            | EST.Out.error a.205 a.206 =>
+                              return _x.92
+                          | EST.Out.error a.207 a.208 =>
+                            return _x.85
+                        | EST.Out.error a.209 a.210 =>
+                          return _x.79
+                      | EST.Out.error a.211 a.212 =>
+                        return _x.72
+                    | EST.Out.error a.213 a.214 =>
+                      return _x.65
+                  | EST.Out.error a.215 a.216 =>
+                    return _x.58
+              | EST.Out.error a.217 a.218 =>
+                return _x.44
+            | EST.Out.error a.219 a.220 =>
+              return _x.37
+        | EST.Out.error a.221 a.222 =>
+          let _x.223 := @EST.Out.error ◾ ◾ ◾ a.221 a.222;
+          return _x.223;
+      let _x.224 := 0;
+      let _x.225 := "8";
+      let _x.226 := List.getD._redArg args _x.224 _x.225;
+      let _x.227 := 8;
+      let _x.228 := parseNat _x.226 _x.227;
+      let _x.229 := 50;
+      let _x.230 := Nat.decLe _x.228 _x.229;
+      cases _x.230 : EST.Out IO.Error lcAny PUnit
+      | Bool.false =>
+        goto _jp.2 _x.229
+      | Bool.true =>
+        goto _jp.2 _x.228
+[Compiler.saveMono] size: 1
+    def main args a.1 : EST.Out IO.Error lcAny PUnit :=
+      let _x.2 := CompilerStudy.main args a.1;
+      return _x.2

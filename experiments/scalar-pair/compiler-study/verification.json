@@ -1,0 +1,231 @@
+[
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T073839.541513Z",
+    "kind": "scalar",
+    "controls_only": true,
+    "invocations": 472,
+    "observations": 0,
+    "blocks": 30,
+    "archived_snapshots": 15,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [
+      "semantics"
+    ],
+    "coverage_exceptions": [
+      "archived Box has only a UInt64 field, so mixedObjectPair is not an object/scalar negative control"
+    ],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T074107.343764Z",
+    "kind": "scalar",
+    "controls_only": false,
+    "invocations": 1072,
+    "observations": 600,
+    "blocks": 30,
+    "archived_snapshots": 17,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T074330.855990Z",
+    "kind": "scalar",
+    "controls_only": false,
+    "invocations": 872,
+    "observations": 400,
+    "blocks": 20,
+    "archived_snapshots": 17,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T074458.741308Z",
+    "kind": "byte",
+    "controls_only": false,
+    "invocations": 744,
+    "observations": 160,
+    "blocks": 20,
+    "archived_snapshots": 17,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T075723.246119Z",
+    "kind": "scalar",
+    "controls_only": false,
+    "invocations": 1072,
+    "observations": 600,
+    "blocks": 30,
+    "archived_snapshots": 18,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T075837.050387Z",
+    "kind": "scalar",
+    "controls_only": false,
+    "invocations": 872,
+    "observations": 400,
+    "blocks": 20,
+    "archived_snapshots": 18,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T075929.180681Z",
+    "kind": "byte",
+    "controls_only": false,
+    "invocations": 744,
+    "observations": 160,
+    "blocks": 20,
+    "archived_snapshots": 18,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  },
+  {
+    "path": "/home/matthias/prog/lean/faster-lean/compiler-study/results/20260911T081003.170441Z",
+    "kind": "scalar",
+    "controls_only": true,
+    "invocations": 472,
+    "observations": 0,
+    "blocks": 1,
+    "archived_snapshots": 20,
+    "build_hashes_verified": [
+      "SplitProd.lean",
+      "build.py",
+      "build_state.py",
+      "Semantics.lean",
+      "ByteWork.lean",
+      "build/Kernels.lean"
+    ],
+    "available_live_binary_paths": [
+      "build/baseline",
+      "build/split",
+      "build/baseline-semantics",
+      "build/split-semantics",
+      "build/baseline-byte",
+      "build/split-byte"
+    ],
+    "missing_live_binaries": [],
+    "coverage_unavailable": [],
+    "coverage_exceptions": [],
+    "errors": []
+  }
+]

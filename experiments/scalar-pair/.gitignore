@@ -1,0 +1,5 @@
+compiler-study/build/
+compiler-study/*.olean*
+compiler-study/*.ilean
+compiler-study/*.ir
+**/__pycache__/

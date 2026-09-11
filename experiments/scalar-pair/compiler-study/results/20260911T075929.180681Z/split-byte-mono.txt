@@ -1,0 +1,469 @@
+[Compiler.saveMono] size: 7
+    def CompilerStudy.ByteWork.checksumByte x byte : UInt64 :=
+      let _x.1 := UInt8.toNat byte;
+      let _x.2 := UInt64.ofNat _x.1;
+      let _x.3 := UInt64.add x _x.2;
+      let _x.4 := 2654435769;
+      let _x.5 := UInt64.add _x.3 _x.4;
+      let _x.6 := 1099511628211;
+      let _x.7 := UInt64.mul _x.5 _x.6;
+      return _x.7
+[Compiler.saveMono] size: 3
+    def CompilerStudy.ByteWork.finishRound x : UInt64 :=
+      let _x.1 := 33;
+      let _x.2 := UInt64.shiftRight x _x.1;
+      let _x.3 := UInt64.xor x _x.2;
+      return _x.3
+[Compiler.saveMono] size: 16
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.ByteWork.makeBuf.spec_0._redArg range b i : ByteArray :=
+      cases range : ByteArray
+      | Std.Legacy.Range.mk start stop step step_pos =>
+        let _x.1 := Nat.decLt i stop;
+        cases _x.1 : ByteArray
+        | Bool.false =>
+          return b
+        | Bool.true =>
+          let _x.2 := 31;
+          let _x.3 := Nat.mul i _x.2;
+          let _x.4 := 7;
+          let _x.5 := Nat.add _x.3 _x.4;
+          let _x.6 := 256;
+          let _x.7 := Nat.mod _x.5 _x.6;
+          let _x.8 := UInt8.ofNat _x.7;
+          let _x.9 := ByteArray.push b _x.8;
+          let _x.10 := Nat.add i step;
+          let _x.11 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.ByteWork.makeBuf.spec_0._redArg range _x.9 _x.10;
+          return _x.11
+[Compiler.saveMono] size: 5
+    def CompilerStudy.ByteWork.makeBuf size : ByteArray :=
+      let b := ByteArray.empty;
+      let _x.1 := 0;
+      let _x.2 := 1;
+      let _x.3 := Std.Legacy.Range.mk _x.1 size _x.2 ◾;
+      let _x.4 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.ByteWork.makeBuf.spec_0._redArg _x.3 b _x.1;
+      return _x.4
+[Compiler.saveMono] size: 1
+    def _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.ByteWork.makeBuf.spec_0 range b i hs hl : ByteArray :=
+      let _x.1 := _private.Init.Data.Range.Basic.0.Std.Legacy.Range.forIn'.loop._at_.CompilerStudy.ByteWork.makeBuf.spec_0._redArg range b i;
+      return _x.1
+[Compiler.saveMono] size: 27
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_0._redArg buf a : Prod UInt64
+      Nat :=
+      cases a : Prod UInt64 Nat
+      | Prod.mk fst snd =>
+        jp _jp.1 _y.2 : Prod UInt64 Nat :=
+          let _x.3 := UInt8.toNat _y.2;
+          let _x.4 := UInt64.ofNat _x.3;
+          let _x.5 := UInt64.add fst _x.4;
+          let _x.6 := 2654435769;
+          let _x.7 := UInt64.add _x.5 _x.6;
+          let _x.8 := 1099511628211;
+          let _x.9 := UInt64.mul _x.7 _x.8;
+          let _x.10 := 1;
+          let _x.11 := Nat.add snd _x.10;
+          let _x.12 := Prod.mk ◾ ◾ _x.9 _x.11;
+          let _x.13 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_0._redArg buf _x.12;
+          return _x.13;
+        let _x.14 := ByteArray.size buf;
+        let _x.15 := Nat.decLt snd _x.14;
+        cases _x.15 : Prod UInt64 Nat
+        | Bool.false =>
+          let _x.16 := Prod.mk ◾ ◾ fst snd;
+          return _x.16
+        | Bool.true =>
+          cases _x.15 : Prod UInt64 Nat
+          | Bool.false =>
+            let _x.17 := instInhabitedUInt8;
+            let _x.18 := outOfBounds._redArg _x.17;
+            goto _jp.1 _x.18
+          | Bool.true =>
+            let _x.19 := @ByteArray.get buf snd ◾;
+            goto _jp.1 _x.19
+[Compiler.saveMono] size: 19
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_1._redArg rounds buf a : Prod Nat
+      UInt64 :=
+      cases a : Prod Nat UInt64
+      | Prod.mk fst snd =>
+        let _x.1 := Nat.decLt fst rounds;
+        cases _x.1 : Prod Nat UInt64
+        | Bool.false =>
+          let _x.2 := Prod.mk ◾ ◾ fst snd;
+          return _x.2
+        | Bool.true =>
+          let r := 0;
+          let _x.3 := Prod.mk ◾ ◾ snd r;
+          let _x.4 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_0._redArg buf _x.3;
+          cases _x.4 : Prod Nat UInt64
+          | Prod.mk fst snd =>
+            let _x.5 := 33;
+            let _x.6 := UInt64.shiftRight fst _x.5;
+            let _x.7 := UInt64.xor fst _x.6;
+            let _x.8 := 1;
+            let _x.9 := Nat.add fst _x.8;
+            let _x.10 := Prod.mk ◾ ◾ _x.9 _x.7;
+            let _x.11 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_1._redArg rounds buf _x.10;
+            return _x.11
+[Compiler.saveMono] size: 5
+    def CompilerStudy.ByteWork.natWhile rounds buf seed : UInt64 :=
+      let r := 0;
+      let _x.1 := Prod.mk ◾ ◾ r seed;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_1._redArg rounds buf _x.1;
+      cases _x.2 : lcAny
+      | Prod.mk fst snd =>
+        return snd
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_0 buf inst.1 a : Prod UInt64
+      Nat :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_0._redArg buf a;
+      return _x.2
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_1 rounds buf inst.1 a : Prod Nat
+      UInt64 :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.natWhile.spec_1._redArg rounds buf a;
+      return _x.2
+[Compiler.saveMono] splitProd transformed _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg
+[Compiler.saveMono] size: 27
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg._splitProd buf splitFst splitSnd : Prod
+      UInt64 USize :=
+      jp _jp.1 _y.2 : Prod UInt64 USize :=
+        let _x.3 := UInt8.toNat _y.2;
+        let _x.4 := UInt64.ofNat _x.3;
+        let _x.5 := UInt64.add splitFst _x.4;
+        let _x.6 := 2654435769;
+        let _x.7 := UInt64.add _x.5 _x.6;
+        let _x.8 := 1099511628211;
+        let splitFst := UInt64.mul _x.7 _x.8;
+        let _x.9 := 1;
+        let splitSnd := USize.add splitSnd _x.9;
+        let _x.10 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg._splitProd buf splitFst splitSnd;
+        return _x.10;
+      let _x.11 := ByteArray.size buf;
+      let _x.12 := USize.ofNat _x.11;
+      let _x.13 := USize.decLt splitSnd _x.12;
+      cases _x.13 : Prod UInt64 USize
+      | Bool.false =>
+        let _x.14 := Prod.mk ◾ ◾ splitFst splitSnd;
+        return _x.14
+      | Bool.true =>
+        let _x.15 := USize.toNat splitSnd;
+        let _x.16 := Nat.decLt _x.15 _x.11;
+        cases _x.16 : Prod UInt64 USize
+        | Bool.false =>
+          let _x.17 := instInhabitedUInt8;
+          let _x.18 := outOfBounds._redArg _x.17;
+          goto _jp.1 _x.18
+        | Bool.true =>
+          let _x.19 := @ByteArray.get buf _x.15 ◾;
+          goto _jp.1 _x.19
+[Compiler.saveMono] size: 18
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_1._redArg rounds buf a : Prod
+      Nat UInt64 :=
+      cases a : Prod Nat UInt64
+      | Prod.mk fst snd =>
+        let _x.1 := Nat.decLt fst rounds;
+        cases _x.1 : Prod Nat UInt64
+        | Bool.false =>
+          let _x.2 := Prod.mk ◾ ◾ fst snd;
+          return _x.2
+        | Bool.true =>
+          let splitSnd := 0;
+          let _x.3 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg._splitProd buf snd splitSnd;
+          cases _x.3 : Prod Nat UInt64
+          | Prod.mk fst snd =>
+            let _x.4 := 33;
+            let _x.5 := UInt64.shiftRight fst _x.4;
+            let _x.6 := UInt64.xor fst _x.5;
+            let _x.7 := 1;
+            let _x.8 := Nat.add fst _x.7;
+            let _x.9 := Prod.mk ◾ ◾ _x.8 _x.6;
+            let _x.10 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_1._redArg rounds buf _x.9;
+            return _x.10
+[Compiler.saveMono] size: 5
+    def CompilerStudy.ByteWork.usizeWhile rounds buf seed : UInt64 :=
+      let r := 0;
+      let _x.1 := Prod.mk ◾ ◾ r seed;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_1._redArg rounds buf _x.1;
+      cases _x.2 : lcAny
+      | Prod.mk fst snd =>
+        return snd
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg buf a : Prod UInt64
+      USize :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.1 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg._splitProd buf splitFst splitSnd;
+      return _x.1
+[Compiler.saveMono] size: 3
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0 buf inst.1 a : Prod UInt64
+      USize :=
+      let splitFst := a # 0;
+      let splitSnd := a # 1;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg._splitProd buf splitFst splitSnd;
+      return _x.2
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_1 rounds buf inst.1 a : Prod
+      Nat UInt64 :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_1._redArg rounds buf a;
+      return _x.2
+[Compiler.saveMono] size: 30
+    def WellFounded.opaqueFix₃._at_.CompilerStudy.ByteWork.usizeFor.spec_0._redArg upperBound.1 buf a b : UInt64 :=
+      jp _jp.2 _y.3 : UInt64 :=
+        let _x.4 := UInt8.toNat _y.3;
+        let _x.5 := UInt64.ofNat _x.4;
+        let _x.6 := UInt64.add b _x.5;
+        let _x.7 := 2654435769;
+        let _x.8 := UInt64.add _x.6 _x.7;
+        let _x.9 := 1099511628211;
+        let _x.10 := UInt64.mul _x.8 _x.9;
+        let _x.11 := 1;
+        let _x.12 := USize.add a _x.11;
+        let _x.13 := 0;
+        let _x.14 := USize.decEq _x.12 _x.13;
+        cases _x.14 : UInt64
+        | Bool.false =>
+          let _x.15 := WellFounded.opaqueFix₃._at_.CompilerStudy.ByteWork.usizeFor.spec_0._redArg upperBound.1 buf _x.12 _x.10;
+          return _x.15
+        | Bool.true =>
+          return _x.10;
+      let _x.16 := USize.decLt a upperBound.1;
+      cases _x.16 : UInt64
+      | Bool.false =>
+        return b
+      | Bool.true =>
+        let _x.17 := USize.toNat a;
+        let _x.18 := ByteArray.size buf;
+        let _x.19 := Nat.decLt _x.17 _x.18;
+        cases _x.19 : UInt64
+        | Bool.false =>
+          let _x.20 := instInhabitedUInt8;
+          let _x.21 := outOfBounds._redArg _x.20;
+          goto _jp.2 _x.21
+        | Bool.true =>
+          let _x.22 := @ByteArray.get buf _x.17 ◾;
+          goto _jp.2 _x.22
+[Compiler.saveMono] size: 18
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeFor.spec_1._redArg rounds buf a : Prod Nat
+      UInt64 :=
+      cases a : Prod Nat UInt64
+      | Prod.mk fst snd =>
+        let _x.1 := Nat.decLt fst rounds;
+        cases _x.1 : Prod Nat UInt64
+        | Bool.false =>
+          let _x.2 := Prod.mk ◾ ◾ fst snd;
+          return _x.2
+        | Bool.true =>
+          let _x.3 := 0;
+          let _x.4 := ByteArray.size buf;
+          let _x.5 := USize.ofNat _x.4;
+          let _x.6 := WellFounded.opaqueFix₃._at_.CompilerStudy.ByteWork.usizeFor.spec_0._redArg _x.5 buf _x.3 snd;
+          let _x.7 := 33;
+          let _x.8 := UInt64.shiftRight _x.6 _x.7;
+          let _x.9 := UInt64.xor _x.6 _x.8;
+          let _x.10 := 1;
+          let _x.11 := Nat.add fst _x.10;
+          let _x.12 := Prod.mk ◾ ◾ _x.11 _x.9;
+          let _x.13 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeFor.spec_1._redArg rounds buf _x.12;
+          return _x.13
+[Compiler.saveMono] size: 5
+    def CompilerStudy.ByteWork.usizeFor rounds buf seed : UInt64 :=
+      let r := 0;
+      let _x.1 := Prod.mk ◾ ◾ r seed;
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeFor.spec_1._redArg rounds buf _x.1;
+      cases _x.2 : lcAny
+      | Prod.mk fst snd =>
+        return snd
+[Compiler.saveMono] size: 1
+    def WellFounded.opaqueFix₃._at_.CompilerStudy.ByteWork.usizeFor.spec_0 upperBound.1 buf inst.2 R a b c : UInt64 :=
+      let _x.3 := WellFounded.opaqueFix₃._at_.CompilerStudy.ByteWork.usizeFor.spec_0._redArg upperBound.1 buf a b;
+      return _x.3
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeFor.spec_1 rounds buf inst.1 a : Prod Nat
+      UInt64 :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeFor.spec_1._redArg rounds buf a;
+      return _x.2
+[Compiler.saveMono] size: 29
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_0._redArg buf a : State :=
+      cases a : State
+      | CompilerStudy.ByteWork.State.mk i x =>
+        let _x.1 := ByteArray.size buf;
+        let _x.2 := USize.ofNat _x.1;
+        let _x.3 := USize.decLt i _x.2;
+        cases _x.3 : State
+        | Bool.false =>
+          return a
+        | Bool.true =>
+          let _x.4 := 1;
+          let _x.5 := USize.add i _x.4;
+          jp _jp.6 _y.7 : State :=
+            let _x.8 := UInt8.toNat _y.7;
+            let _x.9 := UInt64.ofNat _x.8;
+            let _x.10 := UInt64.add x _x.9;
+            let _x.11 := 2654435769;
+            let _x.12 := UInt64.add _x.10 _x.11;
+            let _x.13 := 1099511628211;
+            let _x.14 := UInt64.mul _x.12 _x.13;
+            let _x.15 := State.mk _x.5 _x.14;
+            let _x.16 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_0._redArg buf _x.15;
+            return _x.16;
+          let _x.17 := USize.toNat i;
+          let _x.18 := Nat.decLt _x.17 _x.1;
+          cases _x.18 : State
+          | Bool.false =>
+            let _x.19 := instInhabitedUInt8;
+            let _x.20 := outOfBounds._redArg _x.19;
+            goto _jp.6 _x.20
+          | Bool.true =>
+            let _x.21 := @ByteArray.get buf _x.17 ◾;
+            goto _jp.6 _x.21
+[Compiler.saveMono] size: 19
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_1._redArg rounds buf a : Prod
+      Nat State :=
+      cases a : Prod Nat State
+      | Prod.mk fst snd =>
+        let _x.1 := Nat.decLt fst rounds;
+        cases _x.1 : Prod Nat State
+        | Bool.false =>
+          let _x.2 := Prod.mk ◾ ◾ fst snd;
+          return _x.2
+        | Bool.true =>
+          let _x.3 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_0._redArg buf snd;
+          cases _x.3 : Prod Nat State
+          | CompilerStudy.ByteWork.State.mk i x =>
+            let _x.4 := 0;
+            let _x.5 := 33;
+            let _x.6 := UInt64.shiftRight x _x.5;
+            let _x.7 := UInt64.xor x _x.6;
+            let _x.8 := State.mk _x.4 _x.7;
+            let _x.9 := 1;
+            let _x.10 := Nat.add fst _x.9;
+            let _x.11 := Prod.mk ◾ ◾ _x.10 _x.8;
+            let _x.12 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_1._redArg rounds buf _x.11;
+            return _x.12
+[Compiler.saveMono] size: 9
+    def CompilerStudy.ByteWork.stateWhile rounds buf seed : UInt64 :=
+      let r := 0;
+      let _x.1 := 0;
+      let s := State.mk _x.1 seed;
+      let _x.2 := Prod.mk ◾ ◾ r s;
+      let _x.3 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_1._redArg rounds buf _x.2;
+      cases _x.3 : UInt64
+      | Prod.mk fst snd =>
+        cases snd : UInt64
+        | CompilerStudy.ByteWork.State.mk i x =>
+          return x
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_0 buf inst.1 a : State :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_0._redArg buf a;
+      return _x.2
+[Compiler.saveMono] size: 1
+    def _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_1 rounds buf inst.1 a : Prod
+      Nat State :=
+      let _x.2 := _private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.stateWhile.spec_1._redArg rounds buf a;
+      return _x.2
+[Compiler.saveMono] size: 32
+    def CompilerStudy.ByteWork.runVariant name rounds buf seed a.1 : EST.Out IO.Error lcAny UInt64 :=
+      let _x.2 := "nat-while";
+      let _x.3 := String.decEq name _x.2;
+      cases _x.3 : EST.Out IO.Error lcAny UInt64
+      | Bool.false =>
+        let _x.4 := "usize-while";
+        let _x.5 := String.decEq name _x.4;
+        cases _x.5 : EST.Out IO.Error lcAny UInt64
+        | Bool.false =>
+          let _x.6 := "usize-for";
+          let _x.7 := String.decEq name _x.6;
+          cases _x.7 : EST.Out IO.Error lcAny UInt64
+          | Bool.false =>
+            let _x.8 := "state-while";
+            let _x.9 := String.decEq name _x.8;
+            cases _x.9 : EST.Out IO.Error lcAny UInt64
+            | Bool.false =>
+              let _x.10 := "unknown variant: ";
+              let _x.11 := String.append _x.10 name;
+              let _x.12 := IO.Error.userError _x.11;
+              let _x.13 := @EST.Out.error ◾ ◾ ◾ _x.12 a.1;
+              return _x.13
+            | Bool.true =>
+              let _x.14 := stateWhile rounds buf seed;
+              let _x.15 := @EST.Out.ok ◾ ◾ ◾ _x.14 a.1;
+              return _x.15
+          | Bool.true =>
+            let _x.16 := usizeFor rounds buf seed;
+            let _x.17 := @EST.Out.ok ◾ ◾ ◾ _x.16 a.1;
+            return _x.17
+        | Bool.true =>
+          let _x.18 := usizeWhile rounds buf seed;
+          let _x.19 := @EST.Out.ok ◾ ◾ ◾ _x.18 a.1;
+          return _x.19
+      | Bool.true =>
+        let _x.20 := natWhile rounds buf seed;
+        let _x.21 := @EST.Out.ok ◾ ◾ ◾ _x.20 a.1;
+        return _x.21
+[Compiler.saveMono] size: 7
+    def CompilerStudy.ByteWork.parseNat s fallback : Nat :=
+      let _x.1 := 0;
+      let _x.2 := String.utf8ByteSize s;
+      let _x.3 := String.Slice.mk s _x.1 _x.2 ◾;
+      let _x.4 := String.Slice.toNat? _x.3;
+      cases _x.4 : Nat
+      | Option.none =>
+        return fallback
+      | Option.some val.5 =>
+        return val.5
+[Compiler.saveMono] size: 48
+    def CompilerStudy.ByteWork.runMain args a.1 : EST.Out IO.Error lcAny PUnit :=
+      let _x.2 := 0;
+      let _x.3 := "nat-while";
+      let variant := List.getD._redArg args _x.2 _x.3;
+      let _x.4 := 1;
+      let _x.5 := "1048576";
+      let _x.6 := List.getD._redArg args _x.4 _x.5;
+      let _x.7 := 1048576;
+      let size := parseNat _x.6 _x.7;
+      let _x.8 := 2;
+      let _x.9 := "1";
+      let _x.10 := List.getD._redArg args _x.8 _x.9;
+      let rounds := parseNat _x.10 _x.4;
+      let _x.11 := 3;
+      let _x.12 := "2611923443488327891";
+      let _x.13 := List.getD._redArg args _x.11 _x.12;
+      let _x.14 := 2611923443488327891;
+      let _x.15 := parseNat _x.13 _x.14;
+      let seed := UInt64.ofNat _x.15;
+      let buf := makeBuf size;
+      let _x.16 := Nat.shiftRight rounds _x.4;
+      let _x.17 := runVariant variant _x.16 buf seed a.1;
+      cases _x.17 : EST.Out IO.Error lcAny PUnit
+      | EST.Out.ok a.18 a.19 =>
+        let _x.20 := IO.monoNanosNow a.19;
+        cases _x.20 : EST.Out IO.Error lcAny PUnit
+        | ST.Out.mk val.21 state.22 =>
+          let _x.23 := runVariant variant rounds buf seed state.22;
+          cases _x.23 : EST.Out IO.Error lcAny PUnit
+          | EST.Out.ok a.24 a.25 =>
+            let _x.26 := IO.monoNanosNow a.25;
+            cases _x.26 : EST.Out IO.Error lcAny PUnit
+            | ST.Out.mk val.27 state.28 =>
+              let _x.29 := Nat.sub val.27 val.21;
+              let _x.30 := Nat.reprFast _x.29;
+              let _x.31 := " ";
+              let _x.32 := String.append _x.30 _x.31;
+              let _x.33 := UInt64.toNat a.24;
+              let _x.34 := Nat.reprFast _x.33;
+              let _x.35 := String.append _x.32 _x.34;
+              let _x.36 := String.append _x.35 _x.31;
+              let _x.37 := UInt64.toNat a.18;
+              let _x.38 := Nat.reprFast _x.37;
+              let _x.39 := String.append _x.36 _x.38;
+              let _x.40 := IO.println._at_._private.Lean.Shell.0.Lean.ShellOptions.process.spec_3 _x.39 state.28;
+              return _x.40
+          | EST.Out.error a.41 a.42 =>
+            let _x.43 := @EST.Out.error ◾ ◾ ◾ a.41 a.42;
+            return _x.43
+      | EST.Out.error a.44 a.45 =>
+        let _x.46 := @EST.Out.error ◾ ◾ ◾ a.44 a.45;
+        return _x.46
+[Compiler.saveMono] size: 1
+    def main args a.1 : EST.Out IO.Error lcAny PUnit :=
+      let _x.2 := CompilerStudy.ByteWork.runMain args a.1;
+      return _x.2

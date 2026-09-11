@@ -1,0 +1,429 @@
+{
+  "args": {
+    "kind": "scalar",
+    "n": 2500000,
+    "rounds": 16,
+    "blocks": 20,
+    "rng_seed": 20260917,
+    "value_seed": 2611923443488327891,
+    "controls_only": false
+  },
+  "cpu": 31,
+  "initial_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "schedule_scheme": "independent-complete-blocks",
+  "build_hashes": {
+    "SplitProd.lean": "40b2d0984ef22edb84ba79286abd7cacb43e189b412ebe24ddb3551767c54d4b",
+    "build.py": "bfc216f98690f2930700ea6b2717fb399a6418aad7a49f70de032d60fca57d31",
+    "Semantics.lean": "6de6071762bf22a1abe29ea6f4b34312e3ab8ccdab0e06ffa323873cd12f49bd",
+    "ByteWork.lean": "e699e408a957c292aa6d8ae0655d68af43f40de185b9ce2bc4447fc1065d9ba3",
+    "build/Kernels.lean": "c7e57fada48f1dc9beb232728c01afa106278dbbfb300d4ac0d6dd07cdae7172",
+    "build/baseline": "46f86a81b412a369e61a59378f5abbe156be6282897d2e14ce0a2b89b4ffbe87",
+    "build/split": "40737d10b5c540bc2c90c4ab22ee69e809d6aa9f56f7f5b53f29b1bb575230ac",
+    "build/baseline-semantics": "068b01e30a5d0f6c3cf837592a575a9a2145d869b274ae2227aa14e797053851",
+    "build/split-semantics": "58d6d302b408a659c457c27946003c8272e76eeacdd501189b129d73e7e5759c",
+    "build/baseline-byte": "7d6eb9cc04ff9362e82c0275101d4f325f0eb830ba93365c9c003f34b9094a16",
+    "build/split-byte": "e6c117d5afbd0ee675e68afb14bc5a064e995c44550659c11f67384daaaaa7f1"
+  },
+  "transformed_workers": {
+    "scalar": [
+      "_private.Init.While.0.repeatM.erased._at_.LoopStudy.idWhile.spec_0._redArg",
+      "_private.Init.While.0.repeatM.erased._at_.LoopStudy.ioWhile.spec_0._redArg",
+      "LoopStudy.tailPair",
+      "LoopStudy.tailPairReturn"
+    ],
+    "semantics": [
+      "CompilerStudy.tailPair",
+      "CompilerStudy.returnPair",
+      "CompilerStudy.sharedPair",
+      "CompilerStudy.nonTailPair",
+      "CompilerStudy.pair32",
+      "CompilerStudy.pair8",
+      "CompilerStudy.effectPair",
+      "CompilerStudy.escapingPair",
+      "_private.Init.While.0.repeatM.erased._at_.CompilerStudy.whileBreakContinue.spec_0._redArg",
+      "_private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_0._redArg",
+      "_private.Init.While.0.repeatM.erased._at_.CompilerStudy.nestedLoops.spec_1._redArg"
+    ],
+    "byte": [
+      "_private.Init.While.0.repeatM.erased._at_.CompilerStudy.ByteWork.usizeWhile.spec_0._redArg"
+    ]
+  },
+  "nice": 10,
+  "scheduler": 0,
+  "ionice": {
+    "command": [
+      "ionice",
+      "--pid",
+      "7"
+    ],
+    "status": 0,
+    "stdout": "best-effort: prio 4\n",
+    "stderr": ""
+  },
+  "lscpu": {
+    "command": [
+      "lscpu"
+    ],
+    "status": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  32\nOn-line CPU(s) list:                     0-31\nVendor ID:                               GenuineIntel\nModel name:                              13th Gen Intel(R) Core(TM) i9-13900K\nCPU family:                              6\nModel:                                   183\nThread(s) per core:                      2\nCore(s) per socket:                      24\nSocket(s):                               1\nStepping:                                1\nMicrocode version:                       0x137\nCPU(s) scaling MHz:                      42%\nCPU max MHz:                             5800.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                5990.40\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               896 KiB (24 instances)\nL1i cache:                               1.3 MiB (24 instances)\nL2 cache:                                32 MiB (12 instances)\nL3 cache:                                36 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-31\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Mitigation; Clear Register File\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+    "stderr": ""
+  },
+  "uname": {
+    "command": [
+      "uname",
+      "--all"
+    ],
+    "status": 0,
+    "stdout": "Linux spider 7.1.11-arch1-1.1+ #2 SMP PREEMPT_DYNAMIC Mon Aug 31 16:55:49 +08 2026 x86_64 GNU/Linux\n",
+    "stderr": ""
+  },
+  "versions": [
+    {
+      "command": [
+        "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
+        "--version"
+      ],
+      "status": 0,
+      "stdout": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/clang",
+        "--version"
+      ],
+      "status": 0,
+      "stdout": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin\n",
+      "stderr": ""
+    }
+  ],
+  "runtime_env": {},
+  "load_before": [
+    2.966796875,
+    7.9443359375,
+    8.21435546875
+  ],
+  "block_loads": [
+    {
+      "block": 0,
+      "before": [
+        3.78125,
+        7.8681640625,
+        8.18408203125
+      ],
+      "after": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ]
+    },
+    {
+      "block": 1,
+      "before": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ],
+      "after": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ]
+    },
+    {
+      "block": 2,
+      "before": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ],
+      "after": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ]
+    },
+    {
+      "block": 3,
+      "before": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ],
+      "after": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ]
+    },
+    {
+      "block": 4,
+      "before": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ],
+      "after": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ]
+    },
+    {
+      "block": 5,
+      "before": [
+        5.0,
+        8.05322265625,
+        8.2421875
+      ],
+      "after": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ]
+    },
+    {
+      "block": 6,
+      "before": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ],
+      "after": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ]
+    },
+    {
+      "block": 7,
+      "before": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ],
+      "after": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ]
+    },
+    {
+      "block": 8,
+      "before": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ],
+      "after": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ]
+    },
+    {
+      "block": 9,
+      "before": [
+        5.640625,
+        8.1357421875,
+        8.26806640625
+      ],
+      "after": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ]
+    },
+    {
+      "block": 10,
+      "before": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ],
+      "after": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ]
+    },
+    {
+      "block": 11,
+      "before": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ],
+      "after": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ]
+    },
+    {
+      "block": 12,
+      "before": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ],
+      "after": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ]
+    },
+    {
+      "block": 13,
+      "before": [
+        6.47021484375,
+        8.2666015625,
+        8.31005859375
+      ],
+      "after": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ]
+    },
+    {
+      "block": 14,
+      "before": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ],
+      "after": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ]
+    },
+    {
+      "block": 15,
+      "before": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ],
+      "after": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ]
+    },
+    {
+      "block": 16,
+      "before": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ],
+      "after": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ]
+    },
+    {
+      "block": 17,
+      "before": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ],
+      "after": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ]
+    },
+    {
+      "block": 18,
+      "before": [
+        7.4736328125,
+        8.44482421875,
+        8.36767578125
+      ],
+      "after": [
+        7.99658203125,
+        8.537109375,
+        8.39794921875
+      ]
+    },
+    {
+      "block": 19,
+      "before": [
+        7.99658203125,
+        8.537109375,
+        8.39794921875
+      ],
+      "after": [
+        7.99658203125,
+        8.537109375,
+        8.39794921875
+      ]
+    }
+  ],
+  "snapshot_hashes": {
+    "SplitProd.lean": "40b2d0984ef22edb84ba79286abd7cacb43e189b412ebe24ddb3551767c54d4b",
+    "Semantics.lean": "6de6071762bf22a1abe29ea6f4b34312e3ab8ccdab0e06ffa323873cd12f49bd",
+    "ByteWork.lean": "e699e408a957c292aa6d8ae0655d68af43f40de185b9ce2bc4447fc1065d9ba3",
+    "build.py": "bfc216f98690f2930700ea6b2717fb399a6418aad7a49f70de032d60fca57d31",
+    "measure.py": "3fde03e91a40d368a46f11c5d13ba2a68330eee10a16d3d3802b2e19431843c4",
+    "DESIGN.md": "5c95130817213b268920efab4c94847ff90b73241bea1dfeb845858def08af53",
+    "Kernels.lean": "c7e57fada48f1dc9beb232728c01afa106278dbbfb300d4ac0d6dd07cdae7172",
+    "commands.json": "e48425eddfacaed9205d262bdcf6cd1859928774b2ef634c722c2d75304351d5",
+    "hashes.json": "1cae28625e4bf2017410f824c3bcbad060c37da0fed6b81e48464306a416da3d",
+    "baseline-semantics-mono.txt": "e5e4c8cb4640019c8a6774646e3b08e7914c9c8547ff711e0d2b9a42722e10ca",
+    "split-semantics-mono.txt": "3c7e78674f64384e1bacce2a9b471b820d2b0a3cbf9e614002c33ecc3dfb05d4",
+    "baseline.c": "a5f0f6fa05f286eb1a9a19229f128b7394892c32c86df93e0f785ea2d5f81e28",
+    "baseline.s": "f5833aa0a27b4562db85345c9e7d069573976b3d439cc26c88d65584e2c987a6",
+    "baseline-mono.txt": "e202d15749837f6db28c536341ec070c0a867a8f3ebec2ac0b8db3519eb9e9f2",
+    "split.c": "b5f20d2ccb6c89f8f9eb48925818577e4c635cb1385fcfb792937f896ede9d99",
+    "split.s": "7d5f4fc069659f5da9375dea2e46b865ec88bba852f1d514a7d608356482b854",
+    "split-mono.txt": "9d6d7f085e5b20fa0a27158caa51e0f54cbc0ed3c3c4eb828bd5f7c2bc9fcce2"
+  },
+  "cpufreq/scaling_governor": "powersave",
+  "cpufreq/scaling_driver": "intel_pstate",
+  "topology/core_id": "47",
+  "topology/thread_siblings_list": "31",
+  "topology/physical_package_id": "0",
+  "expected_checksums": [
+    15859504617447565175,
+    12254391128734991277
+  ]
+}
