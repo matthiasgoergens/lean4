@@ -28,12 +28,12 @@ class BuildAdmissionTests(unittest.TestCase):
             self.assertIn("failed rebuild", (second / "commands.json").read_text())
 
     def test_changed_binary_trace_or_commands_revokes_admission(self):
-        for name in ("binary", "trace", "commands.json"):
+        for name in ("binary", "trace", "commands.json", "SplitProd.olean"):
             with self.subTest(name=name), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 build = root / "build"
                 attempt = build_state.begin(build)
-                paths = [build / part for part in ("binary", "trace", "commands.json")]
+                paths = [build / part for part in ("binary", "trace", "commands.json", "SplitProd.olean")]
                 for path in paths:
                     path.write_bytes(b"verified")
                 build_state.publish(root, build, attempt, paths)

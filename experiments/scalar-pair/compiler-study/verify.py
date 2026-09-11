@@ -6,7 +6,7 @@ import re
 import sys
 from pathlib import Path
 
-from measure import BYTE, SCALAR, SEEDS, expected_checksums, schedule, summarise
+from measure import BYTE, SCALAR, SEEDS, expected_checksums, matches_worker, schedule, summarise
 
 ROOT = Path(__file__).resolve().parent
 MODES = ("baseline", "split")
@@ -19,10 +19,12 @@ TRANSFORM_MARKER = "splitProd transformed "
 TRACE_EXPECTATIONS = {
     "scalar": {
         "positive": ("LoopStudy.idWhile", "LoopStudy.ioWhile", "LoopStudy.tailPair"),
-        "negative": ("LoopStudy.tailScalar", "LoopStudy.forUSize", "LoopStudy.whileStruct"),
+        "negative": ("LoopStudy.tailScalar", "LoopStudy.forUSize", "LoopStudy.whileStruct",
+                     "LoopStudy.forNat", "LoopStudy.tailFuel"),
     },
     "semantics": {
-        "positive": ("CompilerStudy.nonTailPair", "CompilerStudy.effectPair",
+        "positive": ("CompilerStudy.tailPair", "CompilerStudy.returnPair", "CompilerStudy.sharedPair",
+                      "CompilerStudy.nonTailPair", "CompilerStudy.effectPair",
                       "CompilerStudy.escapingPair", "CompilerStudy.whileBreakContinue",
                       "CompilerStudy.nestedLoops", "CompilerStudy.pair32", "CompilerStudy.pair8"),
         "negative": ("CompilerStudy.mixedObjectPair", "CompilerStudy.multiplePairs",
@@ -356,10 +358,10 @@ def check_coverage(root, metadata, kind, errors):
             errors.append(f"baseline {trace_kind} trace contains transformations")
         requirements = TRACE_EXPECTATIONS[trace_kind]
         for name in requirements["positive"]:
-            if not any(name in actual for actual in split_transformed):
+            if not any(matches_worker(name, actual) for actual in split_transformed):
                 errors.append(f"expected transformation absent: {name}")
         for name in requirements["negative"]:
-            if any(name in actual for actual in split_transformed):
+            if any(matches_worker(name, actual) for actual in split_transformed):
                 if name == "CompilerStudy.mixedObjectPair" and mixed_object_exception:
                     exceptions.append(mixed_object_exception)
                 else:
@@ -371,10 +373,10 @@ def check_coverage(root, metadata, kind, errors):
             if actual is None:
                 continue
             for name in requirements["positive"]:
-                if not any(name in worker for worker in actual):
+                if not any(matches_worker(name, worker) for worker in actual):
                     errors.append(f"metadata missing transformation: {name}")
             for name in requirements["negative"]:
-                if any(name in worker for worker in actual):
+                if any(matches_worker(name, worker) for worker in actual):
                     if name == "CompilerStudy.mixedObjectPair" and mixed_object_exception:
                         exceptions.append(mixed_object_exception)
                     else:

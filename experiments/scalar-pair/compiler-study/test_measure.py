@@ -7,6 +7,13 @@ import measure
 
 
 class Measurement(unittest.TestCase):
+    def test_worker_names_require_complete_components(self):
+        self.assertFalse(measure.matches_worker("LoopStudy.tailPair", "LoopStudy.tailPairReturn"))
+        self.assertTrue(measure.matches_worker("LoopStudy.tailPair", "LoopStudy.tailPair"))
+        self.assertTrue(measure.matches_worker(
+            "LoopStudy.idWhile",
+            "_private.Init.While.0.repeatM.erased._at_.LoopStudy.idWhile.spec_0._redArg"))
+
     def test_independent_blocks_have_stable_prefix_and_complete_treatments(self):
         short = measure.schedule(measure.BYTE, 3, 1234)
         self.assertEqual(short, measure.schedule(measure.BYTE, 17, 1234)[:3])

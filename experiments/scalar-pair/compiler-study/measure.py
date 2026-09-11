@@ -116,6 +116,11 @@ def capture(command):
             "stdout": p.stdout, "stderr": p.stderr}
 
 
+def matches_worker(name, actual):
+    """Match whole dotted name components, including specialised worker names."""
+    return f".{name}." in f".{actual.strip()}."
+
+
 def check_coverage():
     for name in ("baseline-mono.txt", "baseline-semantics-mono.txt", "baseline-byte-mono.txt"):
         if "splitProd transformed " in (BUILD / name).read_text():
@@ -127,21 +132,23 @@ def check_coverage():
                           for line in value.splitlines() if "splitProd transformed " in line]
                    for kind, value in traces.items()}
     requirements = {"scalar": ["LoopStudy.idWhile", "LoopStudy.ioWhile", "LoopStudy.tailPair"],
-                    "semantics": ["CompilerStudy.nonTailPair", "CompilerStudy.effectPair",
+                    "semantics": ["CompilerStudy.tailPair", "CompilerStudy.returnPair",
+                                  "CompilerStudy.sharedPair", "CompilerStudy.nonTailPair", "CompilerStudy.effectPair",
                                   "CompilerStudy.escapingPair", "CompilerStudy.whileBreakContinue",
                                   "CompilerStudy.nestedLoops", "CompilerStudy.pair32", "CompilerStudy.pair8"],
                     "byte": ["ByteWork.usizeWhile"]}
-    skips = {"scalar": ["LoopStudy.tailScalar", "LoopStudy.forUSize", "LoopStudy.whileStruct"],
+    skips = {"scalar": ["LoopStudy.tailScalar", "LoopStudy.forUSize", "LoopStudy.whileStruct",
+                        "LoopStudy.forNat", "LoopStudy.tailFuel"],
              "semantics": ["CompilerStudy.mixedObjectPair", "CompilerStudy.multiplePairs",
                            "CompilerStudy.whileEarlyReturn"],
              "byte": ["ByteWork.natWhile", "ByteWork.usizeFor", "ByteWork.stateWhile"]}
     for kind, names in requirements.items():
         for name in names:
-            if not any(name in actual for actual in transformed[kind]):
+            if not any(matches_worker(name, actual) for actual in transformed[kind]):
                 raise RuntimeError(f"expected transformation absent: {name}")
     for kind, names in skips.items():
         for name in names:
-            if any(name in actual for actual in transformed[kind]):
+            if any(matches_worker(name, actual) for actual in transformed[kind]):
                 raise RuntimeError(f"negative control unexpectedly transformed: {name}")
     return transformed
 

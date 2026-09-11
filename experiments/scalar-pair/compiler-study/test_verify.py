@@ -9,6 +9,19 @@ import verify
 
 
 class VerifierCorruptionTests(unittest.TestCase):
+    def test_pair_return_cannot_mask_missing_pair_worker(self):
+        names = ["LoopStudy.idWhile", "LoopStudy.ioWhile", "LoopStudy.tailPairReturn"]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "baseline-mono.txt").write_text("")
+            (root / "split-mono.txt").write_text("\n".join(
+                verify.TRANSFORM_MARKER + name for name in names))
+            errors = []
+            verify.check_coverage(root, {"transformed_workers": {"scalar": names}},
+                                  "scalar", errors)
+            self.assertIn("expected transformation absent: LoopStudy.tailPair", errors)
+            self.assertIn("metadata missing transformation: LoopStudy.tailPair", errors)
+
     def test_stored_timed_fields_must_match_stdout(self):
         errors = []
         verify.parsed_timed(

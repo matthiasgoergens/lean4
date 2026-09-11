@@ -61,6 +61,7 @@ hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                    [OUT / (mode + suffix) for suffix, _ in targets for mode in ("baseline", "split")]}
 (OUT / "hashes.json").write_text(json.dumps(hashes, indent=2) + "\n")
 artifacts = [ROOT / relative for relative in hashes]
+artifacts.append(ROOT / "SplitProd.olean")
 artifacts += [OUT / name for name in ("commands.json", "hashes.json", "SplitProd.c", "SplitProd.o")]
 artifacts += [OUT / (mode + suffix + ext) for suffix, _ in targets
               for mode in ("baseline", "split") for ext in (".c", ".s", "-mono.txt")]

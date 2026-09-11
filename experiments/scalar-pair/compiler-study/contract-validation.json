@@ -2,8 +2,8 @@
   {
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
-      "--o=/home/matthias/prog/lean/faster-lean/compiler-study/MustSplitProd.olean",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/MustSplitProd.lean"
+      "--o=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/MustSplitProd.olean",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/MustSplitProd.lean"
     ],
     "status": 0,
     "stdout": "",
@@ -11,10 +11,10 @@
     "source": "import SplitProd\n\n/-!\nChecked compiler contract for this prototype, scoped to one definition and its generated workers.\nThis requires actual scalar-pair worker splitting, not allocation freedom or a timing bound.\n-/\n\nmeta section\nopen Lean Compiler LCNF\n\nnamespace SplitProd.Contract\n\npartial def constants (code : Code .pure) (names : NameSet := {}) : NameSet :=\n  match code with\n  | .let decl k =>\n    let names := match decl.value with\n      | .const name _ _ => names.insert name\n      | _ => names\n    constants k names\n  | .fun decl k | .jp decl k => constants k (constants decl.value names)\n  | .cases c => c.alts.foldl (fun names alt => constants alt.getCode names) names\n  | .return .. | .jmp .. | .unreach .. => names\n\ndef check (root : Name) : CoreM Unit := do\n  unless compiler.splitProd.get (\u2190 getOptions) do\n    throwError \"[must_split_prod] {root}: compiler.splitProd is disabled\"\n  let completed := completedWorkers.getState (\u2190 getEnv)\n  let mono := monoExt.getState (\u2190 getEnv)\n  let some group := compilationGroups.getState (\u2190 getEnv) |>.find? root |\n    throwError \"[must_split_prod] {root}: no completed compilation group; \\\n      apply the attribute after the definition and disable deferred compilation\"\n  let mut pending := [root]\n  let mut visited : NameSet := {}\n  let mut count := 0\n  while let name :: rest := pending do\n    pending := rest\n    if visited.contains name then continue\n    visited := visited.insert name\n    let some decl := mono.find? name |\n      throwError \"[must_split_prod] {root}: no compiled mono body for {name}; \\\n        apply `attribute [must_split_prod] {root}` after the definition and disable deferred compilation\"\n    let .code body := decl.value |\n      throwError \"[must_split_prod] {root}: unavailable compiled body for {name}\"\n    trace[Compiler.saveMono] \"must_split_prod inspected {name}, recursive={decl.recursive}, refs={(constants body).toList}\"\n    if decl.recursive then\n      unless completed.contains name do\n        throwError \"[must_split_prod] {root}: recursive worker {name} was not split; \\\n          this prototype requires exactly one pair of native scalars and a direct self-call\"\n      if decl.params.any (fun p => (fields? p.type).isSome) then\n        throwError \"[must_split_prod] {root}: worker {name} still has scalar-pair parameters\"\n      count := count + 1\n    for callee in (constants body).toList do\n      if group.contains callee then pending := callee :: pending\n  if count == 0 then\n    throwError \"[must_split_prod] {root}: no reachable split recursive worker was found\"\n\ninitialize\n  registerBuiltinAttribute {\n    name := `must_split_prod\n    descr := \"require scalar-pair splitting of this definition's recursive workers\"\n    applicationTime := .afterCompilation\n    add := fun decl stx kind => do\n      Attribute.Builtin.ensureNoArgs stx\n      unless kind == .global do throwError \"[must_split_prod] must be global\"\n      if (\u2190 getEnv).getModuleIdxFor? decl |>.isSome then\n        throwError \"[must_split_prod] must be checked in the defining module\"\n      withoutExporting <| check decl\n  }\n\nend SplitProd.Contract\n",
     "completed_build": {
       "status": "complete",
-      "attempt": "build/attempts/1789115262228723333",
+      "attempt": "build/attempts/1789119558275524684",
       "artifacts": {
         "SplitProd.lean": "5a88c2db7b5b350b6ab638924562082e174cceba5869181702fe43d35866b0a6",
-        "build.py": "d1f677277bb36d2b5c08c668e473ea4f97eaa1541f21d61e35f73cbf3f693a09",
+        "build.py": "f4c41d1b303c497ec8f3540b72590349b0a1ef12c28bb2bd8730641331151f5e",
         "build_state.py": "0882109910f825df317d6aa875712ba9645d00f525ad48ad06e5b4bffdb41ee5",
         "Semantics.lean": "6de6071762bf22a1abe29ea6f4b34312e3ab8ccdab0e06ffa323873cd12f49bd",
         "ByteWork.lean": "e699e408a957c292aa6d8ae0655d68af43f40de185b9ce2bc4447fc1065d9ba3",
@@ -25,8 +25,9 @@
         "build/split-semantics": "8c6e22841adef4a73107cfa151c5ca8685997eb9966ced928baf932e8d3c7b2b",
         "build/baseline-byte": "7bcade35b746b0003d89a37d42d30be91f5eb80935a66ae47811c6d3901b4159",
         "build/split-byte": "4f7db0d66769155f2c37263cbc4363c277d4b22434690865c2627c0319a967e5",
-        "build/commands.json": "0e20e410aac2ec4f0ed0b9d381055182704c6a2d79b015b6403044e4c79319aa",
-        "build/hashes.json": "2b46bc0942e2eb121ca021fcafeee8ed85ef7a2d6f68528ada5e35230aef2a47",
+        "SplitProd.olean": "7b28471e6eb49c5c2c5ae4e2505b6a598c218501f192cd3467827a6fa17599aa",
+        "build/commands.json": "198311e0f172e5fb84e1123ed75a5fc514806ac4170812ca078e702c20a0710b",
+        "build/hashes.json": "8c24cb91cdf0ebabf75a4ee5a5615c4e2dd4b9c63b516a0739e9489aaabaaa75",
         "build/SplitProd.c": "addcaee6063692fcecbe0442058388687e089054e72f7eef0b0e32814e5f3b63",
         "build/SplitProd.o": "69413df25c6e0c36a6a380e899655a16afd4c723d89f21a38fea4f896b429094",
         "build/baseline.c": "a5f0f6fa05f286eb1a9a19229f128b7394892c32c86df93e0f785ea2d5f81e28",
@@ -55,8 +56,8 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/pair.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/pair.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/pair.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/pair.lean"
     ],
     "status": 0,
     "stdout": "",
@@ -70,8 +71,8 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/while.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/while.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/while.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/while.lean"
     ],
     "status": 0,
     "stdout": "",
@@ -85,8 +86,8 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nested.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nested.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nested.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nested.lean"
     ],
     "status": 0,
     "stdout": "",
@@ -100,11 +101,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/disabled.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/disabled.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/disabled.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/disabled.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/disabled.lean:4:11: error: [must_split_prod] work: compiler.splitProd is disabled\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/disabled.lean:4:11: error: [must_split_prod] work: compiler.splitProd is disabled\n",
     "stderr": "",
     "source": "import MustSplitProd\npartial def work (n : USize) (s : USize \u00d7 UInt64) : USize \u00d7 UInt64 :=\n  if s.1 < n then work n (s.1 + 1, s.2 + 7) else s\nattribute [must_split_prod] work\n",
     "case": "disabled",
@@ -114,11 +115,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nat_index.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nat_index.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nat_index.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nat_index.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nat_index.lean:3:2: error: [must_split_prod] work: recursive worker _private.Init.While.0.repeatM.erased._at_.work.spec_0._redArg was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nat_index.lean:3:2: error: [must_split_prod] work: recursive worker _private.Init.While.0.repeatM.erased._at_.work.spec_0._redArg was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] def work (n : USize) (seed : UInt64) : UInt64 := Id.run do\n  let mut i : Nat := 0\n  let mut x := seed\n  while i < n.toNat do\n    x := x + i.toUInt64\n    i := i + 1\n  return x\n",
     "case": "nat_index",
@@ -128,11 +129,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nonrecursive.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nonrecursive.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nonrecursive.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nonrecursive.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/nonrecursive.lean:3:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/nonrecursive.lean:3:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] def work (x : UInt64) := x + 1\n",
     "case": "nonrecursive",
@@ -142,11 +143,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/three_fields.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/three_fields.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/three_fields.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/three_fields.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/three_fields.lean:7:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/three_fields.lean:7:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\npartial def work (n : USize)\n    (s : USize \u00d7 UInt64 \u00d7 UInt64) : UInt64 :=\n  if s.1 < n then work n (s.1 + 1, s.2.1 + 1, s.2.2 + 2) else s.2.1\n\nattribute [must_split_prod] work\n",
     "case": "three_fields",
@@ -156,11 +157,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/mixed_object.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/mixed_object.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/mixed_object.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/mixed_object.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/mixed_object.lean:8:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/mixed_object.lean:8:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\npartial def work (n : USize)\n    (s : String \u00d7 UInt64) : UInt64 :=\n  if n == 0 then s.1.utf8ByteSize.toUInt64 + s.2\n  else work (n - 1) (s.1 ++ \"a\", s.2 + 1)\n\nattribute [must_split_prod] work\n",
     "case": "mixed_object",
@@ -170,11 +171,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/two_pairs.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/two_pairs.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/two_pairs.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/two_pairs.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/two_pairs.lean:8:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/two_pairs.lean:8:11: error: [must_split_prod] work: recursive worker work was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\npartial def work (n : USize)\n    (a : USize \u00d7 UInt64) (b : USize \u00d7 UInt64) : UInt64 :=\n  if a.1 < n then work n (a.1 + 1, a.2 + 1) (b.1 + 1, b.2 + 3)\n  else a.2 + b.1.toUInt64 + b.2\n\nattribute [must_split_prod] work\n",
     "case": "two_pairs",
@@ -184,11 +185,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/unrelated_success.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/unrelated_success.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/unrelated_success.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/unrelated_success.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/unrelated_success.lean:6:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/unrelated_success.lean:6:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\npartial def other (n : USize) (s : USize \u00d7 UInt64) : USize \u00d7 UInt64 :=\n  if s.1 < n then other n (s.1 + 1, s.2 + 7) else s\nattribute [must_split_prod] other\n@[must_split_prod] def work (n : USize) := other n (0, 1)\n",
     "case": "unrelated_success",
@@ -198,11 +199,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/fake_suffix.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/fake_suffix.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/fake_suffix.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/fake_suffix.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/fake_suffix.lean:7:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/fake_suffix.lean:7:2: error: [must_split_prod] work: no reachable split recursive worker was found\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\nnamespace work\npartial def _splitProd (n : USize) (x : UInt64) : UInt64 :=\n  if n == 0 then x else _splitProd (n - 1) (x + 1)\nend work\n@[must_split_prod] def work (n : USize) := work._splitProd n 0\n",
     "case": "fake_suffix",
@@ -212,11 +213,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/one_missed_loop.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/one_missed_loop.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/one_missed_loop.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/one_missed_loop.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/one_missed_loop.lean:3:2: error: [must_split_prod] work: recursive worker _private.Init.While.0.repeatM.erased._at_.work.spec_1._redArg was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/one_missed_loop.lean:3:2: error: [must_split_prod] work: recursive worker _private.Init.While.0.repeatM.erased._at_.work.spec_1._redArg was not split; this prototype requires exactly one pair of native scalars and a direct self-call\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] def work (n : USize) (seed : UInt64) : UInt64 := Id.run do\n  let mut i : USize := 0\n  let mut x := seed\n  while i < n do\n    x := x + i.toUInt64\n    i := i + 1\n  let mut j : Nat := 0\n  while j < n.toNat do\n    x := x + j.toUInt64\n    j := j + 1\n  return x\n",
     "case": "one_missed_loop",
@@ -226,11 +227,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/noncomputable.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/noncomputable.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/noncomputable.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/noncomputable.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/noncomputable.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/noncomputable.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] noncomputable def work : UInt64 := Classical.choice (inferInstance : Nonempty UInt64)\n",
     "case": "noncomputable",
@@ -240,11 +241,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/theorem.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/theorem.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/theorem.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/theorem.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/theorem.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/theorem.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] theorem work : True := True.intro\n",
     "case": "theorem",
@@ -254,11 +255,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/imported.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/imported.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/imported.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/imported.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/imported.lean:3:11: error: [must_split_prod] must be checked in the defining module\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/imported.lean:3:11: error: [must_split_prod] must be checked in the defining module\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\nattribute [must_split_prod] Nat.add\n",
     "case": "imported",
@@ -268,11 +269,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/prefix_partial.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/prefix_partial.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/prefix_partial.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/prefix_partial.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/prefix_partial.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/prefix_partial.lean:3:2: error: [must_split_prod] work: no completed compilation group; apply the attribute after the definition and disable deferred compilation\n",
     "stderr": "",
     "source": "import MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] partial def work (n : USize) (s : USize \u00d7 UInt64) : USize \u00d7 UInt64 :=\n  if s.1 < n then work n (s.1 + 1, s.2 + 7) else s\n",
     "case": "prefix_partial",
@@ -282,11 +283,11 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/module_deferred.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/module_deferred.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/module_deferred.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/module_deferred.lean"
     ],
     "status": 1,
-    "stdout": "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/module_deferred.lean:1:0: error: cannot import non-`module` MustSplitProd from `module`\n",
+    "stdout": "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/module_deferred.lean:1:0: error: cannot import non-`module` MustSplitProd from `module`\n",
     "stderr": "",
     "source": "module\nimport MustSplitProd\nset_option compiler.splitProd true\n@[must_split_prod] def work (n : USize) (seed : UInt64) : UInt64 := Id.run do\n  let mut i : USize := 0\n  let mut x := seed\n  while i < n do\n    x := x + i.toUInt64\n    i := i + 1\n  return x\n",
     "case": "module_deferred",
@@ -296,8 +297,8 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/private_while.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/private_while.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/private_while.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/private_while.lean"
     ],
     "status": 0,
     "stdout": "",
@@ -311,8 +312,8 @@
     "command": [
       "/home/matthias/.elan/toolchains/leanprover--lean4---v4.33.1/bin/lean",
       "-Dcompiler.check=true",
-      "--c=/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/sync_while.c",
-      "/home/matthias/prog/lean/faster-lean/compiler-study/build/contract-tests/sync_while.lean"
+      "--c=/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/sync_while.c",
+      "/tmp/faster-lean-pr/experiments/scalar-pair/compiler-study/build/contract-tests/sync_while.lean"
     ],
     "status": 0,
     "stdout": "",
