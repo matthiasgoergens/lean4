@@ -221,6 +221,16 @@ This function does not reduce in the kernel.
 -/
 @[extern "lean_float32_to_precision"]
 opaque Float32.toPrecision (x : Float32) (digits : @& Nat) : String
+
+/--
+Formats a floating-point number in the given notation: `(2 / 3 : Float32).format (.fixed 2)` is
+`"0.67"`, and `x.format .shortest` is `x.toString`.
+-/
+def Float32.format (x : Float32) : Float.Notation → String
+  | .shortest => x.toString
+  | .fixed digits => x.toFixed digits
+  | .scientific digits => x.toScientific digits
+  | .general digits => x.toPrecision digits
 /--
 Converts a floating-point number to an 8-bit unsigned integer.
 

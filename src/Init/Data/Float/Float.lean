@@ -224,6 +224,27 @@ This function does not reduce in the kernel.
 @[extern "lean_float_to_precision"]
 opaque Float.toPrecision (x : Float) (digits : @& Nat) : String
 
+/-- A notation for `Float.format` and `Float32.format`, like C++'s `std::chars_format`. -/
+inductive Float.Notation where
+  /-- The shortest decimal that reads back to the same value, as `toString` writes it. -/
+  | shortest
+  /-- Positional notation with `digits` digits after the decimal point, as `toFixed` writes it. -/
+  | fixed (digits : Nat)
+  /-- Scientific notation with `digits` digits after the point, as `toScientific` writes it. -/
+  | scientific (digits : Nat)
+  /-- `digits` significant digits without trailing zeros, as `toPrecision` writes it. -/
+  | general (digits : Nat)
+
+/--
+Formats a floating-point number in the given notation: `(2 / 3 : Float).format (.fixed 2)` is
+`"0.67"`, and `x.format .shortest` is `x.toString`.
+-/
+def Float.format (x : Float) : Float.Notation → String
+  | .shortest => x.toString
+  | .fixed digits => x.toFixed digits
+  | .scientific digits => x.toScientific digits
+  | .general digits => x.toPrecision digits
+
 /--
 Converts a floating-point number to an 8-bit unsigned integer.
 

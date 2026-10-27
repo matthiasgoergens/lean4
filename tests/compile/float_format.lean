@@ -127,6 +127,9 @@ def main : IO UInt32 := do
     (0.0 / 0.0 : Float).toPrecision 2]
   IO.println ((2 / 3 : Float32).toFixed 2)
   IO.println ((1234567 : Float32).toPrecision 3)
+  IO.println [(2 / 3 : Float).format (.fixed 2), (1234.5 : Float).format (.scientific 2),
+    (1234567 : Float).format (.general 3), (0.1 : Float).format .shortest,
+    (2 / 3 : Float32).format (.fixed 2)]
   let bits := randomBits 300
   let floats := bits.filterMap fun (b : UInt64) =>
     let x := Float.ofBits b
