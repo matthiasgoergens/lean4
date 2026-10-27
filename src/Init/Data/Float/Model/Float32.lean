@@ -351,4 +351,10 @@ def ofScientific (m : Nat) (e : Int) : Float32.Model :=
 instance : Inhabited Float32.Model where
   default := ofNat 0
 
+/--
+The shortest decimal that reads back to the same value, as `Float32.toString` writes it.
+-/
+def toString (a : Float32.Model) : String :=
+  UnpackedFloat.toDecimalString .binary32 a.unpack
+
 end Float32.Model
