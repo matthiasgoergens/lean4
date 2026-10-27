@@ -80,11 +80,11 @@ variable [DecidableEq idx] [DecidableEq elem] [Input ι elem idx]
 instance : Inhabited (Parsec ι α) where
   default := fun it => ParseResult.error it (.other "")
 
-@[always_inline, inline]
+@[always_inline, inline, expose]
 protected def pure (a : α) : Parsec ι α := fun it =>
   .success it a
 
-@[always_inline, inline]
+@[always_inline, inline, expose]
 protected def bind {α β : Type} (f : Parsec ι α) (g : α → Parsec ι β) : Parsec ι β := fun it =>
   match f it with
   | .success rem a => g a rem
