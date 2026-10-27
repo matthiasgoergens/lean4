@@ -189,9 +189,12 @@ This function does not reduce in the kernel. It is compiled to the C inequality 
 Converts a floating-point number to the shortest decimal that reads back to the same number,
 such as `0.1`, `1.0` or `1e-09`.
 
-This function does not reduce in the kernel.
+This function has a logical model in terms of `Float.Model`, but is overridden at runtime with an
+efficient implementation.
 -/
-@[extern "lean_float_to_string"] opaque Float.toString : Float → String
+@[extern "lean_float_to_string"]
+def Float.toString (x : Float) : String :=
+  x.toModel.toString
 
 /--
 Converts a floating-point number to an 8-bit unsigned integer.
