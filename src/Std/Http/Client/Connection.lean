@@ -1123,8 +1123,15 @@ private def exchange (connection : Connection) (request : Request Body.Any) (req
   let outcome ← connection.dispatch sent requestOverrides
 
   if let .ok tracked := outcome then
-    connection.config.cookieHandler.forM
-      (·.store connection.origin sent.line.uri tracked.response.line.headers)
+    -- A handler that raises ends the call without handing the response back, so its body is
+    -- closed for the connection to drain; otherwise the exchange would wait for a reader that
+    -- never comes.
+    try
+      connection.config.cookieHandler.forM
+        (·.store connection.origin sent.line.uri tracked.response.line.headers)
+    catch e =>
+      tracked.response.body.close
+      throw e
 
   return (sent, outcome)
 
@@ -1138,7 +1145,12 @@ def sendTracked (connection : Connection) (request : Request Body.Any) (requestO
 
   let .ok ⟨response, completion⟩ := attempt | return attempt
 
-  let some (name, credential) ← connection.challengeAnswer sent response.line
+  -- As in `exchange`: an authenticator that raises must not leave the response body unread.
+  let answer ← try connection.challengeAnswer sent response.line
+    catch e => do
+      response.body.close
+      throw e
+  let some (name, credential) := answer
     | return attempt
 
   let captured ← captureIntermediateBody response.body

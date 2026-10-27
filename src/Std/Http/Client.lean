@@ -233,7 +233,9 @@ def getOrCreateConnection (client : Client) (origin : URI.Origin) :
     return .ok chosen
 
 /--
-Removes a connection from the client and closes its request channel.
+Removes a connection from the client and closes its request channel. The connection still finishes
+the exchange in flight and the requests already queued on it, which other callers may own, and then
+shuts down.
 -/
 private def retireConnection (client : Client) (connection : Connection) (origin : URI.Origin) :
     Async Unit := do
@@ -241,7 +243,7 @@ private def retireConnection (client : Client) (connection : Connection) (origin
     | some slot =>
       if slot.origin == origin && slot.connection.id == connection.id then none else some slot
     | none => none
-  connection.close
+  connection.retire
 
 namespace Impl
 
@@ -252,6 +254,15 @@ A redirect chain carries one of these and replaces it whenever a hop needs a con
 private structure Hop where
   connection : Connection
   origin : URI.Origin
+
+/--
+What the innermost send of a hop has produced, as far as the hop knows: nothing yet, the response,
+or nothing more that the hop will take, because the hop has ended.
+-/
+private inductive InnerSend where
+  | pending
+  | sent (tracked : TrackedResponse)
+  | abandoned
 
 private def buildRedirectRequest (plan : RedirectPlan)
     (request : Request Body.Any) : Async (Request Body.Any) := do
@@ -273,32 +284,45 @@ as `Error.io`.
 
 Connection cleanup is owned entirely by this function: on a failed hop the connection is retired
 exactly once, and on a successful hop a background task watches the exchange completion and retires
-the connection if the transport errors after the response was delivered. The completion promise of
-the innermost send is captured in a ref because middlewares only see the response: a hop that
-short-circuits without sending has no completion to watch. It is also returned, so a redirect chain
+the connection if the transport errors after the response was delivered. The innermost send's
+response is captured in a ref because middlewares only see the response: a hop that short-circuits
+without sending has no completion to watch. Its completion is also returned, so a redirect chain
 can wait for the exchange to finish before reusing the connection.
+
+A response that arrives after the hop has ended, or that a middleware received before failing the
+hop, has its body closed, so that the connection drains it instead of waiting for a reader that
+never comes, which would hold up every request queued behind it.
 -/
 private def dispatchHop (client : Client) (hop : Hop) (request : Request Body.Any)
     (overrides : RequestOverrides) :
     Async (Except Error (Response Body.Stream × Option (IO.Promise (Except Error Unit)))) := do
-  let completionRef ← IO.mkRef (none : Option (IO.Promise (Except Error Unit)))
+  let innerRef ← IO.mkRef InnerSend.pending
   let inner : Request Body.Any → Async (Except Error (Response Body.Stream)) :=
       fun req => do
     match ← hop.connection.sendTracked req overrides with
     | .ok tracked =>
-      completionRef.set (some tracked.completion)
+      let abandoned ← innerRef.modifyGet fun
+        | .abandoned => (true, .abandoned)
+        | _ => (false, .sent tracked)
+      if abandoned then tracked.response.body.close
       return .ok tracked.response
     | .error e => return .error e
   let chain := client.middlewares.foldr (fun mw next req => mw req next) inner
   match ← try chain request catch err => pure (.error (.io err)) with
   | .ok response =>
-    let completion ← completionRef.get
+    let completion ← innerRef.modifyGet fun
+      | .sent tracked => (some tracked.completion, .abandoned)
+      | _ => (none, .abandoned)
     if let some completion := completion then
       background do
         if let .error _ ← await completion.result! then
           client.retireConnection hop.connection hop.origin
     return .ok (response, completion)
   | .error e =>
+    let unread ← innerRef.modifyGet fun
+      | .sent tracked => (some tracked.response.body, .abandoned)
+      | _ => (none, .abandoned)
+    if let some body := unread then body.close
     client.retireConnection hop.connection hop.origin
     return .error e
 

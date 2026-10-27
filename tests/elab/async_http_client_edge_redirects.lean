@@ -711,3 +711,150 @@ private def followedRedirect (name : String) (config : Client.Config) : Async Un
     8000 <| Async.block do
   followedRedirect "enableKeepAlive := false" { enableKeepAlive := false }
   followedRedirect "maxRequestsPerConnection := 1" { maxRequestsPerConnection := 1 }
+
+-- ============================================================
+-- Retiring a connection leaves the other callers' requests on it alone
+-- ============================================================
+
+-- Two callers share the client's connection: GET /x is in flight and POST /y queues behind it. A
+-- cross-origin redirect moves /x to a connection of its own, but the old one is merely unwanted,
+-- not broken, so /y still goes out on it and gets its answer. Closing the connection outright here
+-- cancelled /y after it had already been written to the server.
+
+#eval show IO _ from
+  runWithTimeout "a cross-origin redirect does not cancel a request queued by another caller"
+    6000 <| Async.block do
+  let (mockClientA, mockServerA) ← Mock.new
+  let (mockClientB, mockServerB) ← Mock.new
+  let (client, _) ← mkFollowingClient #[mockServerA, mockServerB]
+
+  let reqX ← Request.new |>.method .get |>.uri! "/x"
+    |>.header! "Host" "example.com" |>.empty
+  let reqY ← Request.new |>.method .post |>.uri! "/y"
+    |>.header! "Host" "example.com" |>.text "payload"
+  let pX ← sendInBackground client reqX
+  let _ ← drainRequest mockClientA
+  let pY ← sendInBackground client reqY
+  -- Give /y time to queue on the connection /x holds.
+  IO.sleep 200
+  mockClientA.send (rawResp "302 Found"
+    #[("Location", "http://other.example/z"), ("Content-Length", "0"),
+      ("Connection", "keep-alive")] "")
+
+  -- /y goes on the wire as soon as /x's exchange is over. It is answered only after the redirected
+  -- hop has reached the new connection, so it is still in flight while /x leaves the old one.
+  let yBytes ← drainRequest mockClientA
+  let _ ← drainRequest mockClientB
+  mockClientB.send (rawResp "200 OK" #[("Content-Length", "1"), ("Connection", "close")] "z")
+  try mockClientA.send (rawResp "200 OK" #[("Content-Length", "2")] "ok") catch _ => pure ()
+
+  match ← await pX.result! with
+  | Except.error e => throw (IO.userError s!"the redirected GET failed: {e}")
+  | Except.ok resp =>
+    let body ← resp.body.readAll (α := String)
+    unless body == "z" do throw (IO.userError s!"expected 'z' for /x, got {body.quote}")
+
+  unless (String.fromUTF8! yBytes).startsWith "POST /y" do
+    throw <| IO.userError
+      s!"unexpected request on the old connection:\n{(String.fromUTF8! yBytes).quote}"
+  match ← await pY.result! with
+  | Except.error e =>
+    throw (IO.userError s!"the queued POST failed because another caller was redirected: {e}")
+  | Except.ok resp =>
+    let body ← resp.body.readAll (α := String)
+    unless body == "ok" do throw (IO.userError s!"expected 'ok' for /y, got {body.quote}")
+
+-- A hop can fail while its request is already on the connection: a middleware fails it once the
+-- response has arrived, or without waiting for it at all, or a cookie handler raises on the
+-- response. Nobody will read that response's body, so the connection drains it and then serves the
+-- request queued behind it, instead of holding that request until `requestTimeout` or cancelling
+-- it.
+
+/--
+Sends GET /x, which fails (through `middleware` or `config`), and POST /y from another caller,
+queued behind /x on the same connection, and checks that /y still gets its answer there. The
+middleware is handed a promise that resolves once /y is queued. `failsFirst` says whether /x fails
+before its response arrives, and `failure` recognises its error.
+-/
+private def queuedRequestSurvivesFailedHop (name : String) (failsFirst : Bool)
+    (middleware : IO.Promise Unit → Client.Middleware := fun _ req next => next req)
+    (config : Client.Config := {})
+    (failure : Client.Error → Bool := (· matches .invalidRequest _)) : Async Unit := do
+  let (mockClient, mockServer) ← Mock.new
+  let opened ← IO.mkRef 0
+  let connect : Client.Connector := fun origin config => do
+    if (← opened.modifyGet fun n => (n, n + 1)) > 0 then
+      throw (IO.userError s!"{name}: the client opened a second connection")
+    return .ok (← Client.Connection.new mockServer origin config)
+  let yQueued ← IO.Promise.new
+  let client ← Client.new { config with requestTimeout := ⟨60000, by decide⟩ } connect
+    (maxRetries := 0) (middlewares := #[middleware yQueued])
+  let target := origin "example.com"
+
+  let reqX ← Request.new |>.method .get |>.uri! "/x"
+    |>.header! "Host" "example.com" |>.empty
+  let reqY ← Request.new |>.method .post |>.uri! "/y"
+    |>.header! "Host" "example.com" |>.text "payload"
+  let pX : IO.Promise (Except Client.Error (Response Body.Stream)) ← IO.Promise.new
+  background do
+    discard <| pX.resolve (← client.trySend target reqX)
+  let _ ← drainRequest mockClient
+  let pY : IO.Promise (Except Client.Error (Response Body.Stream)) ← IO.Promise.new
+  background do
+    discard <| pY.resolve (← client.trySend target reqY)
+  -- Give /y time to queue on the connection /x holds.
+  IO.sleep 200
+  yQueued.resolve ()
+
+  let expectFailedX : Async Unit := do
+    match ← await pX.result! with
+    | .error e => unless failure e do throw (IO.userError s!"{name}: unexpected error for /x: {e}")
+    | .ok _ => throw (IO.userError s!"{name}: /x did not fail")
+  -- The rest of /x's body arrives only after the hop has failed, so the connection has to drain it.
+  if failsFirst then expectFailedX
+  mockClient.send (rawResp "200 OK" #[("Content-Length", "5")] "he")
+  unless failsFirst do expectFailedX
+  mockClient.send "llo".toUTF8
+
+  let yBytes ← drainRequest mockClient
+  unless (String.fromUTF8! yBytes).startsWith "POST /y" do
+    throw <| IO.userError
+      s!"{name}: unexpected request after /x:\n{(String.fromUTF8! yBytes).quote}"
+  mockClient.send (rawResp "200 OK" #[("Content-Length", "2")] "ok")
+  match ← await pY.result! with
+  | .error e => throw (IO.userError s!"{name}: the queued POST failed: {e}")
+  | .ok resp =>
+    let body ← resp.body.readAll (α := String)
+    unless body == "ok" do throw (IO.userError s!"{name}: expected 'ok' for /y, got {body.quote}")
+
+#eval show IO _ from
+  runWithTimeout "a middleware failing a hop after its response arrived spares the queued request"
+    6000 <| Async.block do
+  queuedRequestSurvivesFailedHop "fails after the response" (failsFirst := false)
+    fun _ req next => do
+      let result ← next req
+      if toString req.line.uri == "/x" then
+        return .error (.invalidRequest "rejected by the middleware")
+      return result
+
+#eval show IO _ from
+  runWithTimeout "a middleware failing a hop before its response arrived spares the queued request"
+    6000 <| Async.block do
+  queuedRequestSurvivesFailedHop "fails before the response" (failsFirst := true)
+    fun yQueued req next => do
+      if toString req.line.uri != "/x" then
+        return (← next req)
+      background (discard <| next req)
+      await yQueued.result!
+      return .error (.invalidRequest "rejected by the middleware")
+
+#eval show IO _ from
+  runWithTimeout "a cookie handler raising on a response spares the queued request" 6000 <|
+  Async.block do
+  let handler : Client.CookieHandler := {
+    load := fun _ _ => pure #[]
+    store := fun _ target _ => do
+      if toString target == "/x" then throw (IO.userError "the cookie store failed")
+  }
+  queuedRequestSurvivesFailedHop "cookie handler raises" (failsFirst := false)
+    (config := { cookieHandler := some handler }) (failure := (· matches .io _))
