@@ -335,6 +335,12 @@ These bash variables (set via `<file>.init.sh`) are used by the run script:
   A bash variable containing the expected exit code of the program.
   When set to `nonzero` instead of a numerical value, the exit code must not be 0.
 
+- `TEST_FAULTS`:
+  A bash array of `NAME=value` environment variables that make chosen system calls fail, to test the runtime's error paths.
+  If set, the program runs compiled only, on Linux only, with [`fault_inject.c`](fault_inject.c) loaded via `LD_PRELOAD`;
+  `fault_inject.c` describes the variables it reads.
+  Its report of how many calls it made fail is part of the program's output.
+
 - `TEST_REPEAT`:
   A number specifying how often to repeat the benchmark.
   The resulting measurements are averaged.

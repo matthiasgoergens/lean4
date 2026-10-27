@@ -1,0 +1,4 @@
+createTempFile: resource exhausted (error code: 12, not enough memory)
+descriptors left open: 0
+files left in TMPDIR: 0
+fault_inject: made 101 calls fail
