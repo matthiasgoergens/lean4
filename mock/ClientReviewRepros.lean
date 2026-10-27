@@ -128,6 +128,31 @@ private def answerNext (peer : Mock.Client) (resp : ByteArray) (seen : IO.Ref Bo
     throw (IO.userError
       s!"request 2 got {r2}; the server received it: {(← seen1.get) || (← seen2.get)}")
 
+-- 3b. The same for body bytes after a HEAD response, which has no body: they stay buffered, and the
+--     next request on that connection fails parsing them (hyper-util's `client_keep_alive_extra_body`
+--     expects such a connection not to be reused).
+#eval show IO _ from runWithTimeout "stray bytes after a HEAD response do not break the next request" 4000 <|
+  Async.block do
+  let (peer1, transport1) ← Mock.new
+  let (peer2, transport2) ← Mock.new
+  let opened ← IO.mkRef 0
+  let client ← Client.new {} (connectorOf #[transport1, transport2] opened) (maxRetries := 0)
+  let a ← originOf "example.com"
+  let req1 ← Request.new |>.method .head |>.uri! "/h" |>.header! "Host" "example.com" |>.empty
+  let r1 ← sendReading client a req1
+  let _ ← drainRequest peer1
+  peer1.send (rawResp "200 OK" #[("Content-Length", "5"), ("Connection", "keep-alive")] "hello")
+  let _ ← await r1.result!
+  IO.sleep 100
+  let seen1 ← IO.mkRef false
+  let seen2 ← IO.mkRef false
+  answerNext peer1 (rawResp "200 OK" #[("Content-Length", "3")] "two") seen1
+  answerNext peer2 (rawResp "200 OK" #[("Content-Length", "3")] "two") seen2
+  let req2 ← Request.new |>.method .get |>.uri! "/two" |>.header! "Host" "example.com" |>.empty
+  let r2 ← await (← sendReading client a req2).result!
+  unless r2 matches .ok (200, "two") do
+    throw (IO.userError s!"after a HEAD response carrying 5 stray bytes, request 2 got {r2}")
+
 -- 4. A response body that the caller neither reads nor closes holds the connection, and with it
 --    every later request on the client, until the first request's `requestTimeout`.  The read
 --    timeout is off while the connection waits for the caller, and nothing opens a second

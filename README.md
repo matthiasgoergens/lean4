@@ -10,7 +10,7 @@ These are reproducers for the problems reported in a review of the HTTP/1.1 clie
 
 ## How to run
 
-`mock/run.sh` elaborates `mock/ClientReviewRepros.lean` with the same options as the Lean repository's `tests/elab/run_test.sh`.  It takes about five seconds, prints one error per failing test and exits with status 1.
+`mock/run.sh` elaborates `mock/ClientReviewRepros.lean` with the same options as the Lean repository's `tests/elab/run_test.sh`.  It takes about five seconds, prints one error per failing test (six on 3e6f42a58a) and exits with status 1.
 
 `tcp/run.sh <case>` first compiles `probe.lean`, `postloop.lean` and `dns.lean` into `tcp/build/` with `lean -c` and `leanc`, then starts the server the case needs on a free loopback port, runs the client against it, prints the client's output and the server's log, and stops the server.  `tcp/run.sh build` only compiles.  Ports are picked at random, so the port numbers in the output differ from run to run, as do timings in the last digits.
 
@@ -25,8 +25,9 @@ On 3e6f42a58a, `mock/run.sh` prints:
 ClientReviewRepros.lean:53:0-53:5: error: POST /y failed because GET /x was redirected: Y = error: connection shutdown, X = ok: (200, z)
 ClientReviewRepros.lean:86:0-86:5: error: after Client.close the GET went out again on a new connection; the caller got ok: (200, ok)
 ClientReviewRepros.lean:106:0-106:5: error: request 2 got ok: (200, evil); the server received it: true
-ClientReviewRepros.lean:135:0-135:5: error: request 2 took 3001 ms and got error: connection closed, behind request 1's unread 5-byte body
-ClientReviewRepros.lean:165:0-165:5: error: the GET after 303 was never sent; the caller got 303
+ClientReviewRepros.lean:134:0-134:5: error: after a HEAD response carrying 5 stray bytes, request 2 got error: Bad message
+ClientReviewRepros.lean:160:0-160:5: error: request 2 took 3002 ms and got error: connection closed, behind request 1's unread 5-byte body
+ClientReviewRepros.lean:190:0-190:5: error: the GET after 303 was never sent; the caller got 303
 ### exit status 1
 ```
 
@@ -45,6 +46,8 @@ Mock test at line 86.  `Client.close` is called while a GET is waiting for its r
 ### 3. Bytes that arrive on an idle connection become the next response
 
 Mock test at line 106.  After answering request 1, the server sends a second response that nobody asked for.  Request 2 receives it (`(200, evil)`), although the server also received request 2 and answered it with `two`.
+
+Mock test at line 134: the same for body bytes after a HEAD response, which has no body.  They stay buffered, and the next request on that connection fails with `Bad message` while parsing them.
 
 The same over TCP: `tcp/run.sh 3`.  The server answers request 1, and after 200 ms of idleness sends `408 Request Timeout` with `Connection: close`, keeping the socket open for another 2 s before closing it.  The probe sends request 2 after 500 ms.  On 3e6f42a58a it prints:
 
@@ -69,7 +72,7 @@ The second call returns the 408 as its response, although the server never read 
 
 ### 4. A response body that is neither read nor closed blocks the next request
 
-Mock test at line 135.  The caller keeps the response to request 1 but never reads or closes its 5-byte body.  Request 2 on the same client waits until request 1's `requestTimeout` (3 s in the test) runs out, and then fails with `connection closed`.  The time printed is about 3000 ms.
+Mock test at line 160.  The caller keeps the response to request 1 but never reads or closes its 5-byte body.  Request 2 on the same client waits until request 1's `requestTimeout` (3 s in the test) runs out, and then fails with `connection closed`.  The time printed is about 3000 ms.
 
 ### 5. No `TCP_NODELAY` on client sockets
 
@@ -181,4 +184,4 @@ main returning
 
 ### Redirect to the request's own URL
 
-Mock test at line 165.  `POST /items` is answered with `303 See Other` and `Location: /items`.  The client does not send the `GET /items` that a 303 calls for, and returns the 303 to the caller.
+Mock test at line 190.  `POST /items` is answered with `303 See Other` and `Location: /items`.  The client does not send the `GET /items` that a 303 calls for, and returns the 303 to the caller.
