@@ -1984,6 +1984,72 @@ extern "C" LEAN_EXPORT lean_obj_res lean_float_to_string(double a) {
     return mk_ascii_string_unchecked(float_to_string(a));
 }
 
+// Past these precisions `to_chars` only adds zeros: the exact decimal value of a `double` has at
+// most 767 significant digits and 1074 digits after the point.
+static constexpr size_t float_max_fraction_digits = 1100;
+static constexpr size_t float_max_significant_digits = 800;
+
+static size_t float_format_digits(b_lean_obj_arg digits) {
+    return lean_is_scalar(digits) ? lean_unbox(digits) : SIZE_MAX;
+}
+
+template<typename T> static char const * float_special(T a) {
+    if (isnan(a)) return "NaN";
+    if (isinf(a)) return a < 0 ? "-inf" : "inf";
+    return nullptr;
+}
+
+// Positional notation with exactly `digits` digits after the point, as `printf("%.*f")`.
+template<typename T> static std::string float_to_fixed(T a, size_t digits) {
+    if (char const * s = float_special(a)) return s;
+    size_t p = std::min(digits, float_max_fraction_digits);
+    // a sign, at most 309 integer digits, the point and `p` digits
+    std::string out(p + 320, '\0');
+    std::to_chars_result r = std::to_chars(out.data(), out.data() + out.size(), a,
+                                           std::chars_format::fixed, static_cast<int>(p));
+    lean_assert(r.ec == std::errc());
+    out.resize(r.ptr - out.data());
+    out.append(digits - p, '0');
+    return out;
+}
+
+// Scientific notation with exactly `digits` digits after the point, as `printf("%.*e")`.
+template<typename T> static std::string float_to_scientific(T a, size_t digits) {
+    if (char const * s = float_special(a)) return s;
+    size_t p = std::min(digits, float_max_significant_digits);
+    char buf[float_max_significant_digits + 16];
+    std::to_chars_result r = std::to_chars(buf, buf + sizeof(buf), a, std::chars_format::scientific,
+                                           static_cast<int>(p));
+    lean_assert(r.ec == std::errc());
+    std::string out(buf, r.ptr);
+    out.insert(out.find('e'), digits - p, '0');
+    return out;
+}
+
+// `digits` significant digits without trailing zeros, positional or scientific as
+// `printf("%.*g")` chooses.
+template<typename T> static std::string float_to_precision(T a, size_t digits) {
+    if (char const * s = float_special(a)) return s;
+    size_t p = std::clamp(digits, size_t(1), float_max_significant_digits);
+    char buf[float_max_significant_digits + 16];
+    std::to_chars_result r = std::to_chars(buf, buf + sizeof(buf), a, std::chars_format::general,
+                                           static_cast<int>(p));
+    lean_assert(r.ec == std::errc());
+    return std::string(buf, r.ptr);
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float_to_fixed(double a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_fixed(a, float_format_digits(digits)));
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float_to_scientific(double a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_scientific(a, float_format_digits(digits)));
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float_to_precision(double a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_precision(a, float_format_digits(digits)));
+}
+
 extern "C" LEAN_EXPORT double lean_float_scaleb(double a, b_lean_obj_arg b) {
    if (lean_is_scalar(b)) {
      return scalbn(a, lean_scalar_to_int(b));
@@ -2029,6 +2095,18 @@ extern "C" LEAN_EXPORT uint64_t lean_float_to_bits(double d)
 
 extern "C" LEAN_EXPORT lean_obj_res lean_float32_to_string(float a) {
     return mk_ascii_string_unchecked(float_to_string(a));
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float32_to_fixed(float a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_fixed(a, float_format_digits(digits)));
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float32_to_scientific(float a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_scientific(a, float_format_digits(digits)));
+}
+
+extern "C" LEAN_EXPORT lean_obj_res lean_float32_to_precision(float a, b_lean_obj_arg digits) {
+    return mk_ascii_string_unchecked(float_to_precision(a, float_format_digits(digits)));
 }
 
 extern "C" LEAN_EXPORT float lean_float32_scaleb(float a, b_lean_obj_arg b) {
