@@ -986,3 +986,70 @@ private def settledRequestWire (mockClient : Mock.Client) : Async String := do
   | Except.ok resp =>
     resp.body.close
     throw <| IO.userError "40 headers were accepted under maxResponseHeaders := 4"
+
+-- ============================================================
+-- Section 21 — Bytes that answer no request
+-- ============================================================
+
+-- The client sends one request at a time, so bytes that arrive while none is in flight cannot be
+-- the response to anything it sent: a server out of step with the client, or a 408 sent just
+-- before the server closes an idle connection. They must not become the next request's response.
+-- The connection ends instead, and the next request goes out on a fresh one. The keep-alive timeout
+-- is set beyond the test's time limit, so that nothing else can end the connection in time.
+
+/--
+Runs one exchange on the first connection, whose server answers `/one` with `answer`, waits for that
+connection to end, and checks that `/two` then goes out on a second connection and gets its own
+answer.
+-/
+private def nextRequestOnFreshConnection (name : String) (answer : ByteArray)
+    (afterwards : Option ByteArray := none) : Async Unit := do
+  let (mockClient1, mockServer1) ← Mock.new
+  let (mockClient2, mockServer2) ← Mock.new
+  let (client, _) ← mkFollowingClient #[mockServer1, mockServer2]
+    { keepAliveTimeout := ⟨60000, by decide⟩ }
+
+  let req1 ← Request.new |>.method .get |>.uri! "/one"
+    |>.header! "Host" "example.com" |>.empty
+  let p1 ← sendInBackground client req1
+  let _ ← drainRequest mockClient1
+  mockClient1.send answer
+  match ← await p1.result! with
+  | Except.error e => throw <| IO.userError s!"{name}: the first request failed: {e}"
+  | Except.ok resp =>
+    let body ← resp.body.readAll (α := String)
+    unless body == "ok" do throw <| IO.userError s!"{name}: expected 'ok', got {body.quote}"
+
+  if let some bytes := afterwards then
+    mockClient1.send bytes
+  (← client.connection).waitShutdown
+
+  let req2 ← Request.new |>.method .get |>.uri! "/two"
+    |>.header! "Host" "example.com" |>.empty
+  let p2 ← sendInBackground client req2
+  let second ← drainRequest mockClient2
+  unless (String.fromUTF8! second).startsWith "GET /two" do
+    throw <| IO.userError s!"{name}: unexpected second request:\n{(String.fromUTF8! second).quote}"
+  mockClient2.send (rawResp "200 OK" #[("Content-Length", "3")] "two")
+  match ← await p2.result! with
+  | Except.error e => throw <| IO.userError s!"{name}: the second request failed: {e}"
+  | Except.ok resp =>
+    let body ← resp.body.readAll (α := String)
+    unless body == "two" do
+      throw <| IO.userError s!"{name}: the second request got {body.quote}, not its own answer"
+
+#eval show IO _ from
+  runWithTimeout "a response that arrives on an idle connection is not delivered" 4000 <|
+  Async.block do
+  nextRequestOnFreshConnection "after the exchange"
+    (rawResp "200 OK" #[("Content-Length", "2")] "ok")
+    (afterwards := some (rawResp "200 OK" #[("Content-Length", "4")] "evil"))
+
+-- The same bytes arriving in one read with the end of the previous response.
+
+#eval show IO _ from
+  runWithTimeout "bytes past the end of a response are not delivered" 4000 <|
+  Async.block do
+  nextRequestOnFreshConnection "in the same read"
+    (rawResp "200 OK" #[("Content-Length", "2")] "ok" ++
+      rawResp "200 OK" #[("Content-Length", "4")] "evil")

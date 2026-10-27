@@ -913,6 +913,14 @@ private def run
       if sawFailure ∨ state.machine.exhausted then
         break
 
+      -- Requests go out one at a time, so bytes that arrive while none is in flight, or that
+      -- follow the end of the last response, answer no request of ours: a server sending a 408
+      -- before it closes an idle connection, or one that is out of step with us. Parsing them as
+      -- the next request's response would hand that request an answer to something it never sent,
+      -- so the connection ends here and the next request opens a fresh one.
+      if state.waitingForRequest ∧ state.machine.hasBufferedInput then
+        break
+
       -- Phase 4: wait for the next IO event. Skipped when the last step left buffered work behind,
       -- since then there is nothing to wait for.
 
