@@ -14,5 +14,6 @@
 [inf, -inf, NaN]
 0.67
 1.23e+06
+[0.67, 1.23e+03, 1.23e+06, 0.1, 0.67]
 Float: 7200 checks, 0 failures
 Float32: 7176 checks, 0 failures
