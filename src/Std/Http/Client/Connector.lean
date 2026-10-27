@@ -60,7 +60,12 @@ def Connector.tcp : Connector := fun origin config => do
 
   let (connectHost, connectPort) :=
     match config.proxySelector.select origin with
-    | .direct => (toString origin.host, origin.port)
+    | .direct =>
+      -- `toString` brackets an IPv6 address the way a URI writes it, which `getaddrinfo` rejects.
+      let host := match origin.host with
+        | .ipv6 addr => toString addr
+        | host => toString host
+      (host, origin.port)
     | .http proxyHost proxyPort => (proxyHost, proxyPort)
   let addrs ←
     try DNS.getAddrInfo connectHost (toString connectPort)
