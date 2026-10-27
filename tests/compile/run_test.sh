@@ -22,6 +22,19 @@ if [[ "$OSTYPE" != "cygwin" && "$OSTYPE" != "msys" ]]; then
   LEANC_SHARED_ARGS+=(-Wl,-rpath,"$BUILD_DIR/lib/lean")
 fi
 
+# A test that sets `TEST_FAULTS` runs compiled only, with `../fault_inject.c` preloaded and those
+# variables set (see there). This needs `LD_PRELOAD`, so Linux.
+RUN_PREFIX=()
+if [[ -n "${TEST_FAULTS[*]}" ]]; then
+  if [[ "$OSTYPE" != linux* ]]; then
+    echo "Fault injection needs Linux, skipping"
+    exit 0
+  fi
+  DO_INTERPRET=
+  $CXX -x c -shared -fPIC -o "$TMP_DIR/fault_inject.so" ../fault_inject.c -ldl || fail "Failed to build ../fault_inject.c"
+  RUN_PREFIX=(env "${TEST_FAULTS[@]}" LD_PRELOAD="$TMP_DIR/fault_inject.so")
+fi
+
 if [[ -n $DO_COMPILE ]]; then
   echo "Compiling and executing lean file"
   run_before "$1"
@@ -30,7 +43,7 @@ if [[ -n $DO_COMPILE ]]; then
   leanc ${LEANC_OPTS-} -O3 -DNDEBUG -o "$1.out" "${TEST_LEANC_ARGS[@]}" "$1.c" "${LEANC_SHARED_ARGS[@]}" || fail "Failed to compile $1.c"
 
   capture_only "$1" \
-    "./$1.out" "${TEST_ARGS[@]}"
+    "${RUN_PREFIX[@]}" "./$1.out" "${TEST_ARGS[@]}"
   normalize_measurements
   check_out_file
   check_exit_is "${TEST_EXIT:-0}"
