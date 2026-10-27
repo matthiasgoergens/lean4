@@ -637,6 +637,45 @@ open Test.ClientHelpers
   | Except.ok _ =>
     throw (IO.userError "expected in-flight request to abort when the connection is closed")
 
+-- `Client.close` aborts the GET in flight, which has already reached the server. The caller asked
+-- for it to end, so the abort must reach the caller rather than be retried: with the default
+-- `maxRetries`, a retryable abort sent the GET again on a fresh connection and the caller saw only
+-- the second answer.
+#eval show IO _ from runWithTimeout "Client.close does not re-send an in-flight GET" 4000 <|
+  Async.block do
+  let (mockClient1, mockServer1) ← Mock.new
+  let (mockClient2, mockServer2) ← Mock.new
+  let opened ← IO.mkRef 0
+  let connect : Client.Connector := fun origin config => do
+    let n ← opened.modifyGet fun n => (n, n + 1)
+    let mockServer := if n == 0 then mockServer1 else mockServer2
+    return .ok (← Client.Connection.new mockServer origin config)
+  let client ← Client.new {} connect
+
+  let request ← Request.new
+    |>.method .get
+    |>.uri! "/slow"
+    |>.header! "Host" "example.com"
+    |>.empty
+  let result : IO.Promise (Except Client.Error (Response Body.Stream)) ← IO.Promise.new
+  background do
+    discard <| result.resolve (← client.trySend (origin "example.com") request)
+
+  let _ ← drainRequest mockClient1
+  client.close
+  -- A re-sent GET would arrive on the second connection; answer it if it does.
+  background do
+    if let some _ ← mockClient2.recv? then
+      try mockClient2.send (rawResp "200 OK" #[("Content-Length", "2")] "ok") catch _ => pure ()
+
+  match ← await result.result! with
+  | .ok resp =>
+    resp.body.close
+    throw (IO.userError "after Client.close the GET was sent again and its second answer returned")
+  | .error _ =>
+    unless (← opened.get) == 1 do
+      throw (IO.userError s!"after Client.close the client opened {← opened.get} connections")
+
 -- Opening a transport must not hold the pool state mutex. The first connector is deliberately
 -- blocked; a second-origin acquisition must enter its connector before the first is released.
 #eval show IO _ from runWithTimeout "pool does not hold state mutex while connecting" 4000 <|

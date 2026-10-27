@@ -637,9 +637,10 @@ private def settledWithin {α : Type} (task : Task α) (ms : Nat) : Async Bool :
   discard <| readHead mockServer
   connection.close
 
+  -- `close` cut the exchange short after its head was written, so the error must not be retryable.
   match ← expectError promise with
-  | .closed _ => pure ()
-  | e => throw (IO.userError s!"expected .closed after close, got {ctorName e}")
+  | .io _ => pure ()
+  | e => throw (IO.userError s!"expected .io after close, got {ctorName e}")
 
   let mut closed := false
   for _ in [0:50] do

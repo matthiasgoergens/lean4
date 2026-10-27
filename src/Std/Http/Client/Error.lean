@@ -63,7 +63,8 @@ inductive Error where
   | invalidRequest (message : String)
 
   /--
-  Any other I/O failure, e.g. raised by a middleware or a user-supplied body.
+  Any other I/O failure, e.g. raised by a middleware or a user-supplied body, or an exchange that
+  `Connection.close` cut short.
   -/
   | io (error : IO.Error)
 deriving Inhabited

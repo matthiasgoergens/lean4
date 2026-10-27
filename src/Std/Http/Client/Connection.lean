@@ -677,6 +677,14 @@ private def processH1Events
   return (state, sawFailure)
 
 /--
+The failure of an exchange cut short by `close`. The request may already have reached the server,
+and `close` was asked to end it, so it is reported as `.io`, which `Error.isRetryable` rejects,
+rather than as a retryable `.closed` that would send it again on a fresh connection.
+-/
+private def closedLocally : Error :=
+  .io (IO.userError "connection closed by the client")
+
+/--
 Terminal transition applied when a caller-facing problem forces the connection
 to end (request timeout, shutdown signal, response body limit exceeded).
 Rejects any in-flight request, closes all per-request resources, and parks
@@ -724,7 +732,7 @@ private def deliverResponseChunk
 
   let mut selectables : Array (Selectable (Option Error)) := #[
     .case parked.recvSelector (fun _ => pure none),
-    .case connectionContext.doneSelector (fun _ => pure (some (.closed "connection shutdown")))
+    .case connectionContext.doneSelector (fun _ => pure (some closedLocally))
   ]
 
   if let some deadline := deadline then
@@ -811,7 +819,7 @@ private def handleRecvEvent (baseConfig : Config) (connectionContext : Cancellat
       pure (state, false)
 
   | .shutdown => do
-    return (← abortState state (.closed "connection shutdown"), true)
+    return (← abortState state closedLocally, true)
 
   | .failed error => do
     -- `Selectable.one` reports a raise without naming the source it came from, and of the sources
