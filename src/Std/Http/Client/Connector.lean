@@ -66,6 +66,10 @@ def Connector.tcp : Connector := fun origin config => do
     try DNS.getAddrInfo connectHost (toString connectPort)
     catch err => return .error (.connect (toString err))
 
+  -- Without a socket type to ask for, `getaddrinfo` lists an address once for each type it
+  -- supports (stream, datagram, raw); trying each address once is enough.
+  let addrs := addrs.toList.eraseDups.toArray
+
   if addrs.isEmpty then
     return .error (.connect s!"could not resolve host: {connectHost.quote}")
 
