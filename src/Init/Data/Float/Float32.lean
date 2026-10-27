@@ -190,6 +190,37 @@ such as `0.1`, `1.0` or `1e-09`.
 This function does not reduce in the kernel.
 -/
 @[extern "lean_float32_to_string"] opaque Float32.toString : Float32 → String
+
+/--
+Formats a floating-point number in positional notation with exactly `digits` digits after the
+decimal point, rounded to nearest with ties to even, as C's `printf("%.*f")` does:
+`(2 / 3 : Float32).toFixed 2` is `"0.67"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float32_to_fixed"]
+opaque Float32.toFixed (x : Float32) (digits : @& Nat) : String
+
+/--
+Formats a floating-point number in scientific notation with one digit before the decimal point and
+exactly `digits` after it, rounded to nearest with ties to even, as C's `printf("%.*e")` does:
+`(1234.5 : Float32).toScientific 2` is `"1.23e+03"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float32_to_scientific"]
+opaque Float32.toScientific (x : Float32) (digits : @& Nat) : String
+
+/--
+Formats a floating-point number with `digits` significant digits, in positional notation unless the
+exponent is below `-4` or at least `digits`, and without trailing zeros, as C's `printf("%.*g")`
+does: `(2 / 3 : Float32).toPrecision 3` is `"0.667"`, and
+`(1234567 : Float32).toPrecision 3` is `"1.23e+06"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float32_to_precision"]
+opaque Float32.toPrecision (x : Float32) (digits : @& Nat) : String
 /--
 Converts a floating-point number to an 8-bit unsigned integer.
 

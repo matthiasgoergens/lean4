@@ -3131,6 +3131,9 @@ static inline uint64_t lean_isize_to_int64(size_t a) { return (uint64_t)(int64_t
 /* Float */
 
 LEAN_EXPORT lean_obj_res lean_float_to_string(double a);
+LEAN_EXPORT lean_obj_res lean_float_to_fixed(double a, b_lean_obj_arg digits);
+LEAN_EXPORT lean_obj_res lean_float_to_scientific(double a, b_lean_obj_arg digits);
+LEAN_EXPORT lean_obj_res lean_float_to_precision(double a, b_lean_obj_arg digits);
 LEAN_EXPORT double lean_float_scaleb(double a, b_lean_obj_arg b);
 LEAN_EXPORT uint8_t lean_float_isnan(double a);
 LEAN_EXPORT uint8_t lean_float_isfinite(double a);
@@ -3140,6 +3143,9 @@ LEAN_EXPORT lean_obj_res lean_float_frexp(double a);
 /* Float32 */
 
 LEAN_EXPORT lean_obj_res lean_float32_to_string(float a);
+LEAN_EXPORT lean_obj_res lean_float32_to_fixed(float a, b_lean_obj_arg digits);
+LEAN_EXPORT lean_obj_res lean_float32_to_scientific(float a, b_lean_obj_arg digits);
+LEAN_EXPORT lean_obj_res lean_float32_to_precision(float a, b_lean_obj_arg digits);
 LEAN_EXPORT float lean_float32_scaleb(float a, b_lean_obj_arg b);
 LEAN_EXPORT uint8_t lean_float32_isnan(float a);
 LEAN_EXPORT uint8_t lean_float32_isfinite(float a);

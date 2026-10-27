@@ -121,8 +121,7 @@ where
 
 /-- Formats a duration in milliseconds with one decimal place, e.g. `12.3ms`. -/
 private def formatMs (ms : Float) : String :=
-  let tenths := (ms * 10).round.toUInt64.toNat
-  s!"{tenths / 10}.{tenths % 10}ms"
+  s!"{ms.toFixed 1}ms"
 
 /--
 Appends the number of milliseconds spent inside each subtree but outside of its child nodes to

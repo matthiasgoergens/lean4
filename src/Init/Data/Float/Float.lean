@@ -194,6 +194,37 @@ This function does not reduce in the kernel.
 @[extern "lean_float_to_string"] opaque Float.toString : Float → String
 
 /--
+Formats a floating-point number in positional notation with exactly `digits` digits after the
+decimal point, rounded to nearest with ties to even, as C's `printf("%.*f")` does:
+`(2 / 3 : Float).toFixed 2` is `"0.67"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float_to_fixed"]
+opaque Float.toFixed (x : Float) (digits : @& Nat) : String
+
+/--
+Formats a floating-point number in scientific notation with one digit before the decimal point and
+exactly `digits` after it, rounded to nearest with ties to even, as C's `printf("%.*e")` does:
+`(1234.5 : Float).toScientific 2` is `"1.23e+03"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float_to_scientific"]
+opaque Float.toScientific (x : Float) (digits : @& Nat) : String
+
+/--
+Formats a floating-point number with `digits` significant digits, in positional notation unless the
+exponent is below `-4` or at least `digits`, and without trailing zeros, as C's `printf("%.*g")`
+does: `(2 / 3 : Float).toPrecision 3` is `"0.667"`, and
+`(1234567 : Float).toPrecision 3` is `"1.23e+06"`.
+
+This function does not reduce in the kernel.
+-/
+@[extern "lean_float_to_precision"]
+opaque Float.toPrecision (x : Float) (digits : @& Nat) : String
+
+/--
 Converts a floating-point number to an 8-bit unsigned integer.
 
 If the given `Float` is non-negative, truncates the value to a positive integer, rounding down and

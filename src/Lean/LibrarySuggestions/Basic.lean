@@ -552,7 +552,7 @@ open Lean.Elab.Tactic in
     for s in suggestions do
       msg := msg ++ Format.line ++ "  " ++ MessageData.ofConstName s.name
       if !allScoresOne then
-        msg := msg ++ m!" (score: {s.score})"
+        msg := msg ++ m!" (score: {s.score.toFixed 6})"
       if let some flag := s.flag then
         msg := msg ++ m!" [{flag}]"
     logInfo msg

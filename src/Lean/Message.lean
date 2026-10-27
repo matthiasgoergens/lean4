@@ -391,7 +391,7 @@ partial def formatAux : NamingContext → Option MessageDataContext → MessageD
 
     let mut msg := f!"[{data.cls}]"
     if data.startTime != 0 then
-      msg := f!"{msg} [{data.stopTime - data.startTime}]"
+      msg := f!"{msg} [{(data.stopTime - data.startTime).toFixed 6}]"
     let headerFmt ← formatAux nCtx ctx header
     let headerFmt := match data.result? with
       | some r => f!"{r.toEmoji} {headerFmt}"
