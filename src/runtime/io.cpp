@@ -873,16 +873,21 @@ extern "C" LEAN_EXPORT obj_res lean_io_get_random_bytes (size_t nbytes) {
 
     if (nbytes == 0) return io_result_mk_ok(lean_alloc_sarray(1, 0, 0));
 
-#if !defined(LEAN_WINDOWS)
-    int fd_urandom = open("/dev/urandom", O_RDONLY | O_CLOEXEC);
-    if (fd_urandom < 0) {
-        return io_result_mk_error(decode_io_error(errno, lean_mk_ascii_string_unchecked("/dev/urandom")));
-    }
-#endif
-
     if (lean_alloc_sarray_would_overflow(1, nbytes)) {
         return io_result_mk_error(decode_io_error(ENOMEM, NULL));
     }
+
+#if !defined(LEAN_WINDOWS)
+    int fd_urandom = open("/dev/urandom", O_RDONLY | O_CLOEXEC);
+    if (fd_urandom < 0) {
+        int err = errno;
+        object * fname = lean_mk_ascii_string_unchecked("/dev/urandom");
+        object * res = io_result_mk_error(decode_io_error(err, fname));
+        dec_ref(fname);
+        return res;
+    }
+#endif
+
     obj_res res = lean_alloc_sarray(1, 0, nbytes);
     size_t remain = nbytes;
     uint8_t *dst = lean_sarray_cptr(res);
