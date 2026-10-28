@@ -1,0 +1,20 @@
+"0": (some 0.0), (some 0.0)
+"-0": (some -0.0), (some -0.0)
+"0.1": (some 0.1), (some 0.1)
+"-1.5e-3": (some -0.0015), (some -0.0015)
+"1e400": (some inf), (some inf)
+"-1e400": (some -inf), (some -inf)
+"1e-400": (some 0.0), (some 0.0)
+"1_000.5": (some 1000.5), (some 1000.5)
+"1.": (some 1.0), (some 1.0)
+".5": (some 0.5), (some 0.5)
+"1E+3": (some 1000.0), (some 1000.0)
+"123456789012345678901234567890": (some 1.2345678901234568e+29), (some 1.2345679e+29)
+"4.9406564584124654e-324": (some 5e-324), (some 0.0)
+"inf": (some inf), (some inf)
+"-inf": (some -inf), (some -inf)
+"NaN": (some NaN), (some NaN)
+rejected wrongly: []
+toFloat!: 2.5, -0.001; toFloat32!: 2.5
+Float round trip: 0 failures
+Float32 round trip: 0 failures
