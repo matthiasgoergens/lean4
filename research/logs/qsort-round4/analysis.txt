@@ -1,0 +1,23 @@
+0 problems
+
+nat-random-1000000
+  lab-lomuto-c24 median    89.3 ms   / core: 0.919 [0.916, 0.922] (n=10)
+  lab-c24    median    92.6 ms   / core: 0.952 [0.949, 0.955] (n=10)
+  lab-lomuto median    93.7 ms   / core: 0.964 [0.96, 0.967] (n=10)
+  pdq        median    97.1 ms   / core: 0.997 [0.994, 1] (n=10)
+  lab-base   median    97.2 ms   / core: 0.999 [0.996, 1] (n=10)
+  core       median    97.2 ms
+rec-random-1000000
+  lab-lomuto-c24 median     125 ms   / core: 0.885 [0.859, 0.911] (n=10)
+  lab-lomuto median     131 ms   / core: 0.919 [0.875, 0.965] (n=10)
+  lab-c24    median     132 ms   / core: 0.928 [0.887, 0.969] (n=10)
+  pdq        median     137 ms   / core: 0.949 [0.909, 0.989] (n=10)
+  lab-base   median     140 ms   / core: 0.975 [0.941, 1.01] (n=10)
+  core       median     143 ms
+u64-random-6250000
+  lab-lomuto-c24 median     967 ms   / core: 0.954 [0.938, 0.971] (n=10)
+  lab-lomuto median     1.02 s   / core: 0.989 [0.973, 1] (n=10)
+  core       median     1.02 s
+  lab-c24    median     1.05 s   / core: 1.04 [1.02, 1.06] (n=10)
+  lab-base   median     1.08 s   / core: 1.06 [1.03, 1.09] (n=10)
+  pdq        median     1.13 s   / core: 1.1 [1.06, 1.13] (n=10)

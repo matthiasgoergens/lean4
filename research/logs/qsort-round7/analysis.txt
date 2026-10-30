@@ -1,0 +1,70 @@
+0 problems
+
+nat-dups4-100000
+  lab-c32    median   0.966 ms   / pdq: 0.952 [0.86, 1.05] (n=12)
+  lab-c24    median   0.969 ms   / pdq: 0.987 [0.902, 1.08] (n=12)
+  lab-c20    median    0.97 ms   / pdq: 0.974 [0.904, 1.05] (n=12)
+  lab-c16    median   0.974 ms   / pdq: 1.02 [0.9, 1.15] (n=12)
+  pdq        median   0.979 ms
+  lab-c48    median    1.04 ms   / pdq: 0.982 [0.878, 1.1] (n=12)
+nat-nearly-100000
+  lab-c32    median   0.857 ms   / pdq: 0.93 [0.836, 1.03] (n=12)
+  lab-c20    median    0.86 ms   / pdq: 0.97 [0.81, 1.16] (n=12)
+  lab-c48    median   0.861 ms   / pdq: 0.95 [0.787, 1.15] (n=12)
+  pdq        median   0.865 ms
+  lab-c16    median   0.902 ms   / pdq: 1.01 [0.827, 1.22] (n=12)
+  lab-c24    median   0.922 ms   / pdq: 1.04 [0.821, 1.32] (n=12)
+nat-random-1000000
+  lab-c48    median    89.6 ms   / pdq: 0.944 [0.879, 1.01] (n=12)
+  lab-c24    median    91.2 ms   / pdq: 0.988 [0.866, 1.13] (n=12)
+  lab-c20    median    91.8 ms   / pdq: 0.95 [0.867, 1.04] (n=12)
+  lab-c32    median    92.4 ms   / pdq: 0.954 [0.899, 1.01] (n=12)
+  core       median    95.2 ms   / pdq: 0.974 [0.908, 1.04] (n=12)
+  pdq        median    96.3 ms
+  lab-c16    median    98.3 ms   / pdq: 1.02 [0.946, 1.11] (n=12)
+nat-random-1000000-chunk32
+  lab-c32    median    27.8 ms   / pdq: 0.689 [0.592, 0.802] (n=12)
+  lab-c48    median    29.7 ms   / pdq: 0.771 [0.687, 0.865] (n=12)
+  lab-c24    median    31.3 ms   / pdq: 0.802 [0.725, 0.887] (n=12)
+  lab-c16    median    35.2 ms   / pdq: 0.908 [0.8, 1.03] (n=12)
+  lab-c20    median    36.8 ms   / pdq: 0.924 [0.851, 1] (n=12)
+  pdq        median    37.7 ms
+  core       median    42.4 ms   / pdq: 1.1 [0.914, 1.33] (n=12)
+nat-runs16-100000
+  lab-c48    median    4.57 ms   / pdq: 0.84 [0.743, 0.949] (n=12)
+  pdq        median    5.22 ms
+  lab-c20    median    5.33 ms   / pdq: 0.985 [0.89, 1.09] (n=12)
+  lab-c24    median     5.4 ms   / pdq: 0.968 [0.83, 1.13] (n=12)
+  lab-c32    median    5.49 ms   / pdq: 0.956 [0.852, 1.07] (n=12)
+  lab-c16    median    5.54 ms   / pdq: 1.02 [0.886, 1.18] (n=12)
+rec-organ-100000
+  lab-c20    median    3.05 ms   / pdq: 0.814 [0.66, 1.01] (n=12)
+  lab-c48    median    3.34 ms   / pdq: 0.945 [0.753, 1.19] (n=12)
+  lab-c24    median    3.38 ms   / pdq: 0.971 [0.838, 1.12] (n=12)
+  lab-c16    median    3.43 ms   / pdq: 0.919 [0.773, 1.09] (n=12)
+  pdq        median    3.57 ms
+  lab-c32    median    3.83 ms   / pdq: 0.978 [0.831, 1.15] (n=12)
+rec-random-1000000
+  lab-c24    median     135 ms   / pdq: 0.863 [0.671, 1.11] (n=12)
+  lab-c16    median     142 ms   / pdq: 0.853 [0.702, 1.04] (n=12)
+  lab-c48    median     146 ms   / pdq: 0.839 [0.693, 1.01] (n=12)
+  lab-c20    median     151 ms   / pdq: 0.953 [0.787, 1.16] (n=12)
+  pdq        median     162 ms
+  core       median     181 ms   / pdq: 1.02 [0.913, 1.13] (n=12)
+  lab-c32    median     188 ms   / pdq: 1.02 [0.949, 1.1] (n=12)
+str-random-100000
+  lab-c48    median    17.5 ms   / pdq: 0.941 [0.739, 1.2] (n=12)
+  lab-c32    median    17.7 ms   / pdq: 0.91 [0.824, 1.01] (n=12)
+  lab-c20    median    18.8 ms   / pdq: 1.09 [0.772, 1.54] (n=12)
+  core       median    19.2 ms   / pdq: 0.971 [0.764, 1.23] (n=12)
+  pdq        median    19.2 ms
+  lab-c16    median    19.4 ms   / pdq: 1.02 [0.844, 1.23] (n=12)
+  lab-c24    median    21.4 ms   / pdq: 1.09 [0.807, 1.48] (n=12)
+u64-random-6250000
+  pdq        median     1.14 s
+  lab-c16    median     1.24 s   / pdq: 1.07 [0.905, 1.26] (n=12)
+  lab-c48    median     1.25 s   / pdq: 1.04 [0.905, 1.19] (n=12)
+  core       median     1.25 s   / pdq: 1.09 [0.883, 1.34] (n=12)
+  lab-c24    median     1.26 s   / pdq: 1.04 [0.828, 1.32] (n=12)
+  lab-c32    median     1.29 s   / pdq: 1.05 [0.879, 1.26] (n=12)
+  lab-c20    median     1.38 s   / pdq: 1.13 [0.953, 1.35] (n=12)

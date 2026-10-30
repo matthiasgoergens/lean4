@@ -1,0 +1,18 @@
+0 problems
+
+nat-random-1000000
+  none       median   0.116 ms   / core: 0.000654 [0.000542, 0.00079] (n=18)
+  pdq        median     129 ms   / core: 0.886 [0.82, 0.957] (n=18)
+  core       median     141 ms
+rec-random-1000000
+  none       median  0.0844 ms   / core: 6.83e-05 [5.77e-05, 8.08e-05] (n=18)
+  pdq        median     1.09 s   / core: 0.784 [0.752, 0.817] (n=18)
+  core       median     1.38 s
+str-random-1000000
+  none       median  0.0748 ms   / core: 2.57e-05 [2.19e-05, 3.02e-05] (n=18)
+  pdq        median     2.33 s   / core: 0.785 [0.75, 0.822] (n=18)
+  core       median     2.88 s
+u64-random-6250000
+  none       median  0.0732 ms   / core: 1.09e-05 [8.89e-06, 1.33e-05] (n=18)
+  pdq        median     8.13 s   / core: 0.91 [0.881, 0.939] (n=18)
+  core       median     8.78 s

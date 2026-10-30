@@ -1,0 +1,270 @@
+0 problems
+
+nat-blocks16-100000
+  pdq        median    5.17 ms
+  adaptive   median    9.47 ms   / pdq: 1.81 [1.69, 1.94] (n=10)
+  merge      median      17 ms   / pdq: 3.24 [3.07, 3.43] (n=10)
+nat-blocks16-1000000
+  pdq        median    57.5 ms
+  adaptive   median     103 ms   / pdq: 1.85 [1.63, 2.09] (n=10)
+  merge      median     185 ms   / pdq: 3.29 [3.1, 3.49] (n=10)
+nat-blocks2-100000
+  adaptive   median    2.55 ms   / pdq: 0.663 [0.606, 0.727] (n=10)
+  pdq        median     3.7 ms
+  merge      median    14.9 ms   / pdq: 3.94 [3.48, 4.45] (n=10)
+nat-blocks2-1000000
+  adaptive   median    26.1 ms   / pdq: 0.665 [0.633, 0.699] (n=10)
+  pdq        median    39.2 ms
+  merge      median     168 ms   / pdq: 4.26 [3.95, 4.58] (n=10)
+nat-blocks256-100000
+  pdq        median    6.49 ms
+  adaptive   median    17.7 ms   / pdq: 2.84 [2.68, 3.02] (n=10)
+  merge      median    19.4 ms   / pdq: 3.09 [2.86, 3.35] (n=10)
+nat-blocks256-1000000
+  pdq        median    68.8 ms
+  adaptive   median     195 ms   / pdq: 2.89 [2.72, 3.06] (n=10)
+  merge      median     220 ms   / pdq: 3.24 [2.92, 3.59] (n=10)
+nat-constant-100000
+  pdq        median  0.0933 ms
+  adaptive   median     0.1 ms   / pdq: 1.09 [0.963, 1.22] (n=10)
+  merge      median    14.2 ms   / pdq: 162 [139, 190] (n=10)
+nat-dups4-100000
+  pdq        median   0.983 ms
+  adaptive   median    1.03 ms   / pdq: 1.04 [1.02, 1.05] (n=10)
+  merge      median    18.9 ms   / pdq: 20.2 [17.4, 23.5] (n=10)
+nat-dupsqrt-100000
+  pdq        median    4.03 ms
+  adaptive   median    4.06 ms   / pdq: 1.03 [0.963, 1.11] (n=10)
+  merge      median    21.6 ms   / pdq: 5.37 [5.28, 5.45] (n=10)
+nat-headsqrt-100000
+  pdq        median    8.41 ms
+  adaptive   median    12.5 ms   / pdq: 1.54 [1.39, 1.7] (n=10)
+  merge      median    23.4 ms   / pdq: 2.76 [2.65, 2.88] (n=10)
+nat-headsqrt-1000000
+  pdq        median    97.5 ms
+  adaptive   median     137 ms   / pdq: 1.45 [1.36, 1.54] (n=10)
+  merge      median     273 ms   / pdq: 3.08 [2.6, 3.65] (n=10)
+nat-nearly-100000
+  adaptive   median   0.474 ms   / pdq: 0.533 [0.441, 0.644] (n=10)
+  pdq        median   0.908 ms
+  merge      median    14.6 ms   / pdq: 17.1 [13.8, 21.2] (n=10)
+nat-nearly-1000000
+  adaptive   median    4.53 ms   / pdq: 0.741 [0.634, 0.867] (n=10)
+  pdq        median    6.64 ms
+  merge      median     167 ms   / pdq: 24.5 [23.1, 26] (n=10)
+nat-organ-100000
+  adaptive   median    1.56 ms   / pdq: 0.564 [0.447, 0.711] (n=10)
+  pdq        median    2.89 ms
+  merge      median    14.2 ms   / pdq: 5.04 [4.05, 6.28] (n=10)
+nat-organ-1000000
+  adaptive   median    17.4 ms   / pdq: 0.558 [0.501, 0.621] (n=10)
+  pdq        median    32.4 ms
+  merge      median     160 ms   / pdq: 5.43 [4.75, 6.2] (n=10)
+nat-pathological-100000
+  pdq        median   0.232 ms
+  adaptive   median   0.235 ms   / pdq: 0.996 [0.924, 1.07] (n=10)
+  merge      median    13.9 ms   / pdq: 57.7 [51.1, 65.1] (n=10)
+nat-random-100000
+  pdq        median    8.33 ms
+  adaptive   median     8.4 ms   / pdq: 1.04 [0.973, 1.11] (n=10)
+  merge      median    25.1 ms   / pdq: 3.33 [2.74, 4.05] (n=10)
+nat-random-1000000
+  pdq        median    96.9 ms
+  adaptive   median    96.9 ms   / pdq: 0.991 [0.961, 1.02] (n=10)
+  merge      median     285 ms   / pdq: 3.01 [2.69, 3.36] (n=10)
+nat-reversed-100000
+  pdq        median   0.179 ms
+  adaptive   median    0.18 ms   / pdq: 1.02 [0.969, 1.08] (n=10)
+  merge      median    13.8 ms   / pdq: 85.1 [71.9, 101] (n=10)
+nat-runs16-100000
+  pdq        median    5.31 ms
+  adaptive   median    6.07 ms   / pdq: 1.28 [1.06, 1.56] (n=10)
+  merge      median    15.8 ms   / pdq: 3.28 [2.73, 3.93] (n=10)
+nat-runs16-1000000
+  pdq        median    57.3 ms
+  adaptive   median    62.1 ms   / pdq: 1.09 [1.01, 1.18] (n=10)
+  merge      median     178 ms   / pdq: 3.09 [3.02, 3.16] (n=10)
+nat-runs2-100000
+  adaptive   median    1.51 ms   / pdq: 0.491 [0.469, 0.516] (n=10)
+  pdq        median    3.01 ms
+  merge      median    14.2 ms   / pdq: 4.9 [4.6, 5.22] (n=10)
+nat-runs2-1000000
+  adaptive   median    17.3 ms   / pdq: 0.519 [0.498, 0.541] (n=10)
+  pdq        median    33.2 ms
+  merge      median     162 ms   / pdq: 4.86 [4.5, 5.25] (n=10)
+nat-runs256-100000
+  pdq        median    6.58 ms
+  adaptive   median    8.68 ms   / pdq: 1.37 [1.21, 1.54] (n=10)
+  merge      median    16.5 ms   / pdq: 2.5 [2.37, 2.64] (n=10)
+nat-runs256-1000000
+  pdq        median    69.3 ms
+  adaptive   median    95.2 ms   / pdq: 1.37 [1.35, 1.4] (n=10)
+  merge      median     192 ms   / pdq: 2.87 [2.58, 3.2] (n=10)
+nat-runs4-100000
+  adaptive   median    3.03 ms   / pdq: 0.614 [0.507, 0.744] (n=10)
+  pdq        median    5.12 ms
+  merge      median    14.9 ms   / pdq: 2.88 [2.65, 3.12] (n=10)
+nat-runs4-1000000
+  adaptive   median    33.9 ms   / pdq: 0.532 [0.509, 0.557] (n=10)
+  pdq        median    65.1 ms
+  merge      median     168 ms   / pdq: 2.62 [2.48, 2.76] (n=10)
+nat-runs64-100000
+  pdq        median    5.94 ms
+  adaptive   median    7.58 ms   / pdq: 1.24 [1.19, 1.29] (n=10)
+  merge      median    16.5 ms   / pdq: 2.85 [2.59, 3.13] (n=10)
+nat-runs64-1000000
+  pdq        median      64 ms
+  adaptive   median    81.6 ms   / pdq: 1.26 [1.15, 1.39] (n=10)
+  merge      median     188 ms   / pdq: 3.01 [2.81, 3.22] (n=10)
+nat-sorted-100000
+  pdq        median  0.0933 ms
+  adaptive   median  0.0938 ms   / pdq: 0.957 [0.87, 1.05] (n=10)
+  merge      median      14 ms   / pdq: 139 [122, 158] (n=10)
+nat-sortedtail-100000
+  adaptive   median   0.245 ms   / pdq: 0.424 [0.374, 0.481] (n=10)
+  pdq        median   0.549 ms
+  merge      median    14.4 ms   / pdq: 26.7 [21.7, 33] (n=10)
+nat-sortedtail-1000000
+  adaptive   median    2.92 ms   / pdq: 0.566 [0.395, 0.812] (n=10)
+  pdq        median    5.97 ms
+  merge      median     159 ms   / pdq: 27.5 [25.9, 29.2] (n=10)
+nat-tripledesc-100000
+  pdq        median    8.31 ms
+  adaptive   median    8.32 ms   / pdq: 0.968 [0.907, 1.03] (n=10)
+  merge      median    22.9 ms   / pdq: 2.75 [2.54, 2.98] (n=10)
+str-blocks16-100000
+  pdq        median    10.8 ms
+  adaptive   median    12.6 ms   / pdq: 1.28 [1.08, 1.51] (n=10)
+  merge      median    22.1 ms   / pdq: 2.16 [1.9, 2.46] (n=10)
+str-blocks16-1000000
+  pdq        median     131 ms
+  adaptive   median     159 ms   / pdq: 1.33 [1.04, 1.7] (n=10)
+  merge      median     256 ms   / pdq: 2.05 [1.86, 2.26] (n=10)
+str-blocks2-100000
+  adaptive   median    3.43 ms   / pdq: 0.458 [0.404, 0.52] (n=10)
+  pdq        median    8.07 ms
+  merge      median      18 ms   / pdq: 2.29 [2.25, 2.32] (n=10)
+str-blocks2-1000000
+  adaptive   median    51.9 ms   / pdq: 0.525 [0.496, 0.555] (n=10)
+  pdq        median    98.3 ms
+  merge      median     220 ms   / pdq: 2.3 [2.1, 2.52] (n=10)
+str-blocks256-100000
+  pdq        median    12.8 ms
+  adaptive   median    24.6 ms   / pdq: 2.08 [1.76, 2.45] (n=10)
+  merge      median    26.7 ms   / pdq: 2.08 [2.03, 2.13] (n=10)
+str-blocks256-1000000
+  pdq        median     153 ms
+  adaptive   median     357 ms   / pdq: 2.26 [1.91, 2.67] (n=10)
+  merge      median     359 ms   / pdq: 2.41 [2.16, 2.7] (n=10)
+str-constant-100000
+  adaptive   median    0.24 ms   / pdq: 0.948 [0.876, 1.03] (n=10)
+  pdq        median   0.242 ms
+  merge      median    16.4 ms   / pdq: 61.7 [53.8, 70.7] (n=10)
+str-dups4-100000
+  pdq        median    2.88 ms
+  adaptive   median    2.96 ms   / pdq: 1.04 [0.913, 1.19] (n=10)
+  merge      median    24.3 ms   / pdq: 8.32 [6.76, 10.2] (n=10)
+str-dupsqrt-100000
+  pdq        median    9.18 ms
+  adaptive   median    9.32 ms   / pdq: 0.936 [0.785, 1.12] (n=10)
+  merge      median    31.9 ms   / pdq: 3.35 [3.11, 3.6] (n=10)
+str-headsqrt-100000
+  pdq        median    16.9 ms
+  adaptive   median    22.3 ms   / pdq: 1.38 [1.19, 1.6] (n=10)
+  merge      median    39.9 ms   / pdq: 2.31 [2, 2.68] (n=10)
+str-headsqrt-1000000
+  pdq        median     286 ms
+  adaptive   median     363 ms   / pdq: 1.2 [1.11, 1.31] (n=10)
+  merge      median     614 ms   / pdq: 2.15 [1.81, 2.55] (n=10)
+str-nearly-100000
+  adaptive   median   0.794 ms   / pdq: 0.267 [0.246, 0.29] (n=10)
+  pdq        median    2.97 ms
+  merge      median    17.5 ms   / pdq: 5.82 [5.61, 6.05] (n=10)
+str-nearly-1000000
+  adaptive   median    8.87 ms   / pdq: 0.352 [0.309, 0.402] (n=10)
+  pdq        median    24.9 ms
+  merge      median     202 ms   / pdq: 8.15 [7.1, 9.34] (n=10)
+str-organ-100000
+  adaptive   median    2.49 ms   / pdq: 0.349 [0.335, 0.363] (n=10)
+  pdq        median    7.11 ms
+  merge      median      17 ms   / pdq: 2.44 [2.25, 2.65] (n=10)
+str-organ-1000000
+  adaptive   median    31.2 ms   / pdq: 0.426 [0.336, 0.539] (n=10)
+  pdq        median    82.9 ms
+  merge      median     191 ms   / pdq: 2.38 [2.15, 2.65] (n=10)
+str-pathological-100000
+  adaptive   median   0.544 ms   / pdq: 0.759 [0.66, 0.873] (n=10)
+  pdq        median   0.728 ms
+  merge      median    16.2 ms   / pdq: 21.2 [17.5, 25.5] (n=10)
+str-random-100000
+  adaptive   median    16.6 ms   / pdq: 0.991 [0.925, 1.06] (n=10)
+  pdq        median    16.6 ms
+  merge      median    39.9 ms   / pdq: 2.36 [2.14, 2.59] (n=10)
+str-random-1000000
+  adaptive   median     276 ms   / pdq: 1 [0.919, 1.09] (n=10)
+  pdq        median     277 ms
+  merge      median     618 ms   / pdq: 2.43 [1.84, 3.2] (n=10)
+str-reversed-100000
+  pdq        median   0.508 ms
+  adaptive   median   0.512 ms   / pdq: 1.06 [0.863, 1.3] (n=10)
+  merge      median    15.8 ms   / pdq: 34.5 [30, 39.6] (n=10)
+str-runs16-100000
+  adaptive   median    8.42 ms   / pdq: 0.767 [0.683, 0.862] (n=10)
+  pdq        median    11.3 ms
+  merge      median    19.7 ms   / pdq: 1.72 [1.66, 1.78] (n=10)
+str-runs16-1000000
+  adaptive   median     103 ms   / pdq: 0.866 [0.687, 1.09] (n=10)
+  pdq        median     128 ms
+  merge      median     217 ms   / pdq: 1.69 [1.63, 1.75] (n=10)
+str-runs2-100000
+  adaptive   median    2.36 ms   / pdq: 0.312 [0.287, 0.34] (n=10)
+  pdq        median    7.26 ms
+  merge      median    16.6 ms   / pdq: 2.13 [1.85, 2.46] (n=10)
+str-runs2-1000000
+  adaptive   median      30 ms   / pdq: 0.394 [0.319, 0.486] (n=10)
+  pdq        median    84.1 ms
+  merge      median     192 ms   / pdq: 2.28 [2.19, 2.38] (n=10)
+str-runs256-100000
+  adaptive   median    11.9 ms   / pdq: 0.908 [0.816, 1.01] (n=10)
+  pdq        median    13.3 ms
+  merge      median      21 ms   / pdq: 1.62 [1.49, 1.76] (n=10)
+str-runs256-1000000
+  adaptive   median     137 ms   / pdq: 1.02 [0.831, 1.25] (n=10)
+  pdq        median     148 ms
+  merge      median     273 ms   / pdq: 2 [1.7, 2.36] (n=10)
+str-runs4-100000
+  adaptive   median    4.42 ms   / pdq: 0.387 [0.357, 0.419] (n=10)
+  pdq        median    11.3 ms
+  merge      median    17.7 ms   / pdq: 1.55 [1.43, 1.67] (n=10)
+str-runs4-1000000
+  adaptive   median    54.5 ms   / pdq: 0.381 [0.317, 0.459] (n=10)
+  pdq        median     169 ms
+  merge      median     202 ms   / pdq: 1.2 [1.09, 1.33] (n=10)
+str-runs64-100000
+  adaptive   median    10.3 ms   / pdq: 0.771 [0.673, 0.882] (n=10)
+  pdq        median    12.4 ms
+  merge      median    20.5 ms   / pdq: 1.57 [1.37, 1.79] (n=10)
+str-runs64-1000000
+  adaptive   median     125 ms   / pdq: 0.921 [0.893, 0.95] (n=10)
+  pdq        median     133 ms
+  merge      median     240 ms   / pdq: 1.8 [1.7, 1.91] (n=10)
+str-sorted-100000
+  adaptive   median   0.257 ms   / pdq: 0.962 [0.9, 1.03] (n=10)
+  pdq        median   0.262 ms
+  merge      median    16.1 ms   / pdq: 55.6 [45.9, 67.4] (n=10)
+str-sortedtail-100000
+  adaptive   median   0.599 ms   / pdq: 0.382 [0.331, 0.442] (n=10)
+  pdq        median    1.65 ms
+  merge      median    16.4 ms   / pdq: 9.91 [8.42, 11.7] (n=10)
+str-sortedtail-1000000
+  adaptive   median    7.31 ms   / pdq: 0.398 [0.374, 0.424] (n=10)
+  pdq        median    17.7 ms
+  merge      median     193 ms   / pdq: 11 [9.94, 12.2] (n=10)
+str-tripledesc-100000
+  adaptive   median    16.5 ms   / pdq: 0.947 [0.828, 1.08] (n=10)
+  pdq        median    17.3 ms
+  merge      median    38.8 ms   / pdq: 2.24 [1.82, 2.76] (n=10)
+u64-random-6250000
+  core       median     965 ms   / pdq: 0.974 [0.945, 1] (n=10)
+  adaptive   median     995 ms   / pdq: 1.05 [0.957, 1.16] (n=10)
+  pdq        median   1e+03 ms

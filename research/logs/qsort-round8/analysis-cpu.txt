@@ -1,0 +1,29 @@
+0 problems
+
+nat-random-1000000   (none: median 0.021 s CPU)
+  lab-lomuto-c24               sort CPU median      84.3 ms   / core: 0.914 [0.901, 0.926] (n=12)
+  lab:c24,m3,nochild           sort CPU median      87.5 ms   / core: 0.95 [0.936, 0.963] (n=12)
+  lab-lomuto                   sort CPU median      88.7 ms   / core: 0.957 [0.943, 0.972] (n=12)
+  lab-c24                      sort CPU median      90.3 ms   / core: 0.98 [0.967, 0.994] (n=12)
+  core                         sort CPU median      92.6 ms
+  lab:m3                       sort CPU median      93.5 ms   / core: 1.01 [0.998, 1.03] (n=12)
+  lab:nochild                  sort CPU median      94.6 ms   / core: 1.02 [1.01, 1.04] (n=12)
+  pdq                          sort CPU median      94.8 ms   / core: 1.03 [1.01, 1.04] (n=12)
+rec-random-1000000   (none: median 0.074 s CPU)
+  lab-lomuto-c24               sort CPU median     389.9 ms   / core: 0.982 [0.947, 1.02] (n=12)
+  lab-c24                      sort CPU median     391.0 ms   / core: 0.959 [0.913, 1.01] (n=12)
+  lab:c24,m3,nochild           sort CPU median     395.3 ms   / core: 0.977 [0.952, 1] (n=12)
+  lab:nochild                  sort CPU median     396.2 ms   / core: 0.98 [0.952, 1.01] (n=12)
+  pdq                          sort CPU median     397.8 ms   / core: 0.997 [0.969, 1.03] (n=12)
+  lab:m3                       sort CPU median     400.5 ms   / core: 0.996 [0.96, 1.03] (n=12)
+  core                         sort CPU median     403.7 ms
+  lab-lomuto                   sort CPU median     405.0 ms   / core: 1 [0.974, 1.03] (n=12)
+u64-random-6250000   (none: median 0.179 s CPU)
+  lab-lomuto-c24               sort CPU median    1815.5 ms   / core: 0.981 [0.948, 1.01] (n=12)
+  core                         sort CPU median    1832.3 ms
+  lab-lomuto                   sort CPU median    1838.0 ms   / core: 1 [0.966, 1.04] (n=12)
+  lab:nochild                  sort CPU median    1864.5 ms   / core: 1.02 [0.996, 1.05] (n=12)
+  lab:c24,m3,nochild           sort CPU median    1865.3 ms   / core: 1.03 [0.994, 1.06] (n=12)
+  lab-c24                      sort CPU median    1871.1 ms   / core: 1.02 [0.985, 1.05] (n=12)
+  pdq                          sort CPU median    1879.6 ms   / core: 1.03 [1, 1.05] (n=12)
+  lab:m3                       sort CPU median    1915.9 ms   / core: 1.04 [1.02, 1.07] (n=12)

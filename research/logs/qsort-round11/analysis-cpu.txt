@@ -1,0 +1,14 @@
+0 problems
+
+nat-random-1000000   (none: median 0.133 s CPU)
+  core                         sort CPU median     144.0 ms
+  pdq                          sort CPU median     145.5 ms   / core: 0.89 [0.729, 1.09] (n=17)
+rec-random-1000000   (none: median 0.440 s CPU)
+  pdq                          sort CPU median    1724.7 ms   / core: 0.872 [0.8, 0.951] (n=18)
+  core                         sort CPU median    1940.6 ms
+str-random-1000000   (none: median 0.533 s CPU)
+  pdq                          sort CPU median    2908.0 ms   / core: 0.846 [0.789, 0.909] (n=18)
+  core                         sort CPU median    3323.9 ms
+u64-random-6250000   (none: median 1.369 s CPU)
+  pdq                          sort CPU median   10601.1 ms   / core: 0.923 [0.886, 0.962] (n=18)
+  core                         sort CPU median   11423.8 ms

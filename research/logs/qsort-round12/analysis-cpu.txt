@@ -1,0 +1,22 @@
+0 problems
+
+nat-random-1000000   (none: median 0.020 s CPU)
+  lab:lomuto,ends,c24,brk9     sort CPU median      39.8 ms   / core: 0.427 [0.423, 0.432] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild sort CPU median      40.0 ms   / core: 0.426 [0.421, 0.432] (n=18)
+  pdq                          sort CPU median      90.1 ms   / core: 0.967 [0.958, 0.977] (n=18)
+  core                         sort CPU median      93.5 ms
+rec-random-1000000   (none: median 0.073 s CPU)
+  lab:lomuto,ends,c24,brk9     sort CPU median     352.2 ms   / core: 0.883 [0.865, 0.902] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild sort CPU median     357.9 ms   / core: 0.886 [0.869, 0.903] (n=18)
+  core                         sort CPU median     395.6 ms
+  pdq                          sort CPU median     401.0 ms   / core: 0.995 [0.982, 1.01] (n=18)
+str-random-1000000   (none: median 0.071 s CPU)
+  pdq                          sort CPU median     492.5 ms   / core: 0.932 [0.889, 0.978] (n=18)
+  lab:lomuto,ends,c24,brk9     sort CPU median     497.3 ms   / core: 0.933 [0.909, 0.959] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild sort CPU median     502.1 ms   / core: 0.929 [0.903, 0.955] (n=18)
+  core                         sort CPU median     528.7 ms
+u64-random-6250000   (none: median 0.177 s CPU)
+  lab:lomuto,ends,c24,brk9,nochild sort CPU median    1554.0 ms   / core: 0.854 [0.84, 0.867] (n=18)
+  lab:lomuto,ends,c24,brk9     sort CPU median    1570.1 ms   / core: 0.858 [0.845, 0.871] (n=18)
+  core                         sort CPU median    1815.5 ms
+  pdq                          sort CPU median    1847.0 ms   / core: 1.03 [1.02, 1.04] (n=18)

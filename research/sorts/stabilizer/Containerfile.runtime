@@ -1,0 +1,8 @@
+# localhost/sorts-stabilizer plus what building Lean's runtime from source needs: CMake and
+# Ninja, and the headers and libraries of GMP, libuv (Ubuntu 24.04 ships 1.48.0, the version
+# Lean pins) and OpenSSL 3.
+#   podman build --tag localhost/sorts-stabilizer-runtime --file Containerfile.runtime .
+FROM localhost/sorts-stabilizer:latest
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+      cmake ninja-build git libgmp-dev libuv1-dev libssl-dev pkg-config \
+    && rm --recursive --force /var/lib/apt/lists/*

@@ -1,0 +1,130 @@
+0 problems
+
+nat-blocks16-100000   (none: median 0.026 s CPU)
+  lab:hyb,c24                  sort CPU median       4.7 ms
+  lab-lomuto-c24               sort CPU median       4.8 ms
+  pdq                          sort CPU median       5.0 ms
+  lab:hyb                      sort CPU median       5.1 ms
+nat-dups4-100000   (none: median 0.007 s CPU)
+  lab:hyb                      sort CPU median       0.7 ms
+  lab:hyb,c24                  sort CPU median       0.8 ms
+  lab-lomuto-c24               sort CPU median       0.9 ms
+  pdq                          sort CPU median       1.1 ms
+nat-nearly-100000   (none: median 0.008 s CPU)
+  lab:hyb,c24                  sort CPU median       0.8 ms
+  lab-lomuto-c24               sort CPU median       0.9 ms
+  pdq                          sort CPU median       1.1 ms
+  lab:hyb                      sort CPU median       1.3 ms
+nat-ninther-100000   (none: median 0.008 s CPU)
+  pdq                          sort CPU median       1.3 ms
+  lab-lomuto-c24               sort CPU median       1.4 ms
+  lab:hyb,c24                  sort CPU median       1.6 ms
+  lab:hyb                      sort CPU median       1.9 ms
+nat-organ-100000   (none: median 0.008 s CPU)
+  lab-lomuto-c24               sort CPU median       2.0 ms
+  lab:hyb,c24                  sort CPU median       2.2 ms
+  lab:hyb                      sort CPU median       2.8 ms
+  pdq                          sort CPU median       3.0 ms
+nat-random-1000000   (none: median 0.020 s CPU)
+  lab:hyb,c24                  sort CPU median      84.5 ms   / core: 0.909 [0.873, 0.947] (n=12)
+  lab-lomuto-c24               sort CPU median      85.2 ms   / core: 0.92 [0.881, 0.96] (n=12)
+  lab:hyb                      sort CPU median      88.0 ms   / core: 0.944 [0.905, 0.985] (n=12)
+  core                         sort CPU median      91.6 ms
+  pdq                          sort CPU median      94.7 ms   / core: 1.01 [0.975, 1.05] (n=12)
+nat-reversed-100000   (none: median 0.008 s CPU)
+  lab-lomuto-c24               sort CPU median      -0.1 ms
+  lab:hyb,c24                  sort CPU median       0.1 ms
+  pdq                          sort CPU median       0.1 ms
+  lab:hyb                      sort CPU median       0.1 ms
+nat-runs16-100000   (none: median 0.007 s CPU)
+  pdq                          sort CPU median       5.9 ms
+  lab-lomuto-c24               sort CPU median       8.0 ms
+  lab:hyb                      sort CPU median       8.1 ms
+  lab:hyb,c24                  sort CPU median       8.6 ms
+nat-runs4-100000   (none: median 0.008 s CPU)
+  pdq                          sort CPU median       5.2 ms
+  lab:hyb,c24                  sort CPU median       6.2 ms
+  lab:hyb                      sort CPU median       6.3 ms
+  lab-lomuto-c24               sort CPU median       6.9 ms
+nat-runs64-100000   (none: median 0.008 s CPU)
+  pdq                          sort CPU median       5.9 ms
+  lab:hyb                      sort CPU median       9.5 ms
+  lab:hyb,c24                  sort CPU median       9.6 ms
+  lab-lomuto-c24               sort CPU median      10.0 ms
+nat-sorted-100000   (none: median 0.008 s CPU)
+  lab:hyb,c24                  sort CPU median      -0.2 ms
+  lab-lomuto-c24               sort CPU median      -0.1 ms
+  pdq                          sort CPU median       0.0 ms
+  lab:hyb                      sort CPU median       0.2 ms
+nat-sortedtail-100000   (none: median 0.008 s CPU)
+  lab:hyb                      sort CPU median       0.3 ms
+  lab-lomuto-c24               sort CPU median       0.5 ms
+  lab:hyb,c24                  sort CPU median       0.6 ms
+  pdq                          sort CPU median       0.7 ms
+rec-blocks16-100000   (none: median 0.031 s CPU)
+  lab:hyb,c24                  sort CPU median       4.7 ms
+  lab-lomuto-c24               sort CPU median       4.9 ms
+  lab:hyb                      sort CPU median       5.3 ms
+  pdq                          sort CPU median       5.5 ms
+rec-dups4-100000   (none: median 0.014 s CPU)
+  lab-lomuto-c24               sort CPU median       2.8 ms
+  pdq                          sort CPU median       3.4 ms
+  lab:hyb                      sort CPU median       3.9 ms
+  lab:hyb,c24                  sort CPU median       4.0 ms
+rec-nearly-100000   (none: median 0.015 s CPU)
+  pdq                          sort CPU median       0.9 ms
+  lab:hyb                      sort CPU median       1.3 ms
+  lab-lomuto-c24               sort CPU median       1.4 ms
+  lab:hyb,c24                  sort CPU median       1.7 ms
+rec-ninther-100000   (none: median 0.015 s CPU)
+  lab:hyb,c24                  sort CPU median       1.1 ms
+  lab-lomuto-c24               sort CPU median       1.3 ms
+  pdq                          sort CPU median       1.5 ms
+  lab:hyb                      sort CPU median       1.6 ms
+rec-organ-100000   (none: median 0.014 s CPU)
+  lab-lomuto-c24               sort CPU median       2.5 ms
+  lab:hyb                      sort CPU median       2.6 ms
+  lab:hyb,c24                  sort CPU median       2.9 ms
+  pdq                          sort CPU median       3.8 ms
+rec-random-1000000   (none: median 0.073 s CPU)
+  lab:hyb,c24                  sort CPU median     380.8 ms   / core: 0.973 [0.953, 0.995] (n=12)
+  lab-lomuto-c24               sort CPU median     381.4 ms   / core: 0.981 [0.962, 1] (n=12)
+  lab:hyb                      sort CPU median     381.5 ms   / core: 0.979 [0.965, 0.994] (n=12)
+  core                         sort CPU median     387.0 ms
+  pdq                          sort CPU median     387.3 ms   / core: 1.01 [0.991, 1.03] (n=12)
+rec-reversed-100000   (none: median 0.015 s CPU)
+  lab:hyb,c24                  sort CPU median      -0.2 ms
+  lab:hyb                      sort CPU median      -0.1 ms
+  lab-lomuto-c24               sort CPU median      -0.1 ms
+  pdq                          sort CPU median       0.0 ms
+rec-runs16-100000   (none: median 0.015 s CPU)
+  pdq                          sort CPU median       5.5 ms
+  lab:hyb,c24                  sort CPU median       7.9 ms
+  lab-lomuto-c24               sort CPU median       8.3 ms
+  lab:hyb                      sort CPU median       9.1 ms
+rec-runs4-100000   (none: median 0.015 s CPU)
+  pdq                          sort CPU median       5.8 ms
+  lab:hyb,c24                  sort CPU median       6.3 ms
+  lab:hyb                      sort CPU median       6.8 ms
+  lab-lomuto-c24               sort CPU median       6.9 ms
+rec-runs64-100000   (none: median 0.015 s CPU)
+  pdq                          sort CPU median       7.7 ms
+  lab-lomuto-c24               sort CPU median      13.2 ms
+  lab:hyb,c24                  sort CPU median      13.5 ms
+  lab:hyb                      sort CPU median      13.6 ms
+rec-sorted-100000   (none: median 0.015 s CPU)
+  lab-lomuto-c24               sort CPU median      -0.1 ms
+  pdq                          sort CPU median       0.4 ms
+  lab:hyb,c24                  sort CPU median       0.4 ms
+  lab:hyb                      sort CPU median       0.8 ms
+rec-sortedtail-100000   (none: median 0.014 s CPU)
+  lab-lomuto-c24               sort CPU median       0.5 ms
+  lab:hyb,c24                  sort CPU median       0.7 ms
+  lab:hyb                      sort CPU median       0.9 ms
+  pdq                          sort CPU median       0.9 ms
+u64-random-6250000   (none: median 0.178 s CPU)
+  lab-lomuto-c24               sort CPU median    1723.1 ms   / core: 0.978 [0.954, 1] (n=12)
+  lab:hyb,c24                  sort CPU median    1736.8 ms   / core: 0.988 [0.958, 1.02] (n=12)
+  lab:hyb                      sort CPU median    1754.1 ms   / core: 0.992 [0.969, 1.02] (n=12)
+  core                         sort CPU median    1777.0 ms
+  pdq                          sort CPU median    1863.3 ms   / core: 1.05 [1.03, 1.06] (n=12)

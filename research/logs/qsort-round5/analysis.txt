@@ -1,0 +1,437 @@
+0 problems
+
+nat-blocks16-100000
+  lab-lomuto-c24 median     4.5 ms   / pdq: 0.903 [0.898, 0.909] (n=12)
+  lab-c24    median    4.53 ms   / pdq: 0.909 [0.903, 0.915] (n=12)
+  pdq        median       5 ms
+nat-blocks16-1000000
+  lab-c24    median    50.6 ms   / pdq: 0.917 [0.912, 0.922] (n=12)
+  pdq        median    55.2 ms
+  lab-lomuto-c24 median    56.4 ms   / pdq: 1.04 [1.01, 1.06] (n=12)
+nat-blocks2-100000
+  lab-lomuto-c24 median    2.84 ms   / pdq: 0.804 [0.8, 0.807] (n=12)
+  lab-c24    median    3.26 ms   / pdq: 0.945 [0.894, 0.998] (n=12)
+  pdq        median    3.53 ms
+nat-blocks256-100000
+  lab-c24    median    5.75 ms   / pdq: 0.923 [0.917, 0.93] (n=12)
+  lab-lomuto-c24 median    5.75 ms   / pdq: 0.924 [0.918, 0.931] (n=12)
+  pdq        median    6.23 ms
+nat-constant-100000
+  lab-lomuto-c24 median   0.103 ms   / pdq: 0.926 [0.831, 1.03] (n=12)
+  pdq        median   0.104 ms
+  lab-c24    median   0.105 ms   / pdq: 0.942 [0.847, 1.05] (n=12)
+nat-dups4-100000
+  lab-lomuto-c24 median   0.911 ms   / pdq: 0.973 [0.962, 0.984] (n=12)
+  lab-c24    median   0.923 ms   / pdq: 0.993 [0.968, 1.02] (n=12)
+  pdq        median   0.933 ms
+nat-dups4-1000000
+  lab-lomuto-c24 median    8.71 ms   / pdq: 0.946 [0.927, 0.966] (n=12)
+  lab-c24    median    9.12 ms   / pdq: 1 [0.973, 1.03] (n=12)
+  pdq        median    9.12 ms
+nat-dupsqrt-100000
+  lab-lomuto-c24 median    3.65 ms   / pdq: 0.94 [0.921, 0.96] (n=12)
+  lab-c24    median     3.8 ms   / pdq: 0.977 [0.958, 0.997] (n=12)
+  pdq        median    3.88 ms
+nat-headsqrt-100000
+  lab-lomuto-c24 median    7.18 ms   / pdq: 0.891 [0.873, 0.91] (n=12)
+  lab-c24    median    7.41 ms   / pdq: 0.921 [0.903, 0.94] (n=12)
+  pdq        median    8.01 ms
+nat-nearly-100000
+  lab-c24    median    0.84 ms   / pdq: 0.983 [0.971, 0.995] (n=12)
+  pdq        median   0.864 ms
+  lab-lomuto-c24 median   0.977 ms   / pdq: 1.14 [1.13, 1.14] (n=12)
+nat-nearly-1000000
+  lab-c24    median    6.62 ms   / pdq: 0.978 [0.963, 0.993] (n=12)
+  pdq        median    6.76 ms
+  lab-lomuto-c24 median    8.07 ms   / pdq: 1.2 [1.18, 1.21] (n=12)
+nat-ninther-100000
+  lab-c24    median   0.993 ms   / pdq: 0.972 [0.953, 0.992] (n=12)
+  pdq        median    1.03 ms
+  lab-lomuto-c24 median    1.09 ms   / pdq: 1.06 [1.04, 1.07] (n=12)
+nat-organ-100000
+  lab-lomuto-c24 median     2.4 ms   / pdq: 0.845 [0.836, 0.854] (n=12)
+  lab-c24    median     2.7 ms   / pdq: 0.948 [0.94, 0.956] (n=12)
+  pdq        median    2.85 ms
+nat-organ-1000000
+  lab-lomuto-c24 median    25.9 ms   / pdq: 0.823 [0.818, 0.828] (n=12)
+  lab-c24    median    30.1 ms   / pdq: 0.958 [0.948, 0.969] (n=12)
+  pdq        median    31.3 ms
+nat-pathological-100000
+  lab-c24    median   0.218 ms   / pdq: 0.951 [0.926, 0.976] (n=12)
+  lab-lomuto-c24 median   0.222 ms   / pdq: 0.967 [0.934, 1] (n=12)
+  pdq        median   0.233 ms
+nat-random-100000
+  lab-lomuto-c24 median     7.1 ms   / pdq: 0.881 [0.867, 0.895] (n=12)
+  lab-c24    median    7.42 ms   / pdq: 0.914 [0.894, 0.936] (n=12)
+  pdq        median    8.03 ms
+nat-random-1000000
+  lab-lomuto-c24 median    83.8 ms   / pdq: 0.906 [0.904, 0.909] (n=12)
+  lab-c24    median    86.9 ms   / pdq: 0.94 [0.938, 0.943] (n=12)
+  pdq        median    92.5 ms
+nat-random-1000000-chunk256
+  lab-lomuto-c24 median    36.8 ms   / pdq: 0.864 [0.859, 0.869] (n=12)
+  lab-c24    median      38 ms   / pdq: 0.892 [0.886, 0.898] (n=12)
+  pdq        median    42.7 ms
+  core       median    46.7 ms   / pdq: 1.11 [1.08, 1.15] (n=12)
+nat-random-1000000-chunk32
+  lab-lomuto-c24 median    30.2 ms   / pdq: 0.851 [0.831, 0.871] (n=12)
+  lab-c24    median    30.4 ms   / pdq: 0.865 [0.843, 0.886] (n=12)
+  pdq        median    35.6 ms
+  core       median    42.3 ms   / pdq: 1.19 [1.17, 1.2] (n=12)
+nat-random-1000000-chunk8
+  lab-lomuto-c24 median    53.1 ms   / pdq: 0.968 [0.912, 1.03] (n=12)
+  lab-c24    median    53.7 ms   / pdq: 0.968 [0.911, 1.03] (n=12)
+  pdq        median    55.3 ms
+  core       median    63.3 ms   / pdq: 1.16 [1.09, 1.23] (n=12)
+nat-reversed-100000
+  lab-lomuto-c24 median   0.172 ms   / pdq: 0.938 [0.872, 1.01] (n=12)
+  lab-c24    median   0.173 ms   / pdq: 0.961 [0.89, 1.04] (n=12)
+  pdq        median   0.177 ms
+nat-runs16-100000
+  lab-c24    median    4.63 ms   / pdq: 0.9 [0.89, 0.909] (n=12)
+  pdq        median    5.15 ms
+  lab-lomuto-c24 median    7.38 ms   / pdq: 1.46 [1.39, 1.53] (n=12)
+nat-runs16-1000000
+  lab-c24    median    50.9 ms   / pdq: 0.917 [0.901, 0.933] (n=12)
+  pdq        median    55.7 ms
+  lab-lomuto-c24 median      74 ms   / pdq: 1.33 [1.32, 1.34] (n=12)
+nat-runs2-100000
+  lab-lomuto-c24 median    2.23 ms   / pdq: 0.76 [0.755, 0.766] (n=12)
+  lab-c24    median    2.78 ms   / pdq: 0.947 [0.939, 0.956] (n=12)
+  pdq        median    2.93 ms
+nat-runs256-100000
+  lab-lomuto-c24 median    5.62 ms   / pdq: 0.879 [0.856, 0.903] (n=12)
+  lab-c24    median    5.77 ms   / pdq: 0.914 [0.873, 0.955] (n=12)
+  pdq        median    6.29 ms
+nat-runs4-100000
+  lab-c24    median    4.66 ms   / pdq: 0.918 [0.907, 0.928] (n=12)
+  pdq        median    5.06 ms
+  lab-lomuto-c24 median    6.22 ms   / pdq: 1.23 [1.22, 1.24] (n=12)
+nat-runs64-100000
+  lab-c24    median    5.18 ms   / pdq: 0.911 [0.907, 0.915] (n=12)
+  pdq        median    5.68 ms
+  lab-lomuto-c24 median    9.79 ms   / pdq: 1.72 [1.71, 1.73] (n=12)
+nat-sorted-100000
+  pdq        median   0.102 ms
+  lab-c24    median   0.103 ms   / pdq: 1.01 [0.992, 1.03] (n=12)
+  lab-lomuto-c24 median   0.103 ms   / pdq: 1.02 [0.999, 1.04] (n=12)
+nat-sorted-1000000
+  lab-c24    median   0.931 ms   / pdq: 1 [0.982, 1.02] (n=12)
+  pdq        median   0.933 ms
+  lab-lomuto-c24 median   0.933 ms   / pdq: 1.01 [0.986, 1.03] (n=12)
+nat-sorted-1000000-chunk256
+  lab-lomuto-c24 median    2.04 ms   / pdq: 0.922 [0.844, 1.01] (n=12)
+  pdq        median     2.1 ms
+  lab-c24    median    2.12 ms   / pdq: 0.987 [0.886, 1.1] (n=12)
+  core       median      18 ms   / pdq: 8.09 [7.48, 8.75] (n=12)
+nat-sorted-1000000-chunk32
+  lab-lomuto-c24 median    8.68 ms   / pdq: 0.954 [0.847, 1.08] (n=12)
+  lab-c24    median    8.84 ms   / pdq: 0.949 [0.888, 1.02] (n=12)
+  pdq        median    9.16 ms
+  core       median    22.5 ms   / pdq: 2.35 [2.19, 2.52] (n=12)
+nat-sorted-1000000-chunk8
+  lab-c24    median    41.3 ms   / pdq: 0.986 [0.912, 1.06] (n=12)
+  pdq        median    42.2 ms
+  lab-lomuto-c24 median    44.9 ms   / pdq: 1.03 [0.962, 1.11] (n=12)
+  core       median    54.5 ms   / pdq: 1.3 [1.23, 1.38] (n=12)
+nat-sortedtail-100000
+  lab-c24    median   0.527 ms   / pdq: 0.982 [0.945, 1.02] (n=12)
+  pdq        median    0.55 ms
+  lab-lomuto-c24 median    0.57 ms   / pdq: 1.04 [1.03, 1.05] (n=12)
+nat-sortedtail-1000000
+  lab-c24    median    5.72 ms   / pdq: 0.971 [0.96, 0.981] (n=12)
+  pdq        median    5.88 ms
+  lab-lomuto-c24 median    6.13 ms   / pdq: 1.05 [1.03, 1.08] (n=12)
+nat-tripledesc-100000
+  lab-lomuto-c24 median    6.89 ms   / pdq: 0.879 [0.875, 0.882] (n=12)
+  lab-c24    median    7.47 ms   / pdq: 0.954 [0.949, 0.958] (n=12)
+  pdq        median    7.85 ms
+rec-blocks16-100000
+  lab-lomuto-c24 median       5 ms   / pdq: 0.909 [0.904, 0.914] (n=12)
+  lab-c24    median    5.07 ms   / pdq: 0.92 [0.908, 0.932] (n=12)
+  pdq        median     5.5 ms
+rec-blocks16-1000000
+  lab-c24    median    61.8 ms   / pdq: 0.945 [0.922, 0.968] (n=12)
+  pdq        median      66 ms
+  lab-lomuto-c24 median      71 ms   / pdq: 1.08 [1.05, 1.1] (n=12)
+rec-blocks2-100000
+  lab-lomuto-c24 median    3.18 ms   / pdq: 0.854 [0.83, 0.88] (n=12)
+  lab-c24    median    3.57 ms   / pdq: 0.966 [0.925, 1.01] (n=12)
+  pdq        median    3.79 ms
+rec-blocks256-100000
+  lab-lomuto-c24 median    6.58 ms   / pdq: 0.947 [0.914, 0.982] (n=12)
+  lab-c24    median    6.69 ms   / pdq: 0.958 [0.945, 0.971] (n=12)
+  pdq        median    7.03 ms
+rec-constant-100000
+  lab-lomuto-c24 median   0.134 ms   / pdq: 0.888 [0.784, 1.01] (n=12)
+  lab-c24    median   0.142 ms   / pdq: 0.887 [0.777, 1.01] (n=12)
+  pdq        median   0.152 ms
+rec-dups4-100000
+  pdq        median    1.14 ms
+  lab-lomuto-c24 median    1.19 ms   / pdq: 0.987 [0.877, 1.11] (n=12)
+  lab-c24    median    1.19 ms   / pdq: 0.993 [0.906, 1.09] (n=12)
+rec-dups4-1000000
+  pdq        median    16.3 ms
+  lab-c24    median    17.6 ms   / pdq: 1.05 [0.989, 1.11] (n=12)
+  lab-lomuto-c24 median    18.2 ms   / pdq: 1.11 [0.994, 1.23] (n=12)
+rec-dupsqrt-100000
+  lab-lomuto-c24 median    4.53 ms   / pdq: 0.933 [0.915, 0.952] (n=12)
+  pdq        median    4.86 ms
+  lab-c24    median    5.01 ms   / pdq: 1.06 [1.01, 1.11] (n=12)
+rec-headsqrt-100000
+  lab-lomuto-c24 median    8.41 ms   / pdq: 0.9 [0.885, 0.915] (n=12)
+  lab-c24    median    9.08 ms   / pdq: 0.987 [0.942, 1.03] (n=12)
+  pdq        median    9.35 ms
+rec-nearly-100000
+  lab-c24    median   0.942 ms   / pdq: 1 [0.921, 1.09] (n=12)
+  pdq        median   0.992 ms
+  lab-lomuto-c24 median    1.12 ms   / pdq: 1.12 [1.08, 1.15] (n=12)
+rec-nearly-1000000
+  lab-c24    median    10.9 ms   / pdq: 0.992 [0.929, 1.06] (n=12)
+  pdq        median    11.1 ms
+  lab-lomuto-c24 median    12.9 ms   / pdq: 1.15 [1.1, 1.21] (n=12)
+rec-ninther-100000
+  lab-c24    median    1.17 ms   / pdq: 1 [0.955, 1.05] (n=12)
+  pdq        median    1.18 ms
+  lab-lomuto-c24 median    1.22 ms   / pdq: 1.04 [1, 1.08] (n=12)
+rec-organ-100000
+  lab-lomuto-c24 median    2.62 ms   / pdq: 0.858 [0.8, 0.92] (n=12)
+  lab-c24    median    2.96 ms   / pdq: 0.937 [0.916, 0.959] (n=12)
+  pdq        median    3.13 ms
+rec-organ-1000000
+  lab-lomuto-c24 median    32.4 ms   / pdq: 0.866 [0.838, 0.895] (n=12)
+  lab-c24    median    36.8 ms   / pdq: 0.966 [0.936, 0.997] (n=12)
+  pdq        median    37.5 ms
+rec-pathological-100000
+  lab-lomuto-c24 median   0.298 ms   / pdq: 0.952 [0.827, 1.1] (n=12)
+  pdq        median   0.303 ms
+  lab-c24    median   0.324 ms   / pdq: 1.02 [0.901, 1.15] (n=12)
+rec-random-100000
+  lab-lomuto-c24 median    8.37 ms   / pdq: 0.892 [0.874, 0.91] (n=12)
+  lab-c24    median    9.08 ms   / pdq: 0.966 [0.953, 0.978] (n=12)
+  pdq        median    9.34 ms
+rec-random-1000000
+  lab-lomuto-c24 median     128 ms   / pdq: 0.899 [0.87, 0.928] (n=12)
+  lab-c24    median     141 ms   / pdq: 1.01 [0.962, 1.05] (n=12)
+  pdq        median     143 ms
+rec-reversed-100000
+  lab-c24    median   0.247 ms   / pdq: 0.96 [0.839, 1.1] (n=12)
+  lab-lomuto-c24 median   0.258 ms   / pdq: 1.02 [0.859, 1.21] (n=12)
+  pdq        median   0.266 ms
+rec-runs16-100000
+  lab-c24    median    5.23 ms   / pdq: 0.93 [0.917, 0.944] (n=12)
+  pdq        median    5.62 ms
+  lab-lomuto-c24 median    8.18 ms   / pdq: 1.46 [1.43, 1.49] (n=12)
+rec-runs16-1000000
+  lab-c24    median    63.3 ms   / pdq: 0.942 [0.928, 0.955] (n=12)
+  pdq        median    66.6 ms
+  lab-lomuto-c24 median    93.8 ms   / pdq: 1.4 [1.37, 1.44] (n=12)
+rec-runs2-100000
+  lab-lomuto-c24 median    2.49 ms   / pdq: 0.781 [0.771, 0.79] (n=12)
+  lab-c24    median    3.04 ms   / pdq: 0.959 [0.944, 0.974] (n=12)
+  pdq        median     3.2 ms
+rec-runs256-100000
+  lab-lomuto-c24 median    6.38 ms   / pdq: 0.895 [0.879, 0.912] (n=12)
+  lab-c24    median    6.72 ms   / pdq: 0.965 [0.933, 0.999] (n=12)
+  pdq        median    7.08 ms
+rec-runs4-100000
+  lab-c24    median    5.16 ms   / pdq: 0.919 [0.9, 0.938] (n=12)
+  pdq        median    5.56 ms
+  lab-lomuto-c24 median    6.79 ms   / pdq: 1.21 [1.18, 1.24] (n=12)
+rec-runs64-100000
+  lab-c24    median    5.95 ms   / pdq: 0.951 [0.934, 0.968] (n=12)
+  pdq        median    6.25 ms
+  lab-lomuto-c24 median    11.3 ms   / pdq: 1.82 [1.73, 1.92] (n=12)
+rec-sorted-100000
+  pdq        median   0.145 ms
+  lab-lomuto-c24 median   0.155 ms   / pdq: 1.02 [0.83, 1.26] (n=12)
+  lab-c24    median   0.157 ms   / pdq: 0.981 [0.852, 1.13] (n=12)
+rec-sorted-1000000
+  lab-c24    median    1.74 ms   / pdq: 1.01 [0.926, 1.09] (n=12)
+  pdq        median    1.75 ms
+  lab-lomuto-c24 median    1.79 ms   / pdq: 1.06 [0.945, 1.18] (n=12)
+rec-sortedtail-100000
+  lab-c24    median   0.653 ms   / pdq: 0.985 [0.919, 1.06] (n=12)
+  pdq        median   0.657 ms
+  lab-lomuto-c24 median   0.684 ms   / pdq: 1.08 [0.943, 1.25] (n=12)
+rec-sortedtail-1000000
+  lab-c24    median    10.1 ms   / pdq: 0.955 [0.874, 1.04] (n=12)
+  lab-lomuto-c24 median    10.4 ms   / pdq: 0.962 [0.908, 1.02] (n=12)
+  pdq        median    10.4 ms
+rec-tripledesc-100000
+  lab-lomuto-c24 median    8.15 ms   / pdq: 0.867 [0.841, 0.893] (n=12)
+  lab-c24    median    9.24 ms   / pdq: 0.988 [0.956, 1.02] (n=12)
+  pdq        median    9.39 ms
+str-blocks16-100000
+  lab-c24    median    10.8 ms   / pdq: 0.976 [0.959, 0.994] (n=12)
+  lab-lomuto-c24 median    10.8 ms   / pdq: 0.976 [0.947, 1.01] (n=12)
+  pdq        median    11.1 ms
+str-blocks2-100000
+  lab-lomuto-c24 median       7 ms   / pdq: 0.886 [0.867, 0.905] (n=12)
+  lab-c24    median    7.82 ms   / pdq: 1.02 [0.953, 1.09] (n=12)
+  pdq        median    7.92 ms
+str-blocks256-100000
+  lab-c24    median    13.2 ms   / pdq: 0.972 [0.94, 1.01] (n=12)
+  lab-lomuto-c24 median    13.3 ms   / pdq: 0.974 [0.949, 1] (n=12)
+  pdq        median    13.6 ms
+str-constant-100000
+  lab-c24    median   0.279 ms   / pdq: 1.02 [0.919, 1.13] (n=12)
+  lab-lomuto-c24 median   0.281 ms   / pdq: 0.999 [0.908, 1.1] (n=12)
+  pdq        median   0.283 ms
+str-dups4-100000
+  pdq        median    3.02 ms
+  lab-lomuto-c24 median    3.06 ms   / pdq: 0.965 [0.891, 1.05] (n=12)
+  lab-c24    median    3.09 ms   / pdq: 1.07 [0.925, 1.23] (n=12)
+str-dupsqrt-100000
+  lab-lomuto-c24 median     9.5 ms   / pdq: 1.02 [0.93, 1.12] (n=12)
+  pdq        median    9.89 ms
+  lab-c24    median    10.4 ms   / pdq: 1.05 [1, 1.11] (n=12)
+str-headsqrt-100000
+  lab-lomuto-c24 median    17.1 ms   / pdq: 0.92 [0.855, 0.988] (n=12)
+  pdq        median    18.3 ms
+  lab-c24    median    18.5 ms   / pdq: 1.02 [0.928, 1.12] (n=12)
+str-nearly-100000
+  lab-c24    median    2.92 ms   / pdq: 0.968 [0.928, 1.01] (n=12)
+  pdq        median       3 ms
+  lab-lomuto-c24 median    3.25 ms   / pdq: 1.09 [1.03, 1.17] (n=12)
+str-ninther-100000
+  pdq        median    3.18 ms
+  lab-c24    median    3.21 ms   / pdq: 1.01 [0.99, 1.03] (n=12)
+  lab-lomuto-c24 median    3.36 ms   / pdq: 1.06 [1.03, 1.1] (n=12)
+str-organ-100000
+  lab-lomuto-c24 median    6.82 ms   / pdq: 0.917 [0.887, 0.948] (n=12)
+  lab-c24    median    7.27 ms   / pdq: 0.962 [0.932, 0.992] (n=12)
+  pdq        median    7.41 ms
+str-pathological-100000
+  pdq        median   0.771 ms
+  lab-c24    median   0.817 ms   / pdq: 1.08 [0.994, 1.18] (n=12)
+  lab-lomuto-c24 median   0.848 ms   / pdq: 1.13 [1.02, 1.24] (n=12)
+str-random-100000
+  lab-lomuto-c24 median    16.8 ms   / pdq: 0.929 [0.844, 1.02] (n=12)
+  lab-c24    median      18 ms   / pdq: 0.96 [0.87, 1.06] (n=12)
+  pdq        median    18.3 ms
+str-reversed-100000
+  pdq        median   0.612 ms
+  lab-lomuto-c24 median   0.619 ms   / pdq: 1.03 [0.959, 1.1] (n=12)
+  lab-c24    median   0.633 ms   / pdq: 1.05 [0.936, 1.19] (n=12)
+str-runs16-100000
+  lab-c24    median      11 ms   / pdq: 0.981 [0.964, 0.999] (n=12)
+  pdq        median    11.3 ms
+  lab-lomuto-c24 median    16.9 ms   / pdq: 1.51 [1.48, 1.53] (n=12)
+str-runs2-100000
+  lab-lomuto-c24 median    6.61 ms   / pdq: 0.888 [0.869, 0.908] (n=12)
+  pdq        median    7.43 ms
+  lab-c24    median    7.55 ms   / pdq: 1.01 [0.992, 1.03] (n=12)
+str-runs256-100000
+  lab-lomuto-c24 median    12.7 ms   / pdq: 0.985 [0.96, 1.01] (n=12)
+  lab-c24    median    12.8 ms   / pdq: 0.971 [0.952, 0.99] (n=12)
+  pdq        median    13.2 ms
+str-runs4-100000
+  lab-c24    median    11.6 ms   / pdq: 0.971 [0.916, 1.03] (n=12)
+  pdq        median    11.7 ms
+  lab-lomuto-c24 median    14.4 ms   / pdq: 1.21 [1.14, 1.28] (n=12)
+str-runs64-100000
+  lab-c24    median    11.8 ms   / pdq: 0.968 [0.941, 0.996] (n=12)
+  pdq        median    12.3 ms
+  lab-lomuto-c24 median    22.9 ms   / pdq: 1.9 [1.78, 2.02] (n=12)
+str-sorted-100000
+  lab-lomuto-c24 median   0.296 ms   / pdq: 1.02 [0.966, 1.08] (n=12)
+  pdq        median   0.297 ms
+  lab-c24    median   0.302 ms   / pdq: 1.03 [0.977, 1.09] (n=12)
+str-sortedtail-100000
+  lab-c24    median    1.65 ms   / pdq: 0.955 [0.862, 1.06] (n=12)
+  lab-lomuto-c24 median    1.76 ms   / pdq: 0.977 [0.922, 1.03] (n=12)
+  pdq        median    1.77 ms
+str-tripledesc-100000
+  lab-lomuto-c24 median    17.2 ms   / pdq: 0.927 [0.841, 1.02] (n=12)
+  lab-c24    median    17.6 ms   / pdq: 0.978 [0.904, 1.06] (n=12)
+  pdq        median    18.9 ms
+u64-blocks16-100000
+  lab-c24    median    4.42 ms   / pdq: 0.894 [0.887, 0.901] (n=12)
+  lab-lomuto-c24 median    4.78 ms   / pdq: 0.967 [0.961, 0.972] (n=12)
+  pdq        median    4.95 ms
+u64-blocks2-100000
+  lab-lomuto-c24 median    2.88 ms   / pdq: 0.887 [0.832, 0.946] (n=12)
+  lab-c24    median    3.01 ms   / pdq: 0.902 [0.891, 0.912] (n=12)
+  pdq        median    3.33 ms
+u64-blocks256-100000
+  lab-c24    median    6.05 ms   / pdq: 0.938 [0.929, 0.947] (n=12)
+  lab-lomuto-c24 median    6.34 ms   / pdq: 0.982 [0.971, 0.994] (n=12)
+  pdq        median    6.47 ms
+u64-constant-100000
+  pdq        median  0.0907 ms
+  lab-c24    median   0.101 ms   / pdq: 1.1 [1.07, 1.13] (n=12)
+  lab-lomuto-c24 median   0.102 ms   / pdq: 1.11 [1.06, 1.16] (n=12)
+u64-dups4-100000
+  lab-c24    median    1.07 ms   / pdq: 0.993 [0.97, 1.02] (n=12)
+  pdq        median    1.08 ms
+  lab-lomuto-c24 median    1.08 ms   / pdq: 1.01 [0.985, 1.04] (n=12)
+u64-dupsqrt-100000
+  lab-c24    median    4.37 ms   / pdq: 0.968 [0.925, 1.01] (n=12)
+  lab-lomuto-c24 median    4.37 ms   / pdq: 0.979 [0.937, 1.02] (n=12)
+  pdq        median    4.43 ms
+u64-headsqrt-100000
+  lab-lomuto-c24 median     8.3 ms   / pdq: 0.937 [0.918, 0.957] (n=12)
+  lab-c24    median    8.33 ms   / pdq: 0.943 [0.919, 0.968] (n=12)
+  pdq        median     8.9 ms
+u64-nearly-100000
+  pdq        median   0.859 ms
+  lab-c24    median   0.926 ms   / pdq: 1.08 [1, 1.17] (n=12)
+  lab-lomuto-c24 median    1.04 ms   / pdq: 1.2 [1.16, 1.24] (n=12)
+u64-ninther-100000
+  pdq        median   0.983 ms
+  lab-c24    median   0.986 ms   / pdq: 1.01 [0.943, 1.08] (n=12)
+  lab-lomuto-c24 median    1.15 ms   / pdq: 1.19 [1.07, 1.32] (n=12)
+u64-organ-100000
+  lab-lomuto-c24 median    2.48 ms   / pdq: 0.891 [0.829, 0.958] (n=12)
+  lab-c24    median    2.53 ms   / pdq: 0.9 [0.835, 0.971] (n=12)
+  pdq        median    2.72 ms
+u64-pathological-100000
+  lab-lomuto-c24 median   0.301 ms   / pdq: 0.986 [0.931, 1.05] (n=12)
+  lab-c24    median    0.31 ms   / pdq: 1 [0.945, 1.06] (n=12)
+  pdq        median   0.312 ms
+u64-random-100000
+  lab-lomuto-c24 median    8.29 ms   / pdq: 0.926 [0.909, 0.943] (n=12)
+  lab-c24    median    8.44 ms   / pdq: 0.946 [0.924, 0.969] (n=12)
+  pdq        median    8.91 ms
+u64-random-6250000
+  core       median     1.03 s   / pdq: 0.925 [0.911, 0.939] (n=12)
+  lab-lomuto-c24 median     1.07 s   / pdq: 0.97 [0.95, 0.99] (n=12)
+  lab-c24    median     1.07 s   / pdq: 0.97 [0.956, 0.985] (n=12)
+  pdq        median     1.11 s
+u64-reversed-100000
+  lab-c24    median   0.268 ms   / pdq: 0.989 [0.94, 1.04] (n=12)
+  pdq        median    0.27 ms
+  lab-lomuto-c24 median   0.279 ms   / pdq: 0.988 [0.905, 1.08] (n=12)
+u64-runs16-100000
+  lab-c24    median    4.73 ms   / pdq: 0.899 [0.889, 0.908] (n=12)
+  pdq        median    5.25 ms
+  lab-lomuto-c24 median    7.92 ms   / pdq: 1.55 [1.46, 1.64] (n=12)
+u64-runs2-100000
+  lab-lomuto-c24 median     2.3 ms   / pdq: 0.836 [0.825, 0.848] (n=12)
+  lab-c24    median    2.62 ms   / pdq: 0.95 [0.933, 0.967] (n=12)
+  pdq        median    2.77 ms
+u64-runs256-100000
+  lab-c24    median     6.1 ms   / pdq: 0.927 [0.92, 0.934] (n=12)
+  lab-lomuto-c24 median    6.35 ms   / pdq: 0.966 [0.951, 0.981] (n=12)
+  pdq        median     6.6 ms
+u64-runs4-100000
+  lab-c24    median    4.59 ms   / pdq: 0.915 [0.909, 0.922] (n=12)
+  pdq        median    5.05 ms
+  lab-lomuto-c24 median    6.45 ms   / pdq: 1.28 [1.27, 1.29] (n=12)
+u64-runs64-100000
+  lab-c24    median     5.4 ms   / pdq: 0.916 [0.902, 0.929] (n=12)
+  pdq        median    5.93 ms
+  lab-lomuto-c24 median    10.9 ms   / pdq: 1.89 [1.77, 2.01] (n=12)
+u64-sorted-100000
+  pdq        median  0.0896 ms
+  lab-lomuto-c24 median  0.0996 ms   / pdq: 1.1 [1.06, 1.14] (n=12)
+  lab-c24    median     0.1 ms   / pdq: 1.16 [1.09, 1.25] (n=12)
+u64-sortedtail-100000
+  pdq        median   0.606 ms
+  lab-c24    median   0.617 ms   / pdq: 1.04 [0.989, 1.1] (n=12)
+  lab-lomuto-c24 median   0.665 ms   / pdq: 1.08 [1.05, 1.12] (n=12)
+u64-tripledesc-100000
+  lab-lomuto-c24 median    8.02 ms   / pdq: 0.912 [0.898, 0.927] (n=12)
+  lab-c24    median    8.31 ms   / pdq: 0.935 [0.92, 0.949] (n=12)
+  pdq        median    8.89 ms

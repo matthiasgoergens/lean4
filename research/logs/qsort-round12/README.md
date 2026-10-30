@@ -1,0 +1,5 @@
+# Sorting, round twelve (2026-10-27)
+
+Round twelve of `sorts/PLAN.md` (confirming the partition research's two candidates against pdq with cutoff 24 and core), on the benchmark machine as six shards on CPUs 20–25, three blocks each (18 blocks), load 12–18.  Every run picked one of 8 shuffled builds of the round's commit (`shuffled-binaries.sha256`).  `analysis.txt` and `analysis-vs-core.txt` are `sorts/analyse.py <dir>` with baselines pdq and core (wall time, primary); `analysis-cpu.txt` is `sorts/analyse_cpu.py <dir> core` on the random-key workloads, which have a `none` cell.
+
+Outcome under the decision rule fixed in `PLAN.md` before the round: both candidates pass (a), faster than core at the gate case (0.746 [0.728, 0.766] and 0.733 [0.715, 0.752]), and both fail (b): `lab:lomuto,ends,c24,brk9` exceeds 1.15 against pdq on runs5 (`str` at 100,000: 1.27 [1.26, 1.29]; `nat` at 1,000,000: 1.21 [1.21, 1.22]), and the `nochild` variant on nearly sorted `nat` at 1,000,000 (1.24 [1.23, 1.26]).  So production stays pdq with cutoff 24 and the candidates are a follow-up.
