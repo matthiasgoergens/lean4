@@ -1,0 +1,25 @@
+== gaps
+== axioms outside the standard three, per file
+PdqLemmas: 44 #print axioms lines
+PdqSorted: 41 #print axioms lines
+PdqCost: 40 #print axioms lines
+PdqLemmas: 0
+PdqSorted: 0
+PdqCost: 0
+== statements against 764d90a
+same: qsort_perm
+same: size_qsort
+same: getElem_qsort_of_not_mem
+same: mem_qsort
+same: qsortOrd_perm
+same: size_qsortOrd
+same: mem_qsortOrd
+same: qsort_sorted'
+same: qsort_sorted
+same: qsortOrd_sorted
+DIFFERS: qsortComparisons_le
+  old: theorem qsortComparisons_le (as : Array α) (lt : α → α → Bool) (lo hi : Nat) : qsortComparisons as lt lo hi ≤ 130 * ((max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) * (Nat.log2 (max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) + 1)) + 39 * (max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) := by 
+  new: theorem qsortComparisons_le (as : Array α) (lt : α → α → Bool) (lo hi : Nat) : qsortComparisons as lt lo hi ≤ 130 * ((max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) * (Nat.log2 (max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) + 1)) + 51 * (max (min lo (as.size - 1)) (min hi (as.size - 1)) + 1 - min lo (as.size - 1)) := by 
+== build and tests
+Build completed successfully (19 jobs).
+120000 cases, 0 failures

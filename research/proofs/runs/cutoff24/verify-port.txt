@@ -1,0 +1,20 @@
+== gaps
+== axioms outside the standard three, per file
+PdqLemmas: 6
+PdqSorted: 2
+PdqCost: 0
+== statements against 764d90a
+same: qsort_perm
+same: size_qsort
+same: getElem_qsort_of_not_mem
+same: mem_qsort
+same: qsortOrd_perm
+same: size_qsortOrd
+same: mem_qsortOrd
+same: qsort_sorted'
+same: qsort_sorted
+same: qsortOrd_sorted
+DIFFERS: qsortComparisons_le
+== build and tests
+Build completed successfully (19 jobs).
+120000 cases, 0 failures

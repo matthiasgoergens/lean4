@@ -1,0 +1,64 @@
+Downstream uses of Array.qpartition and Array.qsort, in the copies of Batteries and Mathlib in
+https://github.com/leanprover/downstream-lean4 at commit 1871562b94525d70e8cca5be8881ceda26632331 (2026-10-27).
+
+== batteries: grep --recursive --include='*.lean' qpartition batteries
+(end; 0 lines)
+
+== batteries: grep --recursive --include='*.lean' --extended-regexp 'qsort(Ord)?\b' batteries
+batteries/BatteriesTest/binaryHeap.lean:#guard (pseudoRandom 500).heapSort == (pseudoRandom 500).qsort (· < ·)
+batteries/BatteriesTest/lintBatching.lean:  unless results.qsort (· < ·) == Array.range 10 do throwError "jobs dropped: {results}"
+batteries/Batteries/Tactic/Lint/Simp.lean:  for (thm, _) in usedSimps.map.toArray.qsort (·.2 < ·.2) do
+batteries/Batteries/Data/Array/Merge.lean:  dedupSorted <| xs.qsort (compare · · |>.isLT)
+batteries/Batteries/Tactic/PrintDependents.lean:  let msg ← out.qsort (·.2 < ·.2) |>.mapM fun (c, _) => do
+batteries/Batteries/Tactic/Lint/Frontend.lean:  pure $ results.toArray.qsort fun (a, _) (b, _) => key.getD a 0 < key.getD b 0
+batteries/Batteries/Tactic/Lint/Frontend.lean:  let grouped' := grouped.toArray.qsort fun (a, _) (b, _) => toString a < toString b
+batteries/Batteries/Linter/UnnecessarySeqFocus.lean:  for (r, stx) in let _ := @lexOrd; let _ := @ltOfOrd.{0}; unused.qsort (key ·.1 < key ·.1) do
+batteries/Batteries/Tactic/ShowUnused.lean:  unused := unused.qsort (·.2.start < ·.2.start)
+batteries/Batteries/Linter/UnreachableTactic.lean:  for (r, stx) in let _ := @lexOrd; let _ := @ltOfOrd.{0}; unreachable.qsort (key ·.1 < key ·.1) do
+batteries/scripts/runLinter.lean:        .qsort (lt := fun (a, b) (c, d) => a.lt c || (a == c && b.lt d)) <|
+batteries/Batteries/Tactic/PrintPrefix.lean:  let cinfos := cinfos.qsort fun p q => lexNameLt (reverseName p.name) (reverseName q.name)
+batteries/scripts/check_imports.lean:  let imports := imports.qsort (·.toString < ·.toString)
+(end; 13 lines)
+
+== mathlib4: grep --recursive --include='*.lean' qpartition mathlib4
+(end; 0 lines)
+
+== mathlib4: grep --recursive --include='*.lean' --extended-regexp 'qsort(Ord)?\b' mathlib4
+mathlib4/Mathlib/Tactic/DepRewrite.lean:    for p in l.toArray.qsort do
+mathlib4/Mathlib/Tactic/CrossRefAttribute.lean:  tags.2.flatten.appendList tags.1 |>.qsort (·.tag < ·.tag)
+mathlib4/Mathlib/Tactic/DuplicateDecls.lean:    result := result.alter moduleKey (·.getD #[] |>.push (names.qsort Name.lt))
+mathlib4/Mathlib/Tactic/DeprecateTo.lean:  pure <| diffs.qsort (·.toString < ·.toString)
+mathlib4/Mathlib/Tactic/MinImports.lean:  if dbg? then dbg_trace "{ts.toArray.qsort Name.lt}"
+mathlib4/Mathlib/Tactic/MinImports.lean:    let fileNames := (tot.toArray.filter (!isInitImport ·)).qsort Name.lt
+mathlib4/Mathlib/Tactic/ExtractGoal.lean:    let fileNames := tot.toArray.qsort Name.lt
+mathlib4/Mathlib/Tactic/MoveAdd.lean:  let reorder := uToReorder.qsort fun x y =>
+mathlib4/Mathlib/Tactic/MoveAdd.lean:  return (candidates.toList.reduceOption.toArray.qsort
+mathlib4/Mathlib/Tactic/FindSyntax.lean:  let sorted_results := match_results.toArray.qsort (·.1.lt ·.1)
+mathlib4/Mathlib/Tactic/FindSyntax.lean:  let sorted_results := sorted_results.map fun (mod, msgs) => (mod, msgs.qsort (·.1.lt ·.1))
+mathlib4/Mathlib/Tactic/Hint.lean:  let tacs := (← getHints).toArray.qsort (·.1 > ·.1) |>.toList.map (·.2)
+mathlib4/Mathlib/Tactic/Hint.lean:  let results := results.qsort (·.1.1.length < ·.1.1.length)
+mathlib4/Mathlib/Tactic/FunProp/Core.lean:    |>.qsort (fun t s =>
+mathlib4/Mathlib/Tactic/FunProp/Core.lean:    |>.qsort (fun t s =>
+mathlib4/Mathlib/Tactic/Inclusion/Core/Extensions.lean:  return matched.qsort fun a b => a.priority > b.priority
+mathlib4/Mathlib/Tactic/Inclusion/Core/Extensions.lean:  return matched.qsort fun a b => a.priority > b.priority
+mathlib4/Mathlib/Tactic/Translate/Reorder.lean:    argReorders := argReorders.qsort (·.1 < ·.1)
+mathlib4/Mathlib/Tactic/Linter/FindDeprecations.lean:  return (fname_with_option, ← removeDeprecations fname (rems.toArray.qsort (·.1 < ·.1)))
+mathlib4/Mathlib/Tactic/Linter/FindDeprecations.lean:  let sortedFMap := fmap.toArray.qsort fun ((a, _), _) ((b, _), _) => importLT env b a
+mathlib4/Mathlib/Tactic/Linter/MinImports.lean:        let withImport := (newImps.toArray.qsort Name.lt).map (s!"import {·}")
+mathlib4/Mathlib/Tactic/Linter/MinImports.lean:    let currImpArray := currImports.toArray.qsort Name.lt
+mathlib4/Mathlib/Tactic/Linter/MinImports.lean:       currImpArray ≠ importsSoFar.toArray.qsort Name.lt then
+mathlib4/Mathlib/Tactic/Linter/UnusedTactic.lean:  for (r, stx, msg?) in let _ := @lexOrd; let _ := @ltOfOrd.{0}; unused.qsort (key ·.1 < key ·.1) do
+mathlib4/Mathlib/Tactic/Linter/DirectoryDependency.lean:          {allRules.toArray.qsort (·.toString < ·.toString)}.\n\
+mathlib4/Mathlib/Tactic/Linter/OverlappingInstances.lean:  let overlaps := overlaps.toArray.qsort (·.1.lt ·.1)
+mathlib4/Mathlib/Tactic/Linter/OverlappingInstances.lean:  let sortedOverlaps := sortedOverlaps.toArray.qsort (Array.lex ·.2 ·.2 Expr.lt)
+mathlib4/Mathlib/Tactic/Widget/LibraryRewrite.lean:  return rewrites.qsort lt
+mathlib4/Mathlib/Util/TransImports.lean:        m!"\n\n{imps.size} starting with {str}:\n{imps.qsort (·.toString < ·.toString)}"
+mathlib4/Mathlib/Util/Superscript.lean:  let tokens := "$" :: (m.toNormal.toArray.map (·.1.toString) |>.qsort (·<·)).toList
+mathlib4/Mathlib/Util/GetAllModules.lean:  return names.qsort (· < ·)
+mathlib4/MathlibTest/Tactic/MoveAdd.lean:   #[0, 1, 2, 3, 4].qsort (weight dat · ≤ weight dat ·) = #[0, 2, 3, 4, 1])
+mathlib4/scripts/export_crossrefs.lean:  let sorted := byDecl.toArray.qsort fun a b => a.1.toString < b.1.toString
+mathlib4/scripts/export_crossrefs.lean:    let tags := tags.qsort fun a b =>
+mathlib4/scripts/autolabel.lean:  applicable |>.qsort (·.toString < ·.toString)
+mathlib4/Cache/IO.lean:  acc := acc.qsort (·.sourceFile.toString < ·.sourceFile.toString)
+(end; 36 lines)
+
