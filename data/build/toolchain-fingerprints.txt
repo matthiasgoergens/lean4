@@ -1,0 +1,17 @@
+8856bb7bf38e3d7a7bad2abebd60b630065027b922523605224743d82b76818f  lean4-master/build/release/stage1/bin/lean
+37c9ccffdadfb7ceb8e90d97e3d0b8ff366f9c0824f73b8f715518b66c453d9d  lean4-master/build/release/stage1/bin/leanc
+b23f39d21251ecc4e8444c33abd4f53c75f73ddc4feda5cd9f665398ff53f28b  lean4-master/build/release/stage1/bin/lake
+c175e8c9dbc4ee5cc20daf0c42a582da65c3d69b5cc7ba6a3f8c49dff383ac6e  lean4-master/build/release/stage1/lib/lean/libleanshared.so
+2743cc0b3c8e25a96abe67b78fcea8e1e98e9561edc35ebe9a9bcc9769c1243e  lean4-master/build/release/stage1/lib/lean/libInit.a
+813dc554c8d87aedade839c061eee9ffb60a6b84651179f69593ece8f65c1bf3  lean4-master/build/release/stage1/lib/lean/libLean.a
+e885a8183bbc75e5db740a32ef0fd0dcbbfa483a8571f28e78e024b986be0628  lean4-master/build/release/stage1/lib/lean/Init/Data/Array/QSort/Basic.olean
+310aef259553f227f36ace33f58640ea6fb77398a1a84d26925ede4013ddfd84  lean4-master/build/release/stage1/lib/lean/Init/Data/Array/QSort/Basic.ir
+8856bb7bf38e3d7a7bad2abebd60b630065027b922523605224743d82b76818f  lean4-branch/build/release/stage1/bin/lean
+37c9ccffdadfb7ceb8e90d97e3d0b8ff366f9c0824f73b8f715518b66c453d9d  lean4-branch/build/release/stage1/bin/leanc
+b23f39d21251ecc4e8444c33abd4f53c75f73ddc4feda5cd9f665398ff53f28b  lean4-branch/build/release/stage1/bin/lake
+3fe57a3c59c7364feb44769998d8487432a77fb25eb8c2e86c471b918d4d7e12  lean4-branch/build/release/stage1/lib/lean/libleanshared.so
+fe654c5a51d39db54209dcc7a10fff1e8ecdd00f29ff94b26dea8e295c3de1da  lean4-branch/build/release/stage1/lib/lean/libInit.a
+c6288c4844c21b0e11214821d001ba05f9021e1915179cc3579b68bfc7e5633d  lean4-branch/build/release/stage1/lib/lean/libLean.a
+aa963255c6766345c60f272d4c3e34229c15286424e57c031238f9da833b3360  lean4-branch/build/release/stage1/lib/lean/Init/Data/Array/QSort/Basic.olean
+dce49256947555529bd49809f60f366418bd377cdb6be8e591734c6f40374518  lean4-branch/build/release/stage1/lib/lean/Init/Data/Array/QSort/Basic.ir
+daaaec8d20855993567c95bc653e57c2b9c70939c886eccad447f5de231721f3

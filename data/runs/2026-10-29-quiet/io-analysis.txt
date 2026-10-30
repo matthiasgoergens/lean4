@@ -1,0 +1,8 @@
+io_compute, 10 pairs, load 13.77 - 15.41
+  generate_sort  old median 1.014 s  new median 0.946 s  new/old 0.927 [0.915, 0.939] (n=10)
+  write          old median 1.040 s  new median 1.034 s  new/old 0.987 [0.966, 1.008] (n=10)
+  read           old median 0.056 s  new median 0.058 s  new/old 1.039 [1.026, 1.053] (n=10)
+  shuffle        old median 0.117 s  new median 0.126 s  new/old 1.092 [0.979, 1.218] (n=10)
+  instructions:u old median 1.11e+10  new median 1.001e+10  new/old 0.9022 [0.9022, 0.9022] (n=10)
+  instructions   old median 1.121e+10  new median 1.013e+10  new/old 0.9031 [0.9024, 0.9039] (n=10)
+  cycles         old median 1.338e+10  new median 1.304e+10  new/old 0.9729 [0.9620, 0.9838] (n=10)

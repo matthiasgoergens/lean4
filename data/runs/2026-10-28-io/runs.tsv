@@ -1,0 +1,21 @@
+pair	position	impl	start	loadavg1_before	loadavg1_after	exit	output
+1	0	old	2026-10-28T17:46:00+08:00	200.64	196.22	0	measurement: generate_sort 6.146000 s;measurement: write 3.616000 s;measurement: read 0.266000 s;measurement: shuffle 0.935000 s;
+1	1	new	2026-10-28T17:46:13+08:00	196.22	191.35	0	measurement: generate_sort 5.388000 s;measurement: write 3.360000 s;measurement: read 0.209000 s;measurement: shuffle 0.903000 s;
+2	0	old	2026-10-28T17:46:25+08:00	191.35	188.74	0	measurement: generate_sort 6.348000 s;measurement: write 3.757000 s;measurement: read 0.269000 s;measurement: shuffle 0.908000 s;
+2	1	new	2026-10-28T17:46:38+08:00	188.74	185.62	0	measurement: generate_sort 5.479000 s;measurement: write 3.511000 s;measurement: read 0.439000 s;measurement: shuffle 0.885000 s;
+3	0	new	2026-10-28T17:46:51+08:00	185.62	178.83	0	measurement: generate_sort 5.114000 s;measurement: write 4.483000 s;measurement: read 0.640000 s;measurement: shuffle 0.848000 s;
+3	1	old	2026-10-28T17:47:04+08:00	178.83	177.00	0	measurement: generate_sort 5.368000 s;measurement: write 3.638000 s;measurement: read 0.214000 s;measurement: shuffle 1.053000 s;
+4	0	old	2026-10-28T17:47:16+08:00	177.00	175.17	0	measurement: generate_sort 5.804000 s;measurement: write 3.642000 s;measurement: read 0.243000 s;measurement: shuffle 0.871000 s;
+4	1	new	2026-10-28T17:47:29+08:00	175.17	173.66	0	measurement: generate_sort 5.098000 s;measurement: write 3.624000 s;measurement: read 0.251000 s;measurement: shuffle 0.892000 s;
+5	0	old	2026-10-28T17:47:41+08:00	173.66	179.69	0	measurement: generate_sort 6.727000 s;measurement: write 3.773000 s;measurement: read 0.298000 s;measurement: shuffle 0.889000 s;
+5	1	new	2026-10-28T17:47:55+08:00	179.69	183.87	0	measurement: generate_sort 5.736000 s;measurement: write 3.861000 s;measurement: read 0.234000 s;measurement: shuffle 0.955000 s;
+6	0	old	2026-10-28T17:48:08+08:00	183.87	184.53	0	measurement: generate_sort 6.742000 s;measurement: write 3.672000 s;measurement: read 0.333000 s;measurement: shuffle 0.971000 s;
+6	1	new	2026-10-28T17:48:22+08:00	184.53	181.60	0	measurement: generate_sort 5.180000 s;measurement: write 3.645000 s;measurement: read 0.283000 s;measurement: shuffle 0.966000 s;
+7	0	new	2026-10-28T17:48:34+08:00	181.60	184.78	0	measurement: generate_sort 5.636000 s;measurement: write 3.730000 s;measurement: read 0.249000 s;measurement: shuffle 0.964000 s;
+7	1	old	2026-10-28T17:48:48+08:00	184.78	185.93	0	measurement: generate_sort 6.622000 s;measurement: write 3.727000 s;measurement: read 0.246000 s;measurement: shuffle 0.898000 s;
+8	0	new	2026-10-28T17:49:01+08:00	185.93	191.93	0	measurement: generate_sort 5.418000 s;measurement: write 3.708000 s;measurement: read 0.260000 s;measurement: shuffle 0.933000 s;
+8	1	old	2026-10-28T17:49:14+08:00	191.93	193.58	0	measurement: generate_sort 6.301000 s;measurement: write 3.765000 s;measurement: read 0.269000 s;measurement: shuffle 0.876000 s;
+9	0	new	2026-10-28T17:49:27+08:00	193.58	190.92	0	measurement: generate_sort 5.368000 s;measurement: write 3.593000 s;measurement: read 0.224000 s;measurement: shuffle 0.927000 s;
+9	1	old	2026-10-28T17:49:40+08:00	190.92	199.51	0	measurement: generate_sort 6.836000 s;measurement: write 3.771000 s;measurement: read 0.261000 s;measurement: shuffle 0.922000 s;
+10	0	new	2026-10-28T17:49:54+08:00	199.51	204.52	0	measurement: generate_sort 5.813000 s;measurement: write 3.598000 s;measurement: read 0.246000 s;measurement: shuffle 0.902000 s;
+10	1	old	2026-10-28T17:50:06+08:00	204.52	208.28	0	measurement: generate_sort 7.597000 s;measurement: write 3.760000 s;measurement: read 0.709000 s;measurement: shuffle 0.971000 s;

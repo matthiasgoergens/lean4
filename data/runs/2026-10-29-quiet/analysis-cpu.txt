@@ -1,0 +1,37 @@
+HASH MISMATCH: nat-random-1000000: {'7301018313514939397', '17784281608604441037'}
+HASH MISMATCH: nat-random-1000000-c256: {'11749612308315712447', '17784281608604441037'}
+HASH MISMATCH: rec-random-1000000: {'7301018313514939397', '17784281608604441037'}
+HASH MISMATCH: nat-random-1000000-c8: {'9687353661702869933', '17784281608604441037'}
+HASH MISMATCH: nat-random-1000000-c32: {'4157396780347514737', '17784281608604441037'}
+HASH MISMATCH: str-random-1000000: {'2125144488366672858', '8678551640626225580'}
+HASH MISMATCH: u64-random-6250000: {'4326050871801838341', '7818787703393317527'}
+7 problems
+
+nat-random-1000000   (none: median 0.021 s CPU)
+  none-new                     sort CPU median       0.1 ms   / old: 0.00808 [0.00383, 0.0171] (n=10)
+  new                          sort CPU median      89.5 ms   / old: 0.944 [0.93, 0.958] (n=18)
+  old                          sort CPU median      94.4 ms
+nat-random-1000000-c256   (none: median 0.025 s CPU)
+  none-new                     sort CPU median       0.1 ms   / old: 0.0284 [0.014, 0.0579] (n=9)
+  new                          sort CPU median      38.6 ms   / old: 0.801 [0.781, 0.823] (n=18)
+  old                          sort CPU median      48.2 ms
+nat-random-1000000-c32   (none: median 0.034 s CPU)
+  none-new                     sort CPU median       0.3 ms   / old: 0.0534 [0.0357, 0.0799] (n=9)
+  new                          sort CPU median      22.7 ms   / old: 0.692 [0.645, 0.742] (n=18)
+  old                          sort CPU median      34.8 ms
+nat-random-1000000-c8   (none: median 0.060 s CPU)
+  none-new                     sort CPU median      -0.6 ms   / old: 0.185 [0.0723, 0.474] (n=9)
+  new                          sort CPU median      11.3 ms   / old: 0.544 [0.377, 0.786] (n=16)
+  old                          sort CPU median      21.8 ms
+rec-random-1000000   (none: median 0.080 s CPU)
+  none-new                     sort CPU median      -0.4 ms   / old: 0.00762 [0.00464, 0.0125] (n=8)
+  new                          sort CPU median     401.8 ms   / old: 0.973 [0.959, 0.987] (n=18)
+  old                          sort CPU median     413.9 ms
+str-random-1000000   (none: median 0.080 s CPU)
+  none-new                     sort CPU median      -2.3 ms   / old: 0.00151 [0.000392, 0.00579] (n=5)
+  new                          sort CPU median     525.8 ms   / old: 0.916 [0.894, 0.939] (n=18)
+  old                          sort CPU median     573.2 ms
+u64-random-6250000   (none: median 0.171 s CPU)
+  none-new                     sort CPU median      -1.6 ms   / old: 0.0014 [0.000512, 0.00384] (n=8)
+  new                          sort CPU median    1937.0 ms   / old: 0.992 [0.982, 1] (n=18)
+  old                          sort CPU median    1955.0 ms

@@ -1,0 +1,2 @@
+build qsort-pr/lean4-branch exit 0 after 16 s
+build qsort-pr/lean4-master exit 0 after 18 s

@@ -1,0 +1,44 @@
+HASH MISMATCH: nat-random-1000000-c256: {'none': {'17784281608604441037'}, 'old': {'11749612308315712447'}, 'new': {'11749612308315712447'}, 'none-new': {'17784281608604441037'}}
+HASH MISMATCH: nat-random-1000000: {'new': {'7301018313514939397'}, 'old': {'7301018313514939397'}, 'none-new': {'17784281608604441037'}, 'none': {'17784281608604441037'}}
+HASH MISMATCH: rec-random-1000000: {'new': {'7301018313514939397'}, 'old': {'7301018313514939397'}, 'none': {'17784281608604441037'}, 'none-new': {'17784281608604441037'}}
+HASH MISMATCH: nat-random-1000000-c8: {'old': {'9687353661702869933'}, 'new': {'9687353661702869933'}, 'none-new': {'17784281608604441037'}, 'none': {'17784281608604441037'}}
+HASH MISMATCH: nat-random-1000000-c32: {'old': {'4157396780347514737'}, 'new': {'4157396780347514737'}, 'none': {'17784281608604441037'}, 'none-new': {'17784281608604441037'}}
+HASH MISMATCH: str-random-1000000: {'old': {'8678551640626225580'}, 'none-new': {'2125144488366672858'}, 'none': {'2125144488366672858'}, 'new': {'8678551640626225580'}}
+HASH MISMATCH: u64-random-6250000: {'none-new': {'7818787703393317527'}, 'none': {'7818787703393317527'}, 'old': {'4326050871801838341'}, 'new': {'4326050871801838341'}}
+7 problems
+
+nat-random-1000000
+  none-new   median  0.0125 ms   / old: 0.000142 [0.000125, 0.000163] (n=18)
+  none       median  0.0139 ms   / old: 0.000153 [0.000132, 0.000178] (n=18)
+  new        median    89.4 ms   / old: 0.949 [0.937, 0.961] (n=18)
+  old        median    93.5 ms
+nat-random-1000000-c256
+  none       median   0.661 ms   / old: 0.0144 [0.0138, 0.0151] (n=18)
+  none-new   median   0.681 ms   / old: 0.015 [0.0142, 0.0159] (n=18)
+  new        median    38.1 ms   / old: 0.805 [0.798, 0.811] (n=18)
+  old        median    47.6 ms
+nat-random-1000000-c32
+  none       median    8.49 ms   / old: 0.202 [0.184, 0.222] (n=18)
+  none-new   median    8.64 ms   / old: 0.199 [0.183, 0.217] (n=18)
+  new        median    31.8 ms   / old: 0.739 [0.717, 0.761] (n=18)
+  old        median    43.1 ms
+nat-random-1000000-c8
+  none       median    31.3 ms   / old: 0.6 [0.515, 0.7] (n=18)
+  none-new   median      33 ms   / old: 0.618 [0.549, 0.695] (n=18)
+  new        median    42.4 ms   / old: 0.847 [0.79, 0.908] (n=18)
+  old        median      52 ms
+rec-random-1000000
+  none-new   median 0.00974 ms   / old: 6.97e-05 [6.29e-05, 7.72e-05] (n=18)
+  none       median  0.0102 ms   / old: 7.49e-05 [6.16e-05, 9.12e-05] (n=18)
+  new        median     139 ms   / old: 0.927 [0.907, 0.947] (n=18)
+  old        median     150 ms
+str-random-1000000
+  none-new   median 0.00942 ms   / old: 2.76e-05 [2.47e-05, 3.09e-05] (n=18)
+  none       median  0.0101 ms   / old: 3.15e-05 [2.69e-05, 3.7e-05] (n=18)
+  new        median     329 ms   / old: 0.879 [0.846, 0.914] (n=18)
+  old        median     377 ms
+u64-random-6250000
+  none-new   median  0.0107 ms   / old: 1.11e-05 [9.79e-06, 1.26e-05] (n=18)
+  none       median  0.0109 ms   / old: 1.11e-05 [9.71e-06, 1.27e-05] (n=18)
+  new        median     1.08 s   / old: 0.986 [0.97, 1] (n=18)
+  old        median      1.1 s

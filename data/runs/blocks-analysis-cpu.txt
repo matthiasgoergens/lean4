@@ -1,0 +1,78 @@
+0 problems
+
+nat-constant-100000   (none: median 0.026 s CPU)
+  none-new                     sort CPU median       0.5 ms
+  new                          sort CPU median       2.1 ms   / old: 0.0008 [0.000391, 0.00164] (n=12)
+  old                          sort CPU median    5219.0 ms
+nat-dups4-100000   (none: median 0.025 s CPU)
+  none-new                     sort CPU median       3.1 ms
+  new                          sort CPU median       4.2 ms   / old: 0.0081 [0.00442, 0.0148] (n=11)
+  old                          sort CPU median    1145.1 ms
+nat-jitter64-1000000   (none: median 0.152 s CPU)
+  none-new                     sort CPU median      -1.9 ms
+  new                          sort CPU median      58.2 ms   / old: 0.661 [0.353, 1.24] (n=15)
+  old                          sort CPU median     124.7 ms
+nat-nearly-1000000   (none: median 0.119 s CPU)
+  none-new                     sort CPU median      -8.8 ms
+  new                          sort CPU median      20.3 ms   / old: 0.00277 [0.00106, 0.00728] (n=11)
+  old                          sort CPU median   16242.7 ms
+nat-nearly300-1000000   (none: median 0.118 s CPU)
+  none-new                     sort CPU median     -12.5 ms
+  new                          sort CPU median      23.6 ms   / old: 0.0447 [0.0199, 0.1] (n=13)
+  old                          sort CPU median     966.8 ms
+nat-organ-100000   (none: median 0.029 s CPU)
+  none-new                     sort CPU median      -4.1 ms
+  new                          sort CPU median       4.9 ms   / old: 0.0263 [0.0121, 0.0575] (n=13)
+  old                          sort CPU median     336.8 ms
+nat-organ-1000000   (none: median 0.114 s CPU)
+  none-new                     sort CPU median       1.3 ms
+  new                          sort CPU median      74.4 ms   / old: 0.00189 [0.00152, 0.00236] (n=16)
+  old                          sort CPU median   43775.1 ms
+nat-pathological-100000   (none: median 0.028 s CPU)
+  new                          sort CPU median       2.9 ms   / old: 0.00342 [0.00138, 0.00846] (n=11)
+  none-new                     sort CPU median       4.9 ms
+  old                          sort CPU median    2580.0 ms
+nat-random-1000000   (none: median 0.090 s CPU)
+  none-new                     sort CPU median       5.2 ms
+  old                          sort CPU median     125.7 ms
+  new                          sort CPU median     139.9 ms   / old: 0.888 [0.585, 1.35] (n=17)
+nat-random-1000000-c256   (none: median 0.135 s CPU)
+  none-new                     sort CPU median      -3.2 ms
+  new                          sort CPU median      67.5 ms   / old: 0.895 [0.542, 1.48] (n=17)
+  old                          sort CPU median      84.2 ms
+nat-random-1000000-c32   (none: median 0.143 s CPU)
+  none-new                     sort CPU median       4.0 ms
+  old                          sort CPU median      65.2 ms
+  new                          sort CPU median      75.5 ms   / old: 1.11 [0.783, 1.58] (n=13)
+nat-random-1000000-c8   (none: median 0.253 s CPU)
+  new                          sort CPU median      24.0 ms   / old: 1.3 [0.48, 3.5] (n=9)
+  old                          sort CPU median      38.6 ms
+  none-new                     sort CPU median      74.5 ms
+nat-reversed-1000000   (none: median 0.116 s CPU)
+  none-new                     sort CPU median      29.1 ms
+  new                          sort CPU median      31.1 ms   / old: 0.699 [0.443, 1.1] (n=11)
+  old                          sort CPU median      65.2 ms
+nat-runs2-100000   (none: median 0.028 s CPU)
+  none-new                     sort CPU median       2.3 ms
+  new                          sort CPU median       7.2 ms   / old: 0.00882 [0.00335, 0.0233] (n=15)
+  old                          sort CPU median     986.2 ms
+nat-sorted-1000000   (none: median 0.120 s CPU)
+  new                          sort CPU median      15.8 ms   / old: 0.263 [0.115, 0.603] (n=12)
+  none-new                     sort CPU median      23.8 ms
+  old                          sort CPU median      75.0 ms
+nat-zipf-1000000   (none: median 1.212 s CPU)
+  none-new                     sort CPU median     -37.8 ms
+  new                          sort CPU median      49.5 ms   / old: 0.0353 [0.0182, 0.0685] (n=12)
+  old                          sort CPU median    2500.7 ms
+rec-random-1000000   (none: median 0.328 s CPU)
+  none-new                     sort CPU median      14.1 ms
+  old                          sort CPU median    1099.9 ms
+  new                          sort CPU median    1141.2 ms   / old: 1.3 [0.949, 1.79] (n=18)
+str-random-1000000   (none: median 0.399 s CPU)
+  none-new                     sort CPU median     -75.5 ms
+  new                          sort CPU median    1735.1 ms   / old: 0.771 [0.655, 0.907] (n=18)
+  old                          sort CPU median    2236.1 ms
+u64-random-6250000   (none: median 0.897 s CPU)
+  none-new                     sort CPU median    -249.0 ms
+  new                          sort CPU median    6296.9 ms   / old: 0.914 [0.843, 0.99] (n=18)
+  old                          sort CPU median    7259.1 ms

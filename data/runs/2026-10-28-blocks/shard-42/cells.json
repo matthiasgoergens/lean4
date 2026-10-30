@@ -1,0 +1,1294 @@
+[
+ {
+  "workload": "nat-constant-100000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "constant",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-constant-100000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "constant",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-constant-100000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "constant",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-constant-100000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "constant",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-dups4-100000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "dups4",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-dups4-100000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "dups4",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-dups4-100000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "dups4",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-dups4-100000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "dups4",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-pathological-100000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "pathological",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-pathological-100000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "pathological",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-pathological-100000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "pathological",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-pathological-100000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "pathological",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-100000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "organ",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-100000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "organ",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-100000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "organ",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-100000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "organ",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-runs2-100000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "runs2",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-runs2-100000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "runs2",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-runs2-100000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "runs2",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-runs2-100000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "runs2",
+   "100000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "nearly",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "nearly",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "nearly",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "nearly",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "organ",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "organ",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "organ",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-organ-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "organ",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-sorted-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "sorted",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-sorted-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "sorted",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-sorted-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "sorted",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-sorted-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "sorted",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-reversed-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "reversed",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-reversed-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "reversed",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-reversed-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "reversed",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-reversed-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "reversed",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly300-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "nearly300",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly300-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "nearly300",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly300-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "nearly300",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-nearly300-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "nearly300",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-zipf-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "zipf",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-zipf-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "zipf",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-zipf-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "zipf",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-zipf-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "zipf",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-jitter64-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "jitter64",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-jitter64-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "jitter64",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-jitter64-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "jitter64",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-jitter64-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "jitter64",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "u64-random-6250000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "u64",
+   "random",
+   "6250000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "u64-random-6250000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "u64",
+   "random",
+   "6250000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "u64-random-6250000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "u64",
+   "random",
+   "6250000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "u64-random-6250000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "u64",
+   "random",
+   "6250000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "str-random-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "str",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "str-random-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "str",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "str-random-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "str",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "str-random-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "str",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "rec-random-1000000",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "rec",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "rec-random-1000000",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "rec",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "rec-random-1000000",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "rec",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "rec-random-1000000",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "rec",
+   "random",
+   "1000000",
+   "0",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c8",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "8",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c8",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "8",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c8",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "8",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c8",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "8",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c32",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "32",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c32",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "32",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c32",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "32",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c32",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "32",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c256",
+  "impl": "old",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "256",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c256",
+  "impl": "new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "core",
+   "nat",
+   "random",
+   "1000000",
+   "256",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c256",
+  "impl": "none",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/old",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "256",
+   "nocheck"
+  ]
+ },
+ {
+  "workload": "nat-random-1000000-c256",
+  "impl": "none-new",
+  "cpus": [
+   42
+  ],
+  "argv": [
+   "shuffled.sh",
+   "bins/new",
+   "none",
+   "nat",
+   "random",
+   "1000000",
+   "256",
+   "nocheck"
+  ]
+ }
+]
