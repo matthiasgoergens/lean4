@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pisx6,pred6 nat ninther 100000: cmps/n=8.76 swaps/n=2.54 partitions=664 unbalanced=0 partitioned-elems/n=6.38 heaps=0 heap-elems/n=0.00 pis=154/274 pis-won-elems/n=0.91 ins-elems/n=0.08 equal=0 breaks=0 reversals=43 ins=0.34 other=0.01 part=6.45 pis=1.90 pivot=0.07

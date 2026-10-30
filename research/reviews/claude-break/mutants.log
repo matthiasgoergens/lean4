@@ -1,0 +1,4 @@
+mutant 1: sweep: 384000 cases, 97340 failures sweep: 8640 cases, 2606 failures 
+mutant 2: sweep: 384000 cases, 17139 failures sweep: 8640 cases, 542 failures 
+mutant 3: sweep: 384000 cases, 10600 failures sweep: 8640 cases, 367 failures 
+mutant 4: sweep: 384000 cases, 0 failures sweep: 8640 cases, 0 failures 

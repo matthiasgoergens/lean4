@@ -1,0 +1,1 @@
+pdq nat nearly2000 100000: cmps/n=15.41 swaps/n=2.57 partitions=3045 unbalanced=3 partitioned-elems/n=11.11 heaps=0 heap-elems/n=0.00 pis=672/1600 pis-won-elems/n=0.53 ins-elems/n=0.44 equal=0 breaks=3 reversals=0 ins=0.84 other=0.03 part=11.11 pis=3.12 pivot=0.31

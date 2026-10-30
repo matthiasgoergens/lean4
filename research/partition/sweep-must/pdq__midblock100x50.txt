@@ -1,0 +1,1 @@
+pdq nat midblock100x50 100000: cmps/n=20.20 swaps/n=10.70 partitions=2253 unbalanced=0 partitioned-elems/n=7.30 heaps=0 heap-elems/n=0.00 pis=262/770 pis-won-elems/n=0.64 ins-elems/n=0.33 equal=0 breaks=0 reversals=229 ins=0.88 other=0.02 part=7.29 pis=11.80 pivot=0.21

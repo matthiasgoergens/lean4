@@ -1,0 +1,9 @@
+adv algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 rule=mcilroy n=5000 cmps=174073 per={'pivot': 168, 'partition': 69914, 'insertion': 90, 'eqtest': 13, 'heap': 103888}
+  replay input-for=N n=5000: algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 n=5000 cmps=174073 perNlogN=2.833286 minns=9005089 ok=true
+  replay input-for=N n=5000: algo=pdq n=5000 cmps=76455 perNlogN=1.244414 minns=3908158 ok=true
+adv algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 rule=mcilroy n=20000 cmps=820399 per={'pivot': 192, 'partition': 319806, 'insertion': 100, 'eqtest': 15, 'heap': 500286}
+  replay input-for=N n=20000: algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 n=20000 cmps=820399 perNlogN=2.870995 minns=55078278 ok=true
+  replay input-for=N n=20000: algo=pdq n=20000 cmps=350749 perNlogN=1.227450 minns=23475293 ok=true
+adv algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 rule=mcilroy n=100000 cmps=4783334 per={'pivot': 216, 'partition': 1799674, 'insertion': 116, 'eqtest': 17, 'heap': 2983311}
+  replay input-for=N n=100000: algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 n=100000 cmps=4783334 perNlogN=2.879854 minns=280120555 ok=true
+  replay input-for=N n=100000: algo=pdq n=100000 cmps=1979260 perNlogN=1.191633 minns=80883380 ok=true

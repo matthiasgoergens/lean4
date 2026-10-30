@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pisx6,pred16 nat jitter1000 100000: cmps/n=18.75 swaps/n=6.75 partitions=6507 unbalanced=210 partitioned-elems/n=13.13 heaps=0 heap-elems/n=0.00 pis=0/184 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=3 breaks=138 reversals=2 equal=0.00 ins=4.38 other=0.06 part=13.82 pis=0.00 pivot=0.47

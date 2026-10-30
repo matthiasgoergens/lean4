@@ -1,0 +1,21 @@
+lab:lomuto,ends,c24,brk9           runs5      cmps/n=28.93 swaps/n=24.51 partitions=6548 heaps=0 pis=0/624 reversals=0 ins=4.66 other=0.07 part=13.26 pis=10.45 pivot=0.49 
+lab:lomuto,ends,c24,brk9,hybp      runs5      cmps/n=21.17 swaps/n=16.94 partitions=6527 heaps=0 pis=0/199 reversals=10 ins=4.81 other=0.07 part=13.58 pis=2.22 pivot=0.49 
+lab:lomuto,ends,c24,brk9,nochild   runs5      cmps/n=20.68 swaps/n=17.15 partitions=6649 heaps=0 pis=0/1 reversals=0 ins=4.68 other=0.07 part=13.25 pis=2.20 pivot=0.49 
+lab:lomuto,ends,c24,brk9           ninther    cmps/n=9.75 swaps/n=6.36 partitions=649 heaps=0 pis=140/267 reversals=0 ins=0.27 other=0.01 part=6.35 pis=3.06 pivot=0.07 
+lab:lomuto,ends,c24,brk9,hybp      ninther    cmps/n=11.30 swaps/n=7.40 partitions=961 heaps=0 pis=167/356 reversals=14 ins=0.47 other=0.01 part=6.98 pis=3.73 pivot=0.10 
+lab:lomuto,ends,c24,brk9,nochild   ninther    cmps/n=9.81 swaps/n=5.04 partitions=1218 heaps=0 pis=193/317 reversals=0 ins=0.45 other=0.01 part=7.77 pis=1.46 pivot=0.12 
+lab:lomuto,ends,c24,brk9           nearly     cmps/n=7.89 swaps/n=4.44 partitions=14 heaps=0 pis=15/19 reversals=0 other=0.00 part=3.27 pis=4.62 pivot=0.00 
+lab:lomuto,ends,c24,brk9,hybp      nearly     cmps/n=7.77 swaps/n=3.53 partitions=12 heaps=0 pis=13/16 reversals=0 other=0.00 part=3.17 pis=4.60 pivot=0.00 
+lab:lomuto,ends,c24,brk9,nochild   nearly     cmps/n=8.92 swaps/n=3.59 partitions=524 heaps=0 pis=258/272 reversals=0 ins=0.06 other=0.01 part=6.70 pis=2.08 pivot=0.07 
+lab:lomuto,ends,c24,brk9           sortedtail cmps/n=5.01 swaps/n=0.17 partitions=104 heaps=0 pis=6/13 reversals=0 ins=0.07 other=0.00 part=2.07 pis=2.85 pivot=0.01 
+lab:lomuto,ends,c24,brk9,hybp      sortedtail cmps/n=5.01 swaps/n=0.17 partitions=104 heaps=0 pis=6/13 reversals=0 ins=0.07 other=0.00 part=2.07 pis=2.85 pivot=0.01 
+lab:lomuto,ends,c24,brk9,nochild   sortedtail cmps/n=5.13 swaps/n=0.16 partitions=136 heaps=0 pis=29/32 reversals=0 ins=0.07 other=0.00 part=2.79 pis=2.25 pivot=0.01 
+lab:lomuto,ends,c24,brk9           organ      cmps/n=17.06 swaps/n=12.72 partitions=6085 heaps=0 pis=0/37 reversals=0 ins=4.08 other=0.06 part=12.50 pis=0.00 pivot=0.42 
+lab:lomuto,ends,c24,brk9,hybp      organ      cmps/n=17.07 swaps/n=12.71 partitions=6085 heaps=0 pis=0/37 reversals=0 ins=4.08 other=0.06 part=12.50 pis=0.00 pivot=0.42 
+lab:lomuto,ends,c24,brk9,nochild   organ      cmps/n=17.06 swaps/n=12.72 partitions=6085 heaps=0 pis=0/0 reversals=0 ins=4.08 other=0.06 part=12.50 pivot=0.42 
+lab:lomuto,ends,c24,brk9           runs16     cmps/n=21.58 swaps/n=19.48 partitions=6455 heaps=0 pis=0/244 reversals=0 ins=4.48 other=0.06 part=16.43 pis=0.12 pivot=0.48 
+lab:lomuto,ends,c24,brk9,hybp      runs16     cmps/n=21.60 swaps/n=19.32 partitions=6448 heaps=0 pis=0/234 reversals=2 ins=4.50 other=0.06 part=16.45 pis=0.12 pivot=0.48 
+lab:lomuto,ends,c24,brk9,nochild   runs16     cmps/n=21.46 swaps/n=19.37 partitions=6432 heaps=0 pis=0/0 reversals=0 ins=4.49 other=0.06 part=16.43 pivot=0.48 
+lab:lomuto,ends,c24,brk9           random     cmps/n=18.64 swaps/n=17.18 partitions=6514 heaps=0 pis=0/215 reversals=1 ins=4.45 other=0.07 part=13.65 pis=0.00 pivot=0.47 
+lab:lomuto,ends,c24,brk9,hybp      random     cmps/n=18.64 swaps/n=17.13 partitions=6514 heaps=0 pis=0/214 reversals=1 ins=4.45 other=0.07 part=13.65 pis=0.00 pivot=0.47 
+lab:lomuto,ends,c24,brk9,nochild   random     cmps/n=18.64 swaps/n=17.18 partitions=6515 heaps=0 pis=0/0 reversals=1 ins=4.45 other=0.07 part=13.65 pivot=0.47 

@@ -1,0 +1,51 @@
+diff --git a/sorts/Sorts/Adaptive.lean b/sorts/Sorts/Adaptive.lean
+index d161b17..edbbfe1 100644
+--- a/sorts/Sorts/Adaptive.lean
++++ b/sorts/Sorts/Adaptive.lean
+@@ -159,7 +159,7 @@ where
+     let v := sortRun lt v r hr
+     let v :=
+       if h : 0 < l.len ∧ 0 < r.len then merge lt v l.start r.start (r.start + r.len) (by omega) (by omega) hr
+-      else v
++      else dbgTrace "GUARD combine len" fun _ => v
+     (v, ⟨l.start, l.len + r.len, true⟩)
+ 
+ /-- A run on the powersort stack, with the priority of its boundary to the next run. -/
+@@ -198,8 +198,8 @@ where
+         if hc : top.run.start + top.run.len = cur.start then
+           let (v, cur') := combine lt v top.run cur hc (by omega)
+           if hc' : cur'.start + cur'.len ≤ b then collapse v stack.pop cur' p hc'
+-          else (v, stack, cur)
+-        else (v, stack, cur)
++          else dbgTrace "GUARD collapse hc'" fun _ => (v, stack, cur)
++        else dbgTrace "GUARD collapse hc" fun _ => (v, stack, cur)
+       else (v, stack, cur)
+     else (v, stack, cur)
+   termination_by stack.size
+@@ -226,8 +226,8 @@ where
+       let top := stack[stack.size - 1]
+       if hc : top.run.start + top.run.len = cur.start then
+         let (v, cur') := combine lt v top.run cur hc (by omega)
+-        if hc' : cur'.start + cur'.len ≤ b then finish v stack.pop cur' hc' else v
+-      else v
++        if hc' : cur'.start + cur'.len ≤ b then finish v stack.pop cur' hc' else dbgTrace "GUARD finish hc'" fun _ => v
++      else dbgTrace "GUARD finish hc" fun _ => v
+     else sortRun lt v cur (by omega)
+   termination_by stack.size
+   decreasing_by simp only [Array.size_pop]; omega
+diff --git a/sorts/Sorts/Pdq.lean b/sorts/Sorts/Pdq.lean
+index 2cbf2ce..09c08cd 100644
+--- a/sorts/Sorts/Pdq.lean
++++ b/sorts/Sorts/Pdq.lean
+@@ -131,8 +131,9 @@ where
+       let r := xorshift r
+       let other := (r &&& mask).toNat
+       let other := if other ≥ len then other - len else other
+-      if h : idx < n ∧ a + other < n then go (v.swap idx (a + other)) (idx + 1) r k mask len
+-      else v
++      if h : idx < n ∧ a + other < n then
++        (if a + other < a + len ∧ idx < a + len then go (v.swap idx (a + other)) (idx + 1) r k mask len else dbgTrace s!"GUARD breakPatterns out of range idx={idx} other={other} len={len}" fun _ => go (v.swap idx (a + other)) (idx + 1) r k mask len)
++      else dbgTrace "GUARD breakPatterns" fun _ => v
+ 
+ inductive Hint where
+   | unknown | increasing | decreasing

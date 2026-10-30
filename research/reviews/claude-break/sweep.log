@@ -1,0 +1,6 @@
+sweep: 384000 cases, 0 failures
+sweep: 8640 cases, 0 failures
+
+real	1m41.512s
+user	1m26.029s
+sys	0m0.164s

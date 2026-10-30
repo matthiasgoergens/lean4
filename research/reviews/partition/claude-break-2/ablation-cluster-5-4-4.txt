@@ -1,0 +1,7 @@
+algo=pdq cmps=5212757 perNlogN=0.261533 ok=true
+algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 cmps=18169098 perNlogN=0.911574 ok=true
+algo=lab:lomuto,ends,c24,brk9,pisx6,pred16 cmps=5212892 perNlogN=0.261539 ok=true
+algo=lab:lomuto,ends,c24,brk9,pisx6,pred30 cmps=5212892 perNlogN=0.261539 ok=true
+algo=lab:lomuto,ends,c24,brk9,pred6 cmps=12727923 perNlogN=0.638581 ok=true
+algo=lab:lomuto,ends,c24,brk9,pisx6 cmps=12905427 perNlogN=0.647487 ok=true
+algo=lab:lomuto,ends,c24,brk9,pisx6,pred6,hybp cmps=5412227 perNlogN=0.271540 ok=true

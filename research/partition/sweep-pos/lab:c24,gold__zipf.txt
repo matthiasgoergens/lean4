@@ -1,0 +1,1 @@
+lab:c24,gold nat zipf 100000: cmps/n=13.55 swaps/n=3.89 partitions=3355 unbalanced=138 partitioned-elems/n=10.80 heaps=0 heap-elems/n=0.00 pis=163/318 pis-won-elems/n=0.26 ins-elems/n=0.44 equal=300 breaks=108 reversals=3 equal=0.42 ins=1.75 other=0.04 part=10.78 pis=0.27 pivot=0.30

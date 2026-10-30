@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold,predm,pred6 nat midblock100x50 100000: cmps/n=23.35 swaps/n=13.28 partitions=2362 unbalanced=5 partitioned-elems/n=7.30 heaps=0 heap-elems/n=0.00 pis=294/713 pis-won-elems/n=0.65 ins-elems/n=0.33 equal=0 breaks=4 reversals=216 ins=1.23 other=0.02 part=7.57 pis=14.32 pivot=0.22

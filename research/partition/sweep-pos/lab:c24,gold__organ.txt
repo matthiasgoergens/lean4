@@ -1,0 +1,1 @@
+lab:c24,gold nat organ 100000: cmps/n=18.55 swaps/n=7.04 partitions=6289 unbalanced=150 partitioned-elems/n=13.48 heaps=0 heap-elems/n=0.00 pis=0/167 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=122 reversals=65 ins=4.04 other=0.06 part=13.45 pis=0.54 pivot=0.47

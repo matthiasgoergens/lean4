@@ -1,0 +1,25 @@
+pdq                                runs3    cmps/n=16.53 swaps/n=6.15 pis=0/0 reversals=0 ins=2.52 other=0.11 part=13.30 pivot=0.60 
+lab:lomuto,ends,c24,brk9           runs3    cmps/n=18.05 swaps/n=13.31 pis=0/10 reversals=0 ins=4.35 other=0.07 part=13.14 pis=0.00 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap1      runs3    cmps/n=18.05 swaps/n=13.31 pis=0/10 reversals=0 ins=4.35 other=0.07 part=13.14 pis=0.00 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap2      runs3    cmps/n=18.05 swaps/n=13.31 pis=0/10 reversals=0 ins=4.35 other=0.07 part=13.14 pis=0.00 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap3      runs3    cmps/n=18.05 swaps/n=13.31 pis=0/10 reversals=0 ins=4.35 other=0.07 part=13.14 pis=0.00 pivot=0.49 
+pdq                                runs5    cmps/n=19.51 swaps/n=7.07 pis=0/582 reversals=73 ins=2.29 other=0.12 part=14.12 pis=2.32 pivot=0.66 
+lab:lomuto,ends,c24,brk9           runs5    cmps/n=28.93 swaps/n=24.51 pis=0/624 reversals=0 ins=4.66 other=0.07 part=13.26 pis=10.45 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap1      runs5    cmps/n=20.68 swaps/n=17.15 pis=0/1 reversals=0 ins=4.68 other=0.07 part=13.25 pis=2.20 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap2      runs5    cmps/n=22.80 swaps/n=19.04 pis=0/27 reversals=0 ins=4.69 other=0.07 part=13.19 pis=4.37 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap3      runs5    cmps/n=24.93 swaps/n=20.96 pis=0/85 reversals=0 ins=4.67 other=0.07 part=13.21 pis=6.49 pivot=0.48 
+pdq                                runs9    cmps/n=20.82 swaps/n=7.69 pis=0/557 reversals=38 ins=2.21 other=0.12 part=14.96 pis=2.86 pivot=0.66 
+lab:lomuto,ends,c24,brk9           runs9    cmps/n=24.71 swaps/n=21.72 pis=0/573 reversals=0 ins=4.64 other=0.07 part=13.50 pis=6.03 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap1      runs9    cmps/n=19.94 swaps/n=17.38 pis=0/1 reversals=0 ins=4.60 other=0.07 part=13.56 pis=1.22 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap2      runs9    cmps/n=21.07 swaps/n=18.41 pis=0/30 reversals=0 ins=4.59 other=0.07 part=13.53 pis=2.38 pivot=0.49 
+lab:lomuto,ends,c24,brk9,cap3      runs9    cmps/n=22.25 swaps/n=19.50 pis=0/81 reversals=0 ins=4.61 other=0.07 part=13.52 pis=3.57 pivot=0.49 
+pdq                                nearly   cmps/n=9.06 swaps/n=3.75 pis=21/32 reversals=0 ins=0.00 other=0.00 part=3.50 pis=5.55 pivot=0.01 
+lab:lomuto,ends,c24,brk9           nearly   cmps/n=7.89 swaps/n=4.44 pis=15/19 reversals=0 other=0.00 part=3.27 pis=4.62 pivot=0.00 
+lab:lomuto,ends,c24,brk9,cap1      nearly   cmps/n=14.41 swaps/n=3.67 pis=0/1 reversals=0 ins=1.06 other=0.04 part=12.04 pis=0.95 pivot=0.32 
+lab:lomuto,ends,c24,brk9,cap2      nearly   cmps/n=13.78 swaps/n=4.51 pis=2/5 reversals=0 ins=0.70 other=0.03 part=9.73 pis=3.09 pivot=0.23 
+lab:lomuto,ends,c24,brk9,cap3      nearly   cmps/n=8.34 swaps/n=4.45 pis=13/17 reversals=0 ins=0.06 other=0.00 part=3.70 pis=4.55 pivot=0.02 
+pdq                                ninther  cmps/n=8.89 swaps/n=2.64 pis=199/407 reversals=43 ins=0.12 other=0.01 part=6.42 pis=2.25 pivot=0.08 
+lab:lomuto,ends,c24,brk9           ninther  cmps/n=9.75 swaps/n=6.36 pis=140/267 reversals=0 ins=0.27 other=0.01 part=6.35 pis=3.06 pivot=0.07 
+lab:lomuto,ends,c24,brk9,cap1      ninther  cmps/n=11.40 swaps/n=6.21 pis=61/132 reversals=0 ins=0.61 other=0.02 part=8.10 pis=2.48 pivot=0.19 
+lab:lomuto,ends,c24,brk9,cap2      ninther  cmps/n=9.95 swaps/n=6.35 pis=132/247 reversals=0 ins=0.32 other=0.01 part=6.55 pis=2.98 pivot=0.08 
+lab:lomuto,ends,c24,brk9,cap3      ninther  cmps/n=9.76 swaps/n=6.36 pis=138/264 reversals=0 ins=0.27 other=0.01 part=6.36 pis=3.05 pivot=0.07 

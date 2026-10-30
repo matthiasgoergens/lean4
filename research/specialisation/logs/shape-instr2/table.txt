@@ -1,0 +1,45 @@
+u64-random-6250000-0  (none 3144.1 M)
+  pdq                 4643.28 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he          4644.48 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e        4644.67 M  / pdq  1.000   spread   0.00 M
+  spec-shape-em       4764.10 M  / pdq  1.026   spread   0.00 M
+nat-random-1000000-0  (none 301.8 M)
+  pdq                  857.29 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he           857.58 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e         858.11 M  / pdq  1.001   spread   0.00 M
+  spec-shape-em        876.70 M  / pdq  1.023   spread   0.00 M
+str-random-1000000-0  (none 1072.5 M)
+  pdq                 1736.53 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he          1737.25 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e        1737.26 M  / pdq  1.000   spread   0.00 M
+  spec-shape-em       1756.20 M  / pdq  1.011   spread   0.00 M
+nat-random-1000000-256  (none 361.4 M)
+  pdq                  406.49 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he           406.84 M  / pdq  1.001   spread   0.00 M
+  spec-shape-e         407.45 M  / pdq  1.002   spread   0.00 M
+  spec-shape-em        424.26 M  / pdq  1.044   spread   0.00 M
+nat-random-1000000-8  (none 675.3 M)
+  pdq                  161.07 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he           161.57 M  / pdq  1.003   spread   0.00 M
+  spec-shape-e         161.57 M  / pdq  1.003   spread   0.00 M
+  spec-shape-em        161.57 M  / pdq  1.003   spread   0.00 M
+nat-runs16-100000-0  (none 55.4 M)
+  pdq                   79.33 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he            79.36 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e          79.42 M  / pdq  1.001   spread   0.00 M
+  spec-shape-em         81.30 M  / pdq  1.025   spread   0.00 M
+nat-nearly300-1000000-0  (none 435.8 M)
+  pdq                  305.78 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he           305.78 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e         305.79 M  / pdq  1.000   spread   0.00 M
+  spec-shape-em        306.22 M  / pdq  1.001   spread   0.00 M
+rec-random-1000000-0  (none 1105.0 M)
+  pdq                  952.52 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he           952.81 M  / pdq  1.000   spread   0.00 M
+  spec-shape-e         953.20 M  / pdq  1.001   spread   0.00 M
+  spec-shape-em        971.92 M  / pdq  1.020   spread   0.00 M
+nat-dups4-100000-0  (none 33.2 M)
+  pdq                   11.75 M  / pdq  1.000   spread   0.00 M
+  spec-c5-he            13.66 M  / pdq  1.163   spread   0.00 M
+  spec-shape-e          13.66 M  / pdq  1.163   spread   0.00 M
+  spec-shape-em         13.66 M  / pdq  1.163   spread   0.00 M

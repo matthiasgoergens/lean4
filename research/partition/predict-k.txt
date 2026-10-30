@@ -1,0 +1,16 @@
+lab-c24 runs5 cmps/n=20.57 swaps/n=8.86 partitioned-elems/n=13.18 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs5 cmps/n=29.15 swaps/n=27.06 partitioned-elems/n=13.27 heaps=0 heap-elems/n=0.00
+lab-c24 runs6 cmps/n=18.40 swaps/n=7.06 partitioned-elems/n=13.31 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs6 cmps/n=18.28 swaps/n=17.14 partitioned-elems/n=13.24 heaps=0 heap-elems/n=0.00
+lab-c24 runs7 cmps/n=18.72 swaps/n=7.11 partitioned-elems/n=13.67 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs7 cmps/n=18.66 swaps/n=17.50 partitioned-elems/n=13.55 heaps=0 heap-elems/n=0.00
+lab-c24 runs8 cmps/n=23.66 swaps/n=6.99 partitioned-elems/n=18.52 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs8 cmps/n=26.02 swaps/n=24.59 partitioned-elems/n=20.42 heaps=7 heap-elems/n=0.04
+lab-c24 runs10 cmps/n=18.81 swaps/n=7.03 partitioned-elems/n=13.72 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs10 cmps/n=18.48 swaps/n=17.32 partitioned-elems/n=13.49 heaps=0 heap-elems/n=0.00
+lab-c24 runs12 cmps/n=23.10 swaps/n=6.90 partitioned-elems/n=18.01 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs12 cmps/n=24.38 swaps/n=22.89 partitioned-elems/n=18.49 heaps=6 heap-elems/n=0.04
+lab-c24 runs20 cmps/n=21.29 swaps/n=6.91 partitioned-elems/n=16.29 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs20 cmps/n=47.02 swaps/n=33.02 partitioned-elems/n=17.85 heaps=2 heap-elems/n=0.97
+lab-c24 runs32 cmps/n=21.84 swaps/n=6.80 partitioned-elems/n=16.89 heaps=0 heap-elems/n=0.00
+lab:lomuto,bl,c24 runs32 cmps/n=33.42 swaps/n=27.64 partitioned-elems/n=19.80 heaps=2 heap-elems/n=0.39

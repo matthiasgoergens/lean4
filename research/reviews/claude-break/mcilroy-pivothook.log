@@ -1,0 +1,35 @@
+adversary against pdq, n=1000: 7210 comparisons = 0.723475 n log2 n (0 ms)
+  core: 106955 comparisons = 10.732221 n log2 n, 2418 us, ok=true
+  pdq: 7210 comparisons = 0.723475 n log2 n, 173 us, ok=true
+  adaptive: 1112 comparisons = 0.111582 n log2 n, 36 us, ok=true
+  merge: 5075 comparisons = 0.509242 n log2 n, 319 us, ok=true
+  heap: 17633 comparisons = 1.769354 n log2 n, 462 us, ok=true
+  heap entries: 0, first: 
+adversary against pdq, n=4096: 28924 comparisons = 0.588460 n log2 n (1 ms)
+  core: 1726135 comparisons = 35.118306 n log2 n, 53136 us, ok=true
+  pdq: 28924 comparisons = 0.588460 n log2 n, 877 us, ok=true
+  adaptive: 4234 comparisons = 0.086141 n log2 n, 161 us, ok=true
+  merge: 24623 comparisons = 0.500956 n log2 n, 1708 us, ok=true
+  heap: 88970 comparisons = 1.810099 n log2 n, 3164 us, ok=true
+  heap entries: 0, first: 
+adversary against pdq, n=16384: 114984 comparisons = 0.501290 n log2 n (3 ms)
+  core: 27355709 comparisons = 119.261427 n log2 n, 824479 us, ok=true
+  pdq: 114984 comparisons = 0.501290 n log2 n, 4040 us, ok=true
+  adaptive: 16548 comparisons = 0.072144 n log2 n, 731 us, ok=true
+  merge: 114745 comparisons = 0.500249 n log2 n, 8383 us, ok=true
+  heap: 421871 comparisons = 1.839212 n log2 n, 16878 us, ok=true
+  heap entries: 0, first: 
+adversary against pdq, n=65536: 459092 comparisons = 0.437824 n log2 n (15 ms)
+  core: 436593537 comparisons = 416.368043 n log2 n, 32545004 us, ok=true
+  pdq: 459092 comparisons = 0.437824 n log2 n, 36808 us, ok=true
+  adaptive: 65726 comparisons = 0.062681 n log2 n, 8371 us, ok=true
+  merge: 524355 comparisons = 0.500064 n log2 n, 91858 us, ok=true
+  heap: 1950994 comparisons = 1.860613 n log2 n, 177706 us, ok=true
+  heap entries: 0, first: 
+adversary against pdq, n=262144: 1835392 comparisons = 0.388970 n log2 n (211 ms)
+  core: 6980908609 comparisons = 1479.447388 n log2 n, 376446950 us, ok=true
+  pdq: 1835392 comparisons = 0.388970 n log2 n, 79113 us, ok=true
+  adaptive: 262360 comparisons = 0.055601 n log2 n, 12886 us, ok=true
+  merge: 2359373 comparisons = 0.500016 n log2 n, 221597 us, ok=true
+  heap: 8868871 comparisons = 1.879559 n log2 n, 409005 us, ok=true
+  heap entries: 0, first: 

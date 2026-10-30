@@ -1,0 +1,1 @@
+lab:c24,gold nat ninther 100000: cmps/n=13.11 swaps/n=5.37 partitions=1005 unbalanced=3 partitioned-elems/n=7.78 heaps=0 heap-elems/n=0.00 pis=215/369 pis-won-elems/n=0.86 ins-elems/n=0.13 equal=0 breaks=2 reversals=93 ins=0.42 other=0.01 part=7.77 pis=4.80 pivot=0.11

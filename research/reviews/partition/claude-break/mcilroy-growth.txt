@@ -1,0 +1,2 @@
+adv algo=lab:lomuto,ends,c24,brk9 rule=mcilroy n=5000 cmps=173631 per={'pivot': 168, 'partition': 69480, 'insertion': 82, 'eqtest': 13, 'heap': 103888}
+adv algo=lab:lomuto,ends,c24,brk9 rule=mcilroy n=300000 cmps=15897064 per={'pivot': 240, 'partition': 5998898, 'insertion': 134, 'eqtest': 19, 'heap': 9897773}

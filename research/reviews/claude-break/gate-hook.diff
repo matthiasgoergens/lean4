@@ -1,0 +1,13 @@
+diff --git a/sorts/Sorts/Pdq.lean b/sorts/Sorts/Pdq.lean
+index 2cbf2ce..8e062b3 100644
+--- a/sorts/Sorts/Pdq.lean
++++ b/sorts/Sorts/Pdq.lean
+@@ -269,7 +269,7 @@ length of the range, so that the recursion is structural. -/
+         partialInsertionSort lt v a b (by omega) hb
+       else (v, false)
+     if done then v
+-    else if hp : lo < a ∧ !lt v[a - 1] v[pivot.1] then
++    else if hp : lo < a ∧ !lt v[a - 1] v[a - 1] && !lt v[a - 1] v[pivot.1] then
+       let (v, ⟨mid, hm⟩) := partitionEqual lt v a b pivot hb
+       sort lt lo v mid b limit balanced partitioned fuel (by omega) (by omega) (by omega) hb
+     else

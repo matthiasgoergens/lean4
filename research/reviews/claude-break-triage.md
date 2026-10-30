@@ -1,0 +1,11 @@
+# Triage of the fresh-context Claude break-it review (2026-10-27)
+
+Raw material in `claude-break/` (logs, inputs, the reviewer's `scripts/Break.lean`).  Base commit 340e276; laptop timings pinned to a P-core.
+
+- **Adaptive (k = 0) is Θ(n log² n) in moves on many sorted runs: confirmed**, consistent with round two on the box (2.9× pdq on 256 sorted blocks at 1M).  The reviewer's `bitrev` pattern (every merge interleaves element by element) shows instructions per element growing faster than log n.  Bears on keeping k = 0 at all; round three measures k = 1, 4, 8.
+- **An unlawful `lt` can make pdq quadratic through chained equal-key partitions: confirmed and fixed (cfadab0).**  Checked at the source: the partition-equal branch recursed with `limit` unchanged.  The replay log shows comparisons per n log₂ n rising 5.8 → 34 from n = 1000 to 16000.  Fix: skip the equal-key test on the round right after a partition-equal (`afterEqual`).  With only that change, pdq's permutation still matches Go on all 104 fidelity cases (so no lawful result changed), and the recorded comparator falls to 1.1 n log₂ n at 16000 (my replay, `/tmp/qsort-replay`, not kept).  Go's pdqsort has the same behaviour.
+- **breakPatterns' guard was against `n`, not the range: accepted and fixed** (cfadab0; index now `r % len`, an `Idx` by construction).  It changes which elements are swapped, so 16 of the 104 fidelity cases now permute equal keys differently from Go: the price of dropping the bit-level bound.
+- **Adaptive's run bookkeeping carries no invariants (silent fallbacks): accepted**, matters only if a run front end is kept; then the stack becomes boundaries in a subtype and runs carry `0 < len`.
+- **The equal-key branch needs the "predecessor is a lower bound" invariant in the induction: agreed**, already in the plan; the reviewer checked every use of the order laws needs only asymmetry and transitivity of ¬lt.
+- **The heapsort fallback is reachable and O(n log n), `limit` is right: noted.**  A McIlroy-style adversary drives pdq to 2.9 n log₂ n comparisons at 1M (1.6× a random permutation's time).
+- **Not done by the reviewer: no Gemini pass on its findings; no balanced-but-bad (n/8 every time) adversary.**

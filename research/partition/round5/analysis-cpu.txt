@@ -1,0 +1,30 @@
+0 problems
+
+nat-random-1000000   (none: median 0.107 s CPU)
+  lab:lomuto,ends,c24,brk9,pisx6,pred6 sort CPU median     120.1 ms   / core: 0.632 [0.385, 1.04] (n=18)
+  lab:lomuto,ends,c24,gold,predm,pred6 sort CPU median     121.3 ms   / core: 0.729 [0.555, 0.956] (n=18)
+  lab:lomuto,ends,c24,brk9,predm,pred6 sort CPU median     126.9 ms   / core: 0.758 [0.572, 1] (n=18)
+  lab:c24,gold                 sort CPU median     136.5 ms   / core: 1 [0.742, 1.35] (n=18)
+  core                         sort CPU median     156.5 ms
+  pdq                          sort CPU median     160.2 ms   / core: 1.07 [0.828, 1.39] (n=17)
+rec-random-1000000   (none: median 0.423 s CPU)
+  lab:c24,gold                 sort CPU median    1287.7 ms   / core: 0.785 [0.675, 0.912] (n=18)
+  pdq                          sort CPU median    1327.2 ms   / core: 0.831 [0.773, 0.894] (n=18)
+  lab:lomuto,ends,c24,gold,predm,pred6 sort CPU median    1399.7 ms   / core: 0.85 [0.731, 0.987] (n=18)
+  lab:lomuto,ends,c24,brk9,predm,pred6 sort CPU median    1428.0 ms   / core: 0.908 [0.827, 0.998] (n=18)
+  core                         sort CPU median    1500.9 ms
+  lab:lomuto,ends,c24,brk9,pisx6,pred6 sort CPU median    1512.5 ms   / core: 0.937 [0.859, 1.02] (n=18)
+str-random-1000000   (none: median 0.488 s CPU)
+  lab:c24,gold                 sort CPU median    2068.2 ms   / core: 0.727 [0.644, 0.822] (n=18)
+  pdq                          sort CPU median    2117.8 ms   / core: 0.791 [0.732, 0.855] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx6,pred6 sort CPU median    2288.4 ms   / core: 0.842 [0.76, 0.933] (n=18)
+  lab:lomuto,ends,c24,brk9,predm,pred6 sort CPU median    2300.6 ms   / core: 0.855 [0.803, 0.91] (n=18)
+  lab:lomuto,ends,c24,gold,predm,pred6 sort CPU median    2320.3 ms   / core: 0.886 [0.843, 0.931] (n=18)
+  core                         sort CPU median    2655.2 ms
+u64-random-6250000   (none: median 1.243 s CPU)
+  pdq                          sort CPU median    7431.2 ms   / core: 0.87 [0.807, 0.938] (n=18)
+  lab:c24,gold                 sort CPU median    7842.6 ms   / core: 0.92 [0.828, 1.02] (n=18)
+  core                         sort CPU median    8738.0 ms
+  lab:lomuto,ends,c24,gold,predm,pred6 sort CPU median    8968.2 ms   / core: 0.971 [0.851, 1.11] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx6,pred6 sort CPU median    9284.4 ms   / core: 1.03 [0.911, 1.17] (n=18)
+  lab:lomuto,ends,c24,brk9,predm,pred6 sort CPU median    9365.9 ms   / core: 1.04 [0.933, 1.16] (n=18)

@@ -1,0 +1,1 @@
+pdq nat random 100000: cmps/n=18.52 swaps/n=6.83 partitions=6546 unbalanced=222 partitioned-elems/n=13.62 heaps=0 heap-elems/n=0.00 pis=0/174 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=0 breaks=152 reversals=3 ins=4.40 other=0.07 part=13.58 pis=0.00 pivot=0.47

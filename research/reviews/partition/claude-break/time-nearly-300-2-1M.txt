@@ -1,0 +1,5 @@
+file=inputs/nearly-300-2-1M.txt blocks=5 reps=3 hashes_agree=True
+  pdq                                           median_ms=   67.268 ratio= 1.000 per_block_ms=[61.47, 68.92, 81.03, 67.27, 36.32]
+  lab:lomuto,ends,c24,brk9                      median_ms=  236.826 ratio= 3.521 per_block_ms=[186.7, 311.26, 236.83, 370.71, 148.82]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=  131.346 ratio= 1.953 per_block_ms=[131.35, 162.64, 157.74, 106.84, 75.08]
+  core                                          median_ms= 3125.443 ratio=46.462 per_block_ms=[2667.69, 3125.44, 3273.12, 3298.06, 2127.63]

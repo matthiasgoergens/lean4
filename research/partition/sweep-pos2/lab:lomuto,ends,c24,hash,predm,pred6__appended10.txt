@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,hash,predm,pred6 nat appended10 100000: cmps/n=11.52 swaps/n=5.00 partitions=92 unbalanced=11 partitioned-elems/n=4.13 heaps=0 heap-elems/n=0.00 pis=40/60 pis-won-elems/n=0.99 ins-elems/n=0.01 equal=0 breaks=11 reversals=0 ins=0.02 other=0.00 part=4.14 pis=7.35 pivot=0.01

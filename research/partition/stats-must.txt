@@ -1,0 +1,15 @@
+comparisons per element, ratios to pdq; C0 = ends,brk9,pisx6,pred6; B = ends,brk9,predm,pred6; G = ends,gold,predm,pred6
+input                                            pdq      C0       B       G
+L-pdq-100k-nearly-s11.txt n=100000             11.79    1.00    1.01    1.11
+N-pdq-100k-nearly-s28.txt n=100000             13.36    1.44    1.01    1.17
+N-pdq-2000-random-s24.txt n=2000               11.36    1.27    1.26    1.15
+N-pdq-2000-sorted-s21.txt n=2000                8.93    1.58    1.31    1.37
+N-pdq-20000-nearly-s27.txt n=20000             11.26    1.48    1.05    1.14
+N-pdq-20000-sorted-s26.txt n=20000             11.73    1.19    1.14    1.20
+appended10 n=100000                             9.67    1.38    1.00    1.03
+cluster5x12x2 n=100000                          9.80    1.52    1.00    0.63
+cluster5x4x4 n=100000                           5.15    2.37    1.00    1.39
+midblock100x50 n=100000                        20.20    0.56    1.04    1.16
+midblock7x90 n=100000                          10.20    2.17    1.00    1.04
+rothalf n=100000                                7.04    0.93    1.01    0.82
+tail7 n=100000                                 11.00    2.19    1.00    1.04

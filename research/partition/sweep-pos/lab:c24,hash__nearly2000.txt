@@ -1,0 +1,1 @@
+lab:c24,hash nat nearly2000 100000: cmps/n=17.45 swaps/n=2.45 partitions=3692 unbalanced=230 partitioned-elems/n=13.39 heaps=0 heap-elems/n=0.00 pis=798/1759 pis-won-elems/n=0.55 ins-elems/n=0.41 equal=0 breaks=225 reversals=0 ins=0.81 other=0.04 part=13.39 pis=2.83 pivot=0.39

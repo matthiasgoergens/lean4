@@ -1,0 +1,131 @@
+### CLAIM 1 (mechanism)
+
+1. **Order preservation of `< p` elements (`sorts/Sorts/PdqLab.lean:67-105`):**
+   Both `lomutoPartition` (`PdqLab.lean:67-82`) and `lomutoBranchless` (`PdqLab.lean:88-105`) first swap `a` and `pivot.1`, placing pivot $p$ at `v[a]`, and scan $k = a+1 \dots b-1$ with write pointer $i$ starting at $a+1$. Whenever `lt v[k] p` holds, `v[k]` is swapped into `v[i]` and $i$ advances by 1; when `¬ lt v[k] p`, `lomutoBranchless` swaps `v[i]` and `v[k]` without advancing $i$ (permuting only non-less elements in $[i, k]$). Thus, at the end of the loop ($k = b$), the elements in $[a+1, i-1]$ are the elements strictly less than $p$ in their exact original relative order, except that `v[pivot.1]` was replaced at the start by `v[a]`. Finally, `v.swap a (i - 1)` puts the pivot at `i - 1` and moves `v[i - 1]` (the last `< p` element) into `v[a]`.
+   - **Subtlety / minor inaccuracy in the claim:** The final swap `v.swap a (i - 1)` (`PdqLab.lean:80, 103`) moves the *last* `< p` element to index `a`, and the initial swap `v.swap a pivot.1` (`PdqLab.lean:69, 90`) moved `v[a]` (which on `runsK` is the minimum element `0`) to `pivot.1`. Thus, literally speaking, the `< p` side has one element (`v[a]`) displaced to `pivot.1` and the last `< p` element wrapped to `a`. However, except for those 2 boundary elements out of $N$, the entire interior of each of the $K$ runs on the `< p` side retains its exact relative order.
+
+2. **Sample positions and fixed-point invariance on `runsK` with $4 \mid K$ (`sorts/Main.lean:51, 61`, `sorts/Sorts/Pdq.lean:183-205`):**
+   - `runsK` (`Main.lean:51, 61`) defines `v[i] = (i % M) * K + i / M` where $M = \lfloor n / K \rfloor + 1$. This consists of $K$ ascending runs: the first $n \bmod K$ runs have length $M$ and the remaining $K - (n \bmod K)$ runs have length $M - 1$, each stepping by $K$ across the full key range.
+   - `choosePivotM` (`Pdq.lean:183-205`) samples three 3-element groups centered at $a + q_t$ for $q_t = \lfloor L / 4 \rfloor \cdot t$ ($t = 1, 2, 3$), i.e., indices $a + \lfloor L/4 \rfloor t + d - 1$ ($d \in \{0,1,2\}$).
+   - When $4 \mid K$, $(K/4) M - L/4 = (K/4)(\lfloor L/K \rfloor + 1) - L/4 > 0$ is a small constant (e.g., for $L = 100{,}000, K = 16$, $M = 6251$, $q_1 = 25000$, and $4 M = 25004$, so $q_1$ is 4 positions before the end of run 3; $q_2 = 50000$ is 8 positions before the end of run 7; $q_3 = 75000$ is 12 positions before the end of run 11).
+   - Because all three ninther groups sit near the top of their respective runs, the ninther pivot $p$ is near the maximum of the whole range.
+   - Partitioning removes the same number $c$ of elements $\ge p$ from the top of each of the $K$ runs, leaving $L' = L - K c$ elements on the left. Since $4 \mid K$, $\lfloor L' / 4 \rfloor = \lfloor L / 4 \rfloor - (K / 4) c$, while the new run boundary $(K / 4) M'$ also shifts left by $(K / 4) c$. Thus the offset from each sample group to the end of its run is invariant across partitions!
+   - Furthermore, the ninther sample on `runsK` sees `swaps == 0` (`Hint.increasing`), so `partialInsertionSortM` (`Pdq.lean:128-163`) is called on the first step (`balanced && partitioned && hint == .increasing`), moves 5 elements across the primeros 5 run boundaries without changing the run lengths deep in the array, and gives up (`done = false`); on subsequent unbalanced steps (`mid - a ≥ (b - a) / 8` is false when the right side is $< L/8$), `balanced` is false so `partialInsertionSortM` is skipped.
+
+3. **Why `Pdq.breakPatterns` fails and `Pdq.partitionM` escapes (`Pdq.lean:38-49, 209-243`):**
+   - `Pdq.breakPatterns` (`Pdq.lean:38-49`) only swaps 3 elements at `a + (b - a) / 4 * 2 - 1 + t` ($t = 0, 1, 2$), which is the middle ninther group ($t = 2$). In Tukey's ninther (`choosePivotM`, `Pdq.lean:191-202`), `medianM` takes the median of the three group medians `(i, j, k)`. Even when group 2 (`j`) is randomized to a smaller value, groups 1 (`i`) and 3 (`k`) remain undisturbed near the run maxima and outvote `j`, keeping the chosen pivot near the maximum until `limit` ($\lfloor \log_2 n \rfloor + 1$) is exhausted and `heapSortM` runs (`Pdq.lean:303`, verified in `NOTES.md:17-23` and `stats-phases-100k.txt:3-10`).
+   - In contrast, `Pdq.partitionM` (`Pdq.lean:209-243`) scans up from `a + 1` to the first element $\ge p$ (at the end of the first run) and scans down from `b - 1` to the last element $< p$ (near the end of the last run), swapping them. As it sweeps inward from the right, elements from the last runs (including small elements near the start of the last runs) are swapped into the $\ge p$ slots at the ends of the earlier runs, destroying the alignment of run ends with the quarter points in 1–2 steps.
+
+**Verdict for CLAIM 1:** **CONFIRMED** (with the minor technical note that Lomuto's initial pivot swap and final `v.swap a (i - 1)` displace 2 boundary elements out of the `< p` set, which does not affect the quarter-point run-end invariance). Cites: `sorts/Sorts/PdqLab.lean:67-105`, `sorts/Sorts/Pdq.lean:38-49, 183-243, 303`, `sorts/Main.lean:51, 61`, `research/partition/NOTES.md:17-23`, `research/partition/stats-phases-100k.txt:3-10`.
+
+---
+
+### CLAIM 2 (fix)
+
+1. **`breakPatterns9` (`sorts/Sorts/PdqLab.lean:146-158`):**
+   For $b - a \ge 50$, `breakPatterns9` loops over $g \in \{1, 2, 3\}$ and $t \in \{0, 1, 2\}$, swapping `a + (b - a) / 4 * g - 1 + t` with `a + r.toNat % (b - a)` (with Lean proofs `by omega` that both indices lie in $[a, b)$). Because it is a sequence of in-range swaps (`Vector.swap`), it satisfies `Frame a b v w` (`PdqLemmas.lean:77-112`) and makes zero comparisons.
+
+2. **`lomutoEnds` result contract (`sorts/Sorts/PdqLab.lean:199-214`, `sorts/Sorts/PdqLab.lean:163-172`):**
+   - `lomutoEnds` first swaps `a` and `pivot.1` and sets `p := v[a]`.
+   - It runs `Pdq.partitionM.scanUp` on `[a + 1, b - 1]` and `Pdq.partitionM.scanDown` on `[i, b - 1]`. By `partitionM.scanUp_spec` and `partitionM.scanDown_spec` (`PdqSorted.lean:452-490`), upon return:
+     - $\forall k \in [a+1, i),\; \text{lt } v[k]\; p$
+     - $i \le j \implies \neg \text{lt } v[i]\; p$
+     - $\forall k \in (j, b),\; \neg \text{lt } v[k]\; p$
+     - $i \le j \implies \text{lt } v[j]\; p$
+   - **Branch 1 (`¬ (i < j)`, `PdqLab.lean:214`):** Identical to `Pdq.partitionM` (`Pdq.lean:218`): since $i \le j + 1$ and $i = j$ is impossible (as $\neg \text{lt } v[i]\; p$ and $\text{lt } v[j]\; p$ would contradict), $j + 1 = i$. Swapping `j` and `a` places $p$ at `mid = j`, with $[a, j)$ strictly less than $p$, $(j, b)$ not less than $p$, and `already = true`.
+   - **Branch 2 (`i < j`, `PdqLab.lean:210-213`):** Calls `bfLoop lt a (j + 1) _ p v i (i + 1)`.
+     - At entry to `bfLoop`: $[a+1, i)$ has $\text{lt } v[\cdot]\; p$, $[i, i+1) = \{i\}$ has $\neg \text{lt } v[i]\; p$, and $(j, b)$ has $\neg \text{lt } v[\cdot]\; p$.
+     - `bfLoop` (`PdqLab.lean:163-172`) maintains the loop invariant on $k \in [i+1, j+1]$:
+       - $v[a] = p$, $a < i_{cur} < k \le j + 1$,
+       - $\forall m \in [a+1, i_{cur}),\; \text{lt } v[m]\; p$,
+       - $\forall m \in [i_{cur}, k),\; \neg \text{lt } v[m]\; p$,
+       - $\forall m \in (j, b),\; \neg \text{lt } v[m]\; p$ (untouched since swaps are at $i_{cur} < k \le j$).
+       At each step $k \le j$, `c := lt v[k] p` is evaluated and `v.swap i_{cur} k` is performed. Since $i_{cur} < k$, before the swap $\neg \text{lt } v[i_{cur}]\; p$. If $c = \text{true}$, the new $v[i_{cur}]$ (old $v[k]$) satisfies $\text{lt } v[i_{cur}]\; p$, the new $v[k]$ (old $v[i_{cur}]$) satisfies $\neg \text{lt } v[k]\; p$, and $i_{cur}$ increments to $i_{cur} + 1$. If $c = \text{false}$, both $v[i_{cur}]$ and $v[k]$ satisfy $\neg \text{lt } (\cdot)\; p$, and $i_{cur}$ stays put.
+     - Note that at the final iteration $k = j$, the element originally at $v[j]$ (which satisfied $\text{lt } v[j]\; p$) has not yet been touched because all prior swaps had indices $\le k - 1 < j$; thus at $k = j$, $c = \text{true}$ and $i'$ is incremented at least once (so $i' > i$).
+     - When `bfLoop` finishes at $k = j + 1$, $[a+1, i')$ has $\text{lt } v[\cdot]\; p$, $[i', j+1)$ has $\neg \text{lt } v[\cdot]\; p$, and $[j+1, b)$ has $\neg \text{lt } v[\cdot]\; p$.
+     - Then `v.swap a (i' - 1)` places $p$ at `mid = i' - 1`, moves $v[i' - 1]$ (which is in $[a+1, i')$ and hence $< p$) to `a`, and returns `mid = i' - 1` and `already = false`.
+   - Therefore, `lomutoEnds` satisfies the exact same `Frame a b v w` and `Classified lt w a b mid p` contract (`PdqSorted.lean:494-497`) as `Pdq.partitionM`.
+
+3. **Correctness of `partitionEqual` and `LeftBound` (`sorts/Sorts/PdqLab.lean:328-330`, `sorts/Sorts/PdqSorted.lean:641-740`):**
+   - In `PdqSorted.lean:641-644`, `LeftBound lt lo v a b` states that if `lo < a`, every $k \in [a, b)$ satisfies $\neg \text{lt } v[k]\; v[a - 1]$.
+   - For the left child $[a, mid)$, `lo < a` has the same boundary `a - 1`, and since `Frame` only permutes $[a, b)$, `LeftBound` is preserved (`LeftBound.frame`, `LeftBound.mono`).
+   - For the right child $[mid + 1, b)$, the element before the range is $v[mid] = p$, and `Classified` guarantees $\forall k \in (mid, b),\; \neg \text{lt } v[k]\; p$.
+   - When `!afterEqual ∧ lo < a ∧ !lt v[a - 1] v[pivot.1]` holds (`PdqLab.lean:328`), transitivity of $\neg \text{lt}$ (`hlt.le_trans`, `PdqSorted.lean:717-718`) combines $\neg \text{lt } v[a - 1]\; v[pivot.1]$ with `LeftBound` ($\neg \text{lt } v[k]\; v[a - 1]$) to prove $\forall k \in [a, b),\; \neg \text{lt } v[k]\; v[pivot.1]$, which is the exact precondition of `partitionEqualM`.
+
+4. **$O(n \log n)$ worst-case comparison bound for *any* comparison function (`sorts/Sorts/PdqCost.lean:273-496`):**
+   - In `PdqCost.lean`, `sortM_cost` (`PdqCost.lean:446-528`) requires only that the partition step makes at most $b - a$ comparisons (`partitionM_cost`, `PdqCost.lean:314-326`) and returns `mid` with $a \le mid < b$.
+   - How many comparisons does `lomutoEnds` make on $[a, b)$?
+     - `scanUp` on $[a + 1, b - 1]$ stopping at $i$: at most $i - (a + 1) + 1 = i - a$ comparisons (`scanUp_cost`, `PdqCost.lean:277-286`).
+     - `scanDown` on $[i, b - 1]$ stopping at $j$: at most $(b - 1) - j + 1 = b - j$ comparisons (`scanDown_cost`, `PdqCost.lean:288-297`).
+     - If $i < j$: `bfLoop` runs for $k$ from $i + 1$ to $j$, making exactly $j - i$ comparisons.
+     - Total comparisons in `lomutoEnds` when $i < j$: at most $(i - a) + (b - j) + (j - i) = b - a$.
+     - Total comparisons in `lomutoEnds` when $i \ge j$: at most $(i - a) + (b - i) = b - a$.
+   - And `breakPatterns9` makes 0 comparisons.
+   - Because `afterEqual` is set to `true` after `partitionEqualM` (`PdqLab.lean:330`), an unlawful `lt` cannot chain `partitionEqualM` calls without an intervening normal partition, and every unbalanced normal partition decrements `limit` until `limit = 0` triggers `heapSortM`, which takes $\le 4 (b - a) \log_2 (b - a)$ comparisons regardless of `lt` (`heapSortM_cost`, `PdqCost.lean:140-152`).
+
+**Verdict for CLAIM 2:** **CONFIRMED**. Cites: `sorts/Sorts/PdqLab.lean:146-172, 199-214, 305-356`, `sorts/Sorts/PdqSorted.lean:452-558, 641-775`, `sorts/Sorts/PdqCost.lean:140-152, 277-326, 412-528`.
+
+---
+
+### CLAIM 3 (measurement)
+
+1. **Checking the numbers against `round2/analysis.txt` (`partition2` in `sorts/cells.py:217-236`):**
+   - `u64-random-6250000`: `lab:lomuto,ends,c24,brk9` median is `846 ms` vs `pdq` `1.13 s`; geometric mean of paired ratios to `pdq` is **`0.753 [0.723, 0.784]`** ($n=18$) (`round2/analysis.txt:171`). Matches "about 0.75".
+   - `nat-random-1000000`: `lab:lomuto,ends,c24,brk9` median is `39.7 ms` vs `pdq` `94.4 ms`; ratio to `pdq` is **`0.419 [0.417, 0.422]`** ($n=18$) (`round2/analysis.txt:65`). Matches "about 0.42".
+   - `runs5` cells for `lab:lomuto,ends,c24,brk9`:
+     - `nat-runs5-100000`: **`1.05 [1.03, 1.06]`** (`round2/analysis.txt:92`).
+     - `rec-runs5-100000`: **`1.05 [1.03, 1.07]`** (`round2/analysis.txt:154`).
+     - `nat-runs5-1000000`: **`1.11 [1.1, 1.12]`** (`round2/analysis.txt:99`).
+     Matches `1.05–1.11`.
+   - `ninther` cells:
+     - `nat-ninther-100000`: `lab:lomuto,ends,c24,brk9` is **`1.07 [1.06, 1.09]`** (`round2/analysis.txt:46`).
+     - `rec-ninther-100000`: `lab:lomuto,ends,c24,brk9` is **`1.06 [0.949, 1.19]`** (`round2/analysis.txt:120`).
+     - `nat-ninther-1000000`: `lab:lomuto,ends,c24,brk9` is **`1.10 [1.08, 1.12]`** (`round2/analysis.txt:54`).
+     - Note: the range `1.03–1.12` quoted in the claim is actually the ninther range of the *other* candidate (`lab:lomuto,ends,c24,brk9,nochild`: `1.03` on `nat-ninther-1000000`, `1.07` on `nat-ninther-100000`, `1.12` on `rec-ninther-100000`, `NOTES.md:106, 118`); for `lab:lomuto,ends,c24,brk9` itself, the ninther ratios are **`1.06–1.10`** (`NOTES.md:118`), though the 95% CI on `nat-ninther-1000000` is `[1.08, 1.12]`.
+
+2. **Fairness of input, harness path, and comparator (`sorts/Main.lean:94-156`, `sorts/Sorts/Pdq.lean:337-357`, `sorts/Sorts/PdqLab.lean:359-367`):**
+   - **Same input:** `randoms n` uses a fixed seed (`88172645463325252`, `Main.lean:24`), and `pattern pat n` is completely deterministic.
+   - **Same comparator and specialization:**
+     - On `u64` (`Main.lean:143-151`), `pdq` calls `Pdq.qsortOrd a` (`Pdq.lean:355-356`), which is `qsort xs fun x y => compare x y |>.isLT`, while `lab:...` calls `pick algo u64Lt u64Le`, where `u64Lt` (`Main.lean:123`) is `fun x y => compare x y |>.isLT`. Both `Pdq.sortM` and `PdqLab.sort` are marked `@[specialize]`, and `Pdq.qsort` / `PdqLab.qsort` are `@[inline]`.
+     - However, in `Pdq.lean`, `sortM` is monadic (`m (ULift.{u} Bool)`) instantiated at `Id` via `Id.run (sortM (fun x y => pure ⟨lt x y⟩) ...)`, whereas in `PdqLab.lean`, `sort` is written directly with a pure `lt : α → α → Bool` (except where it calls `Id.run` on helpers from `Pdq` like `choosePivotM`, `partialInsertionSortM`, `scanUp`, `scanDown`, `insertionSortM`, `heapSortM`, `partitionEqualM`). Because `lab-c24` (which runs `Pdq.partitionM` inside `PdqLab.sort`) is included in `round2` as a control and scores `0.976` (`u64-random-6250000`), `0.956` (`nat-random-1000000`), and `0.995` (`rec-random-1000000`) against `pdq` (`round2/analysis.txt:68, 134, 174`), at most ~2–4% on `nat`/`u64` comes from `PdqLab` vs `Pdq` wrapper differences; the remaining speedup (`0.42` vs `0.96` on `nat`, `0.75` vs `0.98` on `u64`) is genuinely from the partition change.
+   - **Historical cutoff confounder in `round1`/`round2`:** Look at `NOTES.md:72, 102`: in `round1` and `round2` (commits `c6452c4` and `67e603f`, run *before* `Pdq.insertionCutoff` was changed from 12 to 24 in commit `6527464`), `pdq` had cutoff **12**, whereas `lab:lomuto,ends,c24,brk9` had `c24` (cutoff **24**)! That is why `lab-c24` is listed separately from `pdq` in `round1` and `round2` (`round2/analysis.txt:68-70`: on `nat-random-1000000`, `lab-c24` is `0.956` of `pdq`, `90.3 ms` vs `94.4 ms`; on `runs4/5/16/64`, `lab-c24` is `0.91–0.94` of `pdq`). Against `lab-c24` (the true cutoff-24 `pdq` baseline), `lab:lomuto,ends,c24,brk9` is:
+     - `39.7 / 90.3 = 0.440` on `nat-random-1000000` (vs `0.419` against cutoff-12 `pdq`),
+     - `846 / 1110 = 0.762` on `u64-random-6250000` (vs `0.753` against cutoff-12 `pdq`),
+     - `4.59 / 4.01 = 1.145` on `nat-runs5-100000` and `51.9 / 43.5 = 1.193` on `nat-runs5-1000000` (vs `1.05` and `1.11` against cutoff-12 `pdq`!).
+     So comparing a `c24` candidate against cutoff-12 `pdq` in `round2` overstated the candidate's gain by ~2–4% on random keys and **masked ~8% of the regression on `runs5`** (`1.15–1.19x` vs `lab-c24`, compared to `1.05–1.11x` vs `pdq`).
+
+3. **Is anything omitted / cherry-picked in `partition2` (`sorts/cells.py:217-236`)?**
+   - **Narrow pattern/type set in `round2`:** `partition2` (`cells.py:217-236`) only ran 9 patterns (`random`, `runs4`, `runs5`, `runs16`, `runs64`, `nearly`, `organ`, `sortedtail`, `ninther`) and omitted `str` (where comparisons are expensive and branchless swapping of pointers hurts or gives no gain: `perfstat-screen5.txt:2-13`), omitted chunked small-array workloads (`chunk8`, `chunk32`, `chunk256`), omitted `blocksK`, `headsqrt`, `tripledesc`, `pathological`, `dups4`, `dupsqrt`, `constant`, `sorted`, `reversed`, and omitted `runsK` for other non-multiples of 4 (such as `runs3`, `runs7`, `runs9`, `runs11`, `runs13`, which suffer the same failed-`partialInsertionSortM` penalty as `runs5`!).
+   - **Wall time vs CPU time on `u64-random-6250000`:** In `round2/analysis.txt:171`, the in-process wall-time ratio on `u64-random-6250000` is `0.753`, whereas in `round2/analysis-cpu.txt:126`, the sort CPU-time ratio (`CPU(algo) - CPU(none)`) is **`0.854 [0.827, 0.882]`** (`1701.4 ms` vs `1997.0 ms` CPU; and in `perfstat-screen3.txt:43-45`, sort cycles are `0.88x` pdq). Why is wall time `0.753` when CPU time is `0.854`? Look at `round2/runs.tsv`: for `u64-random-6250000`, `user + sys` (~1.9s) is more than twice `ns` (~0.85s–1.13s) because freeing/allocating the 6.25M boxed `UInt64` objects outside `timed` takes ~1s of CPU time, and `analysis-cpu.txt` includes process teardown whereas `ns=` measures `timed` (`Main.lean:80-89`).
+
+**Verdict for CLAIM 3:** **CONFIRMED with caveats (partially misleading baseline & narrow cell selection)**. The quoted numbers (`0.75`, `0.42`, `runs5` `1.05–1.11`, `ninther` `1.03–1.12` across the two candidates or `1.06–1.10` for `ends,brk9` alone) accurately match `round2/analysis.txt`, and the input, harness path, and comparator are identical. However:
+1. In `round2`, `pdq` still used insertion cutoff **12** while the candidate used `c24` (cutoff **24**); against the cutoff-matched control `lab-c24` in the same table (`round2/analysis.txt:90-100, 152-155`), `lab:lomuto,ends,c24,brk9`'s regression on `runs5` is **`1.14–1.19x`**, not `1.05–1.11x`.
+2. `partition2` (`sorts/cells.py:217-236`) only tested 9 patterns on `nat`/`rec` (plus `u64` random), omitting `str`, small chunks, and other non-multiple-of-4 run counts.
+Cites: `sorts/cells.py:217-236`, `sorts/Main.lean:94-156`, `research/partition/NOTES.md:94-125`, `research/partition/round2/analysis.txt:42-176`, `research/partition/round2/analysis-cpu.txt:125-131`.
+
+---
+
+### Concrete inputs where `lab:lomuto,ends,c24,brk9` should do markedly worse than `pdq`
+
+By reading `PdqLab.lean` and `Pdq.lean`, `lab:lomuto,ends,c24,brk9` has three structural vulnerabilities compared to `Pdq.partitionM`:
+
+1. **`runsK` with $K \not\equiv 0 \pmod 4$ (especially $K = 3$, or $K = 5, 7, 9, 11, \dots$) — repeated wasted `partialInsertionSortM` scans (`PdqLab.lean:321-325, 348-354`):**
+   - Because `lomutoEnds` preserves the relative order of all `< p` elements (except the two boundary elements at `a` and `j`), partitioning $K$ ascending runs leaves the left child as $K$ ascending runs.
+   - Whenever $K$ is small (like $K = 3$ or $K = 5$) or the 9 ninther samples happen to fall inside a single run or across runs such that the 3 medians are in ascending order (`swaps == 0`, `Hint.increasing`), the left child (when it is the smaller side, which always gets `balanced = true` and `partitioned = cfg.childTries = true` at `PdqLab.lean:349, 353`) and any balanced right child with `already = true` will satisfy `balanced && partitioned && hint == .increasing`.
+   - It then runs `partialInsertionSortM` (`Pdq.lean:128-163`), which scans and sinks/rises up to 5 elements across the entire subrange of length $L$ before giving up (`O(L)` comparisons and swaps wasted per node).
+   - Under `pdq`, `Pdq.partitionM` swaps elements from the right end into the left end, immediately introducing inversions so `choosePivotM` sees `swaps > 0` (`Hint.unknown`) on children and skips `partialInsertionSortM`. Under `lomutoEnds`, the `< p` side stays composed of clean ascending runs at every recursion level, triggering failed `partialInsertionSortM` calls throughout the recursion tree.
+   - Concretely: **`runs3`** (where the three quarter points $L/4, 2L/4, 3L/4$ fall at $3/4$ of run 0, $1/2$ of run 1, and $1/4$ of run 2, so for $N = 100{,}000$ the samples in run 0 are $\sim 75{,}000$, in run 1 are $\sim 50{,}000$, in run 2 are $\sim 25{,}000$ — or on **3 concatenated ascending runs with staggered ranges**, e.g. `[0..N/3] ++ [N/6..N/2] ++ [N/3..N]` where $q_1 < q_2 < q_3$ at every level) will have `swaps == 0` (`Hint.increasing`) on almost every subproblem, causing $O(N \log N)$ wasted comparisons and swaps in `partialInsertionSortM`.
+
+2. **Inputs with an un-misplaced interior of elements $\ge p$ followed by one `< p` element at the end, for reference-counted / boxed types (`str`, `rec`, `u64`) (`PdqLab.lean:163-172, 210-213`):**
+   - Look at `bfLoop` (`PdqLab.lean:163-172`): for every $k \in [i + 1, j]$, it unconditionally executes `let v := v.swap i k`.
+   - Even when `lt v[k] p` is `false` (so $i$ does not advance), `v.swap i k` still reads and writes `v[i]` and `v[k]`.
+   - Consider an array of length $N$ where `v[a+1]` is $\ge p$, `v[b-1]` is $< p$, and almost all elements in $(a+1, b-1)$ are $\ge p$ (or alternating/random keys where the pivot is near the minimum, or a **reverse-organ-pipe / V-shaped** array `[N, N-1, ..., 1, 0, 1, ..., N]`):
+     - `scanUp` stops immediately at $i = a + 1$; `scanDown` stops immediately at $j = b - 1$.
+     - `Pdq.partitionM` only swaps when it finds a `< p` element on the right to pair with a $\ge p$ element on the left: if there are $m$ elements $< p$, `Pdq.partitionM` performs at most $m$ swaps ($2m$ array writes).
+     - `lomutoEnds` runs `bfLoop` over the entire $[a + 2, b - 1]$ and performs **$b - a - 2$ swaps ($2(b - a - 2)$ array writes)** regardless of how few elements are $< p$! On `random` (`stats-ends.txt:19`), `lomutoEnds` already does **2.5x as many swaps** as `pdq` (`17.18n` vs `6.83n` swaps). When swaps are on pointer/reference-counted types or wide records, or when the array exceeds L2/L3 cache (e.g. $N = 10^7$), this $2.5\times$ write amplification saturates memory bandwidth.
+
+3. **Unbalanced partitions on inputs with $K$ runs or adversarial ninther structure where `< p` is the *larger* side (`PdqLab.lean:146-158, 315-318`):**
+   - `breakPatterns9` (`PdqLab.lean:146-158`) only swaps 9 elements (`3` at $L/4$, `3` at $2L/4$, `3` at $3L/4$) using a deterministic PRNG seeded solely by the subrange length `(b - a).toUInt64` (`PdqLab.lean:147`).
+   - Because the PRNG seed `(b - a).toUInt64` depends *only* on the length $L = b - a$, for any given $L$, the 9 random target positions `a + r.toNat % (b - a)` are completely fixed constants!
+   - An input constructed by running the deterministic `breakPatterns9` swaps in reverse (or a range where $> 90\%$ of elements are large and the 9 deterministic target offsets `r.toNat % (b - a)` for each length $L, L - c, \dots$ hold small elements while the rest of the array holds large elements) will still force `choosePivotM` to pick a tiny/huge pivot on every step until `limit = 0` triggers `heapSortM`, whereas under `lomutoEnds` every unbalanced step that has at least one `< p` element near the right end also performs $L$ unconditional swaps in `bfLoop` before falling back to `heapSortM`.
+exit 0

@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold,seeda,predm,pred6 nat m3killer 100000: cmps/n=19.11 swaps/n=10.00 partitions=6239 unbalanced=162 partitioned-elems/n=13.65 heaps=0 heap-elems/n=0.00 pis=0/159 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=133 reversals=46 ins=4.30 other=0.06 part=14.24 pis=0.04 pivot=0.47

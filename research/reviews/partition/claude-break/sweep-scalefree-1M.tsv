@@ -1,0 +1,6 @@
+scalefree:100	1000000	9930010	11317876	9263858	None	L/pdq=1.072	LN/pdq=1.222	core/pdq=None
+scalefree:300	1000000	17047408	16954159	11343092	None	L/pdq=1.503	LN/pdq=1.495	core/pdq=None
+scalefree:1000	1000000	30249438	19627749	13572779	None	L/pdq=2.229	LN/pdq=1.446	core/pdq=None
+scalefree:3000	1000000	25876435	19527541	15330198	None	L/pdq=1.688	LN/pdq=1.274	core/pdq=None
+scalefree:10000	1000000	20830032	19079121	17255534	None	L/pdq=1.207	LN/pdq=1.106	core/pdq=None
+scalefree:30000	1000000	20445040	19108868	18671298	None	L/pdq=1.095	LN/pdq=1.023	core/pdq=None

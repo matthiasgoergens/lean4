@@ -1,0 +1,1 @@
+lab:c24,gold nat runs16 100000: cmps/n=20.32 swaps/n=8.25 partitions=6443 unbalanced=282 partitioned-elems/n=14.35 heaps=0 heap-elems/n=0.00 pis=0/198 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=198 reversals=21 ins=4.49 other=0.06 part=14.32 pis=0.97 pivot=0.48

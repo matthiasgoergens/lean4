@@ -1,0 +1,1 @@
+lab:c24,gold,seeda nat organ 100000: cmps/n=18.38 swaps/n=6.74 partitions=6358 unbalanced=172 partitioned-elems/n=13.71 heaps=0 heap-elems/n=0.00 pis=0/162 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=147 reversals=54 ins=4.09 other=0.06 part=13.68 pis=0.08 pivot=0.47

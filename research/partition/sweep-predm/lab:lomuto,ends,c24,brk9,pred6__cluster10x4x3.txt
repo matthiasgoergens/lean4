@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pred6 nat cluster10x4x3 100000: cmps/n=18.35 swaps/n=9.32 partitions=1374 unbalanced=0 partitioned-elems/n=7.29 heaps=0 heap-elems/n=0.00 pis=140/513 pis-won-elems/n=0.79 ins-elems/n=0.20 equal=0 breaks=0 reversals=0 ins=0.79 other=0.01 part=7.39 pis=10.04 pivot=0.12

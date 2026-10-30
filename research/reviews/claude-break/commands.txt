@@ -1,0 +1,26 @@
+Base: commit in scripts/base-commit.txt, worktree of the research repository, Lean v4.34.1, laptop (i9-13980HX), pinned to CPU 6 for timings.
+Scratch harness: scripts/Break.lean as sorts/Break.lean, plus scripts/lakefile.diff (exe `sortbreak`).  Build: cd sorts && nice ionice lake build sortbreak sorts sorttest
+
+sweep.log            sortbreak sweep                     (contract check: sizes 0..79 x200, thresholds 127..16385 x20; pdq, adaptive, pdq with limit 0 and 1; key = x>>>20)
+sorttest.log         sorttest                            (the repo's own test)
+mutants.log          sweep against 4 injected mutants (positive control; mutant 4 is equivalent)
+mcilroy1.log         sortbreak mcilroy {core,pdq,adaptive} N      (plain McIlroy adversary)
+pivot-hook.diff      hook used to generate adv-*-p1-* inputs (self-comparison of the pivot before partitioning, answered false)
+heaptrace-*.txt, mcilroy-pivothook.log   (McIlroy policy 0 with hook: did not reach heapsort)
+inputs/adv-*-p1-N.txt  sortbreak gen {pdq,adaptive} N 1 FILE   (policy 1 = gas-gas freezes the first argument; built with pivot-hook.diff applied)
+replay-p1.log        sortbreak replay FILE 3 pdq adaptive merge heap   (original, unhooked code)
+time-adv-vs-random.log  sortbreak replay FILE 1 raw-pdq raw-adaptive raw-merge raw-heap  (raw-heap goes through an unspecialised wrapper: ignore its time)
+gate-hook.diff       hook used for the unlawful-lt adversary (self-comparison of v[a-1] before the partition-equal test)
+adv2-gen.log, inputs/adv2-N.{input,table}   sortbreak adv2 N PATH   (built with gate-hook.diff)
+adv2-replay.log      sortbreak replay2 PATH              (original code; lt = recorded table where it differs from <)
+unlawful.log         sortbreak unlawful KIND N
+float-nan.log        sortbreak float N PCT
+guard-instrument.diff, guards-run.{out,err}   dbgTrace on every "unreachable" guard; workloads: sweep, unlawful, patterns, adversary replays, float
+adaptive-patterns.log, bitrev.log   unpinned, noisy (load ~50): superseded
+instr-*.log          scripts/instr.sh: instructions:u per element minus the `none` run, pinned to a P-core
+time-patterns-raw.log, time-rundefeat.log   sortbreak pattern PAT N 5 raw-pdq raw-adaptive raw-merge  (pinned)
+time-blocks*.log     sorts {pdq,adaptive,merge} nat blocksK N   (the repo's harness, pinned)
+fix-eqOk-with-gate-hook.diff   prototype fix (skip the partition-equal test in the round right after one) plus the gate hook; scripts/Break-with-eqOk.lean is Break.lean adjusted to the new signature
+adv2-gen-with-fix.log          sortbreak adv2 N PATH against that build
+sweep-with-fix.log             sortbreak sweep against that build
+(pivot-hook.diff also shows a heap dbgTrace; the adv-*-p1-* inputs were generated with the hook line only)

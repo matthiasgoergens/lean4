@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold,seeda,predm,pred6 nat runs16 100000: cmps/n=20.96 swaps/n=8.90 partitions=6444 unbalanced=289 partitioned-elems/n=15.13 heaps=0 heap-elems/n=0.00 pis=0/195 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=203 reversals=22 ins=4.50 other=0.06 part=15.89 pis=0.03 pivot=0.48

@@ -1,0 +1,3 @@
+adv2 n=4000: 73318 comparisons = 1.531826 n log2 n, table 71035
+adv2 n=16000: 360830 comparisons = 1.614795 n log2 n, table 351246
+adv2 n=64000: 1700124 comparisons = 1.663835 n log2 n, table 1661589

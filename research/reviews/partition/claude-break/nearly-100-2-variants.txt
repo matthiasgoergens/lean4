@@ -1,0 +1,11 @@
+algo=pdq n=100000 cmps=1080022 perNlogN=0.650238 minns=22157447 ok=true
+algo=lab:c24 n=100000 cmps=1080022 perNlogN=0.650238 minns=24990013 ok=true
+algo=lab:c24,brk9 n=100000 cmps=1080022 perNlogN=0.650238 minns=22735540 ok=true
+algo=lab:lomuto,ends,c24 n=100000 cmps=2609940 perNlogN=1.571340 minns=54451839 ok=true
+algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=2609940 perNlogN=1.571340 minns=54611899 ok=true
+algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=1564981 perNlogN=0.942212 minns=33222729 ok=true
+algo=lab:lomuto,ends,c24,brk9,hybp n=100000 cmps=1711694 perNlogN=1.030542 minns=35512683 ok=true
+algo=lab:lomuto,ends,c24,brk9,pis8 n=100000 cmps=1925312 perNlogN=1.159153 minns=41808207 ok=true
+algo=lab:lomuto,bl,c24,brk9 n=100000 cmps=2758363 perNlogN=1.660700 minns=58108816 ok=true
+algo=lab:lomuto,c24 n=100000 cmps=2768964 perNlogN=1.667082 minns=60812447 ok=true
+algo=core n=100000 cmps=24031251 perNlogN=14.468255 minns=496670537 ok=true

@@ -1,0 +1,138 @@
+sweep: 384000 cases, 0 failures
+sweep: 8640 cases, 0 failures
+true perm n=5000 core: 5002 comparisons = 0.081415 n log2 n, 180 us, perm=true
+true perm n=5000 pdq: 198341 comparisons = 3.228282 n log2 n, 4374 us, perm=true
+true perm n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 161 us, perm=true
+true perm n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1581 us, perm=true
+true dups4 n=5000 core: 5002 comparisons = 0.081415 n log2 n, 154 us, perm=true
+true dups4 n=5000 pdq: 198341 comparisons = 3.228282 n log2 n, 4332 us, perm=true
+true dups4 n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 125 us, perm=true
+true dups4 n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1545 us, perm=true
+true sorted n=5000 core: 5002 comparisons = 0.081415 n log2 n, 125 us, perm=true
+true sorted n=5000 pdq: 198341 comparisons = 3.228282 n log2 n, 4278 us, perm=true
+true sorted n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 119 us, perm=true
+true sorted n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1552 us, perm=true
+true reversed n=5000 core: 5002 comparisons = 0.081415 n log2 n, 121 us, perm=true
+true reversed n=5000 pdq: 198341 comparisons = 3.228282 n log2 n, 4241 us, perm=true
+true reversed n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 121 us, perm=true
+true reversed n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1554 us, perm=true
+false perm n=5000 core: 12512497 comparisons = 203.658689 n log2 n, 263484 us, perm=true
+false perm n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 112 us, perm=true
+false perm n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 138 us, perm=true
+false perm n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1667 us, perm=true
+false dups4 n=5000 core: 12512497 comparisons = 203.658689 n log2 n, 251429 us, perm=true
+false dups4 n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 114 us, perm=true
+false dups4 n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 115 us, perm=true
+false dups4 n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1632 us, perm=true
+false sorted n=5000 core: 12512497 comparisons = 203.658689 n log2 n, 252426 us, perm=true
+false sorted n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 113 us, perm=true
+false sorted n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 119 us, perm=true
+false sorted n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1631 us, perm=true
+false reversed n=5000 core: 12512497 comparisons = 203.658689 n log2 n, 254028 us, perm=true
+false reversed n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 113 us, perm=true
+false reversed n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 114 us, perm=true
+false reversed n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1634 us, perm=true
+le perm n=5000 core: 87897 comparisons = 1.430649 n log2 n, 3051 us, perm=true
+le perm n=5000 pdq: 63333 comparisons = 1.030835 n log2 n, 2862 us, perm=true
+le perm n=5000 adaptive: 63500 comparisons = 1.033553 n log2 n, 2253 us, perm=true
+le perm n=5000 merge: 55291 comparisons = 0.899940 n log2 n, 3430 us, perm=true
+le dups4 n=5000 core: 10006 comparisons = 0.162862 n log2 n, 243 us, perm=true
+le dups4 n=5000 pdq: 182736 comparisons = 2.974288 n log2 n, 4053 us, perm=true
+le dups4 n=5000 adaptive: 182898 comparisons = 2.976925 n log2 n, 4051 us, perm=true
+le dups4 n=5000 merge: 49752 comparisons = 0.809785 n log2 n, 2285 us, perm=true
+le sorted n=5000 core: 71806 comparisons = 1.168745 n log2 n, 1649 us, perm=true
+le sorted n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 117 us, perm=true
+le sorted n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 111 us, perm=true
+le sorted n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1665 us, perm=true
+le reversed n=5000 core: 104981 comparisons = 1.708715 n log2 n, 2383 us, perm=true
+le reversed n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 118 us, perm=true
+le reversed n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 124 us, perm=true
+le reversed n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1551 us, perm=true
+random perm n=5000 core: 12511 comparisons = 0.203634 n log2 n, 465 us, perm=true
+random perm n=5000 pdq: 88954 comparisons = 1.447853 n log2 n, 2246 us, perm=true
+random perm n=5000 adaptive: 89177 comparisons = 1.451483 n log2 n, 2279 us, perm=true
+random perm n=5000 merge: 53241 comparisons = 0.866573 n log2 n, 2514 us, perm=true
+random dups4 n=5000 core: 10006 comparisons = 0.162862 n log2 n, 295 us, perm=true
+random dups4 n=5000 pdq: 129806 comparisons = 2.112777 n log2 n, 3076 us, perm=true
+random dups4 n=5000 adaptive: 129986 comparisons = 2.115707 n log2 n, 3135 us, perm=true
+random dups4 n=5000 merge: 53645 comparisons = 0.873149 n log2 n, 2480 us, perm=true
+random sorted n=5000 core: 12507 comparisons = 0.203569 n log2 n, 295 us, perm=true
+random sorted n=5000 pdq: 92769 comparisons = 1.509947 n log2 n, 2166 us, perm=true
+random sorted n=5000 adaptive: 93047 comparisons = 1.514472 n log2 n, 2217 us, perm=true
+random sorted n=5000 merge: 52931 comparisons = 0.861527 n log2 n, 2453 us, perm=true
+random reversed n=5000 core: 12511 comparisons = 0.203634 n log2 n, 305 us, perm=true
+random reversed n=5000 pdq: 90143 comparisons = 1.467206 n log2 n, 2128 us, perm=true
+random reversed n=5000 adaptive: 90418 comparisons = 1.471682 n log2 n, 2163 us, perm=true
+random reversed n=5000 merge: 52615 comparisons = 0.856384 n log2 n, 2439 us, perm=true
+tournament perm n=5000 core: 87540 comparisons = 1.424838 n log2 n, 3861 us, perm=true
+tournament perm n=5000 pdq: 63274 comparisons = 1.029874 n log2 n, 1865 us, perm=true
+tournament perm n=5000 adaptive: 63483 comparisons = 1.033276 n log2 n, 1830 us, perm=true
+tournament perm n=5000 merge: 53200 comparisons = 0.865906 n log2 n, 2655 us, perm=true
+tournament dups4 n=5000 core: 3147495 comparisons = 51.229959 n log2 n, 70267 us, perm=true
+tournament dups4 n=5000 pdq: 17580 comparisons = 0.286140 n log2 n, 455 us, perm=true
+tournament dups4 n=5000 adaptive: 17778 comparisons = 0.289362 n log2 n, 478 us, perm=true
+tournament dups4 n=5000 merge: 53753 comparisons = 0.874907 n log2 n, 3749 us, perm=true
+tournament sorted n=5000 core: 94909 comparisons = 1.544779 n log2 n, 3734 us, perm=true
+tournament sorted n=5000 pdq: 63054 comparisons = 1.026294 n log2 n, 2577 us, perm=true
+tournament sorted n=5000 adaptive: 63288 comparisons = 1.030102 n log2 n, 1973 us, perm=true
+tournament sorted n=5000 merge: 52728 comparisons = 0.858223 n log2 n, 2681 us, perm=true
+tournament reversed n=5000 core: 87856 comparisons = 1.429981 n log2 n, 2394 us, perm=true
+tournament reversed n=5000 pdq: 63192 comparisons = 1.028540 n log2 n, 1827 us, perm=true
+tournament reversed n=5000 adaptive: 63467 comparisons = 1.033016 n log2 n, 1830 us, perm=true
+tournament reversed n=5000 merge: 52481 comparisons = 0.854203 n log2 n, 2584 us, perm=true
+cyclic perm n=5000 core: 87538 comparisons = 1.424805 n log2 n, 3495 us, perm=true
+cyclic perm n=5000 pdq: 63887 comparisons = 1.039852 n log2 n, 2690 us, perm=true
+cyclic perm n=5000 adaptive: 64117 comparisons = 1.043595 n log2 n, 2637 us, perm=true
+cyclic perm n=5000 merge: 53276 comparisons = 0.867143 n log2 n, 3547 us, perm=true
+cyclic dups4 n=5000 core: 3149991 comparisons = 51.270585 n log2 n, 76682 us, perm=true
+cyclic dups4 n=5000 pdq: 16340 comparisons = 0.265957 n log2 n, 420 us, perm=true
+cyclic dups4 n=5000 adaptive: 16538 comparisons = 0.269179 n log2 n, 435 us, perm=true
+cyclic dups4 n=5000 merge: 50046 comparisons = 0.814570 n log2 n, 2451 us, perm=true
+cyclic sorted n=5000 core: 1613321 comparisons = 26.259094 n log2 n, 38466 us, perm=true
+cyclic sorted n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 135 us, perm=true
+cyclic sorted n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 128 us, perm=true
+cyclic sorted n=5000 merge: 32004 comparisons = 0.520911 n log2 n, 1711 us, perm=true
+cyclic reversed n=5000 core: 112326 comparisons = 1.828265 n log2 n, 2884 us, perm=true
+cyclic reversed n=5000 pdq: 5011 comparisons = 0.081561 n log2 n, 139 us, perm=true
+cyclic reversed n=5000 adaptive: 4999 comparisons = 0.081366 n log2 n, 136 us, perm=true
+cyclic reversed n=5000 merge: 29804 comparisons = 0.485103 n log2 n, 1629 us, perm=true
+noisy perm n=5000 core: 93199 comparisons = 1.516946 n log2 n, 3753 us, perm=true
+noisy perm n=5000 pdq: 63234 comparisons = 1.029223 n log2 n, 2412 us, perm=true
+noisy perm n=5000 adaptive: 63403 comparisons = 1.031974 n log2 n, 2001 us, perm=true
+noisy perm n=5000 merge: 55205 comparisons = 0.898540 n log2 n, 2918 us, perm=true
+noisy dups4 n=5000 core: 3149991 comparisons = 51.270585 n log2 n, 76201 us, perm=true
+noisy dups4 n=5000 pdq: 16340 comparisons = 0.265957 n log2 n, 425 us, perm=true
+noisy dups4 n=5000 adaptive: 16538 comparisons = 0.269179 n log2 n, 450 us, perm=true
+noisy dups4 n=5000 merge: 50046 comparisons = 0.814570 n log2 n, 2476 us, perm=true
+noisy sorted n=5000 core: 114994 comparisons = 1.871691 n log2 n, 3041 us, perm=true
+noisy sorted n=5000 pdq: 68722 comparisons = 1.118548 n log2 n, 1811 us, perm=true
+noisy sorted n=5000 adaptive: 7408 comparisons = 0.120576 n log2 n, 209 us, perm=true
+noisy sorted n=5000 merge: 32291 comparisons = 0.525582 n log2 n, 1819 us, perm=true
+noisy reversed n=5000 core: 98125 comparisons = 1.597124 n log2 n, 2532 us, perm=true
+noisy reversed n=5000 pdq: 67612 comparisons = 1.100481 n log2 n, 1773 us, perm=true
+noisy reversed n=5000 adaptive: 10828 comparisons = 0.176241 n log2 n, 428 us, perm=true
+noisy reversed n=5000 merge: 30084 comparisons = 0.489660 n log2 n, 1695 us, perm=true
+interleave n=5000 minRun=70:  pdq 2303us 63912cmp  adaptive 2573us 45102cmp
+interleave n=70000 minRun=264:  pdq 38471us 1279862cmp  adaptive 26785us 687436cmp
+bitrev n=5000 minRun=70:  pdq 2456us 70441cmp  adaptive 1906us 56320cmp
+bitrev n=70000 minRun=264:  pdq 32568us 1258103cmp  adaptive 38513us 1041250cmp
+altdesc n=5000 minRun=70:  pdq 2374us 64939cmp  adaptive 2738us 47915cmp
+altdesc n=70000 minRun=264:  pdq 33434us 1295489cmp  adaptive 27700us 719108cmp
+sortedjunk n=5000 minRun=70:  pdq 2402us 65136cmp  adaptive 3222us 69614cmp
+sortedjunk n=70000 minRun=264:  pdq 34108us 1201600cmp  adaptive 37680us 1279960cmp
+bigsmall n=5000 minRun=70:  pdq 1965us 58587cmp  adaptive 1325us 24112cmp
+bigsmall n=70000 minRun=264:  pdq 30139us 1094727cmp  adaptive 14175us 367636cmp
+geometric n=5000 minRun=70:  pdq 1901us 66412cmp  adaptive 594us 15697cmp
+geometric n=70000 minRun=264:  pdq 26872us 1105259cmp  adaptive 7756us 217475cmp
+short n=5000 minRun=70:  pdq 1639us 63123cmp  adaptive 749us 19169cmp
+short n=70000 minRun=264:  pdq 32811us 1329815cmp  adaptive 10486us 236852cmp
+random n=5000 minRun=70:  pdq 1713us 63803cmp  adaptive 1740us 64091cmp
+random n=70000 minRun=264:  pdq 35551us 1174679cmp  adaptive 31231us 1176131cmp
+research/reviews/claude-break/inputs/adv-adaptive-p1-4096.txt n=4096:  pdq 4668us 137684cmp=2.800000nlgn  adaptive 3687us 137812cmp=2.800000nlgn
+research/reviews/claude-break/inputs/adv-pdq-p1-4096.txt n=4096:  pdq 4547us 139643cmp=2.840000nlgn  adaptive 1209us 37725cmp=0.770000nlgn
+research/reviews/claude-break/inputs/adv-adaptive-p1-65536.txt n=65536:  pdq 72334us 3038992cmp=2.900000nlgn  adaptive 73086us 3039504cmp=2.900000nlgn
+research/reviews/claude-break/inputs/adv-pdq-p1-65536.txt n=65536:  pdq 73440us 3048941cmp=2.910000nlgn  adaptive 24320us 661240cmp=0.630000nlgn
+float n=20000 nan=10% core: 2335968 comparisons = 8.174745 n log2 n, 44714 us, perm=true, non-NaN sorted=true
+float n=20000 nan=10% pdq: 268318 comparisons = 0.938982 n log2 n, 4542 us, perm=true, non-NaN sorted=false
+float n=20000 nan=10% adaptive: 268753 comparisons = 0.940504 n log2 n, 4534 us, perm=true, non-NaN sorted=false
+float n=20000 nan=10% merge: 194257 comparisons = 0.679804 n log2 n, 6621 us, perm=true, non-NaN sorted=false

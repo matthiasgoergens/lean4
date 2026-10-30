@@ -1,0 +1,1 @@
+lab:c24,brk9 nat jitter1000 100000: cmps/n=18.01 swaps/n=5.17 partitions=6534 unbalanced=213 partitioned-elems/n=13.14 heaps=0 heap-elems/n=0.00 pis=0/200 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=1 breaks=138 reversals=1 equal=0.00 ins=4.36 other=0.07 part=13.11 pis=0.00 pivot=0.47

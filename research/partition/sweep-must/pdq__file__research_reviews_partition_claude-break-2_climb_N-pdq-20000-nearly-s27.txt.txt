@@ -1,0 +1,1 @@
+pdq nat file:research/reviews/partition/claude-break-2/climb/N-pdq-20000-nearly-s27.txt 20000: cmps/n=11.26 swaps/n=2.72 partitions=449 unbalanced=1 partitioned-elems/n=7.63 heaps=0 heap-elems/n=0.00 pis=85/174 pis-won-elems/n=0.68 ins-elems/n=0.30 equal=0 breaks=1 reversals=10 ins=0.77 other=0.02 part=7.62 pis=2.61 pivot=0.23

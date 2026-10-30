@@ -1,0 +1,56 @@
+nat-nearly300-1000000-0  (none 435.6 M)
+  pdq                  305.78 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns       305.78 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h            305.78 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he           305.78 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp           595.53 M  / pdq  1.948   spread   0.00 M
+  spec-c2-hpe          595.53 M  / pdq  1.948   spread   0.00 M
+nat-random-1000000-256  (none 361.2 M)
+  pdq                  406.52 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns       406.52 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h            406.68 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he           406.65 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp           407.03 M  / pdq  1.001   spread   0.00 M
+  spec-c2-hpe          407.07 M  / pdq  1.001   spread   0.00 M
+nat-dups4-100000-0  (none 33.0 M)
+  pdq                   11.75 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns        11.75 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h             11.75 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he            13.65 M  / pdq  1.162   spread   0.00 M
+  spec-c2-hp            16.99 M  / pdq  1.446   spread   0.00 M
+  spec-c2-hpe           18.90 M  / pdq  1.609   spread   0.00 M
+nat-random-1000000-0  (none 301.5 M)
+  pdq                  857.32 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns       857.26 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h            857.61 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he           857.58 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp           858.00 M  / pdq  1.001   spread   0.00 M
+  spec-c2-hpe          858.04 M  / pdq  1.001   spread   0.00 M
+nat-runs16-100000-0  (none 55.2 M)
+  pdq                   79.33 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns        79.33 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h             79.36 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he            79.36 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp            79.53 M  / pdq  1.002   spread   0.00 M
+  spec-c2-hpe           79.53 M  / pdq  1.003   spread   0.00 M
+nat-random-1000000-8  (none 675.1 M)
+  pdq                  161.09 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns       161.56 M  / pdq  1.003   spread   0.00 M
+  spec-c2-h            163.45 M  / pdq  1.015   spread   0.00 M
+  spec-c2-he           163.46 M  / pdq  1.015   spread   0.00 M
+  spec-c2-hp           163.46 M  / pdq  1.015   spread   0.00 M
+  spec-c2-hpe          163.44 M  / pdq  1.015   spread   0.00 M
+str-random-1000000-0  (none 1072.3 M)
+  pdq                 1736.65 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns      1736.47 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h           1737.06 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he          1737.25 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp          1737.70 M  / pdq  1.001   spread   0.00 M
+  spec-c2-hpe         1737.68 M  / pdq  1.001   spread   0.00 M
+u64-random-6250000-0  (none 3143.9 M)
+  pdq                 4643.29 M  / pdq  1.000   spread   0.00 M
+  spec-noheap-ns      4643.29 M  / pdq  1.000   spread   0.00 M
+  spec-c2-h           4644.48 M  / pdq  1.000   spread   0.00 M
+  spec-c2-he          4644.44 M  / pdq  1.000   spread   0.00 M
+  spec-c2-hp          4648.08 M  / pdq  1.001   spread   0.00 M
+  spec-c2-hpe         4647.43 M  / pdq  1.001   spread   0.00 M

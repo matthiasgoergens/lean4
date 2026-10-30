@@ -1,0 +1,10 @@
+lab:lomuto,bl,c24,brk9   runs4   cmps/n=23.42 swaps/n=22.22 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.31 other=0.07 part=17.91 pis=0.57 pivot=0.56 
+lab:bh,c24               runs4   cmps/n=43.73 swaps/n=6.91 heaps=0 heap-elems/n=0.00 reversals=31 ins=4.38 other=0.07 part=38.59 pis=0.18 pivot=0.52 
+lab:lomuto,bl,c24,brk9   runs16  cmps/n=21.34 swaps/n=20.20 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.48 other=0.06 part=16.16 pis=0.16 pivot=0.48 
+lab:bh,c24               runs16  cmps/n=32.40 swaps/n=7.01 heaps=0 heap-elems/n=0.00 reversals=15 ins=4.50 other=0.06 part=27.34 pis=0.02 pivot=0.48 
+lab:lomuto,bl,c24,brk9   runs20  cmps/n=21.72 swaps/n=20.58 heaps=0 heap-elems/n=0.00 reversals=1 ins=4.44 other=0.06 part=16.62 pis=0.12 pivot=0.47 
+lab:bh,c24               runs20  cmps/n=31.05 swaps/n=6.91 heaps=0 heap-elems/n=0.00 reversals=16 ins=4.48 other=0.06 part=26.01 pis=0.02 pivot=0.47 
+lab:lomuto,bl,c24,brk9   runs64  cmps/n=20.91 swaps/n=19.77 heaps=0 heap-elems/n=0.00 reversals=1 ins=4.43 other=0.07 part=15.91 pis=0.03 pivot=0.47 
+lab:bh,c24               runs64  cmps/n=28.57 swaps/n=6.84 heaps=0 heap-elems/n=0.00 reversals=6 ins=4.44 other=0.06 part=23.59 pis=0.01 pivot=0.47 
+lab:lomuto,bl,c24,brk9   runs5   cmps/n=29.09 swaps/n=27.02 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.60 other=0.07 part=13.19 pis=10.75 pivot=0.49 
+lab:bh,c24               runs5   cmps/n=26.77 swaps/n=8.86 heaps=0 heap-elems/n=0.00 reversals=73 ins=4.55 other=0.06 part=19.35 pis=2.32 pivot=0.49 

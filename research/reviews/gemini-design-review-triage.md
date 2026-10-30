@@ -1,0 +1,13 @@
+# Triage of gemini-design-review.txt (2026-10-27)
+
+Gemini 4 Argon, read-only, given the code, the prior-art survey and round one's partial analysis (3 of 10 blocks).
+
+- **C, pdq 1.5–1.8× slower than core on boxed UInt64 (the gate): confirmed, then traced to the harness.**  Round one (all 10 blocks) gave 1.35× at 100k and 1.96× at 6.25M.  Gemini blamed missing `@[inline]` and tuple allocation in Pdq.lean.  The generated C shows the scan loop is specialised, reads borrowed and compares unboxed; the cost was the harness's comparator for pdq, `compare x y == .lt`, which calls `l_instDecidableEqOrdering` per comparison, where core's `qsortOrd` uses `(compare x y).isLT`.  With `Pdq.qsortOrd` built like core's, four informal pinned pairs on the benchmark machine gave pdq 0.96–0.98 s against core 0.94–0.98 s.  Round two measures it properly.
+- **B, a sorted head of √n then random data fragments Adaptive's work: accepted as a real weakness.**  Added as pattern `headsqrt` to round two.
+- **A, Adaptive is Θ(n log² n) in moves on √n interleaved runs of length √n: accepted**; it is what rotation merging costs, and matches the local runs16 observation.  Round two maps runs4/64/256.
+- **D, breakPatterns only disturbs the middle candidate of the ninther: true, and the same as Go** (Go swaps the three elements around len/4*2).  Orson Peters's C++ swaps near len/4 and 3·len/4 as well.  Gemini's killer (small keys around 0.25n and 0.75n) would at worst reach the heapsort fallback, which bounds it at O(n log n); worth a pattern in a later round to see the constant.
+- **E, F, G (smaller child restarts with balanced = partitioned = true; the pivot index is reused after a failed partial insertion sort; the descending hint cannot fire below 50 elements): all faithful to Go's pdqsort, not defects of the port.**  F and G are possible tuning points, no more.
+- **H, dups4 on UInt64 pdq 2 ms against threeway 0.9 ms: true, minor**; both are about 1000× faster than core (891 ms).
+- **I.1, partitionEqual needs the invariant that the element before the range is a lower bound of it: true, and expected**; it is pdqsort's design, and the proof will carry that invariant (Test.lean's mutation shows what happens without the `lo` guard).
+- **I.2, Adaptive's silent fallback branches need the stack contiguity invariant to be shown unreachable: true.**  If Adaptive is kept, those branches should go, with the invariant in the types.
+- **Recommendation to drop Adaptive and prove Pdq alone: pending round two.**  The requirement for adaptivity is Matthias's, and he decides after seeing the map of gains and losses.

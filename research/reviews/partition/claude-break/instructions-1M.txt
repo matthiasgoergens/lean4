@@ -1,0 +1,12 @@
+nearly-300-2-1M pdq instr_per_sort=367216077
+nearly-300-2-1M lab:lomuto,ends,c24,brk9 instr_per_sort=1203807545
+nearly-300-2-1M lab:lomuto,ends,c24,brk9,nochild instr_per_sort=703922814
+random-1M pdq instr_per_sort=880523788
+random-1M lab:lomuto,ends,c24,brk9 instr_per_sort=916347319
+random-1M lab:lomuto,ends,c24,brk9,nochild instr_per_sort=914880330
+m3killer-1M pdq instr_per_sort=501308268
+m3killer-1M lab:lomuto,ends,c24,brk9 instr_per_sort=769006712
+m3killer-1M lab:lomuto,ends,c24,brk9,nochild instr_per_sort=767770712
+runs:5-1M pdq instr_per_sort=934283207
+runs:5-1M lab:lomuto,ends,c24,brk9 instr_per_sort=1363103595
+runs:5-1M lab:lomuto,ends,c24,brk9,nochild instr_per_sort=951275012

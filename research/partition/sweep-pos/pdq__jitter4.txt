@@ -1,0 +1,1 @@
+pdq nat jitter4 100000: cmps/n=14.89 swaps/n=1.52 partitions=5054 unbalanced=0 partitioned-elems/n=12.20 heaps=0 heap-elems/n=0.00 pis=0/1529 pis-won-elems/n=0.00 ins-elems/n=0.95 equal=0 breaks=0 reversals=0 ins=1.79 other=0.05 part=12.19 pis=0.51 pivot=0.34

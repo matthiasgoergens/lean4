@@ -1,0 +1,1 @@
+lab:c24,brk9 nat random 100000: cmps/n=18.51 swaps/n=6.83 partitions=6551 unbalanced=218 partitioned-elems/n=13.61 heaps=0 heap-elems/n=0.00 pis=0/173 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=0 breaks=149 reversals=3 ins=4.39 other=0.07 part=13.57 pis=0.00 pivot=0.47

@@ -1,0 +1,72 @@
+0 problems; load average median 62, range 49-66
+
+nat-nearly300-1000000   (ns)
+  spec-cold-hp     median      14.5 ms   / pdq  1.047 [ 0.998,  1.099]
+  pdq              median      14.6 ms
+  spec-ctl         median      15.1 ms   / pdq  1.075 [ 0.995,  1.162]
+  spec-leaves-hp   median      15.1 ms   / pdq  1.088 [ 1.029,  1.151]
+  spec-cold-hpp    median      40.4 ms   / pdq  2.569 [ 2.417,  2.730]
+  spec-leaves-hpp  median      41.3 ms   / pdq  2.639 [ 2.447,  2.845]
+nat-organ-100000   (ns)
+  pdq              median       3.8 ms
+  spec-ctl         median       4.0 ms   / pdq  1.034 [ 0.983,  1.087]
+  spec-cold-hp     median       4.2 ms   / pdq  1.114 [ 1.069,  1.160]
+  spec-cold-hpp    median       4.3 ms   / pdq  1.099 [ 1.067,  1.131]
+  spec-leaves-hp   median       4.4 ms   / pdq  1.155 [ 1.102,  1.210]
+  spec-leaves-hpp  median       4.4 ms   / pdq  1.141 [ 1.111,  1.172]
+nat-random-1000000   (ns)
+  spec-ctl         median     101.4 ms   / pdq  1.000 [ 0.983,  1.017]
+  pdq              median     102.2 ms
+  spec-cold-hp     median     105.0 ms   / pdq  1.027 [ 1.012,  1.042]
+  spec-leaves-hpp  median     106.2 ms   / pdq  1.039 [ 1.019,  1.060]
+  spec-cold-hpp    median     106.5 ms   / pdq  1.045 [ 1.027,  1.063]
+  spec-leaves-hp   median     107.3 ms   / pdq  1.052 [ 1.036,  1.068]
+nat-random-1000000-chunk256   (ns)
+  spec-ctl         median      47.5 ms   / pdq  0.993 [ 0.955,  1.032]
+  pdq              median      47.9 ms
+  spec-cold-hp     median      50.8 ms   / pdq  1.048 [ 1.009,  1.088]
+  spec-cold-hpp    median      51.8 ms   / pdq  1.065 [ 1.026,  1.105]
+  spec-leaves-hp   median      52.1 ms   / pdq  1.090 [ 1.050,  1.131]
+  spec-leaves-hpp  median      52.3 ms   / pdq  1.108 [ 1.064,  1.155]
+nat-random-1000000-chunk32   (ns)
+  spec-cold-hp     median      45.2 ms   / pdq  0.967 [ 0.898,  1.042]
+  spec-ctl         median      45.7 ms   / pdq  0.956 [ 0.899,  1.015]
+  spec-cold-hpp    median      45.9 ms   / pdq  0.984 [ 0.934,  1.037]
+  pdq              median      47.1 ms
+  spec-leaves-hpp  median      47.3 ms   / pdq  1.032 [ 0.963,  1.106]
+  spec-leaves-hp   median      50.4 ms   / pdq  1.077 [ 1.015,  1.143]
+nat-random-1000000-chunk8   (ns)
+  spec-cold-hpp    median      94.7 ms   / pdq  0.939 [ 0.825,  1.070]
+  spec-leaves-hp   median      98.9 ms   / pdq  1.040 [ 0.915,  1.182]
+  spec-cold-hp     median     100.1 ms   / pdq  1.008 [ 0.887,  1.146]
+  pdq              median     106.3 ms
+  spec-leaves-hpp  median     112.8 ms   / pdq  1.027 [ 0.913,  1.156]
+  spec-ctl         median     113.1 ms   / pdq  1.013 [ 0.895,  1.146]
+nat-runs16-100000   (ns)
+  spec-ctl         median       5.8 ms   / pdq  0.976 [ 0.951,  1.002]
+  pdq              median       6.1 ms
+  spec-cold-hp     median       6.3 ms   / pdq  1.045 [ 1.017,  1.075]
+  spec-cold-hpp    median       6.4 ms   / pdq  1.051 [ 1.025,  1.078]
+  spec-leaves-hp   median       6.5 ms   / pdq  1.058 [ 1.031,  1.087]
+  spec-leaves-hpp  median       6.6 ms   / pdq  1.072 [ 1.051,  1.094]
+rec-random-1000000   (ns)
+  spec-cold-hp     median     249.9 ms   / pdq  0.969 [ 0.892,  1.052]
+  pdq              median     259.2 ms
+  spec-leaves-hpp  median     263.6 ms   / pdq  1.001 [ 0.936,  1.070]
+  spec-cold-hpp    median     269.1 ms   / pdq  1.015 [ 0.914,  1.128]
+  spec-ctl         median     269.3 ms   / pdq  0.973 [ 0.887,  1.068]
+  spec-leaves-hp   median     280.7 ms   / pdq  1.023 [ 0.946,  1.107]
+str-random-1000000   (ns)
+  pdq              median     653.5 ms
+  spec-cold-hpp    median     671.0 ms   / pdq  1.042 [ 0.977,  1.111]
+  spec-ctl         median     683.0 ms   / pdq  1.087 [ 1.011,  1.168]
+  spec-leaves-hp   median     685.7 ms   / pdq  1.052 [ 0.980,  1.128]
+  spec-leaves-hpp  median     688.1 ms   / pdq  1.076 [ 0.993,  1.165]
+  spec-cold-hp     median     775.0 ms   / pdq  1.133 [ 1.046,  1.227]
+u64-random-6250000   (ns)
+  pdq              median    1858.0 ms
+  spec-leaves-hp   median    1908.2 ms   / pdq  0.954 [ 0.887,  1.026]
+  spec-leaves-hpp  median    1921.4 ms   / pdq  0.977 [ 0.901,  1.058]
+  spec-cold-hpp    median    1931.4 ms   / pdq  0.987 [ 0.891,  1.094]
+  spec-cold-hp     median    1946.6 ms   / pdq  0.960 [ 0.878,  1.048]
+  spec-ctl         median    2000.5 ms   / pdq  1.005 [ 0.906,  1.115]

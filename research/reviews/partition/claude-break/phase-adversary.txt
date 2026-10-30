@@ -1,0 +1,6 @@
+phaseadv algo=pdq n=10000 cmps=354435 perNlogN=2.667 per={'pivot': 5940, 'pis': 171152, 'partition': 134480, 'insertion': 42071, 'eqtest': 792}
+phaseadv algo=lab:lomuto,ends,c24,brk9 n=10000 cmps=356719 perNlogN=2.685 per={'pivot': 6033, 'pis': 171805, 'partition': 134820, 'insertion': 43302, 'eqtest': 759}
+phaseadv algo=lab:lomuto,ends,c24,brk9,nochild n=10000 cmps=239911 perNlogN=1.806 per={'pivot': 5826, 'pis': 49995, 'partition': 140191, 'insertion': 43142, 'eqtest': 757}
+phaseadv algo=pdq n=100000 cmps=4479134 perNlogN=2.697 per={'pivot': 58464, 'pis': 2263141, 'partition': 1726917, 'eqtest': 7687, 'insertion': 422925}
+phaseadv algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=4443169 perNlogN=2.675 per={'pivot': 57852, 'pis': 2163115, 'partition': 1789676, 'eqtest': 7659, 'insertion': 424867}
+phaseadv algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=2799692 perNlogN=1.686 per={'pivot': 57861, 'pis': 499995, 'partition': 1807666, 'insertion': 426556, 'eqtest': 7614}

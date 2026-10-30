@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,pred16,hash nat rothalf 100000: cmps/n=7.27 swaps/n=2.59 partitions=526 unbalanced=39 partitioned-elems/n=5.04 heaps=0 heap-elems/n=0.00 pis=112/196 pis-won-elems/n=0.94 ins-elems/n=0.06 equal=0 breaks=37 reversals=61 ins=0.21 other=0.01 part=5.10 pis=1.89 pivot=0.06

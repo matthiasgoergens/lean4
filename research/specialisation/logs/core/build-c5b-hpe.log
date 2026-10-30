@@ -1,0 +1,341 @@
+ 16:25:30 up 2 days,  5:16, 27 users,  load average: 70.01, 74.54, 72.37
+Preset CMake variables:
+
+  STRIP_BINARIES="OFF"
+
+-- 
+-- No build type selected, default to 'Release'
+-- Architecture: x64
+-- Override standard malloc (MI_OVERRIDE=ON)
+-- Check validity of pointers passed to 'mi_free' only in the dynamic link library (MI_OVERRIDE=ON, MI_FREE_IS_CHECKED=OFF)
+-- 
+-- Library name     : mimalloc
+-- Version          : 3.4.5
+-- Build type       : release
+-- C Compiler       : /usr/bin/cc
+-- Compiler flags   : -Wall;-Wextra;-Wpedantic;-Wno-deprecated;-Wno-unknown-pragmas;-fvisibility=hidden;-Wstrict-prototypes;-Wno-static-in-inline;-mno-outline;-ftls-model=initial-exec;-fno-builtin-malloc
+-- Compiler defines : MI_CMAKE_BUILD_TYPE=release;MI_BUILD_RELEASE
+-- Link libraries   : pthread;rt;atomic
+-- Build targets    : shared;static;object;tests
+-- 
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /w/build/release
+make: Entering directory '/w/build/release'
+make[1]: Entering directory '/w/build/release'
+make[2]: Entering directory '/w/build/release'
+make[2]: Leaving directory '/w/build/release'
+make[2]: Entering directory '/w/build/release'
+[  4%] Performing update step for 'cadical'
+[  8%] No patch step for 'cadical'
+[ 12%] No configure step for 'cadical'
+[ 16%] Performing build step for 'cadical'
+make[3]: Entering directory '/w/build/release/cadical/src/cadical'
+make[3]: Leaving directory '/w/build/release/cadical/src/cadical'
+[ 20%] No install step for 'cadical'
+[ 25%] Completed 'cadical'
+make[2]: Leaving directory '/w/build/release'
+[ 33%] Built target cadical
+make[2]: Entering directory '/w/build/release'
+make[2]: Leaving directory '/w/build/release'
+make[2]: Entering directory '/w/build/release'
+[ 37%] Performing configure step for 'stage0'
+-- No build type selected, default to Release
+-- 64-bit machine detected
+-- LIBUV_LDFLAGS: -L/usr/lib/x86_64-linux-gnu-luv-lpthread-ldl-lrt
+-- LIBUV_INCLUDE_DIRS: /usr/include
+CMake Warning at CMakeLists.txt:503 (message):
+  Disabling LLVM support
+
+
+-- stage0 sha1: 
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /w/build/release/stage0
+[ 41%] Performing build step for 'stage0'
+make[3]: Entering directory '/w/build/release/stage0'
+make[4]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[  1%] Built target leanmanifest
+[  2%] Built target leanmain
+make[5]: Leaving directory '/w/build/release/stage0'
+[  3%] Built target initialize_minimal_shim
+[  3%] Built target mimalloc_initial-exec
+[  5%] Built target copy-leantar
+[  5%] Built target mimalloc_local-exec
+[  5%] Built target lean-headers
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[6]: Entering directory '/w/stage0/src'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[  7%] Built target initialize
+[  7%] Built target leanshell
+[ 10%] Built target constructions
+make[7]: Entering directory '/w/stage0/src'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[ 17%] Built target util
+[ 22%] Built target leaninitialize
+[ 30%] Built target kernel
+make[5]: Leaving directory '/w/build/release/stage0'
+[ 43%] Built target library
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[7]: Leaving directory '/w/stage0/src'
+[ 98%] Built target leanrt
+[ 98%] Built target leanrt_initial-exec
+[100%] Built target leancpp
+[100%] Built target leancpp_1
+make[7]: Entering directory '/w/stage0/src'
+make[7]: Leaving directory '/w/stage0/src'
+make[7]: Entering directory '/w/stage0/src'
+make[7]: Leaving directory '/w/stage0/src'
+make[7]: Entering directory '/w/stage0/src'
+make[7]: Entering directory '/w/stage0/src'
+make[7]: Leaving directory '/w/stage0/src'
+make[7]: Leaving directory '/w/stage0/src'
+make[7]: Entering directory '/w/stage0/src/lake'
+make[7]: Leaving directory '/w/stage0/src/lake'
+make[7]: Entering directory '/w/stage0/src'
+make[7]: Leaving directory '/w/stage0/src'
+make[6]: Leaving directory '/w/stage0/src'
+make[5]: Leaving directory '/w/build/release/stage0'
+[100%] Built target make_stdlib
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[100%] Built target Init_shared
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[100%] Built target leanshared
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[100%] Built target leanir
+[100%] Built target leanexport
+[100%] Built target lean
+[100%] Built target lake_shared
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Entering directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+make[5]: Leaving directory '/w/build/release/stage0'
+[100%] Built target lake
+[100%] Built target leanchecker
+make[4]: Leaving directory '/w/build/release/stage0'
+make[3]: Leaving directory '/w/build/release/stage0'
+[ 45%] No install step for 'stage0'
+[ 50%] Completed 'stage0'
+make[2]: Leaving directory '/w/build/release'
+[ 66%] Built target stage0
+make[2]: Entering directory '/w/build/release'
+make[2]: Leaving directory '/w/build/release'
+make[2]: Entering directory '/w/build/release'
+[ 70%] Performing configure step for 'stage1'
+-- No build type selected, default to Release
+-- 64-bit machine detected
+-- LIBUV_LDFLAGS: -L/usr/lib/x86_64-linux-gnu-luv-lpthread-ldl-lrt
+-- LIBUV_INCLUDE_DIRS: /usr/include
+CMake Warning at CMakeLists.txt:503 (message):
+  Disabling LLVM support
+
+
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /w/build/release/stage1
+make[2]: Leaving directory '/w/build/release'
+[ 87%] Built target stage1-configure
+make[2]: Entering directory '/w/build/release'
+make[2]: Leaving directory '/w/build/release'
+make[2]: Entering directory '/w/build/release'
+[ 91%] Performing build step for 'stage1'
+make[3]: Entering directory '/w/build/release/stage1'
+make[4]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+[  0%] Built target leanmanifest
+make[5]: Leaving directory '/w/build/release/stage1'
+[  4%] Built target initialize_minimal_shim
+make[5]: Leaving directory '/w/build/release/stage1'
+[  4%] Built target mimalloc_local-exec
+[  4%] Built target leanmain
+make[5]: Leaving directory '/w/build/release/stage1'
+[  9%] Built target mimalloc_initial-exec
+[  9%] Built target lean-headers
+[  9%] Built target copy-leantar
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+[  9%] Built target copy-cadical
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[6]: Entering directory '/w/src'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[  9%] Built target copy-cadical-lib
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[  9%] Built target initialize
+[  9%] Built target leanshell
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+[ 14%] Built target constructions
+[ 23%] Built target util
+make[5]: Leaving directory '/w/build/release/stage1'
+[ 33%] Built target library
+[ 42%] Built target kernel
+make[5]: Entering directory '/w/build/release/stage1'
+[ 47%] Built target leaninitialize
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[ 47%] Built target leancpp_1
+[ 47%] Built target leancpp
+[ 71%] Built target leanrt
+[100%] Built target leanrt_initial-exec
+✔ [3923/7857] Built Init.Data.Array.QSort.Basic (2.6s)
+✔ [3926/7857] Built Init.Data.Array.QSort.Lemmas (4.5s)
+✔ [3929/7857] Built Init.Data.Array.QSort.Cost (5.4s)
+✔ [7842/7857] Built Leanc (302ms)
+✔ [7847/7857] Built LeanChecker (513ms)
+✔ [7852/7857] Built LeanExport (703ms)
+Build completed successfully (7857 jobs).
+make[6]: Leaving directory '/w/src'
+make[5]: Leaving directory '/w/build/release/stage1'
+[100%] Built target make_stdlib
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[100%] Built target Init_shared
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[100%] Built target leanshared
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[100%] Built target leanir
+[100%] Built target leanc
+[100%] Built target lake_shared
+[100%] Built target lean
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+[100%] Built target leanexport
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Entering directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+make[5]: Leaving directory '/w/build/release/stage1'
+[100%] Built target leanchecker
+[100%] Built target lake
+make[4]: Leaving directory '/w/build/release/stage1'
+make[3]: Leaving directory '/w/build/release/stage1'
+[ 95%] No install step for 'stage1'
+[100%] Completed 'stage1'
+make[2]: Leaving directory '/w/build/release'
+[100%] Built target stage1
+make[1]: Leaving directory '/w/build/release'
+make: Leaving directory '/w/build/release'
+build c5b-hpe exit 0 after 11 s

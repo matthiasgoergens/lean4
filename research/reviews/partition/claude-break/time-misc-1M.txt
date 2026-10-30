@@ -1,0 +1,16 @@
+file=inputs/m3killer-1M.txt blocks=5 reps=3 hashes_agree=True
+  pdq                                           median_ms=   28.894 ratio= 1.000 per_block_ms=[28.89, 27.81, 27.55, 30.74, 32.59]
+  lab:lomuto,ends,c24,brk9                      median_ms=   44.570 ratio= 1.543 per_block_ms=[44.03, 43.45, 44.57, 45.57, 52.88]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=   44.322 ratio= 1.534 per_block_ms=[48.13, 44.13, 43.98, 44.32, 46.92]
+file=inputs/runs:5-1M.txt blocks=5 reps=3 hashes_agree=True
+  pdq                                           median_ms=  102.821 ratio= 1.000 per_block_ms=[102.26, 102.82, 103.18, 63.21, 126.52]
+  lab:lomuto,ends,c24,brk9                      median_ms=  138.651 ratio= 1.348 per_block_ms=[140.98, 141.16, 82.19, 93.8, 138.65]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=  101.640 ratio= 0.989 per_block_ms=[102.7, 101.31, 101.64, 59.0, 134.02]
+file=inputs/rot:500000-1M.txt blocks=5 reps=3 hashes_agree=True
+  pdq                                           median_ms=   27.351 ratio= 1.000 per_block_ms=[30.03, 26.06, 26.65, 29.94, 27.35]
+  lab:lomuto,ends,c24,brk9                      median_ms=   35.379 ratio= 1.294 per_block_ms=[35.38, 34.05, 36.7, 35.49, 33.56]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=   31.098 ratio= 1.137 per_block_ms=[33.28, 30.92, 30.69, 33.95, 31.1]
+file=inputs/nearlyrev:300-1M.txt blocks=5 reps=3 hashes_agree=True
+  pdq                                           median_ms=   39.638 ratio= 1.000 per_block_ms=[39.22, 39.64, 39.34, 43.53, 62.68]
+  lab:lomuto,ends,c24,brk9                      median_ms=  137.217 ratio= 3.462 per_block_ms=[121.65, 128.95, 141.98, 150.08, 137.22]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=   78.374 ratio= 1.977 per_block_ms=[75.78, 75.15, 85.11, 78.37, 84.49]

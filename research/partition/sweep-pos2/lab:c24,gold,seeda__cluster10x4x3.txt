@@ -1,0 +1,1 @@
+lab:c24,gold,seeda nat cluster10x4x3 100000: cmps/n=7.07 swaps/n=0.88 partitions=44 unbalanced=0 partitioned-elems/n=4.56 heaps=0 heap-elems/n=0.00 pis=33/47 pis-won-elems/n=1.00 ins-elems/n=0.00 equal=0 breaks=0 reversals=0 ins=0.00 other=0.00 part=4.56 pis=2.49 pivot=0.01

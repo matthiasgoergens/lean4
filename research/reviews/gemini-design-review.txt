@@ -1,0 +1,80 @@
+### (1) Alternatives Search
+
+| Candidate | Fits requirements? | Expected speed in Lean | Proof burden | Verdict |
+|---|---|---|---|---|
+| **1. `pdqsort` + single top-level presortedness check (`ipnsort` front-end)** | **Yes.** $O(\log n)$ stack, swaps only, `lt`-only, subrange-safe. | **Fastest.** $O(n)$ on sorted/reversed, zero merge overhead, zero regressions on `runs16` or random if specialization is fixed. | **Low incremental (+~40 lines over `Pdq`).** One linear scan + `reverseRange` before calling `Pdq.sort`. | **Best option** if any run-adaptivity beyond `Pdq` is wanted. |
+| **2. Pure `pdqsort` (Go `slices.SortFunc` / Boost `pdqsort`)** | **Yes** (once the `u64` specialization/RC regression is fixed; see §2). | Already $O(n)$ on `sorted`, `reversed`, `nearly`, `constant`, `dups4`, `sortedtail` (`round1-partial-analysis.txt`). | **Moderate (~1,200–1,800 lines).** `insertionSort`, `heapSort`, `partition`, `partitionEqual` (needs cross-boundary invariant), `partialInsertionSort`. | **Strongest baseline.** Solves #8087 and all PR #14653 complaints without `Adaptive`. |
+| **3. Rust `ipnsort` (full)** (Bergdoll & Peters, Rust 1.81 `core::slice::sort::unstable`) | **Partially.** Its top-level run check + 3-way/2-way pdq loop fits; its small-sort networks and branchless block Lomuto partition rely on pointer arithmetic / unboxed moves. | Without unsafe pointer writes, block partitioning in safe Lean has to buffer index offsets and loop over `Vector.swap`, losing the ILP advantage. | **High (~2,500+ lines).** Sorting networks + block index buffers + Hoare/Lomuto hybrid. | Take the **top-level run check** idea; skip the block-partitioning machinery. |
+| **4. Block merge sorts (WikiSort / GrailSort, internal $\sqrt{n}$ buffer)** | **Yes in space ($O(1)$), NO in complexity/speed.** | **Slow on `< 64` distinct keys** (cannot harvest $\sqrt{n}$ distinct internal buffer keys, so falls back to rotation merge = $\Theta(n \log^2 n)$ swaps). Heavy constant factor from block-selection sort and key collection. | **Prohibitive (5,000+ lines).** Internal buffer extraction, key-tagging via relative order, block movement, and fallback rotation merge. | **Reject.** Never proved in any ITP; maintainer nightmare. |
+| **5. In-place merge with small $O(\log n)$ or $O(\sqrt{n})$ auxiliary buffer** | **Violates RC / space constraints.** Space is $O(\sqrt{n})$ (exceeds $O(\log n)$), or $O(\log n)$ (still requires $\Theta(n \log n / \log\log n)$ swaps per merge). | **Bad for boxed types (`String`, `UInt64`).** Copying elements out of `v` into a scratch `Array α` increments element RCs (`lean_inc`) and leaves references in both arrays unless filled with dummy values. | **High.** Two-array permutation tracking (`v` + scratch buffer) breaks the clean single-`Vector.swap` permutation algebra. | **Reject.** Loses the zero-RC-traffic invariant of in-place `Vector.swap`. |
+| **6. Smoothsort (Dijkstra)** | **Yes.** $O(1)$ space, `lt`-only, adaptive to presorted prefixes. | **2–4x slower than quicksort on random keys.** Poor cache locality (non-adjacent Leonardo-heap roots) and64-bit bitmask manipulation per sift. | **Very high (~2,500+ lines).** Leonardo number arithmetic, bitvector encodings of tree sizes, and dual heap+ascending-roots invariants. | **Reject.** Fails the random-key gate (`io_compute`). |
+| **7. OpenJDK Dual-Pivot Quicksort** (Yaroslavskiy + run merger) | **No.** OpenJDK's run merger allocates an $O(n)$ buffer; source is GPLv2+Classpath Exception (`prior-art/README.md:72`). | 3-way dual-pivot has more swaps per element than Hoare partition on boxed pointers. | **High** (3-way partition invariant with two pivots + 5 regions). | **Reject** (licensing + non-in-place run merge). |
+
+---
+
+### (2) Break It: Concrete Slow Inputs and Code / Proof Risks
+
+#### A. `Adaptive.lean` is asymptotically $\Theta(n \log^2 n)$ in the worst case (not $O(n \log n)$)
+* **Where:** `Adaptive.lean:154` (`minRun := ... Nat.sqrt total`) + `Adaptive.lean:57-77` (`mergeRot`).
+* **Why:** Rust's `driftsort` sets `minRun ≈ √n` because it merges in $O(n)$ moves using a scratch buffer. `Adaptive.lean` keeps `minRun = √n` (`Adaptive.lean:154`) but replaces the $O(n)$ buffered merge with `mergeRot`, which costs $\Theta(S \log S)$ swaps to merge two interleaved runs of total size $S$.
+* **Concrete $\Theta(n \log^2 n)$ input:** $R = \lfloor\sqrt{n}\rfloor$ interleaved ascending runs of length $m = \lceil\sqrt{n}\rceil$:
+  $$A[i] = (i \bmod m)\cdot R + \lfloor i / m \rfloor.$$
+  At $n = 10^6$ ($m = R = 1000$), `findRun` (`Adaptive.lean:94`) accepts all $1000$ runs as `sorted = true` (`k ≥ minRun`). Powersort merges them across $\log_2(\sqrt{n}) \approx 10$ tree levels; each level does $\frac{1}{4} n \log_2 S$ swaps, totaling $\frac{3}{32} n (\log_2 n)^2 \approx 3.8 \times 10^7$ swaps ($\sim 7.5 \times 10^7$ array writes). Even at $R = 16$ (`runs16`), `Adaptive` is already 5x slower than `Pdq`; at $R = \sqrt{n}$, it is $>10\times$ slower and asymptotically $\Theta(n \log^2 n)$.
+
+#### B. Single sorted prefix of length $\sqrt{n}$ followed by random data breaks `Adaptive`'s lazy concatenation
+* **Where:** `Adaptive.lean:138` (`if !l.sorted && !r.sorted`) and `Adaptive.lean:175-193` (`collapse` / `loop`).
+* **Concrete input:** First $\lceil\sqrt{n}\rceil$ elements sorted (`A[i] = i * n` for $i < \sqrt{n}$, spanning the key range), remaining $n - \sqrt{n}$ elements uniform random.
+* **What happens:** `combine` only concatenates runs lazily when **both** have `sorted = false` (`Adaptive.lean:138`). Because run 0 (`[0, √n)`) has `sorted = true`, every collapse on the leftmost spine of the powersort tree (`[0, 2√n)`, `[0, 4√n)`, `[0, 8√n)`, …, `[0, n)`) merges a `sorted = true` left run with an unsorted right run, producing `sorted = true` (`Adaptive.lean:145`). Instead of one `Pdq.sort` call on the random suffix, `Adaptive` fragments the random array into $\frac{1}{2}\log_2 n$ dyadic chunks, sorts each chunk with `Pdq.sort`, and runs `mergeRot` across `[0, 2^k √n)` at every power-of-two boundary up to $n$ — adding $\Theta(n \log n)$ rotation swaps on 99.9% random data.
+
+#### C. `Pdq.lean` ALREADY fails the upstream `u64-random` gate by +49% to +81%
+* **Where:** `round1-partial-analysis.txt:167-177`, `Pdq.lean:29,49,66,119-145,180,190`, `Main.lean:112`.
+* **Evidence:**
+  * `u64-random-100000`: `core` **9.46 ms**, `threeway` **9.37 ms**, `pdq` **15.4 ms (1.49x core, CI `[1.11, 2.01]`)**.
+  * `u64-random-6250000` (the `io_compute` gate): `core` **1.08 s**, `threeway` **1.02 s**, `pdq` **1.84 s (1.81x core)**.
+  * Meanwhile on `nat-random-100000`, `pdq` is **8.31 ms vs 8.70 ms (0.944x core)**.
+* **Why `u64` regresses by +85% over `nat` in `Pdq` while `core` and `threeway` change by only ~9%:**
+  `Nat` (< $2^{63}$) is an unboxed tagged scalar (`lean_is_scalar`), where RC operations are no-ops. `UInt64` in `Array UInt64` is a **heap-allocated boxed scalar object**. In `core` (after PR #13409) and `ThreeWay.lean`, `qpartition` is marked `@[inline]` so `lt` is inlined directly into the `@[specialize]` inner loop and `UInt64` comparisons borrow elements without RC traffic (`prior-art/README.md:25-29`). In `Pdq.lean`, `partition` (`:145`), `partitionEqual` (`:180`), `insertionSort` (`:29`), `partialInsertionSort` (`:66`), and `heapSort` (`:49`) are **not** `@[inline]`, creating nested `@[specialize]` boundaries (`Pdq.sort` $\to$ `partition` $\to$ `scanUp`/`scanDown`/`loop`) that also allocate `Prod` tuples on every `order2` (`:120`), `median` (`:124`), `choosePivot` (`:129`), and `partition` (`:146`), and pass owned `p : α` across calls.
+
+#### D. `Pdq.breakPatterns` only scrambles the middle ninther group — easily defeated into heapsort
+* **Where:** `Pdq.lean:102` vs `Pdq.lean:131-139`.
+* **Bug:** For $b - a \ge 50$, `choosePivot` computes Tukey's ninther as `median(i, j, k)` where `i` is the median of 3 elements at `a + len/4`, `j` at `a + len/4*2`, and `k` at `a + len/4*3`. When a partition is unbalanced, `breakPatterns` (`Pdq.lean:102`) runs `go v (a + len / 4 * 2 - 1) ... 3` — swapping **only** the 3 elements at `a + len/4*2` (which only affect `j`) and leaving the 6 elements around `a + len/4` (`i`) and `a + len/4*3` (`k`) untouched!
+* **Concrete killer input:** Any array of size $n$ where elements in $[0.20 n, 0.30 n]$ and $[0.70 n, 0.80 n]$ are the smallest keys (e.g., $A[\text{idx}] = \text{idx}$ for $\text{idx} \in [n/5, 3n/10) \cup [7n/10, 4n/5)$ and $A[\text{idx}] = n + \text{idx}$ elsewhere). At every step, `i` (at $0.25\,\text{len}$) and `k` (at $0.75\,\text{len}$) both land in the small regions. For **any** `j` produced by `breakPatterns`, $\text{median}(i, j, k) \le \max(i, k)$ is one of the smallest elements in the array. Thus every partition splits off $< \text{len}/8$ elements, `breakPatterns` never escapes the trap, `limit` counts down $\log_2 n$ times doing $\Theta(n \log n)$ wasted partition work, and `Pdq.sort` falls back to cache-unfriendly `heapSort` (`Pdq.lean:193`) on nearly the whole array.
+
+#### E. `Pdq.sort` resets `balanced = true` and `partitioned = true` on the smaller child (`Pdq.lean:212, 216`)
+* **Where:** `Pdq.lean:212` and `Pdq.lean:216`:
+  ```lean
+  let v := sort lt lo v a mid limit true true fuel ...
+  ```
+* **Effect:** Even when `already` (`alreadyPartitioned`) is `false` on random data, the smaller child (half of all recursive calls) gets `balanced = true, partitioned = true`. Whenever the 3 or 9 pivot sample points happen to be ascending (`swaps == 0`, which occurs on $1/6 \approx 16.7\%$ of subarrays of length $13..49$), `partialInsertionSort` (`Pdq.lean:205`) is called on unsorted random data, scanning for an inversion (`Pdq.lean:70`) and either bailing out at `b - a < 50` (`Pdq.lean:87`) or doing 5 futile swaps+shifts (`Pdq.lean:89-91`).
+
+#### F. `Pdq.sort` runs `partition` / `partitionEqual` with a stale `pivot` index after `partialInsertionSort` mutates `v`
+* **Where:** `Pdq.lean:199-210`.
+* **Risk:** `pivot` is chosen at line 199. At line 205, `partialInsertionSort` mutates `v` (up to 5 swaps + `sinkLeft` / `riseRight` shifts across `[a, b)`). If it returns `(v, false)`, lines 207–210 use the **old index `pivot : Idx a b`** without re-reading or tracking where the pivot element moved. While termination and safety still hold (any index in `[a, b)` is a valid pivot), `riseRight` can shift the maximum of the prefix onto `pivot.1`, turning a good ninther pivot into an extreme pivot.
+
+#### G. `Pdq.choosePivot` dead `decreasing` hint for $8 \le b - a < 50$ (`Pdq.lean:139`)
+* **Where:** `Pdq.lean:139`: `else if swaps == 12 then .decreasing`.
+* **Effect:** When $8 \le b - a < 50$, `choosePivot` runs only one `median` (3 `order2` calls), so `swaps ≤ 3`. `swaps == 12` is impossible, so descending ranges of length $13..49$ are never reversed.
+
+#### H. High-multiplicity minimum key on the left spine (`Pdq.lean:207` vs `ThreeWay.lean`)
+* **Where:** `Pdq.lean:207` (`else if hp : lo < a ∧ !lt v[a - 1] v[pivot.1]`).
+* **Effect:** `partitionEqual` cannot fire at `a = lo` (no sentinel at `a - 1`) or whenever a high-multiplicity key $K$ is strictly greater than `v[a - 1]`. Because `Pdq.partition` puts elements equal to `p` on the right (`!(lt v[j] p)` in `scanDown`, `Pdq.lean:164`), picking the minimum key at `a = lo` produces an empty left partition (`mid = a`), triggers `breakPatterns` (`limit - 1`), and needs a second partition pass before `partitionEqual` can activate. This shows up in `round1-partial-analysis.txt:145,150`: on `u64-dups4-100000`, `pdq` is **2.00 ms vs `threeway` 0.92 ms (2.17x slower)**.
+
+#### I. Proof & Specification Risks (`Pdq.lean` and `Adaptive.lean`)
+1. **`Pdq.partitionEqual` requires a cross-boundary invariant (`Pdq.lean:207-209`):**
+   `Pdq.sort` does **not** sort arbitrary `v[a:b]` when called with `lo < a`: if `v[a - 1]` happens to be $\ge v[\text{pivot}]$, `partitionEqual` only checks `lt p v[i]` (`Pdq.lean:195`), grouping all elements $\le p$ (even those $< p$) into `v[a:mid]` and returning without sorting `v[a:mid]`. Thus the correctness theorem for `Pdq.sort` requires the inductive invariant $(\text{lo} < a \implies \forall k \in [a, b), \neg\text{lt } v[k]\, v[a - 1])$, plus `le_trans` to deduce that $\neg\text{lt } v[a-1]\, p \implies \forall k \in [a, b), \neg\text{lt } v[k]\, p$, AND in the `else` branch (`Pdq.lean:215-217`, where `[mid+1, b)` is sorted **before** `[a, mid)`), that sorting `[mid+1, b)` does not modify `v[mid]`.
+2. **`Adaptive.collapse` and `Adaptive.finish` silent unsorted-return branches (`Adaptive.lean:180-182, 200-203`):**
+   If `hc : top.run.start + top.run.len = cur.start` or `hc' : cur'.start + cur'.len ≤ b` fails, `finish` silently returns the partially unsorted vector `v` without calling `sortRun`. Proving `Adaptive.qsort` sorted requires proving the full contiguity invariant of `stack : Array Entry` to show those `else v` branches are unreachable.
+
+---
+
+### (3) Question the Premise
+
+1. **Is in-place run merging (`Adaptive.lean`) worth its proof and performance cost over `Pdq.lean`? No.**
+   * **Algorithmic mismatch:** Natural-run merging (`timsort`, `powersort`, `driftsort`) is fast **only** when merging takes $O(n)$ moves via a scratch buffer. Without a buffer, `mergeRot` costs $\Theta(n \log n)$ swaps per merge level, turning $k$ interleaved runs into a $\Theta(n \log n \log k)$ (up to $\Theta(n \log^2 n)$) regression — 5x slower than `Pdq` on `runs16` and $>10\times$ slower on `runs1000`.
+   * **`Pdq` already covers the real-world presorted patterns:** In `round1-partial-analysis.txt`, `Pdq` alone already sorts $10^5$ `Nat`s in `0.094 ms` (`sorted`), `0.159 ms` (`reversed`), `0.528 ms` (`sortedtail`), `0.835 ms` (`nearly`), `2.97 ms` (`runs2`), and `3.02 ms` (`organ`) — beating `Array.mergeSort` (`13.6–15.5 ms`) by **5x to 145x** on every single one of those patterns.
+   * **Proof cost:** `Adaptive.lean` adds `lowerBound`, `upperBound`, `rotate`, `mergeRot`, `findRun`, `power`, and the stateful `stack : Array Entry` contiguity invariant. Proving that `mergeRot` + 3-reversal `rotate` preserves sortedness under only `lt_asymm` and `le_trans` easily doubles the proof effort for an algorithm that is asymptotically worse ($\Theta(n \log^2 n)$) than `Pdq` alone.
+
+2. **What would a Lean FRO maintainer reject right now?**
+   * **The +49% to +81% regression on `u64-random` (`round1-partial-analysis.txt:167-177`):** PR #14033 was blocked for +38.9% on `compiled/io_compute//instructions` (`prior-art/README.md:27`). Until `Pdq.lean`'s `@[inline]`/`@[specialize]` structure and tuple allocations are fixed so `u64-random-6250000` is $\le 1.00\times$ `core` (and `qsortOrd` is tested directly), the PR will not pass `!bench`.
+   * **Unrequested complexity (`Adaptive.lean`):** Kim Morrison asked (`prior-art/README.md:40`) to *"take whichever of the Java / Rust / etc algorithms has had the most serious thought into making it practically fast, translate that verbatim into Lean ... then prove it correct"*. `Pdq.lean` is a faithful translation of Go's `slices.SortFunc` (`pdqsort`). `Adaptive.lean` is a custom hybrid (driftsort's $\sqrt{n}$ run threshold bolted onto an unbuffered $\Theta(n \log n)$ rotation merge) that no major language stdlib ships as its unstable sort and that degrades to $\Theta(n \log^2 n)$.
+   * **Recommendation:** Drop `Adaptive.lean`. Fix `Pdq.lean`'s `u64` specialization/inlining overhead (`@[inline]` on `partition`, `partitionEqual`, `insertionSort`, `partialInsertionSort`, `heapSort`, unboxed return or CPS for `order2`/`median`/`choosePivot`/`partition`), fix the `swaps == 12` and `breakPatterns` bugs (or add a single top-level `ipnsort` presortedness pass if desired), and prove `Pdq.lean` alone.

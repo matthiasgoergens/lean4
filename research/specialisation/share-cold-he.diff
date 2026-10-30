@@ -1,0 +1,195 @@
+diff --git a/src/Init/Data/Array/QSort/Basic.lean b/src/Init/Data/Array/QSort/Basic.lean
+index 220e7d25a0..ac76518ad5 100644
+--- a/src/Init/Data/Array/QSort/Basic.lean
++++ b/src/Init/Data/Array/QSort/Basic.lean
+@@ -310,6 +310,10 @@ def insertionCutoff : Nat := 24
+ /-- Sorts `xs[a:b]`. `lo` is the start of the whole subrange being sorted: elements before it
+ belong to the caller and are never read.
+ 
++The equal-key partition and heapsort are parameters (`partEq` and `heap`, each taking the
++comparison): `sortM` passes the generic ones, and `Array.qsort` passes copies compiled once, at
++`Id`, so that its call sites do not each get a specialised copy of these rarely used parts.
++
+ `limit` is the number of unbalanced partitions left before heapsort; `balanced` and `partitioned`
+ describe the partition that produced this range. `afterEqual` says that it is what a partition
+ into "equal" and "greater" left: then no element of the range is equivalent to the one before it,
+@@ -317,11 +321,16 @@ so the test for that is skipped (it compares only when `afterEqual` is false and
+ lawful `lt` this changes nothing; for an unlawful one, it stops a chain of such partitions, each of
+ which might take a single element off the range without counting against `limit`, from costing
+ quadratic time. `fuel` bounds the length of the range, so that the recursion is structural. -/
+-@[specialize] def sortM (lt : α → α → m (ULift.{u} Bool)) (lo : Nat) (xs : Vector α n)
++@[specialize] def sortCoreM
++    (partEq : (α → α → m (ULift.{u} Bool)) → (xs : Vector α n) → (a b : Nat) → Idx a b → b ≤ n →
++      m (Vector α n × {mid : Nat // a < mid ∧ mid ≤ b}))
++    (heap : (α → α → m (ULift.{u} Bool)) → (xs : Vector α n) → (a b : Nat) → a ≤ b → b ≤ n →
++      m (Vector α n))
++    (lt : α → α → m (ULift.{u} Bool)) (lo : Nat) (xs : Vector α n)
+     (a b limit : Nat) (balanced partitioned afterEqual : Bool) (fuel : Nat) (hf : b - a ≤ fuel)
+     (hlo : lo ≤ a) (hab : a ≤ b) (hb : b ≤ n) : m (Vector α n) :=
+   if h12 : b - a ≤ insertionCutoff then insertionSortM lt xs a b hb
+-  else if limit = 0 then heapSortM lt xs a b hab hb
++  else if limit = 0 then heap lt xs a b hab hb
+   else match fuel with
+   | 0 => absurd hf (by omega)
+   | fuel + 1 => do
+@@ -341,24 +350,44 @@ quadratic time. `fuel` bounds the length of the range, so that the recursion is
+           pure ⟨!(← lt xs[a - 1] xs[pivot.1]).down⟩
+         else pure ⟨false⟩ : m (ULift.{u} Bool))
+       if equal then
+-        let (xs, ⟨mid, hm⟩) ← partitionEqualM lt xs a b pivot hb
+-        sortM lt lo xs mid b limit balanced partitioned true fuel (by omega) (by omega) (by omega)
+-          hb
++        let (xs, ⟨mid, hm⟩) ← partEq lt xs a b pivot hb
++        sortCoreM partEq heap lt lo xs mid b limit balanced partitioned true fuel
++          (by omega) (by omega) (by omega) hb
+       else
+         let (xs, ⟨mid, hm⟩, already) ← partitionM lt xs a b pivot hb
+         if mid - a < b - mid then
+-          let xs ← sortM lt lo xs a mid limit true true false fuel (by omega) hlo (by omega)
+-            (by omega)
+-          sortM lt lo xs (mid + 1) b limit (mid - a ≥ (b - a) / 8) already false fuel (by omega)
+-            (by omega) (by omega) hb
++          let xs ← sortCoreM partEq heap lt lo xs a mid limit true true false fuel
++            (by omega) hlo (by omega) (by omega)
++          sortCoreM partEq heap lt lo xs (mid + 1) b limit
++            (mid - a ≥ (b - a) / 8) already false fuel (by omega) (by omega) (by omega) hb
+         else
+-          let xs ← sortM lt lo xs (mid + 1) b limit true true false fuel (by omega) (by omega)
+-            (by omega) hb
+-          sortM lt lo xs a mid limit (b - mid ≥ (b - a) / 8) already false fuel (by omega) hlo
+-            (by omega) (by omega)
++          let xs ← sortCoreM partEq heap lt lo xs (mid + 1) b limit true true
++            false fuel (by omega) (by omega) (by omega) hb
++          sortCoreM partEq heap lt lo xs a mid limit (b - mid ≥ (b - a) / 8)
++            already false fuel (by omega) hlo (by omega) (by omega)
++
++/-- `sortCoreM` with the generic helpers: the sort that the proofs are about. -/
++abbrev sortM (lt : α → α → m (ULift.{u} Bool)) (lo : Nat) (xs : Vector α n)
++    (a b limit : Nat) (balanced partitioned afterEqual : Bool) (fuel : Nat) (hf : b - a ≤ fuel)
++    (hlo : lo ≤ a) (hab : a ≤ b) (hb : b ≤ n) : m (Vector α n) :=
++  sortCoreM partitionEqualM heapSortM lt lo xs a b limit balanced partitioned
++    afterEqual fuel hf hlo hab hb
+ 
+ end Monadic
+ 
++/-! Rarely used helpers at `Id`, compiled once here with the comparison called through a closure,
++for `Array.qsort` to pass to `sortCoreM` so that call sites do not get copies of them. -/
++
++/-- `heapSortM` at `Id`, compiled once. -/
++@[noinline] def heapSortId (lt : α → α → Id (ULift.{u} Bool)) (xs : Vector α n) (a b : Nat)
++    (hab : a ≤ b) (hb : b ≤ n) : Id (Vector α n) :=
++  heapSortM lt xs a b hab hb
++
++/-- `partitionEqualM` at `Id`, compiled once. -/
++@[noinline] def partitionEqualId (lt : α → α → Id (ULift.{u} Bool)) (xs : Vector α n) (a b : Nat)
++    (pivot : Idx a b) (hb : b ≤ n) : Id (Vector α n × {mid : Nat // a < mid ∧ mid ≤ b}) :=
++  partitionEqualM lt xs a b pivot hb
++
+ end Array.QSort.Internal
+ 
+ namespace Array
+@@ -380,7 +409,8 @@ elements.
+   else
+     let lo := min lo (as.size - 1)
+     let hi := max lo (min hi (as.size - 1))
+-    (Id.run (QSort.Internal.sortM (fun x y => pure ⟨lt x y⟩) lo as.toVector lo (hi + 1)
++    (Id.run (QSort.Internal.sortCoreM QSort.Internal.partitionEqualId QSort.Internal.heapSortId
++      (fun x y => pure ⟨lt x y⟩) lo as.toVector lo (hi + 1)
+       (Nat.log2 (hi + 1 - lo) + 1) true true false (hi + 1 - lo) (Nat.le_refl _) (Nat.le_refl _)
+       (by omega) (by omega))).toArray
+ 
+diff --git a/src/Init/Data/Array/QSort/Cost.lean b/src/Init/Data/Array/QSort/Cost.lean
+index 2d0de7834d..98dc02b1fe 100644
+--- a/src/Init/Data/Array/QSort/Cost.lean
++++ b/src/Init/Data/Array/QSort/Cost.lean
+@@ -502,7 +502,9 @@ theorem sortM_cost (lt : α → α → Bool) (lo : Nat) (v : Vector α n) (a b l
+     (hab : a ≤ b) (hb : b ≤ n) :
+     Cost (sortM (count lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb)
+       (fun _ k => k ≤ pot (b - a) limit balanced afterEqual) := by
+-  fun_induction sortM (count lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
++  unfold sortM
++  fun_induction sortCoreM partitionEqualM heapSortM
++    (count lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
+   case case1 v a b limit bal part ae hf hlo hab hb h12 =>
+     refine (insertionSortM_cost lt v a b hb).mono fun _ k hk => ?_
+     have : (b - a) * (b - a) ≤ insertionCutoff * (b - a) := Nat.mul_le_mul_right _ h12
+diff --git a/src/Init/Data/Array/QSort/Lemmas.lean b/src/Init/Data/Array/QSort/Lemmas.lean
+index 35f2989f01..561cdba642 100644
+--- a/src/Init/Data/Array/QSort/Lemmas.lean
++++ b/src/Init/Data/Array/QSort/Lemmas.lean
+@@ -379,7 +379,9 @@ theorem sortM_frame (lt : α → α → m (ULift.{u} Bool)) (lo : Nat) (v : Vect
+     (hlo : lo ≤ a) (hab : a ≤ b) (hb : b ≤ n) :
+     SatisfiesM (Frame a b v)
+       (sortM lt lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb) := by
+-  fun_induction sortM lt lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
++  unfold sortM
++  fun_induction sortCoreM partitionEqualM heapSortM
++    lt lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
+   case case1 => exact insertionSortM_frame ..
+   case case2 => exact heapSortM_frame ..
+   case case3 v a b limit bal part ae hlo hab hb h12 hl fuel hf v1 l1 e1 ih5 ih4 ih3 ih2 ih1 =>
+@@ -421,7 +423,7 @@ theorem sortM_of_le_succ (lt : α → α → m (ULift.{u} Bool)) (lo : Nat) (v :
+     (a b limit : Nat) (balanced partitioned afterEqual : Bool) (fuel : Nat) (hf : b - a ≤ fuel)
+     (hlo : lo ≤ a) (hab : a ≤ b) (hb : b ≤ n) (h : b ≤ a + 1) :
+     sortM lt lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb = pure v := by
+-  unfold sortM
++  unfold sortM sortCoreM
+   simp only [show b - a ≤ insertionCutoff by unfold insertionCutoff; omega, ↓reduceDIte]
+   unfold insertionSortM insertionSortM.outer
+   simp only [show ¬a + 1 < b by omega, ↓reduceDIte]
+@@ -1194,7 +1196,9 @@ theorem sortM_sorted {lt : α → α → Bool} (hlt : Lawful lt) (lo : Nat) (v :
+     LeftBound lt lo v a b hab hb →
+       SatisfiesM (fun w => Sorted lt w a b)
+         (sortM (idLt lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb) := by
+-  fun_induction sortM (idLt lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
++  unfold sortM
++  fun_induction sortCoreM partitionEqualM heapSortM
++    (idLt lt) lo v a b limit balanced partitioned afterEqual fuel hf hlo hab hb
+   case case1 => exact fun _ => insertionSortM_sorted hlt ..
+   case case2 => exact fun _ => heapSortM_sorted hlt ..
+   case case3 v a b limit bal part ae hlo hab hb h12 hl fuel hf v1 l1 e1 ih5 ih4 ih3 ih2 ih1 =>
+@@ -1327,9 +1331,20 @@ variable {α : Type u}
+ 
+ /-! ### `qsort` -/
+ 
++/-- What `qsort` runs is `sortM`. -/
++private theorem sortCoreM_qsort (lt : α → α → Bool) (lo : Nat) {n : Nat} (xs : Vector α n)
++    (a b limit : Nat) (balanced partitioned afterEqual : Bool) (fuel : Nat) (hf : b - a ≤ fuel)
++    (hlo : lo ≤ a) (hab : a ≤ b) (hb : b ≤ n) :
++    sortCoreM partitionEqualId heapSortId (fun x y => pure ⟨lt x y⟩) lo xs a b limit
++      balanced partitioned afterEqual fuel hf hlo hab hb =
++    sortM (fun x y => pure ⟨lt x y⟩) lo xs a b limit balanced partitioned afterEqual fuel hf hlo
++      hab hb :=
++  rfl
++
+ theorem qsort_perm (as : Array α) (lt : α → α → Bool) (lo hi : Nat) :
+     qsort as lt lo hi ~ as := by
+   unfold qsort
++  simp only [sortCoreM_qsort]
+   split
+   · exact .rfl
+   · exact (sortM_frame ..).run.perm.toArray
+@@ -1337,6 +1352,7 @@ theorem qsort_perm (as : Array α) (lt : α → α → Bool) (lo hi : Nat) :
+ @[simp] theorem size_qsort (as : Array α) (lt : α → α → Bool) (lo hi : Nat) :
+     (qsort as lt lo hi).size = as.size := by
+   unfold qsort
++  simp only [sortCoreM_qsort]
+   split
+   · rfl
+   · simp
+@@ -1346,6 +1362,7 @@ theorem qsort_perm (as : Array α) (lt : α → α → Bool) (lo hi : Nat) :
+     (lo hi i : Nat) (hi' : i < as.size) (hout : i < lo ∨ hi < i) :
+     getElem (qsort as lt lo hi) i (by simpa using hi') = as[i] := by
+   unfold qsort
++  simp only [sortCoreM_qsort]
+   split
+   · rfl
+   · rename_i h0
+@@ -1373,6 +1390,7 @@ theorem qsort_sorted' (lt : α → α → Bool)
+       (getElem (qsort as lt lo hi) i (by simp; omega)) := by
+   have hlt : Lawful lt := ⟨lt_asymm, le_trans⟩
+   unfold qsort
++  simp only [sortCoreM_qsort]
+   split
+   · omega
+   · simp only [Vector.getElem_toArray]

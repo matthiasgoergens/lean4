@@ -1,0 +1,1 @@
+lab:c24,gold,seeda nat rothalf 100000: cmps/n=5.14 swaps/n=1.79 partitions=144 unbalanced=0 partitioned-elems/n=3.11 heaps=0 heap-elems/n=0.00 pis=43/64 pis-won-elems/n=0.98 ins-elems/n=0.02 equal=0 breaks=0 reversals=16 ins=0.05 other=0.00 part=3.11 pis=1.95 pivot=0.02

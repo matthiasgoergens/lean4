@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold,predm,pred6 nat file:research/reviews/partition/claude-break-2/climb/N-pdq-2000-random-s24.txt 2000: cmps/n=13.06 swaps/n=10.88 partitions=126 unbalanced=2 partitioned-elems/n=7.32 heaps=0 heap-elems/n=0.00 pis=0/6 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=1 reversals=0 ins=4.49 other=0.06 part=8.04 pis=0.00 pivot=0.47

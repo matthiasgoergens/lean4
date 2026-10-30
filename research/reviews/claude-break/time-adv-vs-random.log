@@ -1,0 +1,6 @@
+adv-pdq-p1-1048576.txt n=1048576:  raw-pdq 197288us 0cmp=0.000000nlgn  raw-adaptive 76497us 0cmp=0.000000nlgn  raw-merge 329478us 0cmp=0.000000nlgn  raw-heap 351645us 0cmp=0.000000nlgn
+randperm-1048576.txt n=1048576:  raw-pdq 121778us 0cmp=0.000000nlgn  raw-adaptive 121012us 0cmp=0.000000nlgn  raw-merge 462628us 0cmp=0.000000nlgn  raw-heap 463760us 0cmp=0.000000nlgn
+adv-pdq-p1-1048576.txt n=1048576:  raw-pdq 197113us 0cmp=0.000000nlgn  raw-adaptive 77205us 0cmp=0.000000nlgn  raw-merge 330952us 0cmp=0.000000nlgn  raw-heap 354798us 0cmp=0.000000nlgn
+randperm-1048576.txt n=1048576:  raw-pdq 121738us 0cmp=0.000000nlgn  raw-adaptive 121401us 0cmp=0.000000nlgn  raw-merge 462550us 0cmp=0.000000nlgn  raw-heap 460654us 0cmp=0.000000nlgn
+adv-pdq-p1-1048576.txt n=1048576:  raw-pdq 199149us 0cmp=0.000000nlgn  raw-adaptive 76533us 0cmp=0.000000nlgn  raw-merge 330648us 0cmp=0.000000nlgn  raw-heap 350648us 0cmp=0.000000nlgn
+randperm-1048576.txt n=1048576:  raw-pdq 122054us 0cmp=0.000000nlgn  raw-adaptive 120553us 0cmp=0.000000nlgn  raw-merge 493021us 0cmp=0.000000nlgn  raw-heap 471536us 0cmp=0.000000nlgn

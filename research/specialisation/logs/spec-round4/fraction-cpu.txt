@@ -1,0 +1,130 @@
+0 problems; load average median 64, range 54-68
+
+nat-dups4-100000   (cpu)
+  spec-c5-hpe      median       1.0 ms   / pdq  1.032 [ 0.422,  2.524]   kept   1.19 [ 0.50,  3.15]
+  spec-c5-h        median       1.1 ms   / pdq  0.768 [ 0.277,  2.124]   kept   1.11 [ 0.43,  3.00]
+  spec-ctl         median       1.2 ms   / pdq  1.265 [ 0.247,  6.488]   kept   1.08 [ 0.15,  3.00]
+  pdq              median       1.3 ms
+  spec-c5-he       median       1.4 ms   / pdq  0.741 [ 0.399,  1.374]   kept   1.00 [ 0.28,  2.27]
+  spec-c5-hp       median       1.7 ms   / pdq  0.841 [ 0.276,  2.564]   kept   0.81 [-0.09,  2.60]
+  spec-closure     median       3.1 ms   / pdq  2.262 [ 1.335,  3.834]
+nat-jitter64-1000000   (cpu)
+  spec-ctl         median      45.0 ms   / pdq  0.968 [ 0.853,  1.099]   kept   1.02 [ 0.95,  1.06]
+  spec-c5-he       median      45.5 ms   / pdq  0.980 [ 0.855,  1.124]   kept   1.01 [ 0.96,  1.05]
+  spec-c5-h        median      45.6 ms   / pdq  1.006 [ 0.911,  1.111]   kept   1.01 [ 0.97,  1.04]
+  spec-c5-hpe      median      46.0 ms   / pdq  0.996 [ 0.901,  1.102]   kept   1.01 [ 0.95,  1.04]
+  spec-c5-hp       median      46.5 ms   / pdq  0.995 [ 0.901,  1.098]   kept   1.01 [ 0.97,  1.02]
+  pdq              median      47.2 ms
+  spec-closure     median     164.9 ms   / pdq  3.879 [ 3.303,  4.556]
+nat-nearly-1000000   (cpu)
+  spec-c5-h        median      10.6 ms   / pdq  1.081 [ 0.754,  1.548]   kept   1.01 [ 0.88,  1.08]
+  pdq              median      10.9 ms
+  spec-c5-he       median      10.9 ms   / pdq  1.093 [ 0.801,  1.493]   kept   1.00 [ 0.91,  1.09]
+  spec-ctl         median      11.7 ms   / pdq  1.014 [ 0.483,  2.128]   kept   0.98 [ 0.87,  1.09]
+  spec-c5-hpe      median      26.3 ms   / pdq  2.099 [ 1.479,  2.978]   kept   0.62 [ 0.56,  0.75]
+  spec-c5-hp       median      33.5 ms   / pdq  3.198 [ 2.255,  4.534]   kept   0.44 [ 0.23,  0.66]
+  spec-closure     median      51.1 ms   / pdq  5.208 [ 3.599,  7.535]
+nat-nearly300-1000000   (cpu)
+  spec-ctl         median      14.4 ms   / pdq  0.742 [ 0.534,  1.031]   kept   1.09 [ 1.00,  1.31]
+  spec-c5-he       median      14.5 ms   / pdq  0.727 [ 0.525,  1.007]   kept   1.09 [ 0.98,  1.26]
+  spec-c5-h        median      17.7 ms   / pdq  1.076 [ 0.640,  1.810]   kept   1.05 [ 0.93,  1.24]
+  pdq              median      20.7 ms
+  spec-c5-hpe      median      28.1 ms   / pdq  1.765 [ 1.211,  2.572]   kept   0.89 [ 0.73,  1.06]
+  spec-c5-hp       median      29.1 ms   / pdq  1.667 [ 1.121,  2.481]   kept   0.88 [ 0.75,  1.04]
+  spec-closure     median      88.4 ms   / pdq  5.615 [ 3.849,  8.193]
+nat-nearly5000-1000000   (cpu)
+  spec-ctl         median      15.5 ms   / pdq  1.042 [ 0.786,  1.381]   kept   1.02 [ 0.98,  1.07]
+  pdq              median      17.6 ms
+  spec-c5-h        median      17.8 ms   / pdq  1.428 [ 0.901,  2.263]   kept   1.00 [ 0.94,  1.03]
+  spec-c5-he       median      20.5 ms   / pdq  1.159 [ 0.826,  1.625]   kept   0.97 [ 0.92,  1.00]
+  spec-c5-hp       median      29.8 ms   / pdq  2.422 [ 1.375,  4.265]   kept   0.88 [ 0.82,  0.93]
+  spec-c5-hpe      median      33.4 ms   / pdq  2.761 [ 1.518,  5.021]   kept   0.84 [ 0.77,  0.90]
+  spec-closure     median     115.7 ms   / pdq 11.238 [ 6.329, 19.952]
+nat-organ-100000   (cpu)
+  spec-c5-hp       median       1.3 ms   / pdq  0.550 [ 0.290,  1.045]   kept   1.14 [ 0.96,  1.34]
+  spec-c5-hpe      median       2.0 ms   / pdq  1.100 [ 0.560,  2.159]   kept   1.08 [ 0.95,  1.35]
+  spec-ctl         median       2.5 ms   / pdq  1.048 [ 0.652,  1.686]   kept   1.04 [ 0.87,  1.22]
+  pdq              median       3.0 ms
+  spec-c5-h        median       3.0 ms   / pdq  1.010 [ 0.561,  1.817]   kept   1.00 [ 0.81,  1.23]
+  spec-c5-he       median       3.1 ms   / pdq  1.443 [ 0.697,  2.988]   kept   0.99 [ 0.81,  1.23]
+  spec-closure     median      14.6 ms   / pdq  5.525 [ 2.952, 10.344]
+nat-pathological-1000000   (cpu)
+  spec-c5-he       median       1.3 ms   / pdq  0.832 [ 0.286,  2.420]   kept   1.29 [ 0.93,  1.74]
+  spec-ctl         median       2.9 ms   / pdq  0.838 [ 0.238,  2.943]   kept   1.19 [ 0.85,  1.72]
+  pdq              median       5.5 ms
+  spec-c5-h        median       7.3 ms   / pdq  2.152 [ 0.513,  9.024]   kept   0.88 [ 0.15,  1.47]
+  spec-c5-hp       median       8.7 ms   / pdq  2.038 [ 1.040,  3.993]   kept   0.78 [ 0.36,  0.93]
+  spec-c5-hpe      median      10.3 ms   / pdq  2.366 [ 1.143,  4.897]   kept   0.66 [ 0.30,  0.77]
+  spec-closure     median      19.7 ms   / pdq  3.431 [ 1.686,  6.983]
+nat-random-1000000   (cpu)
+  spec-ctl         median      93.4 ms   / pdq  0.971 [ 0.929,  1.016]   kept   1.03 [ 0.99,  1.05]
+  pdq              median      96.7 ms
+  spec-c5-hpe      median      96.8 ms   / pdq  1.023 [ 0.933,  1.122]   kept   1.00 [ 0.96,  1.03]
+  spec-c5-he       median      96.8 ms   / pdq  1.034 [ 0.947,  1.129]   kept   1.00 [ 0.94,  1.02]
+  spec-c5-hp       median      99.4 ms   / pdq  1.002 [ 0.943,  1.065]   kept   0.98 [ 0.93,  1.03]
+  spec-c5-h        median     100.0 ms   / pdq  0.997 [ 0.942,  1.056]   kept   0.97 [ 0.95,  1.04]
+  spec-closure     median     216.8 ms   / pdq  2.541 [ 2.272,  2.842]
+nat-random-1000000-chunk256   (cpu)
+  spec-c5-hpe      median      45.3 ms   / pdq  0.904 [ 0.766,  1.067]   kept   1.04 [ 0.97,  1.18]
+  spec-c5-hp       median      46.4 ms   / pdq  0.902 [ 0.767,  1.060]   kept   1.02 [ 0.94,  1.16]
+  spec-c5-h        median      47.2 ms   / pdq  0.946 [ 0.798,  1.120]   kept   1.00 [ 0.97,  1.13]
+  pdq              median      47.5 ms
+  spec-c5-he       median      48.1 ms   / pdq  0.957 [ 0.777,  1.178]   kept   0.99 [ 0.87,  1.13]
+  spec-ctl         median      48.7 ms   / pdq  0.908 [ 0.723,  1.141]   kept   0.98 [ 0.92,  1.14]
+  spec-closure     median     108.9 ms   / pdq  2.259 [ 1.900,  2.685]
+nat-random-1000000-chunk32   (cpu)
+  spec-c5-he       median      28.5 ms   / pdq  1.099 [ 0.846,  1.426]   kept   1.10 [ 0.87,  1.42]
+  spec-c5-hp       median      31.2 ms   / pdq  0.980 [ 0.715,  1.343]   kept   1.03 [ 0.87,  1.31]
+  pdq              median      32.2 ms
+  spec-c5-hpe      median      35.1 ms   / pdq  1.125 [ 0.825,  1.534]   kept   0.92 [ 0.68,  1.30]
+  spec-ctl         median      35.4 ms   / pdq  1.158 [ 0.876,  1.531]   kept   0.91 [ 0.77,  1.21]
+  spec-c5-h        median      37.0 ms   / pdq  1.212 [ 0.872,  1.685]   kept   0.87 [ 0.65,  1.20]
+  spec-closure     median      69.5 ms   / pdq  2.614 [ 1.869,  3.655]
+nat-random-1000000-chunk8   (cpu)
+  spec-ctl         median      19.9 ms   / pdq  0.560 [ 0.290,  1.081]   kept   1.38 [-1.51,  4.48]
+  spec-c5-hp       median      21.7 ms   / pdq  0.882 [ 0.482,  1.615]   kept   1.19 [-4.59,  4.83]
+  pdq              median      23.5 ms
+  spec-c5-h        median      29.3 ms   / pdq  0.871 [ 0.519,  1.459]   kept   0.36 [-3.39,  3.46]
+  spec-c5-hpe      median      32.5 ms   / pdq  1.220 [ 0.747,  1.992]   kept   0.01 [-6.17,  5.41]
+  spec-closure     median      32.6 ms   / pdq  1.108 [ 0.592,  2.073]
+  spec-c5-he       median      33.0 ms   / pdq  1.204 [ 0.842,  1.724]   kept  -0.04 [-9.08,  8.45]
+nat-runs16-100000   (cpu)
+  spec-c5-hpe      median       5.2 ms   / pdq  0.934 [ 0.651,  1.342]   kept   1.04 [ 0.92,  1.20]
+  spec-c5-hp       median       5.2 ms   / pdq  0.800 [ 0.603,  1.061]   kept   1.03 [ 0.98,  1.17]
+  pdq              median       5.6 ms
+  spec-c5-h        median       5.8 ms   / pdq  0.943 [ 0.714,  1.245]   kept   0.98 [ 0.89,  1.10]
+  spec-ctl         median       5.8 ms   / pdq  0.915 [ 0.700,  1.196]   kept   0.98 [ 0.93,  1.14]
+  spec-c5-he       median       5.9 ms   / pdq  0.950 [ 0.725,  1.246]   kept   0.97 [ 0.91,  1.13]
+  spec-closure     median      17.5 ms   / pdq  3.400 [ 2.902,  3.984]
+nat-sortedtail-100000   (cpu)
+  spec-c5-h        median      -0.8 ms   / pdq 94.554 [ 0.001, 11759594.979]   kept   1.86 [-6.75,  8.33]
+  spec-ctl         median       0.2 ms   / pdq  0.408 [ 0.128,  1.301]   kept   1.45 [-4.40,  6.80]
+  spec-c5-he       median       0.4 ms   / pdq 52.831 [ 0.002, 1639521.767]   kept   1.37 [-3.57,  6.90]
+  spec-c5-hp       median       1.0 ms   / pdq 46.120 [ 0.016, 129978.512]   kept   1.12 [-4.29,  4.46]
+  pdq              median       1.3 ms
+  spec-c5-hpe      median       1.3 ms   / pdq 22.321 [ 0.019, 26136.955]   kept   1.00 [-2.29,  4.77]
+  spec-closure     median       3.8 ms   / pdq 26.736 [ 0.040, 17744.685]
+rec-random-1000000   (cpu)
+  spec-c5-he       median     604.3 ms   / pdq  1.020 [ 0.918,  1.134]   kept   1.08 [ 0.92,  1.26]
+  spec-ctl         median     613.4 ms   / pdq  0.967 [ 0.892,  1.049]   kept   1.05 [ 0.91,  1.24]
+  spec-c5-hpe      median     617.9 ms   / pdq  0.977 [ 0.903,  1.056]   kept   1.04 [ 0.91,  1.18]
+  spec-c5-hp       median     619.4 ms   / pdq  1.025 [ 0.915,  1.148]   kept   1.04 [ 0.94,  1.19]
+  spec-c5-h        median     630.3 ms   / pdq  1.050 [ 0.982,  1.124]   kept   1.01 [ 0.83,  1.13]
+  pdq              median     634.1 ms
+  spec-closure     median    1016.4 ms   / pdq  1.694 [ 1.554,  1.846]
+str-random-1000000   (cpu)
+  spec-c5-he       median     916.0 ms   / pdq  0.975 [ 0.877,  1.083]   kept   1.01 [ 0.78,  1.16]
+  spec-c5-hp       median     919.5 ms   / pdq  0.964 [ 0.876,  1.061]   kept   1.00 [ 0.85,  1.26]
+  pdq              median     921.7 ms
+  spec-c5-hpe      median     946.2 ms   / pdq  1.056 [ 0.929,  1.201]   kept   0.96 [ 0.58,  1.16]
+  spec-c5-h        median     953.4 ms   / pdq  0.973 [ 0.862,  1.098]   kept   0.94 [ 0.74,  1.30]
+  spec-ctl         median     992.1 ms   / pdq  1.041 [ 0.945,  1.148]   kept   0.88 [ 0.62,  0.99]
+  spec-closure     median    1491.0 ms   / pdq  1.556 [ 1.400,  1.729]
+u64-random-6250000   (cpu)
+  pdq              median    3082.6 ms
+  spec-c5-hpe      median    3142.2 ms   / pdq  1.015 [ 0.968,  1.064]   kept   0.98 [ 0.94,  1.03]
+  spec-c5-hp       median    3179.8 ms   / pdq  1.006 [ 0.956,  1.060]   kept   0.97 [ 0.93,  1.03]
+  spec-c5-he       median    3265.2 ms   / pdq  1.026 [ 0.948,  1.111]   kept   0.95 [ 0.89,  1.04]
+  spec-ctl         median    3304.8 ms   / pdq  1.038 [ 0.975,  1.106]   kept   0.94 [ 0.84,  1.02]
+  spec-c5-h        median    3327.9 ms   / pdq  1.060 [ 0.996,  1.129]   kept   0.93 [ 0.81,  1.03]
+  spec-closure     median    6839.1 ms   / pdq  2.314 [ 2.176,  2.461]

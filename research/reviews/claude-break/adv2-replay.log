@@ -1,0 +1,15 @@
+  replay pdq n=1000: 58061 comparisons = 5.826034 n log2 n, 2913 us, perm=true
+  replay adaptive n=1000: 58096 comparisons = 5.829546 n log2 n, 2773 us, perm=true
+  replay merge n=1000: 8696 comparisons = 0.872586 n log2 n, 553 us, perm=true
+  replay pdq n=2000: 186332 comparisons = 8.496064 n log2 n, 23019 us, perm=true
+  replay adaptive n=2000: 186408 comparisons = 8.499529 n log2 n, 19135 us, perm=true
+  replay merge n=2000: 19380 comparisons = 0.883658 n log2 n, 2479 us, perm=true
+  replay pdq n=4000: 613124 comparisons = 12.809942 n log2 n, 147533 us, perm=true
+  replay adaptive n=4000: 613273 comparisons = 12.813055 n log2 n, 148174 us, perm=true
+  replay merge n=4000: 42724 comparisons = 0.892628 n log2 n, 9212 us, perm=true
+  replay pdq n=8000: 1907189 comparisons = 18.386749 n log2 n, 484043 us, perm=true
+  replay adaptive n=8000: 1907419 comparisons = 18.388967 n log2 n, 497406 us, perm=true
+  replay merge n=8000: 93605 comparisons = 0.902423 n log2 n, 20772 us, perm=true
+  replay pdq n=16000: 7602651 comparisons = 34.023559 n log2 n, 2008905 us, perm=true
+  replay adaptive n=16000: 7602954 comparisons = 34.024915 n log2 n, 2029667 us, perm=true
+  replay merge n=16000: 203097 comparisons = 0.908904 n log2 n, 46206 us, perm=true

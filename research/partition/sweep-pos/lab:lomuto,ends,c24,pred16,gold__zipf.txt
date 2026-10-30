@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,pred16,gold nat zipf 100000: cmps/n=13.99 swaps/n=5.59 partitions=3374 unbalanced=144 partitioned-elems/n=10.78 heaps=0 heap-elems/n=0.00 pis=161/294 pis-won-elems/n=0.23 ins-elems/n=0.45 equal=285 breaks=119 reversals=2 equal=0.47 ins=1.75 other=0.04 part=11.20 pis=0.23 pivot=0.30

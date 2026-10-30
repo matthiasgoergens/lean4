@@ -1,0 +1,72 @@
+nat-random-1000000-256  (none 361.1 M)
+  pdq                  406.53 M  / pdq  1.000   spread   0.00 M
+  spec-ctl             406.49 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp         445.31 M  / pdq  1.095   spread   0.00 M
+  spec-leaves-hp       462.28 M  / pdq  1.137   spread   0.00 M
+  spec-cold-hpp        445.70 M  / pdq  1.096   spread   0.00 M
+  spec-leaves-hpp      462.83 M  / pdq  1.139   spread   0.00 M
+  spec-hot             445.79 M  / pdq  1.097   spread   0.00 M
+  spec-closure        1611.40 M  / pdq  3.964   spread   0.00 M
+nat-random-1000000-8  (none 674.9 M)
+  pdq                  161.06 M  / pdq  1.000   spread   0.00 M
+  spec-ctl             161.07 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp         164.06 M  / pdq  1.019   spread   0.00 M
+  spec-leaves-hp       230.38 M  / pdq  1.430   spread   0.00 M
+  spec-cold-hpp        164.07 M  / pdq  1.019   spread   0.00 M
+  spec-leaves-hpp      234.51 M  / pdq  1.456   spread   0.00 M
+  spec-hot             161.06 M  / pdq  1.000   spread   0.00 M
+  spec-closure         495.43 M  / pdq  3.076   spread   0.00 M
+nat-runs16-100000-0  (none 55.0 M)
+  pdq                   79.33 M  / pdq  1.000   spread   0.00 M
+  spec-ctl              79.33 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp          83.65 M  / pdq  1.054   spread   0.00 M
+  spec-leaves-hp        85.32 M  / pdq  1.076   spread   0.00 M
+  spec-cold-hpp         83.82 M  / pdq  1.057   spread   0.00 M
+  spec-leaves-hpp       85.49 M  / pdq  1.078   spread   0.00 M
+  spec-hot              83.81 M  / pdq  1.056   spread   0.00 M
+  spec-closure         369.59 M  / pdq  4.659   spread   0.00 M
+nat-random-1000000-0  (none 301.4 M)
+  pdq                  857.31 M  / pdq  1.000   spread   0.00 M
+  spec-ctl             857.28 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp         899.88 M  / pdq  1.050   spread   0.00 M
+  spec-leaves-hp       916.71 M  / pdq  1.069   spread   0.00 M
+  spec-cold-hpp        900.31 M  / pdq  1.050   spread   0.00 M
+  spec-leaves-hpp      917.15 M  / pdq  1.070   spread   0.00 M
+  spec-hot             900.28 M  / pdq  1.050   spread   0.00 M
+  spec-closure        3845.68 M  / pdq  4.486   spread   0.00 M
+nat-dups4-100000-0  (none 32.8 M)
+  pdq                   11.75 M  / pdq  1.000   spread   0.00 M
+  spec-ctl              11.75 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp          11.76 M  / pdq  1.001   spread   0.00 M
+  spec-leaves-hp        11.76 M  / pdq  1.001   spread   0.00 M
+  spec-cold-hpp         17.00 M  / pdq  1.447   spread   0.00 M
+  spec-leaves-hpp       17.00 M  / pdq  1.447   spread   0.00 M
+  spec-hot              17.00 M  / pdq  1.447   spread   0.00 M
+  spec-closure          54.58 M  / pdq  4.646   spread   0.00 M
+str-random-1000000-0  (none 1072.1 M)
+  pdq                 1736.47 M  / pdq  1.000   spread   0.12 M
+  spec-ctl            1736.54 M  / pdq  1.000   spread   0.12 M
+  spec-cold-hp        1785.17 M  / pdq  1.028   spread   0.00 M
+  spec-leaves-hp      1803.02 M  / pdq  1.038   spread   0.12 M
+  spec-cold-hpp       1785.66 M  / pdq  1.028   spread   0.12 M
+  spec-leaves-hpp     1803.42 M  / pdq  1.039   spread   0.10 M
+  spec-hot            1785.63 M  / pdq  1.028   spread   0.00 M
+  spec-closure        5006.78 M  / pdq  2.883   spread   0.01 M
+nat-nearly300-1000000-0  (none 435.5 M)
+  pdq                  305.78 M  / pdq  1.000   spread   0.00 M
+  spec-ctl             305.78 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp         306.72 M  / pdq  1.003   spread   0.00 M
+  spec-leaves-hp       306.87 M  / pdq  1.004   spread   0.00 M
+  spec-cold-hpp        596.47 M  / pdq  1.951   spread   0.00 M
+  spec-leaves-hpp      596.63 M  / pdq  1.951   spread   0.00 M
+  spec-hot             596.46 M  / pdq  1.951   spread   0.00 M
+  spec-closure        1843.16 M  / pdq  6.028   spread   0.00 M
+u64-random-6250000-0  (none 3143.7 M)
+  pdq                 4643.28 M  / pdq  1.000   spread   0.01 M
+  spec-ctl            4643.27 M  / pdq  1.000   spread   0.00 M
+  spec-cold-hp        4959.03 M  / pdq  1.068   spread   0.01 M
+  spec-leaves-hp      5068.33 M  / pdq  1.092   spread   0.01 M
+  spec-cold-hpp       4960.72 M  / pdq  1.068   spread   0.01 M
+  spec-leaves-hpp     5071.36 M  / pdq  1.092   spread   0.01 M
+  spec-hot            4961.74 M  / pdq  1.069   spread   0.00 M
+  spec-closure       28948.19 M  / pdq  6.234   spread   0.01 M

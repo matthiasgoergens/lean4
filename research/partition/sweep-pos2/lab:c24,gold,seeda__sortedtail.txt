@@ -1,0 +1,1 @@
+lab:c24,gold,seeda nat sortedtail 100000: cmps/n=6.20 swaps/n=0.10 partitions=105 unbalanced=1 partitioned-elems/n=2.71 heaps=0 heap-elems/n=0.00 pis=10/18 pis-won-elems/n=0.98 ins-elems/n=0.01 equal=0 breaks=0 reversals=0 ins=0.07 other=0.00 part=2.71 pis=3.41 pivot=0.01

@@ -1,0 +1,1 @@
+pdq nat file:research/reviews/partition/claude-break-2/climb/N-pdq-2000-random-s24.txt 2000: cmps/n=11.36 swaps/n=4.55 partitions=139 unbalanced=0 partitioned-elems/n=7.43 heaps=0 heap-elems/n=0.00 pis=0/4 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=0 breaks=0 reversals=0 ins=3.42 other=0.07 part=7.39 pis=0.00 pivot=0.48

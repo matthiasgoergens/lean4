@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold nat organ 100000: cmps/n=18.11 swaps/n=13.70 partitions=6435 unbalanced=244 partitioned-elems/n=13.53 heaps=0 heap-elems/n=0.00 pis=0/266 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=209 reversals=1 ins=4.03 other=0.06 part=13.53 pis=0.02 pivot=0.47

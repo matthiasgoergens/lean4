@@ -1,0 +1,1 @@
+lab:c24,gold nat dups4 100000: cmps/n=3.25 swaps/n=0.48 partitions=3 unbalanced=0 partitioned-elems/n=2.25 heaps=0 heap-elems/n=0.00 pis=3/3 pis-won-elems/n=0.75 ins-elems/n=0.00 equal=1 breaks=0 reversals=0 equal=0.25 other=0.00 part=2.25 pis=0.75 pivot=0.00

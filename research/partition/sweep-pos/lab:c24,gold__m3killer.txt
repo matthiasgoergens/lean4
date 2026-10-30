@@ -1,0 +1,1 @@
+lab:c24,gold nat m3killer 100000: cmps/n=15.84 swaps/n=4.18 partitions=4355 unbalanced=95 partitioned-elems/n=12.33 heaps=0 heap-elems/n=0.00 pis=49/368 pis-won-elems/n=0.30 ins-elems/n=0.66 equal=0 breaks=75 reversals=35 ins=2.65 other=0.04 part=12.31 pis=0.51 pivot=0.34

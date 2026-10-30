@@ -1,0 +1,24 @@
+adv algo=pdq rule=mcilroy n=20000 cmps=820772 per={'pivot': 192, 'partition': 319398, 'insertion': 81, 'eqtest': 15, 'heap': 501086}
+  replay input-for=pdq: algo=pdq n=20000 cmps=820772 perNlogN=2.872300 minns=38031252 ok=true
+  replay input-for=pdq: algo=lab:lomuto,ends,c24,brk9 n=20000 cmps=338548 perNlogN=1.184752 minns=9757129 ok=true
+  replay input-for=pdq: algo=lab:lomuto,ends,c24,brk9,nochild n=20000 cmps=336298 perNlogN=1.176878 minns=20500329 ok=true
+adv algo=lab:lomuto,ends,c24,brk9 rule=mcilroy n=20000 cmps=819918 per={'pivot': 192, 'partition': 319310, 'insertion': 89, 'eqtest': 15, 'heap': 500312}
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=pdq n=20000 cmps=328142 perNlogN=1.148336 minns=13018732 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=lab:lomuto,ends,c24,brk9 n=20000 cmps=819918 perNlogN=2.869312 minns=30457391 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=lab:lomuto,ends,c24,brk9,nochild n=20000 cmps=819918 perNlogN=2.869312 minns=24871017 ok=true
+adv algo=lab:lomuto,ends,c24,brk9,nochild rule=mcilroy n=20000 cmps=819918 per={'pivot': 192, 'partition': 319310, 'insertion': 89, 'eqtest': 15, 'heap': 500312}
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=pdq n=20000 cmps=328142 perNlogN=1.148336 minns=9808568 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=lab:lomuto,ends,c24,brk9 n=20000 cmps=819918 perNlogN=2.869312 minns=59946079 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=lab:lomuto,ends,c24,brk9,nochild n=20000 cmps=819918 perNlogN=2.869312 minns=31144496 ok=true
+adv algo=pdq rule=mcilroy n=100000 cmps=4780021 per={'pivot': 216, 'partition': 1799228, 'insertion': 96, 'eqtest': 17, 'heap': 2980464}
+  replay input-for=pdq: algo=pdq n=100000 cmps=4780021 perNlogN=2.877859 minns=137527417 ok=true
+  replay input-for=pdq: algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=2026641 perNlogN=1.220159 minns=59631746 ok=true
+  replay input-for=pdq: algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=1979879 perNlogN=1.192006 minns=71523941 ok=true
+adv algo=lab:lomuto,ends,c24,brk9 rule=mcilroy n=100000 cmps=4782777 per={'pivot': 216, 'partition': 1799116, 'insertion': 117, 'eqtest': 17, 'heap': 2983311}
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=pdq n=100000 cmps=1919902 perNlogN=1.155896 minns=59077801 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=4782777 perNlogN=2.879519 minns=166355003 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9: algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=4782777 perNlogN=2.879519 minns=172784640 ok=true
+adv algo=lab:lomuto,ends,c24,brk9,nochild rule=mcilroy n=100000 cmps=4782777 per={'pivot': 216, 'partition': 1799116, 'insertion': 117, 'eqtest': 17, 'heap': 2983311}
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=pdq n=100000 cmps=1919902 perNlogN=1.155896 minns=68867517 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=4782777 perNlogN=2.879519 minns=131601081 ok=true
+  replay input-for=lab:lomuto,ends,c24,brk9,nochild: algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=4782777 perNlogN=2.879519 minns=135806655 ok=true

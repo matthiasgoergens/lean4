@@ -1,0 +1,1 @@
+lab:c24,hash nat tail8 100000: cmps/n=13.84 swaps/n=8.16 partitions=48 unbalanced=5 partitioned-elems/n=3.52 heaps=0 heap-elems/n=0.00 pis=24/30 pis-won-elems/n=1.00 ins-elems/n=0.00 equal=0 breaks=3 reversals=0 ins=0.01 other=0.00 part=3.52 pis=10.30 pivot=0.01

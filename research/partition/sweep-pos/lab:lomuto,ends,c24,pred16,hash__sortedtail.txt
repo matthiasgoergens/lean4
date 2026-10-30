@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,pred16,hash nat sortedtail 100000: cmps/n=6.29 swaps/n=0.29 partitions=115 unbalanced=3 partitioned-elems/n=3.11 heaps=0 heap-elems/n=0.00 pis=12/21 pis-won-elems/n=0.98 ins-elems/n=0.01 equal=0 breaks=3 reversals=0 ins=0.07 other=0.00 part=3.12 pis=3.10 pivot=0.01

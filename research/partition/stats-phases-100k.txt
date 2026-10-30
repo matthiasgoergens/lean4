@@ -1,0 +1,16 @@
+lab-c24            random     cmps/n=18.52 swaps/n=6.83 heaps=0 heap-elems/n=0.00 reversals=3 ins=4.40 other=0.07 part=13.58 pis=0.00 pivot=0.47 
+lab:lomuto,bl,c24  random     cmps/n=18.53 swaps/n=17.39 heaps=0 heap-elems/n=0.00 reversals=1 ins=4.44 other=0.07 part=13.55 pis=0.00 pivot=0.47 
+lab-c24            runs4      cmps/n=27.63 swaps/n=6.91 heaps=0 heap-elems/n=0.00 reversals=31 ins=4.38 other=0.07 part=22.48 pis=0.18 pivot=0.52 
+lab:lomuto,bl,c24  runs4      cmps/n=30.34 swaps/n=27.41 heaps=49 heap-elems/n=0.23 reversals=0 heap=4.27 ins=3.22 other=0.06 part=22.08 pis=0.24 pivot=0.48 
+lab-c24            runs5      cmps/n=20.57 swaps/n=8.86 heaps=0 heap-elems/n=0.00 reversals=73 ins=4.55 other=0.06 part=13.15 pis=2.32 pivot=0.49 
+lab:lomuto,bl,c24  runs5      cmps/n=29.15 swaps/n=27.06 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.61 other=0.07 part=13.20 pis=10.77 pivot=0.49 
+lab-c24            runs16     cmps/n=21.94 swaps/n=7.01 heaps=0 heap-elems/n=0.00 reversals=15 ins=4.50 other=0.06 part=16.88 pis=0.02 pivot=0.48 
+lab:lomuto,bl,c24  runs16     cmps/n=30.74 swaps/n=25.66 heaps=2 heap-elems/n=0.34 reversals=0 heap=9.04 ins=2.94 other=0.04 part=18.33 pis=0.08 pivot=0.31 
+lab-c24            runs64     cmps/n=20.16 swaps/n=6.84 heaps=0 heap-elems/n=0.00 reversals=6 ins=4.44 other=0.06 part=15.18 pis=0.01 pivot=0.47 
+lab:lomuto,bl,c24  runs64     cmps/n=36.44 swaps/n=28.23 heaps=3 heap-elems/n=0.57 reversals=1 heap=16.10 ins=1.90 other=0.03 part=18.18 pis=0.04 pivot=0.20 
+lab-c24            nearly     cmps/n=9.06 swaps/n=3.75 heaps=0 heap-elems/n=0.00 reversals=0 ins=0.00 other=0.00 part=3.50 pis=5.55 pivot=0.01 
+lab:lomuto,bl,c24  nearly     cmps/n=9.89 swaps/n=8.14 heaps=0 heap-elems/n=0.00 reversals=0 ins=0.00 other=0.00 part=3.55 pis=6.34 pivot=0.00 
+lab-c24            organ      cmps/n=17.07 swaps/n=6.59 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.12 other=0.06 part=12.46 pis=0.00 pivot=0.43 
+lab:lomuto,bl,c24  organ      cmps/n=17.63 swaps/n=16.67 heaps=0 heap-elems/n=0.00 reversals=0 ins=4.59 other=0.06 part=12.54 pis=0.00 pivot=0.44 
+lab-c24            sortedtail cmps/n=5.01 swaps/n=0.09 heaps=0 heap-elems/n=0.00 reversals=0 ins=0.07 other=0.00 part=2.08 pis=2.85 pivot=0.01 
+lab:lomuto,bl,c24  sortedtail cmps/n=5.90 swaps/n=3.03 heaps=0 heap-elems/n=0.00 reversals=0 ins=0.07 other=0.00 part=2.08 pis=3.74 pivot=0.01 

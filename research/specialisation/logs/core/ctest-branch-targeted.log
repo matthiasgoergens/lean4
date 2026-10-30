@@ -1,0 +1,164 @@
+Test project /w/build/release/stage1
+      Start 2476: elab/grind_qsort.lean
+      Start 2147: elab/grind_array_attach.lean
+      Start  127: compile/bytearray_order.lean
+      Start 2357: elab/grind_lint_array.lean
+      Start  174: compile/qsortPatterns.lean
+      Start 1592: elab/constTrieLookupSpec.lean
+      Start 2347: elab/grind_lia_split_facts_mvars.lean
+      Start 4149: elab_bench/simp_bubblesort_256.lean
+      Start  239: compile_bench/qsort.lean
+      Start 1448: elab/bytearray_order.lean
+      Start  220: compile_bench/array_qsort.lean
+      Start  122: compile/array_test.lean
+      Start  173: compile/qsortBadLt.lean
+      Start 1591: elab/constTrieDuplicatesSpec.lean
+      Start 2282: elab/grind_heapsort.lean
+      Start 1593: elab/constTrieWideNodes.lean
+      Start 2346: elab/grind_lia_split_facts.lean
+      Start  123: compile/array_test2.lean
+      Start  178: compile/sarray_mark_linear.lean
+      Start  117: compile/arrayMapIdxInPlace.lean
+      Start  119: compile/array_mark_linear.lean
+      Start  120: compile/array_mark_linear_copy.lean
+      Start  116: compile/array.lean
+      Start  179: compile/sarray_mark_linear_copy.lean
+      Start 2886: elab/kernel_is_prop_ensure_sort.lean
+      Start  126: compile/bytearray_bug.lean
+      Start 4118: elab_bench/cbv_merge_sort.lean
+      Start 1228: elab/PArray_forM.lean
+      Start  121: compile/array_mark_linear_panic.lean
+      Start  181: compile/sarray_mark_linear_panic.lean
+      Start  180: compile/sarray_mark_linear_grow_panic.lean
+      Start  118: compile/arrayMk.lean
+ 1/79 Test #1228: elab/PArray_forM.lean ........................   Passed    1.57 sec
+      Start 2565: elab/heapSort.lean
+ 2/79 Test  #126: compile/bytearray_bug.lean ...................   Passed    1.81 sec
+      Start 1282: elab/array_isEqvAux.lean
+ 3/79 Test  #180: compile/sarray_mark_linear_grow_panic.lean ...   Passed    1.83 sec
+      Start 1278: elab/array1.lean
+ 4/79 Test  #181: compile/sarray_mark_linear_panic.lean ........   Passed    2.01 sec
+      Start 3651: elab/subarray_split.lean
+ 5/79 Test  #119: compile/array_mark_linear.lean ...............   Passed    2.12 sec
+      Start 1479: elab/cbv_array.lean
+ 6/79 Test  #178: compile/sarray_mark_linear.lean ..............   Passed    2.21 sec
+      Start 1990: elab/forInPArray.lean
+ 7/79 Test #1593: elab/constTrieWideNodes.lean .................   Passed    2.24 sec
+      Start 2345: elab/grind_lia_reorder_request.lean
+ 8/79 Test  #179: compile/sarray_mark_linear_copy.lean .........   Passed    2.21 sec
+      Start 3073: elab/mergeSort.lean
+ 9/79 Test  #118: compile/arrayMk.lean .........................   Passed    2.20 sec
+      Start 2340: elab/grind_lia_dvd_rat_loop.lean
+10/79 Test  #120: compile/array_mark_linear_copy.lean ..........   Passed    2.25 sec
+      Start 3309: elab/qsort_lemmas.lean
+11/79 Test  #121: compile/array_mark_linear_panic.lean .........   Passed    2.24 sec
+      Start 2341: elab/grind_lia_dvd_tight.lean
+12/79 Test  #117: compile/arrayMapIdxInPlace.lean ..............   Passed    2.28 sec
+      Start 2344: elab/grind_lia_reorder_min_coeff.lean
+13/79 Test  #123: compile/array_test2.lean .....................   Passed    2.58 sec
+      Start 3074: elab/mergeSortCPDT.lean
+14/79 Test  #116: compile/array.lean ...........................   Passed    2.56 sec
+      Start 1287: elab/array_simp.lean
+15/79 Test #1278: elab/array1.lean .............................   Passed    0.90 sec
+      Start 1919: elab/extract_array_lit.lean
+16/79 Test #2565: elab/heapSort.lean ...........................   Passed    1.24 sec
+      Start 2342: elab/grind_lia_eq_nonunit.lean
+17/79 Test #2344: elab/grind_lia_reorder_min_coeff.lean ........   Passed    0.58 sec
+      Start 3397: elab/sarray.lean
+18/79 Test #2341: elab/grind_lia_dvd_tight.lean ................   Passed    0.60 sec
+      Start 3092: elab/missingSizeOfArrayGetThm.lean
+19/79 Test #3651: elab/subarray_split.lean .....................   Passed    0.84 sec
+      Start 3435: elab/simpArrayIdx.lean
+20/79 Test #2345: elab/grind_lia_reorder_request.lean ..........   Passed    0.74 sec
+      Start 1447: elab/bytearray_eq.lean
+21/79 Test #2340: elab/grind_lia_dvd_rat_loop.lean .............   Passed    0.72 sec
+      Start 1561: elab/compile_recursive_array_access.lean
+22/79 Test #1282: elab/array_isEqvAux.lean .....................   Passed    1.14 sec
+      Start 2504: elab/grind_sort_eqc.lean
+23/79 Test #1990: elab/forInPArray.lean ........................   Passed    0.78 sec
+      Start 1279: elab/arrayDecEq.lean
+24/79 Test #3073: elab/mergeSort.lean ..........................   Passed    0.78 sec
+      Start 3680: elab/sym_arith_sort_u.lean
+25/79 Test #3309: elab/qsort_lemmas.lean .......................   Passed    0.76 sec
+      Start 3223: elab/parray1.lean
+26/79 Test #1479: elab/cbv_array.lean ..........................   Passed    0.97 sec
+      Start 2343: elab/grind_lia_regression.lean
+27/79 Test #1287: elab/array_simp.lean .........................   Passed    0.56 sec
+      Start 3840: elab/toArrayEq.lean
+28/79 Test #3074: elab/mergeSortCPDT.lean ......................   Passed    0.59 sec
+      Start 2339: elab/grind_lia_decfree_conflicts.lean
+29/79 Test  #220: compile_bench/array_qsort.lean ...............   Passed    3.21 sec
+      Start 1446: elab/bytearray.lean
+30/79 Test #1591: elab/constTrieDuplicatesSpec.lean ............   Passed    3.34 sec
+      Start 1902: elab/exposeArrayBack.lean
+31/79 Test  #173: compile/qsortBadLt.lean ......................   Passed    3.37 sec
+      Start 3028: elab/matchArrayLit.lean
+32/79 Test #1919: elab/extract_array_lit.lean ..................   Passed    0.59 sec
+      Start 1281: elab/array_decidable_eq_module.lean
+33/79 Test  #239: compile_bench/qsort.lean .....................   Passed    3.42 sec
+      Start 2505: elab/grind_sort_intern.lean
+34/79 Test #2342: elab/grind_lia_eq_nonunit.lean ...............   Passed    0.54 sec
+      Start 1284: elab/array_mark_linear.lean
+35/79 Test #3435: elab/simpArrayIdx.lean .......................   Passed    0.52 sec
+      Start 3847: elab/to_array_csimp.lean
+36/79 Test #2504: elab/grind_sort_eqc.lean .....................   Passed    0.46 sec
+      Start 1770: elab/doForMutSortPoly.lean
+37/79 Test #3092: elab/missingSizeOfArrayGetThm.lean ...........   Passed    0.57 sec
+      Start 3398: elab/sarray_mark_linear.lean
+38/79 Test #3223: elab/parray1.lean ............................   Passed    0.45 sec
+      Start 1288: elab/array_zipWith_module.lean
+39/79 Test #3397: elab/sarray.lean .............................   Passed    0.62 sec
+      Start 2348: elab/grind_lia_steps_cases.lean
+40/79 Test #1561: elab/compile_recursive_array_access.lean .....   Passed    0.53 sec
+      Start 1280: elab/arrayGetU.lean
+41/79 Test #3680: elab/sym_arith_sort_u.lean ...................   Passed    0.55 sec
+      Start 2146: elab/grind_array.lean
+42/79 Test  #122: compile/array_test.lean ......................   Passed    3.65 sec
+      Start 1545: elab/coeSort2.lean
+43/79 Test #1279: elab/arrayDecEq.lean .........................   Passed    0.64 sec
+      Start 1966: elab/floatarray.lean
+44/79 Test #2343: elab/grind_lia_regression.lean ...............   Passed    0.54 sec
+      Start 1286: elab/array_offn_module.lean
+45/79 Test #2339: elab/grind_lia_decfree_conflicts.lean ........   Passed    0.51 sec
+      Start 1544: elab/coeSort1.lean
+46/79 Test #1446: elab/bytearray.lean ..........................   Passed    0.50 sec
+      Start 1283: elab/array_map_module.lean
+47/79 Test #1447: elab/bytearray_eq.lean .......................   Passed    0.76 sec
+      Start 1285: elab/array_modify_module.lean
+48/79 Test #1902: elab/exposeArrayBack.lean ....................   Passed    0.42 sec
+49/79 Test #1281: elab/array_decidable_eq_module.lean ..........   Passed    0.42 sec
+50/79 Test #3847: elab/to_array_csimp.lean .....................   Passed    0.40 sec
+51/79 Test #3028: elab/matchArrayLit.lean ......................   Passed    0.47 sec
+52/79 Test #1770: elab/doForMutSortPoly.lean ...................   Passed    0.39 sec
+53/79 Test #2505: elab/grind_sort_intern.lean ..................   Passed    0.46 sec
+54/79 Test #2347: elab/grind_lia_split_facts_mvars.lean ........   Passed    3.90 sec
+55/79 Test #3840: elab/toArrayEq.lean ..........................   Passed    0.72 sec
+56/79 Test #4149: elab_bench/simp_bubblesort_256.lean ..........   Passed    3.93 sec
+57/79 Test #3398: elab/sarray_mark_linear.lean .................   Passed    0.44 sec
+58/79 Test #4118: elab_bench/cbv_merge_sort.lean ...............   Passed    3.85 sec
+59/79 Test #2348: elab/grind_lia_steps_cases.lean ..............   Passed    0.41 sec
+60/79 Test #1288: elab/array_zipWith_module.lean ...............   Passed    0.51 sec
+61/79 Test #1280: elab/arrayGetU.lean ..........................   Passed    0.49 sec
+62/79 Test #2146: elab/grind_array.lean ........................   Passed    0.44 sec
+63/79 Test #2282: elab/grind_heapsort.lean .....................   Passed    4.03 sec
+64/79 Test #1284: elab/array_mark_linear.lean ..................   Passed    0.61 sec
+65/79 Test #2886: elab/kernel_is_prop_ensure_sort.lean .........   Passed    4.00 sec
+66/79 Test #1966: elab/floatarray.lean .........................   Passed    0.46 sec
+67/79 Test #1545: elab/coeSort2.lean ...........................   Passed    0.48 sec
+68/79 Test #2346: elab/grind_lia_split_facts.lean ..............   Passed    4.14 sec
+69/79 Test #1286: elab/array_offn_module.lean ..................   Passed    0.51 sec
+70/79 Test #1285: elab/array_modify_module.lean ................   Passed    0.45 sec
+71/79 Test #1283: elab/array_map_module.lean ...................   Passed    0.55 sec
+72/79 Test #1544: elab/coeSort1.lean ...........................   Passed    0.57 sec
+73/79 Test #1448: elab/bytearray_order.lean ....................   Passed    5.16 sec
+74/79 Test #1592: elab/constTrieLookupSpec.lean ................   Passed    6.27 sec
+75/79 Test  #127: compile/bytearray_order.lean .................   Passed    9.60 sec
+76/79 Test #2357: elab/grind_lint_array.lean ...................   Passed   10.33 sec
+77/79 Test #2147: elab/grind_array_attach.lean .................   Passed   11.19 sec
+78/79 Test #2476: elab/grind_qsort.lean ........................   Passed   14.70 sec
+79/79 Test  #174: compile/qsortPatterns.lean ...................   Passed   14.79 sec
+
+100% tests passed, 0 tests failed out of 79
+
+Total Test time (real) =  14.98 sec
+ctest exit 0 after 15 s

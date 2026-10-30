@@ -1,0 +1,11 @@
+diff --git a/sorts/lakefile.lean b/sorts/lakefile.lean
+index 3692f89..87a418a 100644
+--- a/sorts/lakefile.lean
++++ b/sorts/lakefile.lean
+@@ -10,3 +10,6 @@ lean_lib Sorts
+ 
+ lean_exe sorttest where
+   root := `Test
++
++lean_exe sortbreak where
++  root := `Break

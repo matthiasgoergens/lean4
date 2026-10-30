@@ -1,0 +1,2682 @@
+// Lean compiler output
+// Module: Mod
+// Imports: public import Init public meta import Init
+#include <lean/lean.h>
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wunused-label"
+#elif defined(__GNUC__) && !defined(__CLANG__)
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-label"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+uint8_t lean_nat_dec_le(lean_object*, lean_object*);
+lean_object* lean_array_fget_borrowed(lean_object*, lean_object*);
+uint8_t lean_nat_dec_lt(lean_object*, lean_object*);
+lean_object* lean_nat_add(lean_object*, lean_object*);
+lean_object* lean_nat_sub(lean_object*, lean_object*);
+uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
+lean_object* lean_array_fswap(lean_object*, lean_object*, lean_object*);
+lean_object* lean_nat_shiftr(lean_object*, lean_object*);
+lean_object* lean_nat_mul(lean_object*, lean_object*);
+lean_object* lean_array_fget(lean_object*, lean_object*);
+lean_object* l_Nat_decLt___boxed(lean_object*, lean_object*);
+uint8_t l_Array_QSort_Internal_instBEqHint_beq(uint8_t, uint8_t);
+lean_object* l_Array_QSort_Internal_reverseRange___redArg(lean_object*, lean_object*, lean_object*);
+lean_object* l_Array_QSort_Internal_breakPatterns___redArg(lean_object*, lean_object*, lean_object*);
+lean_object* lean_array_get_size(lean_object*);
+lean_object* lean_nat_log2(lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+static const lean_closure_object l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___closed__0_value = {.m_header = {.m_rc = 0, .m_cs_sz = sizeof(lean_closure_object) + sizeof(void*)*0, .m_other = 0, .m_tag = 245}, .m_fun = (void*)l_Nat_decLt___boxed, .m_arity = 2, .m_num_fixed = 0, .m_objs = {} };
+static const lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___closed__0 = (const lean_object*)&l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___closed__0_value;
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, uint8_t, uint8_t, uint8_t, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_f(lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, uint8_t, uint8_t, uint8_t, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg(lean_object* v_lt_1_, lean_object* v_b_2_, lean_object* v_xs_3_, lean_object* v_i_4_){
+_start:
+{
+uint8_t v___x_5_; 
+v___x_5_ = lean_nat_dec_lt(v_i_4_, v_b_2_);
+if (v___x_5_ == 0)
+{
+lean_dec_ref(v_lt_1_);
+return v_i_4_;
+}
+else
+{
+lean_object* v___x_6_; lean_object* v___x_7_; lean_object* v___x_8_; lean_object* v___x_9_; lean_object* v___x_10_; uint8_t v___x_11_; 
+v___x_6_ = lean_array_fget_borrowed(v_xs_3_, v_i_4_);
+v___x_7_ = lean_unsigned_to_nat(1u);
+v___x_8_ = lean_nat_sub(v_i_4_, v___x_7_);
+v___x_9_ = lean_array_fget_borrowed(v_xs_3_, v___x_8_);
+lean_dec(v___x_8_);
+lean_inc_ref(v_lt_1_);
+lean_inc(v___x_9_);
+lean_inc(v___x_6_);
+v___x_10_ = lean_apply_2(v_lt_1_, v___x_6_, v___x_9_);
+v___x_11_ = lean_unbox(v___x_10_);
+if (v___x_11_ == 0)
+{
+lean_object* v___x_12_; 
+v___x_12_ = lean_nat_add(v_i_4_, v___x_7_);
+lean_dec(v_i_4_);
+v_i_4_ = v___x_12_;
+goto _start;
+}
+else
+{
+lean_dec_ref(v_lt_1_);
+return v_i_4_;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg___boxed(lean_object* v_lt_14_, lean_object* v_b_15_, lean_object* v_xs_16_, lean_object* v_i_17_){
+_start:
+{
+lean_object* v_res_18_; 
+v_res_18_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg(v_lt_14_, v_b_15_, v_xs_16_, v_i_17_);
+lean_dec_ref(v_xs_16_);
+lean_dec(v_b_15_);
+return v_res_18_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg(lean_object* v_lt_19_, lean_object* v_b_20_, lean_object* v_xs_21_, lean_object* v_j_22_){
+_start:
+{
+uint8_t v___x_23_; 
+v___x_23_ = lean_nat_dec_lt(v_j_22_, v_b_20_);
+if (v___x_23_ == 0)
+{
+lean_dec(v_j_22_);
+lean_dec_ref(v_lt_19_);
+return v_xs_21_;
+}
+else
+{
+lean_object* v___x_24_; lean_object* v___x_25_; lean_object* v___x_26_; lean_object* v___x_27_; lean_object* v___x_28_; uint8_t v___x_29_; 
+v___x_24_ = lean_array_fget_borrowed(v_xs_21_, v_j_22_);
+v___x_25_ = lean_unsigned_to_nat(1u);
+v___x_26_ = lean_nat_sub(v_j_22_, v___x_25_);
+v___x_27_ = lean_array_fget_borrowed(v_xs_21_, v___x_26_);
+lean_inc_ref(v_lt_19_);
+lean_inc(v___x_27_);
+lean_inc(v___x_24_);
+v___x_28_ = lean_apply_2(v_lt_19_, v___x_24_, v___x_27_);
+v___x_29_ = lean_unbox(v___x_28_);
+if (v___x_29_ == 0)
+{
+lean_dec(v___x_26_);
+lean_dec(v_j_22_);
+lean_dec_ref(v_lt_19_);
+return v_xs_21_;
+}
+else
+{
+lean_object* v___x_30_; lean_object* v___x_31_; 
+v___x_30_ = lean_array_fswap(v_xs_21_, v_j_22_, v___x_26_);
+lean_dec(v___x_26_);
+v___x_31_ = lean_nat_add(v_j_22_, v___x_25_);
+lean_dec(v_j_22_);
+v_xs_21_ = v___x_30_;
+v_j_22_ = v___x_31_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg___boxed(lean_object* v_lt_33_, lean_object* v_b_34_, lean_object* v_xs_35_, lean_object* v_j_36_){
+_start:
+{
+lean_object* v_res_37_; 
+v_res_37_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg(v_lt_33_, v_b_34_, v_xs_35_, v_j_36_);
+lean_dec(v_b_34_);
+return v_res_37_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg(lean_object* v_lt_38_, lean_object* v_a_39_, lean_object* v_xs_40_, lean_object* v_j_41_){
+_start:
+{
+uint8_t v___x_42_; 
+v___x_42_ = lean_nat_dec_lt(v_a_39_, v_j_41_);
+if (v___x_42_ == 0)
+{
+lean_dec(v_j_41_);
+lean_dec_ref(v_lt_38_);
+return v_xs_40_;
+}
+else
+{
+lean_object* v___x_43_; lean_object* v___x_44_; lean_object* v___x_45_; lean_object* v___x_46_; lean_object* v___x_47_; uint8_t v___x_48_; 
+v___x_43_ = lean_array_fget_borrowed(v_xs_40_, v_j_41_);
+v___x_44_ = lean_unsigned_to_nat(1u);
+v___x_45_ = lean_nat_sub(v_j_41_, v___x_44_);
+v___x_46_ = lean_array_fget_borrowed(v_xs_40_, v___x_45_);
+lean_inc_ref(v_lt_38_);
+lean_inc(v___x_46_);
+lean_inc(v___x_43_);
+v___x_47_ = lean_apply_2(v_lt_38_, v___x_43_, v___x_46_);
+v___x_48_ = lean_unbox(v___x_47_);
+if (v___x_48_ == 0)
+{
+lean_dec(v___x_45_);
+lean_dec(v_j_41_);
+lean_dec_ref(v_lt_38_);
+return v_xs_40_;
+}
+else
+{
+lean_object* v___x_49_; 
+v___x_49_ = lean_array_fswap(v_xs_40_, v_j_41_, v___x_45_);
+lean_dec(v_j_41_);
+v_xs_40_ = v___x_49_;
+v_j_41_ = v___x_45_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg___boxed(lean_object* v_lt_51_, lean_object* v_a_52_, lean_object* v_xs_53_, lean_object* v_j_54_){
+_start:
+{
+lean_object* v_res_55_; 
+v_res_55_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg(v_lt_51_, v_a_52_, v_xs_53_, v_j_54_);
+lean_dec(v_a_52_);
+return v_res_55_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg(lean_object* v_n_56_, lean_object* v_lt_57_, lean_object* v_a_58_, lean_object* v_b_59_, lean_object* v_xs_60_, lean_object* v_i_61_, lean_object* v_steps_62_){
+_start:
+{
+lean_object* v___x_63_; uint8_t v___x_64_; 
+v___x_63_ = lean_unsigned_to_nat(5u);
+v___x_64_ = lean_nat_dec_lt(v_steps_62_, v___x_63_);
+if (v___x_64_ == 0)
+{
+lean_object* v___x_65_; lean_object* v___x_66_; 
+lean_dec(v_steps_62_);
+lean_dec(v_i_61_);
+lean_dec_ref(v_lt_57_);
+v___x_65_ = lean_box(v___x_64_);
+v___x_66_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_66_, 0, v_xs_60_);
+lean_ctor_set(v___x_66_, 1, v___x_65_);
+return v___x_66_;
+}
+else
+{
+lean_object* v_val_67_; uint8_t v___x_68_; 
+lean_inc_ref(v_lt_57_);
+v_val_67_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg(v_lt_57_, v_b_59_, v_xs_60_, v_i_61_);
+v___x_68_ = lean_nat_dec_eq(v_val_67_, v_b_59_);
+if (v___x_68_ == 0)
+{
+lean_object* v___x_69_; lean_object* v___x_70_; uint8_t v___x_71_; 
+v___x_69_ = lean_nat_sub(v_b_59_, v_a_58_);
+v___x_70_ = lean_unsigned_to_nat(50u);
+v___x_71_ = lean_nat_dec_lt(v___x_69_, v___x_70_);
+lean_dec(v___x_69_);
+if (v___x_71_ == 0)
+{
+lean_object* v___x_72_; lean_object* v_xs_74_; lean_object* v_xs_78_; lean_object* v___x_84_; lean_object* v_xs_85_; lean_object* v___x_86_; lean_object* v___x_87_; uint8_t v___x_88_; 
+v___x_72_ = lean_unsigned_to_nat(1u);
+v___x_84_ = lean_nat_sub(v_val_67_, v___x_72_);
+v_xs_85_ = lean_array_fswap(v_xs_60_, v_val_67_, v___x_84_);
+v___x_86_ = lean_unsigned_to_nat(2u);
+v___x_87_ = lean_nat_sub(v_val_67_, v_a_58_);
+v___x_88_ = lean_nat_dec_le(v___x_86_, v___x_87_);
+lean_dec(v___x_87_);
+if (v___x_88_ == 0)
+{
+lean_dec(v___x_84_);
+v_xs_78_ = v_xs_85_;
+goto v___jp_77_;
+}
+else
+{
+lean_object* v___x_89_; 
+lean_inc_ref(v_lt_57_);
+v___x_89_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg(v_lt_57_, v_a_58_, v_xs_85_, v___x_84_);
+v_xs_78_ = v___x_89_;
+goto v___jp_77_;
+}
+v___jp_73_:
+{
+lean_object* v___x_75_; 
+v___x_75_ = lean_nat_add(v_steps_62_, v___x_72_);
+lean_dec(v_steps_62_);
+v_xs_60_ = v_xs_74_;
+v_i_61_ = v_val_67_;
+v_steps_62_ = v___x_75_;
+goto _start;
+}
+v___jp_77_:
+{
+lean_object* v___x_79_; lean_object* v___x_80_; uint8_t v___x_81_; 
+v___x_79_ = lean_unsigned_to_nat(2u);
+v___x_80_ = lean_nat_sub(v_b_59_, v_val_67_);
+v___x_81_ = lean_nat_dec_le(v___x_79_, v___x_80_);
+lean_dec(v___x_80_);
+if (v___x_81_ == 0)
+{
+v_xs_74_ = v_xs_78_;
+goto v___jp_73_;
+}
+else
+{
+lean_object* v___x_82_; lean_object* v___x_83_; 
+v___x_82_ = lean_nat_add(v_val_67_, v___x_72_);
+lean_inc_ref(v_lt_57_);
+v___x_83_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg(v_lt_57_, v_b_59_, v_xs_78_, v___x_82_);
+v_xs_74_ = v___x_83_;
+goto v___jp_73_;
+}
+}
+}
+else
+{
+lean_object* v___x_90_; lean_object* v___x_91_; 
+lean_dec(v_val_67_);
+lean_dec(v_steps_62_);
+lean_dec_ref(v_lt_57_);
+v___x_90_ = lean_box(v___x_68_);
+v___x_91_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_91_, 0, v_xs_60_);
+lean_ctor_set(v___x_91_, 1, v___x_90_);
+return v___x_91_;
+}
+}
+else
+{
+lean_object* v___x_92_; lean_object* v___x_93_; 
+lean_dec(v_val_67_);
+lean_dec(v_steps_62_);
+lean_dec_ref(v_lt_57_);
+v___x_92_ = lean_box(v___x_68_);
+v___x_93_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_93_, 0, v_xs_60_);
+lean_ctor_set(v___x_93_, 1, v___x_92_);
+return v___x_93_;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg___boxed(lean_object* v_n_94_, lean_object* v_lt_95_, lean_object* v_a_96_, lean_object* v_b_97_, lean_object* v_xs_98_, lean_object* v_i_99_, lean_object* v_steps_100_){
+_start:
+{
+lean_object* v_res_101_; 
+v_res_101_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg(v_n_94_, v_lt_95_, v_a_96_, v_b_97_, v_xs_98_, v_i_99_, v_steps_100_);
+lean_dec(v_b_97_);
+lean_dec(v_a_96_);
+lean_dec(v_n_94_);
+return v_res_101_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg(lean_object* v_n_102_, lean_object* v_lt_103_, lean_object* v_xs_104_, lean_object* v_a_105_, lean_object* v_b_106_){
+_start:
+{
+lean_object* v___x_107_; lean_object* v___x_108_; lean_object* v___x_109_; lean_object* v___x_110_; 
+v___x_107_ = lean_unsigned_to_nat(1u);
+v___x_108_ = lean_nat_add(v_a_105_, v___x_107_);
+v___x_109_ = lean_unsigned_to_nat(0u);
+v___x_110_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg(v_n_102_, v_lt_103_, v_a_105_, v_b_106_, v_xs_104_, v___x_108_, v___x_109_);
+return v___x_110_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg___boxed(lean_object* v_n_111_, lean_object* v_lt_112_, lean_object* v_xs_113_, lean_object* v_a_114_, lean_object* v_b_115_){
+_start:
+{
+lean_object* v_res_116_; 
+v_res_116_ = l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg(v_n_111_, v_lt_112_, v_xs_113_, v_a_114_, v_b_115_);
+lean_dec(v_b_115_);
+lean_dec(v_a_114_);
+lean_dec(v_n_111_);
+return v_res_116_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(lean_object* v_lt_117_, lean_object* v_xs_118_, lean_object* v_root_119_, lean_object* v_hi_120_, lean_object* v_first_121_){
+_start:
+{
+lean_object* v_val_123_; lean_object* v___x_132_; lean_object* v___x_133_; lean_object* v___x_134_; lean_object* v___x_135_; uint8_t v___x_136_; 
+v___x_132_ = lean_unsigned_to_nat(2u);
+v___x_133_ = lean_nat_mul(v___x_132_, v_root_119_);
+v___x_134_ = lean_unsigned_to_nat(1u);
+v___x_135_ = lean_nat_add(v___x_133_, v___x_134_);
+v___x_136_ = lean_nat_dec_lt(v___x_135_, v_hi_120_);
+if (v___x_136_ == 0)
+{
+lean_dec(v___x_135_);
+lean_dec(v___x_133_);
+lean_dec(v_root_119_);
+lean_dec_ref(v_lt_117_);
+return v_xs_118_;
+}
+else
+{
+lean_object* v___x_137_; uint8_t v___x_138_; 
+v___x_137_ = lean_nat_add(v___x_133_, v___x_132_);
+lean_dec(v___x_133_);
+v___x_138_ = lean_nat_dec_lt(v___x_137_, v_hi_120_);
+if (v___x_138_ == 0)
+{
+lean_object* v___x_139_; lean_object* v___x_140_; lean_object* v___x_141_; lean_object* v___x_142_; lean_object* v___x_143_; uint8_t v___x_144_; 
+lean_dec(v___x_137_);
+v___x_139_ = lean_nat_add(v_first_121_, v_root_119_);
+lean_dec(v_root_119_);
+v___x_140_ = lean_array_fget_borrowed(v_xs_118_, v___x_139_);
+v___x_141_ = lean_nat_add(v_first_121_, v___x_135_);
+v___x_142_ = lean_array_fget_borrowed(v_xs_118_, v___x_141_);
+lean_inc_ref(v_lt_117_);
+lean_inc(v___x_142_);
+lean_inc(v___x_140_);
+v___x_143_ = lean_apply_2(v_lt_117_, v___x_140_, v___x_142_);
+v___x_144_ = lean_unbox(v___x_143_);
+if (v___x_144_ == 0)
+{
+lean_dec(v___x_141_);
+lean_dec(v___x_139_);
+lean_dec(v___x_135_);
+lean_dec_ref(v_lt_117_);
+return v_xs_118_;
+}
+else
+{
+lean_object* v___x_145_; 
+v___x_145_ = lean_array_fswap(v_xs_118_, v___x_139_, v___x_141_);
+lean_dec(v___x_141_);
+lean_dec(v___x_139_);
+v_xs_118_ = v___x_145_;
+v_root_119_ = v___x_135_;
+goto _start;
+}
+}
+else
+{
+lean_object* v___x_147_; lean_object* v___x_148_; lean_object* v___x_149_; lean_object* v___x_150_; lean_object* v___x_151_; uint8_t v___x_152_; 
+v___x_147_ = lean_nat_add(v_first_121_, v___x_135_);
+v___x_148_ = lean_array_fget_borrowed(v_xs_118_, v___x_147_);
+lean_dec(v___x_147_);
+v___x_149_ = lean_nat_add(v_first_121_, v___x_137_);
+v___x_150_ = lean_array_fget_borrowed(v_xs_118_, v___x_149_);
+lean_dec(v___x_149_);
+lean_inc_ref(v_lt_117_);
+lean_inc(v___x_150_);
+lean_inc(v___x_148_);
+v___x_151_ = lean_apply_2(v_lt_117_, v___x_148_, v___x_150_);
+v___x_152_ = lean_unbox(v___x_151_);
+if (v___x_152_ == 0)
+{
+lean_dec(v___x_137_);
+v_val_123_ = v___x_135_;
+goto v___jp_122_;
+}
+else
+{
+lean_dec(v___x_135_);
+v_val_123_ = v___x_137_;
+goto v___jp_122_;
+}
+}
+}
+v___jp_122_:
+{
+lean_object* v___x_124_; lean_object* v___x_125_; lean_object* v___x_126_; lean_object* v___x_127_; lean_object* v___x_128_; uint8_t v___x_129_; 
+v___x_124_ = lean_nat_add(v_first_121_, v_root_119_);
+lean_dec(v_root_119_);
+v___x_125_ = lean_array_fget_borrowed(v_xs_118_, v___x_124_);
+v___x_126_ = lean_nat_add(v_first_121_, v_val_123_);
+v___x_127_ = lean_array_fget_borrowed(v_xs_118_, v___x_126_);
+lean_inc_ref(v_lt_117_);
+lean_inc(v___x_127_);
+lean_inc(v___x_125_);
+v___x_128_ = lean_apply_2(v_lt_117_, v___x_125_, v___x_127_);
+v___x_129_ = lean_unbox(v___x_128_);
+if (v___x_129_ == 0)
+{
+lean_dec(v___x_126_);
+lean_dec(v___x_124_);
+lean_dec(v_val_123_);
+lean_dec_ref(v_lt_117_);
+return v_xs_118_;
+}
+else
+{
+lean_object* v___x_130_; 
+v___x_130_ = lean_array_fswap(v_xs_118_, v___x_124_, v___x_126_);
+lean_dec(v___x_126_);
+lean_dec(v___x_124_);
+v_xs_118_ = v___x_130_;
+v_root_119_ = v_val_123_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg___boxed(lean_object* v_lt_153_, lean_object* v_xs_154_, lean_object* v_root_155_, lean_object* v_hi_156_, lean_object* v_first_157_){
+_start:
+{
+lean_object* v_res_158_; 
+v_res_158_ = l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(v_lt_153_, v_xs_154_, v_root_155_, v_hi_156_, v_first_157_);
+lean_dec(v_first_157_);
+lean_dec(v_hi_156_);
+return v_res_158_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg(lean_object* v_n_159_, lean_object* v_lt_160_, lean_object* v_a_161_, lean_object* v_b_162_, lean_object* v_xs_163_, lean_object* v_a_164_){
+_start:
+{
+lean_object* v_zero_165_; uint8_t v_isZero_166_; 
+v_zero_165_ = lean_unsigned_to_nat(0u);
+v_isZero_166_ = lean_nat_dec_eq(v_a_164_, v_zero_165_);
+if (v_isZero_166_ == 1)
+{
+lean_dec(v_a_164_);
+lean_dec_ref(v_lt_160_);
+return v_xs_163_;
+}
+else
+{
+lean_object* v_one_167_; lean_object* v_n_168_; lean_object* v___x_169_; lean_object* v___x_170_; 
+v_one_167_ = lean_unsigned_to_nat(1u);
+v_n_168_ = lean_nat_sub(v_a_164_, v_one_167_);
+lean_dec(v_a_164_);
+v___x_169_ = lean_nat_sub(v_b_162_, v_a_161_);
+lean_inc(v_n_168_);
+lean_inc_ref(v_lt_160_);
+v___x_170_ = l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(v_lt_160_, v_xs_163_, v_n_168_, v___x_169_, v_a_161_);
+lean_dec(v___x_169_);
+v_xs_163_ = v___x_170_;
+v_a_164_ = v_n_168_;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg___boxed(lean_object* v_n_172_, lean_object* v_lt_173_, lean_object* v_a_174_, lean_object* v_b_175_, lean_object* v_xs_176_, lean_object* v_a_177_){
+_start:
+{
+lean_object* v_res_178_; 
+v_res_178_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg(v_n_172_, v_lt_173_, v_a_174_, v_b_175_, v_xs_176_, v_a_177_);
+lean_dec(v_b_175_);
+lean_dec(v_a_174_);
+lean_dec(v_n_172_);
+return v_res_178_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg(lean_object* v_n_179_, lean_object* v_lt_180_, lean_object* v_a_181_, lean_object* v_xs_182_, lean_object* v_i_183_){
+_start:
+{
+lean_object* v_zero_184_; uint8_t v_isZero_185_; 
+v_zero_184_ = lean_unsigned_to_nat(0u);
+v_isZero_185_ = lean_nat_dec_eq(v_i_183_, v_zero_184_);
+if (v_isZero_185_ == 1)
+{
+lean_dec(v_i_183_);
+lean_dec_ref(v_lt_180_);
+return v_xs_182_;
+}
+else
+{
+lean_object* v_one_186_; lean_object* v_n_187_; lean_object* v___x_188_; lean_object* v___x_189_; lean_object* v___x_190_; 
+v_one_186_ = lean_unsigned_to_nat(1u);
+v_n_187_ = lean_nat_sub(v_i_183_, v_one_186_);
+lean_dec(v_i_183_);
+v___x_188_ = lean_nat_add(v_a_181_, v_n_187_);
+v___x_189_ = lean_array_fswap(v_xs_182_, v_a_181_, v___x_188_);
+lean_dec(v___x_188_);
+lean_inc_ref(v_lt_180_);
+v___x_190_ = l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(v_lt_180_, v___x_189_, v_zero_184_, v_n_187_, v_a_181_);
+v_xs_182_ = v___x_190_;
+v_i_183_ = v_n_187_;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg___boxed(lean_object* v_n_192_, lean_object* v_lt_193_, lean_object* v_a_194_, lean_object* v_xs_195_, lean_object* v_i_196_){
+_start:
+{
+lean_object* v_res_197_; 
+v_res_197_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg(v_n_192_, v_lt_193_, v_a_194_, v_xs_195_, v_i_196_);
+lean_dec(v_a_194_);
+lean_dec(v_n_192_);
+return v_res_197_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg(lean_object* v_n_198_, lean_object* v_lt_199_, lean_object* v_xs_200_, lean_object* v_a_201_, lean_object* v_b_202_){
+_start:
+{
+lean_object* v___x_203_; lean_object* v___x_204_; lean_object* v___x_205_; lean_object* v___x_206_; lean_object* v___x_207_; lean_object* v___x_208_; lean_object* v___x_209_; 
+v___x_203_ = lean_nat_sub(v_b_202_, v_a_201_);
+v___x_204_ = lean_unsigned_to_nat(1u);
+v___x_205_ = lean_nat_sub(v___x_203_, v___x_204_);
+v___x_206_ = lean_nat_shiftr(v___x_205_, v___x_204_);
+lean_dec(v___x_205_);
+v___x_207_ = lean_nat_add(v___x_206_, v___x_204_);
+lean_dec(v___x_206_);
+lean_inc_ref(v_lt_199_);
+v___x_208_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg(v_n_198_, v_lt_199_, v_a_201_, v_b_202_, v_xs_200_, v___x_207_);
+v___x_209_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg(v_n_198_, v_lt_199_, v_a_201_, v___x_208_, v___x_203_);
+return v___x_209_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg___boxed(lean_object* v_n_210_, lean_object* v_lt_211_, lean_object* v_xs_212_, lean_object* v_a_213_, lean_object* v_b_214_){
+_start:
+{
+lean_object* v_res_215_; 
+v_res_215_ = l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg(v_n_210_, v_lt_211_, v_xs_212_, v_a_213_, v_b_214_);
+lean_dec(v_b_214_);
+lean_dec(v_a_213_);
+lean_dec(v_n_210_);
+return v_res_215_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(lean_object* v_a_216_, lean_object* v_q_217_, lean_object* v_d_218_, lean_object* v_h_219_, lean_object* v_h50_220_){
+_start:
+{
+lean_object* v___x_221_; lean_object* v___x_222_; lean_object* v___x_223_; lean_object* v___x_224_; 
+v___x_221_ = lean_nat_add(v_a_216_, v_q_217_);
+v___x_222_ = lean_nat_add(v___x_221_, v_d_218_);
+lean_dec(v___x_221_);
+v___x_223_ = lean_unsigned_to_nat(1u);
+v___x_224_ = lean_nat_sub(v___x_222_, v___x_223_);
+lean_dec(v___x_222_);
+return v___x_224_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0___boxed(lean_object* v_a_225_, lean_object* v_q_226_, lean_object* v_d_227_, lean_object* v_h_228_, lean_object* v_h50_229_){
+_start:
+{
+lean_object* v_res_230_; 
+v_res_230_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_225_, v_q_226_, v_d_227_, v_h_228_, v_h50_229_);
+lean_dec(v_d_227_);
+lean_dec(v_q_226_);
+lean_dec(v_a_225_);
+return v_res_230_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg(lean_object* v_lt_231_, lean_object* v_xs_232_, lean_object* v_a_233_, lean_object* v_b_234_){
+_start:
+{
+lean_object* v___x_235_; lean_object* v___x_236_; uint8_t v___x_237_; 
+v___x_235_ = lean_unsigned_to_nat(8u);
+v___x_236_ = lean_nat_sub(v_b_234_, v_a_233_);
+v___x_237_ = lean_nat_dec_le(v___x_235_, v___x_236_);
+if (v___x_237_ == 0)
+{
+lean_object* v___x_238_; lean_object* v___x_239_; lean_object* v___x_240_; lean_object* v___x_241_; lean_object* v___x_242_; uint8_t v___x_243_; lean_object* v___x_244_; lean_object* v___x_245_; 
+lean_dec_ref(v_lt_231_);
+v___x_238_ = lean_unsigned_to_nat(2u);
+v___x_239_ = lean_nat_shiftr(v___x_236_, v___x_238_);
+lean_dec(v___x_236_);
+v___x_240_ = lean_nat_mul(v___x_239_, v___x_238_);
+lean_dec(v___x_239_);
+v___x_241_ = lean_unsigned_to_nat(1u);
+v___x_242_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_240_, v___x_241_, lean_box(0), lean_box(0));
+lean_dec(v___x_240_);
+v___x_243_ = 1;
+v___x_244_ = lean_box(v___x_243_);
+v___x_245_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_245_, 0, v___x_242_);
+lean_ctor_set(v___x_245_, 1, v___x_244_);
+return v___x_245_;
+}
+else
+{
+lean_object* v___x_246_; uint8_t v___x_247_; 
+v___x_246_ = lean_unsigned_to_nat(50u);
+v___x_247_ = lean_nat_dec_le(v___x_246_, v___x_236_);
+if (v___x_247_ == 0)
+{
+lean_object* v___x_248_; lean_object* v___x_249_; lean_object* v___x_250_; lean_object* v___x_251_; lean_object* v___x_252_; lean_object* v___x_253_; lean_object* v___x_254_; lean_object* v___x_255_; lean_object* v___x_256_; lean_object* v___x_257_; lean_object* v_fst_259_; lean_object* v_snd_260_; lean_object* v___y_274_; lean_object* v_fst_275_; lean_object* v_snd_276_; lean_object* v_fst_283_; lean_object* v_fst_284_; lean_object* v_snd_285_; lean_object* v___x_291_; lean_object* v___x_292_; lean_object* v___x_293_; uint8_t v___x_294_; 
+v___x_248_ = lean_unsigned_to_nat(2u);
+v___x_249_ = lean_nat_shiftr(v___x_236_, v___x_248_);
+lean_dec(v___x_236_);
+v___x_250_ = lean_unsigned_to_nat(1u);
+v___x_251_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_249_, v___x_250_, lean_box(0), lean_box(0));
+v___x_252_ = lean_nat_mul(v___x_249_, v___x_248_);
+v___x_253_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_252_, v___x_250_, lean_box(0), lean_box(0));
+lean_dec(v___x_252_);
+v___x_254_ = lean_unsigned_to_nat(3u);
+v___x_255_ = lean_nat_mul(v___x_249_, v___x_254_);
+lean_dec(v___x_249_);
+v___x_256_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_255_, v___x_250_, lean_box(0), lean_box(0));
+lean_dec(v___x_255_);
+v___x_257_ = lean_unsigned_to_nat(0u);
+v___x_291_ = lean_array_fget_borrowed(v_xs_232_, v___x_253_);
+v___x_292_ = lean_array_fget_borrowed(v_xs_232_, v___x_251_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_292_);
+lean_inc(v___x_291_);
+v___x_293_ = lean_apply_2(v_lt_231_, v___x_291_, v___x_292_);
+v___x_294_ = lean_unbox(v___x_293_);
+if (v___x_294_ == 0)
+{
+v_fst_283_ = v___x_251_;
+v_fst_284_ = v___x_253_;
+v_snd_285_ = v___x_257_;
+goto v___jp_282_;
+}
+else
+{
+v_fst_283_ = v___x_253_;
+v_fst_284_ = v___x_251_;
+v_snd_285_ = v___x_250_;
+goto v___jp_282_;
+}
+v___jp_258_:
+{
+uint8_t v___x_261_; 
+v___x_261_ = lean_nat_dec_eq(v_snd_260_, v___x_257_);
+if (v___x_261_ == 0)
+{
+lean_object* v___x_262_; uint8_t v___x_263_; 
+v___x_262_ = lean_unsigned_to_nat(12u);
+v___x_263_ = lean_nat_dec_eq(v_snd_260_, v___x_262_);
+lean_dec(v_snd_260_);
+if (v___x_263_ == 0)
+{
+uint8_t v___x_264_; lean_object* v___x_265_; lean_object* v___x_266_; 
+v___x_264_ = 0;
+v___x_265_ = lean_box(v___x_264_);
+v___x_266_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_266_, 0, v_fst_259_);
+lean_ctor_set(v___x_266_, 1, v___x_265_);
+return v___x_266_;
+}
+else
+{
+uint8_t v___x_267_; lean_object* v___x_268_; lean_object* v___x_269_; 
+v___x_267_ = 2;
+v___x_268_ = lean_box(v___x_267_);
+v___x_269_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_269_, 0, v_fst_259_);
+lean_ctor_set(v___x_269_, 1, v___x_268_);
+return v___x_269_;
+}
+}
+else
+{
+uint8_t v___x_270_; lean_object* v___x_271_; lean_object* v___x_272_; 
+lean_dec(v_snd_260_);
+v___x_270_ = 1;
+v___x_271_ = lean_box(v___x_270_);
+v___x_272_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_272_, 0, v_fst_259_);
+lean_ctor_set(v___x_272_, 1, v___x_271_);
+return v___x_272_;
+}
+}
+v___jp_273_:
+{
+lean_object* v___x_277_; lean_object* v___x_278_; lean_object* v___x_279_; uint8_t v___x_280_; 
+v___x_277_ = lean_array_fget_borrowed(v_xs_232_, v_fst_275_);
+v___x_278_ = lean_array_fget_borrowed(v_xs_232_, v___y_274_);
+lean_inc(v___x_278_);
+lean_inc(v___x_277_);
+v___x_279_ = lean_apply_2(v_lt_231_, v___x_277_, v___x_278_);
+v___x_280_ = lean_unbox(v___x_279_);
+if (v___x_280_ == 0)
+{
+lean_dec(v___y_274_);
+v_fst_259_ = v_fst_275_;
+v_snd_260_ = v_snd_276_;
+goto v___jp_258_;
+}
+else
+{
+lean_object* v___x_281_; 
+lean_dec(v_fst_275_);
+v___x_281_ = lean_nat_add(v_snd_276_, v___x_250_);
+lean_dec(v_snd_276_);
+v_fst_259_ = v___y_274_;
+v_snd_260_ = v___x_281_;
+goto v___jp_258_;
+}
+}
+v___jp_282_:
+{
+lean_object* v___x_286_; lean_object* v___x_287_; lean_object* v___x_288_; uint8_t v___x_289_; 
+v___x_286_ = lean_array_fget_borrowed(v_xs_232_, v___x_256_);
+v___x_287_ = lean_array_fget_borrowed(v_xs_232_, v_fst_284_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_287_);
+lean_inc(v___x_286_);
+v___x_288_ = lean_apply_2(v_lt_231_, v___x_286_, v___x_287_);
+v___x_289_ = lean_unbox(v___x_288_);
+if (v___x_289_ == 0)
+{
+lean_dec(v___x_256_);
+v___y_274_ = v_fst_283_;
+v_fst_275_ = v_fst_284_;
+v_snd_276_ = v_snd_285_;
+goto v___jp_273_;
+}
+else
+{
+lean_object* v___x_290_; 
+lean_dec(v_fst_284_);
+v___x_290_ = lean_nat_add(v_snd_285_, v___x_250_);
+lean_dec(v_snd_285_);
+v___y_274_ = v_fst_283_;
+v_fst_275_ = v___x_256_;
+v_snd_276_ = v___x_290_;
+goto v___jp_273_;
+}
+}
+}
+else
+{
+lean_object* v___x_295_; lean_object* v___x_296_; lean_object* v___x_297_; lean_object* v_fst_299_; lean_object* v_snd_300_; lean_object* v___x_313_; lean_object* v___x_314_; lean_object* v___y_316_; lean_object* v_fst_317_; lean_object* v_snd_318_; lean_object* v___y_325_; lean_object* v_fst_326_; lean_object* v_fst_327_; lean_object* v_snd_328_; lean_object* v___y_335_; lean_object* v___y_336_; lean_object* v_fst_337_; lean_object* v_snd_338_; lean_object* v___y_345_; lean_object* v___y_346_; lean_object* v___y_347_; lean_object* v_fst_348_; lean_object* v_snd_349_; lean_object* v___y_356_; lean_object* v___y_357_; lean_object* v___y_358_; lean_object* v_fst_359_; lean_object* v_fst_360_; lean_object* v_snd_361_; lean_object* v___y_368_; lean_object* v_fst_369_; lean_object* v_snd_370_; lean_object* v___y_382_; lean_object* v___y_383_; lean_object* v_fst_384_; lean_object* v_snd_385_; lean_object* v___y_392_; lean_object* v___y_393_; lean_object* v_fst_394_; lean_object* v_fst_395_; lean_object* v_snd_396_; lean_object* v_fst_403_; lean_object* v_snd_404_; lean_object* v___y_415_; lean_object* v_fst_416_; lean_object* v_snd_417_; lean_object* v___x_423_; lean_object* v___x_424_; lean_object* v_fst_426_; lean_object* v_fst_427_; lean_object* v_snd_428_; lean_object* v___x_434_; lean_object* v___x_435_; lean_object* v___x_436_; uint8_t v___x_437_; 
+v___x_295_ = lean_unsigned_to_nat(2u);
+v___x_296_ = lean_nat_shiftr(v___x_236_, v___x_295_);
+lean_dec(v___x_236_);
+v___x_297_ = lean_unsigned_to_nat(0u);
+v___x_313_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_296_, v___x_297_, lean_box(0), lean_box(0));
+v___x_314_ = lean_unsigned_to_nat(1u);
+v___x_423_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_296_, v___x_314_, lean_box(0), lean_box(0));
+v___x_424_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_296_, v___x_295_, lean_box(0), lean_box(0));
+v___x_434_ = lean_array_fget_borrowed(v_xs_232_, v___x_423_);
+v___x_435_ = lean_array_fget_borrowed(v_xs_232_, v___x_313_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_435_);
+lean_inc(v___x_434_);
+v___x_436_ = lean_apply_2(v_lt_231_, v___x_434_, v___x_435_);
+v___x_437_ = lean_unbox(v___x_436_);
+if (v___x_437_ == 0)
+{
+v_fst_426_ = v___x_313_;
+v_fst_427_ = v___x_423_;
+v_snd_428_ = v___x_297_;
+goto v___jp_425_;
+}
+else
+{
+v_fst_426_ = v___x_423_;
+v_fst_427_ = v___x_313_;
+v_snd_428_ = v___x_314_;
+goto v___jp_425_;
+}
+v___jp_298_:
+{
+uint8_t v___x_301_; 
+v___x_301_ = lean_nat_dec_eq(v_snd_300_, v___x_297_);
+if (v___x_301_ == 0)
+{
+lean_object* v___x_302_; uint8_t v___x_303_; 
+v___x_302_ = lean_unsigned_to_nat(12u);
+v___x_303_ = lean_nat_dec_eq(v_snd_300_, v___x_302_);
+lean_dec(v_snd_300_);
+if (v___x_303_ == 0)
+{
+uint8_t v___x_304_; lean_object* v___x_305_; lean_object* v___x_306_; 
+v___x_304_ = 0;
+v___x_305_ = lean_box(v___x_304_);
+v___x_306_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_306_, 0, v_fst_299_);
+lean_ctor_set(v___x_306_, 1, v___x_305_);
+return v___x_306_;
+}
+else
+{
+uint8_t v___x_307_; lean_object* v___x_308_; lean_object* v___x_309_; 
+v___x_307_ = 2;
+v___x_308_ = lean_box(v___x_307_);
+v___x_309_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_309_, 0, v_fst_299_);
+lean_ctor_set(v___x_309_, 1, v___x_308_);
+return v___x_309_;
+}
+}
+else
+{
+uint8_t v___x_310_; lean_object* v___x_311_; lean_object* v___x_312_; 
+lean_dec(v_snd_300_);
+v___x_310_ = 1;
+v___x_311_ = lean_box(v___x_310_);
+v___x_312_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_312_, 0, v_fst_299_);
+lean_ctor_set(v___x_312_, 1, v___x_311_);
+return v___x_312_;
+}
+}
+v___jp_315_:
+{
+lean_object* v___x_319_; lean_object* v___x_320_; lean_object* v___x_321_; uint8_t v___x_322_; 
+v___x_319_ = lean_array_fget_borrowed(v_xs_232_, v_fst_317_);
+v___x_320_ = lean_array_fget_borrowed(v_xs_232_, v___y_316_);
+lean_inc(v___x_320_);
+lean_inc(v___x_319_);
+v___x_321_ = lean_apply_2(v_lt_231_, v___x_319_, v___x_320_);
+v___x_322_ = lean_unbox(v___x_321_);
+if (v___x_322_ == 0)
+{
+lean_dec(v___y_316_);
+v_fst_299_ = v_fst_317_;
+v_snd_300_ = v_snd_318_;
+goto v___jp_298_;
+}
+else
+{
+lean_object* v___x_323_; 
+lean_dec(v_fst_317_);
+v___x_323_ = lean_nat_add(v_snd_318_, v___x_314_);
+lean_dec(v_snd_318_);
+v_fst_299_ = v___y_316_;
+v_snd_300_ = v___x_323_;
+goto v___jp_298_;
+}
+}
+v___jp_324_:
+{
+lean_object* v___x_329_; lean_object* v___x_330_; lean_object* v___x_331_; uint8_t v___x_332_; 
+v___x_329_ = lean_array_fget_borrowed(v_xs_232_, v___y_325_);
+v___x_330_ = lean_array_fget_borrowed(v_xs_232_, v_fst_327_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_330_);
+lean_inc(v___x_329_);
+v___x_331_ = lean_apply_2(v_lt_231_, v___x_329_, v___x_330_);
+v___x_332_ = lean_unbox(v___x_331_);
+if (v___x_332_ == 0)
+{
+lean_dec(v___y_325_);
+v___y_316_ = v_fst_326_;
+v_fst_317_ = v_fst_327_;
+v_snd_318_ = v_snd_328_;
+goto v___jp_315_;
+}
+else
+{
+lean_object* v___x_333_; 
+lean_dec(v_fst_327_);
+v___x_333_ = lean_nat_add(v_snd_328_, v___x_314_);
+lean_dec(v_snd_328_);
+v___y_316_ = v_fst_326_;
+v_fst_317_ = v___y_325_;
+v_snd_318_ = v___x_333_;
+goto v___jp_315_;
+}
+}
+v___jp_334_:
+{
+lean_object* v___x_339_; lean_object* v___x_340_; lean_object* v___x_341_; uint8_t v___x_342_; 
+v___x_339_ = lean_array_fget_borrowed(v_xs_232_, v___y_336_);
+v___x_340_ = lean_array_fget_borrowed(v_xs_232_, v___y_335_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_340_);
+lean_inc(v___x_339_);
+v___x_341_ = lean_apply_2(v_lt_231_, v___x_339_, v___x_340_);
+v___x_342_ = lean_unbox(v___x_341_);
+if (v___x_342_ == 0)
+{
+v___y_325_ = v_fst_337_;
+v_fst_326_ = v___y_335_;
+v_fst_327_ = v___y_336_;
+v_snd_328_ = v_snd_338_;
+goto v___jp_324_;
+}
+else
+{
+lean_object* v___x_343_; 
+v___x_343_ = lean_nat_add(v_snd_338_, v___x_314_);
+lean_dec(v_snd_338_);
+v___y_325_ = v_fst_337_;
+v_fst_326_ = v___y_336_;
+v_fst_327_ = v___y_335_;
+v_snd_328_ = v___x_343_;
+goto v___jp_324_;
+}
+}
+v___jp_344_:
+{
+lean_object* v___x_350_; lean_object* v___x_351_; lean_object* v___x_352_; uint8_t v___x_353_; 
+v___x_350_ = lean_array_fget_borrowed(v_xs_232_, v_fst_348_);
+v___x_351_ = lean_array_fget_borrowed(v_xs_232_, v___y_345_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_351_);
+lean_inc(v___x_350_);
+v___x_352_ = lean_apply_2(v_lt_231_, v___x_350_, v___x_351_);
+v___x_353_ = lean_unbox(v___x_352_);
+if (v___x_353_ == 0)
+{
+lean_dec(v___y_345_);
+v___y_335_ = v___y_346_;
+v___y_336_ = v___y_347_;
+v_fst_337_ = v_fst_348_;
+v_snd_338_ = v_snd_349_;
+goto v___jp_334_;
+}
+else
+{
+lean_object* v___x_354_; 
+lean_dec(v_fst_348_);
+v___x_354_ = lean_nat_add(v_snd_349_, v___x_314_);
+lean_dec(v_snd_349_);
+v___y_335_ = v___y_346_;
+v___y_336_ = v___y_347_;
+v_fst_337_ = v___y_345_;
+v_snd_338_ = v___x_354_;
+goto v___jp_334_;
+}
+}
+v___jp_355_:
+{
+lean_object* v___x_362_; lean_object* v___x_363_; lean_object* v___x_364_; uint8_t v___x_365_; 
+v___x_362_ = lean_array_fget_borrowed(v_xs_232_, v___y_358_);
+v___x_363_ = lean_array_fget_borrowed(v_xs_232_, v_fst_360_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_363_);
+lean_inc(v___x_362_);
+v___x_364_ = lean_apply_2(v_lt_231_, v___x_362_, v___x_363_);
+v___x_365_ = lean_unbox(v___x_364_);
+if (v___x_365_ == 0)
+{
+lean_dec(v___y_358_);
+v___y_345_ = v_fst_359_;
+v___y_346_ = v___y_356_;
+v___y_347_ = v___y_357_;
+v_fst_348_ = v_fst_360_;
+v_snd_349_ = v_snd_361_;
+goto v___jp_344_;
+}
+else
+{
+lean_object* v___x_366_; 
+lean_dec(v_fst_360_);
+v___x_366_ = lean_nat_add(v_snd_361_, v___x_314_);
+lean_dec(v_snd_361_);
+v___y_345_ = v_fst_359_;
+v___y_346_ = v___y_356_;
+v___y_347_ = v___y_357_;
+v_fst_348_ = v___y_358_;
+v_snd_349_ = v___x_366_;
+goto v___jp_344_;
+}
+}
+v___jp_367_:
+{
+lean_object* v___x_371_; lean_object* v___x_372_; lean_object* v___x_373_; lean_object* v___x_374_; lean_object* v___x_375_; lean_object* v___x_376_; lean_object* v___x_377_; lean_object* v___x_378_; uint8_t v___x_379_; 
+v___x_371_ = lean_unsigned_to_nat(3u);
+v___x_372_ = lean_nat_mul(v___x_296_, v___x_371_);
+lean_dec(v___x_296_);
+v___x_373_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_372_, v___x_297_, lean_box(0), lean_box(0));
+v___x_374_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_372_, v___x_314_, lean_box(0), lean_box(0));
+v___x_375_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_372_, v___x_295_, lean_box(0), lean_box(0));
+lean_dec(v___x_372_);
+v___x_376_ = lean_array_fget_borrowed(v_xs_232_, v___x_374_);
+v___x_377_ = lean_array_fget_borrowed(v_xs_232_, v___x_373_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_377_);
+lean_inc(v___x_376_);
+v___x_378_ = lean_apply_2(v_lt_231_, v___x_376_, v___x_377_);
+v___x_379_ = lean_unbox(v___x_378_);
+if (v___x_379_ == 0)
+{
+v___y_356_ = v___y_368_;
+v___y_357_ = v_fst_369_;
+v___y_358_ = v___x_375_;
+v_fst_359_ = v___x_373_;
+v_fst_360_ = v___x_374_;
+v_snd_361_ = v_snd_370_;
+goto v___jp_355_;
+}
+else
+{
+lean_object* v___x_380_; 
+v___x_380_ = lean_nat_add(v_snd_370_, v___x_314_);
+lean_dec(v_snd_370_);
+v___y_356_ = v___y_368_;
+v___y_357_ = v_fst_369_;
+v___y_358_ = v___x_375_;
+v_fst_359_ = v___x_374_;
+v_fst_360_ = v___x_373_;
+v_snd_361_ = v___x_380_;
+goto v___jp_355_;
+}
+}
+v___jp_381_:
+{
+lean_object* v___x_386_; lean_object* v___x_387_; lean_object* v___x_388_; uint8_t v___x_389_; 
+v___x_386_ = lean_array_fget_borrowed(v_xs_232_, v_fst_384_);
+v___x_387_ = lean_array_fget_borrowed(v_xs_232_, v___y_383_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_387_);
+lean_inc(v___x_386_);
+v___x_388_ = lean_apply_2(v_lt_231_, v___x_386_, v___x_387_);
+v___x_389_ = lean_unbox(v___x_388_);
+if (v___x_389_ == 0)
+{
+lean_dec(v___y_383_);
+v___y_368_ = v___y_382_;
+v_fst_369_ = v_fst_384_;
+v_snd_370_ = v_snd_385_;
+goto v___jp_367_;
+}
+else
+{
+lean_object* v___x_390_; 
+lean_dec(v_fst_384_);
+v___x_390_ = lean_nat_add(v_snd_385_, v___x_314_);
+lean_dec(v_snd_385_);
+v___y_368_ = v___y_382_;
+v_fst_369_ = v___y_383_;
+v_snd_370_ = v___x_390_;
+goto v___jp_367_;
+}
+}
+v___jp_391_:
+{
+lean_object* v___x_397_; lean_object* v___x_398_; lean_object* v___x_399_; uint8_t v___x_400_; 
+v___x_397_ = lean_array_fget_borrowed(v_xs_232_, v___y_393_);
+v___x_398_ = lean_array_fget_borrowed(v_xs_232_, v_fst_395_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_398_);
+lean_inc(v___x_397_);
+v___x_399_ = lean_apply_2(v_lt_231_, v___x_397_, v___x_398_);
+v___x_400_ = lean_unbox(v___x_399_);
+if (v___x_400_ == 0)
+{
+lean_dec(v___y_393_);
+v___y_382_ = v___y_392_;
+v___y_383_ = v_fst_394_;
+v_fst_384_ = v_fst_395_;
+v_snd_385_ = v_snd_396_;
+goto v___jp_381_;
+}
+else
+{
+lean_object* v___x_401_; 
+lean_dec(v_fst_395_);
+v___x_401_ = lean_nat_add(v_snd_396_, v___x_314_);
+lean_dec(v_snd_396_);
+v___y_382_ = v___y_392_;
+v___y_383_ = v_fst_394_;
+v_fst_384_ = v___y_393_;
+v_snd_385_ = v___x_401_;
+goto v___jp_381_;
+}
+}
+v___jp_402_:
+{
+lean_object* v___x_405_; lean_object* v___x_406_; lean_object* v___x_407_; lean_object* v___x_408_; lean_object* v___x_409_; lean_object* v___x_410_; lean_object* v___x_411_; uint8_t v___x_412_; 
+v___x_405_ = lean_nat_mul(v___x_296_, v___x_295_);
+v___x_406_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_405_, v___x_297_, lean_box(0), lean_box(0));
+v___x_407_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_405_, v___x_314_, lean_box(0), lean_box(0));
+v___x_408_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___lam__0(v_a_233_, v___x_405_, v___x_295_, lean_box(0), lean_box(0));
+lean_dec(v___x_405_);
+v___x_409_ = lean_array_fget_borrowed(v_xs_232_, v___x_407_);
+v___x_410_ = lean_array_fget_borrowed(v_xs_232_, v___x_406_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_410_);
+lean_inc(v___x_409_);
+v___x_411_ = lean_apply_2(v_lt_231_, v___x_409_, v___x_410_);
+v___x_412_ = lean_unbox(v___x_411_);
+if (v___x_412_ == 0)
+{
+v___y_392_ = v_fst_403_;
+v___y_393_ = v___x_408_;
+v_fst_394_ = v___x_406_;
+v_fst_395_ = v___x_407_;
+v_snd_396_ = v_snd_404_;
+goto v___jp_391_;
+}
+else
+{
+lean_object* v___x_413_; 
+v___x_413_ = lean_nat_add(v_snd_404_, v___x_314_);
+lean_dec(v_snd_404_);
+v___y_392_ = v_fst_403_;
+v___y_393_ = v___x_408_;
+v_fst_394_ = v___x_407_;
+v_fst_395_ = v___x_406_;
+v_snd_396_ = v___x_413_;
+goto v___jp_391_;
+}
+}
+v___jp_414_:
+{
+lean_object* v___x_418_; lean_object* v___x_419_; lean_object* v___x_420_; uint8_t v___x_421_; 
+v___x_418_ = lean_array_fget_borrowed(v_xs_232_, v_fst_416_);
+v___x_419_ = lean_array_fget_borrowed(v_xs_232_, v___y_415_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_419_);
+lean_inc(v___x_418_);
+v___x_420_ = lean_apply_2(v_lt_231_, v___x_418_, v___x_419_);
+v___x_421_ = lean_unbox(v___x_420_);
+if (v___x_421_ == 0)
+{
+lean_dec(v___y_415_);
+v_fst_403_ = v_fst_416_;
+v_snd_404_ = v_snd_417_;
+goto v___jp_402_;
+}
+else
+{
+lean_object* v___x_422_; 
+lean_dec(v_fst_416_);
+v___x_422_ = lean_nat_add(v_snd_417_, v___x_314_);
+lean_dec(v_snd_417_);
+v_fst_403_ = v___y_415_;
+v_snd_404_ = v___x_422_;
+goto v___jp_402_;
+}
+}
+v___jp_425_:
+{
+lean_object* v___x_429_; lean_object* v___x_430_; lean_object* v___x_431_; uint8_t v___x_432_; 
+v___x_429_ = lean_array_fget_borrowed(v_xs_232_, v___x_424_);
+v___x_430_ = lean_array_fget_borrowed(v_xs_232_, v_fst_427_);
+lean_inc_ref(v_lt_231_);
+lean_inc(v___x_430_);
+lean_inc(v___x_429_);
+v___x_431_ = lean_apply_2(v_lt_231_, v___x_429_, v___x_430_);
+v___x_432_ = lean_unbox(v___x_431_);
+if (v___x_432_ == 0)
+{
+lean_dec(v___x_424_);
+v___y_415_ = v_fst_426_;
+v_fst_416_ = v_fst_427_;
+v_snd_417_ = v_snd_428_;
+goto v___jp_414_;
+}
+else
+{
+lean_object* v___x_433_; 
+lean_dec(v_fst_427_);
+v___x_433_ = lean_nat_add(v_snd_428_, v___x_314_);
+lean_dec(v_snd_428_);
+v___y_415_ = v_fst_426_;
+v_fst_416_ = v___x_424_;
+v_snd_417_ = v___x_433_;
+goto v___jp_414_;
+}
+}
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg___boxed(lean_object* v_lt_438_, lean_object* v_xs_439_, lean_object* v_a_440_, lean_object* v_b_441_){
+_start:
+{
+lean_object* v_res_442_; 
+v_res_442_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg(v_lt_438_, v_xs_439_, v_a_440_, v_b_441_);
+lean_dec(v_b_441_);
+lean_dec(v_a_440_);
+lean_dec_ref(v_xs_439_);
+return v_res_442_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg(lean_object* v_a_443_, lean_object* v_xs_444_, lean_object* v_j_445_){
+_start:
+{
+uint8_t v___x_446_; 
+v___x_446_ = lean_nat_dec_lt(v_a_443_, v_j_445_);
+if (v___x_446_ == 0)
+{
+lean_dec(v_j_445_);
+return v_xs_444_;
+}
+else
+{
+lean_object* v___x_447_; lean_object* v___x_448_; lean_object* v___x_449_; lean_object* v___x_450_; uint8_t v___x_451_; 
+v___x_447_ = lean_array_fget_borrowed(v_xs_444_, v_j_445_);
+v___x_448_ = lean_unsigned_to_nat(1u);
+v___x_449_ = lean_nat_sub(v_j_445_, v___x_448_);
+v___x_450_ = lean_array_fget_borrowed(v_xs_444_, v___x_449_);
+v___x_451_ = lean_nat_dec_lt(v___x_447_, v___x_450_);
+if (v___x_451_ == 0)
+{
+lean_dec(v___x_449_);
+lean_dec(v_j_445_);
+return v_xs_444_;
+}
+else
+{
+lean_object* v___x_452_; 
+v___x_452_ = lean_array_fswap(v_xs_444_, v_j_445_, v___x_449_);
+lean_dec(v_j_445_);
+v_xs_444_ = v___x_452_;
+v_j_445_ = v___x_449_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg___boxed(lean_object* v_a_454_, lean_object* v_xs_455_, lean_object* v_j_456_){
+_start:
+{
+lean_object* v_res_457_; 
+v_res_457_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg(v_a_454_, v_xs_455_, v_j_456_);
+lean_dec(v_a_454_);
+return v_res_457_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg(lean_object* v_n_458_, lean_object* v_a_459_, lean_object* v_b_460_, lean_object* v_xs_461_, lean_object* v_i_462_){
+_start:
+{
+uint8_t v___x_463_; 
+v___x_463_ = lean_nat_dec_lt(v_i_462_, v_b_460_);
+if (v___x_463_ == 0)
+{
+lean_dec(v_i_462_);
+return v_xs_461_;
+}
+else
+{
+lean_object* v___x_464_; lean_object* v___x_465_; lean_object* v___x_466_; 
+lean_inc(v_i_462_);
+v___x_464_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg(v_a_459_, v_xs_461_, v_i_462_);
+v___x_465_ = lean_unsigned_to_nat(1u);
+v___x_466_ = lean_nat_add(v_i_462_, v___x_465_);
+lean_dec(v_i_462_);
+v_xs_461_ = v___x_464_;
+v_i_462_ = v___x_466_;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg___boxed(lean_object* v_n_468_, lean_object* v_a_469_, lean_object* v_b_470_, lean_object* v_xs_471_, lean_object* v_i_472_){
+_start:
+{
+lean_object* v_res_473_; 
+v_res_473_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg(v_n_468_, v_a_469_, v_b_470_, v_xs_471_, v_i_472_);
+lean_dec(v_b_470_);
+lean_dec(v_a_469_);
+lean_dec(v_n_468_);
+return v_res_473_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg(lean_object* v_n_474_, lean_object* v_xs_475_, lean_object* v_a_476_, lean_object* v_b_477_){
+_start:
+{
+lean_object* v___x_478_; lean_object* v___x_479_; lean_object* v___x_480_; 
+v___x_478_ = lean_unsigned_to_nat(1u);
+v___x_479_ = lean_nat_add(v_a_476_, v___x_478_);
+v___x_480_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg(v_n_474_, v_a_476_, v_b_477_, v_xs_475_, v___x_479_);
+return v___x_480_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg___boxed(lean_object* v_n_481_, lean_object* v_xs_482_, lean_object* v_a_483_, lean_object* v_b_484_){
+_start:
+{
+lean_object* v_res_485_; 
+v_res_485_ = l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg(v_n_481_, v_xs_482_, v_a_483_, v_b_484_);
+lean_dec(v_b_484_);
+lean_dec(v_a_483_);
+lean_dec(v_n_481_);
+return v_res_485_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg(lean_object* v_p_486_, lean_object* v_xs_487_, lean_object* v_i_488_, lean_object* v_j_489_){
+_start:
+{
+uint8_t v___x_490_; 
+v___x_490_ = lean_nat_dec_le(v_i_488_, v_j_489_);
+if (v___x_490_ == 0)
+{
+return v_j_489_;
+}
+else
+{
+lean_object* v___x_491_; uint8_t v___x_492_; 
+v___x_491_ = lean_array_fget_borrowed(v_xs_487_, v_j_489_);
+v___x_492_ = lean_nat_dec_lt(v_p_486_, v___x_491_);
+if (v___x_492_ == 0)
+{
+return v_j_489_;
+}
+else
+{
+lean_object* v___x_493_; lean_object* v___x_494_; 
+v___x_493_ = lean_unsigned_to_nat(1u);
+v___x_494_ = lean_nat_sub(v_j_489_, v___x_493_);
+lean_dec(v_j_489_);
+v_j_489_ = v___x_494_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg___boxed(lean_object* v_p_496_, lean_object* v_xs_497_, lean_object* v_i_498_, lean_object* v_j_499_){
+_start:
+{
+lean_object* v_res_500_; 
+v_res_500_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg(v_p_496_, v_xs_497_, v_i_498_, v_j_499_);
+lean_dec(v_i_498_);
+lean_dec_ref(v_xs_497_);
+lean_dec(v_p_496_);
+return v_res_500_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg(lean_object* v_p_501_, lean_object* v_xs_502_, lean_object* v_i_503_, lean_object* v_j_504_){
+_start:
+{
+uint8_t v___x_505_; 
+v___x_505_ = lean_nat_dec_le(v_i_503_, v_j_504_);
+if (v___x_505_ == 0)
+{
+return v_i_503_;
+}
+else
+{
+lean_object* v___x_506_; uint8_t v___x_507_; 
+v___x_506_ = lean_array_fget_borrowed(v_xs_502_, v_i_503_);
+v___x_507_ = lean_nat_dec_lt(v_p_501_, v___x_506_);
+if (v___x_507_ == 0)
+{
+lean_object* v___x_508_; lean_object* v___x_509_; 
+v___x_508_ = lean_unsigned_to_nat(1u);
+v___x_509_ = lean_nat_add(v_i_503_, v___x_508_);
+lean_dec(v_i_503_);
+v_i_503_ = v___x_509_;
+goto _start;
+}
+else
+{
+return v_i_503_;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg___boxed(lean_object* v_p_511_, lean_object* v_xs_512_, lean_object* v_i_513_, lean_object* v_j_514_){
+_start:
+{
+lean_object* v_res_515_; 
+v_res_515_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg(v_p_511_, v_xs_512_, v_i_513_, v_j_514_);
+lean_dec(v_j_514_);
+lean_dec_ref(v_xs_512_);
+lean_dec(v_p_511_);
+return v_res_515_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg(lean_object* v_n_516_, lean_object* v_a_517_, lean_object* v_b_518_, lean_object* v_pivot_519_, lean_object* v_p_520_, lean_object* v_xs_521_, lean_object* v_i_522_, lean_object* v_j_523_){
+_start:
+{
+lean_object* v_val_524_; lean_object* v_val_525_; uint8_t v___x_526_; 
+v_val_524_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg(v_p_520_, v_xs_521_, v_i_522_, v_j_523_);
+v_val_525_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg(v_p_520_, v_xs_521_, v_val_524_, v_j_523_);
+v___x_526_ = lean_nat_dec_lt(v_val_524_, v_val_525_);
+if (v___x_526_ == 0)
+{
+lean_object* v___x_527_; 
+lean_dec(v_val_525_);
+v___x_527_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_527_, 0, v_xs_521_);
+lean_ctor_set(v___x_527_, 1, v_val_524_);
+return v___x_527_;
+}
+else
+{
+lean_object* v___x_528_; lean_object* v___x_529_; lean_object* v___x_530_; lean_object* v___x_531_; 
+v___x_528_ = lean_array_fswap(v_xs_521_, v_val_524_, v_val_525_);
+v___x_529_ = lean_unsigned_to_nat(1u);
+v___x_530_ = lean_nat_add(v_val_524_, v___x_529_);
+lean_dec(v_val_524_);
+v___x_531_ = lean_nat_sub(v_val_525_, v___x_529_);
+lean_dec(v_val_525_);
+v_xs_521_ = v___x_528_;
+v_i_522_ = v___x_530_;
+v_j_523_ = v___x_531_;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg___boxed(lean_object* v_n_533_, lean_object* v_a_534_, lean_object* v_b_535_, lean_object* v_pivot_536_, lean_object* v_p_537_, lean_object* v_xs_538_, lean_object* v_i_539_, lean_object* v_j_540_){
+_start:
+{
+lean_object* v_res_541_; 
+v_res_541_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg(v_n_533_, v_a_534_, v_b_535_, v_pivot_536_, v_p_537_, v_xs_538_, v_i_539_, v_j_540_);
+lean_dec(v_p_537_);
+lean_dec(v_pivot_536_);
+lean_dec(v_b_535_);
+lean_dec(v_a_534_);
+lean_dec(v_n_533_);
+return v_res_541_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg(lean_object* v_n_542_, lean_object* v_xs_543_, lean_object* v_a_544_, lean_object* v_b_545_, lean_object* v_pivot_546_){
+_start:
+{
+lean_object* v_xs_547_; lean_object* v___x_548_; lean_object* v___x_549_; lean_object* v___x_550_; lean_object* v___x_551_; lean_object* v___x_552_; 
+v_xs_547_ = lean_array_fswap(v_xs_543_, v_a_544_, v_pivot_546_);
+v___x_548_ = lean_array_fget(v_xs_547_, v_a_544_);
+v___x_549_ = lean_unsigned_to_nat(1u);
+v___x_550_ = lean_nat_add(v_a_544_, v___x_549_);
+v___x_551_ = lean_nat_sub(v_b_545_, v___x_549_);
+v___x_552_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg(v_n_542_, v_a_544_, v_b_545_, v_pivot_546_, v___x_548_, v_xs_547_, v___x_550_, v___x_551_);
+lean_dec(v___x_548_);
+return v___x_552_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg___boxed(lean_object* v_n_553_, lean_object* v_xs_554_, lean_object* v_a_555_, lean_object* v_b_556_, lean_object* v_pivot_557_){
+_start:
+{
+lean_object* v_res_558_; 
+v_res_558_ = l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg(v_n_553_, v_xs_554_, v_a_555_, v_b_556_, v_pivot_557_);
+lean_dec(v_pivot_557_);
+lean_dec(v_b_556_);
+lean_dec(v_a_555_);
+lean_dec(v_n_553_);
+return v_res_558_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(lean_object* v_p_559_, lean_object* v_xs_560_, lean_object* v_i_561_, lean_object* v_j_562_){
+_start:
+{
+uint8_t v___x_563_; 
+v___x_563_ = lean_nat_dec_le(v_i_561_, v_j_562_);
+if (v___x_563_ == 0)
+{
+return v_j_562_;
+}
+else
+{
+lean_object* v___x_564_; uint8_t v___x_565_; 
+v___x_564_ = lean_array_fget_borrowed(v_xs_560_, v_j_562_);
+v___x_565_ = lean_nat_dec_lt(v___x_564_, v_p_559_);
+if (v___x_565_ == 0)
+{
+lean_object* v___x_566_; lean_object* v___x_567_; 
+v___x_566_ = lean_unsigned_to_nat(1u);
+v___x_567_ = lean_nat_sub(v_j_562_, v___x_566_);
+lean_dec(v_j_562_);
+v_j_562_ = v___x_567_;
+goto _start;
+}
+else
+{
+return v_j_562_;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg___boxed(lean_object* v_p_569_, lean_object* v_xs_570_, lean_object* v_i_571_, lean_object* v_j_572_){
+_start:
+{
+lean_object* v_res_573_; 
+v_res_573_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(v_p_569_, v_xs_570_, v_i_571_, v_j_572_);
+lean_dec(v_i_571_);
+lean_dec_ref(v_xs_570_);
+lean_dec(v_p_569_);
+return v_res_573_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(lean_object* v_p_574_, lean_object* v_xs_575_, lean_object* v_i_576_, lean_object* v_j_577_){
+_start:
+{
+uint8_t v___x_578_; 
+v___x_578_ = lean_nat_dec_le(v_i_576_, v_j_577_);
+if (v___x_578_ == 0)
+{
+return v_i_576_;
+}
+else
+{
+lean_object* v___x_579_; uint8_t v___x_580_; 
+v___x_579_ = lean_array_fget_borrowed(v_xs_575_, v_i_576_);
+v___x_580_ = lean_nat_dec_lt(v___x_579_, v_p_574_);
+if (v___x_580_ == 0)
+{
+return v_i_576_;
+}
+else
+{
+lean_object* v___x_581_; lean_object* v___x_582_; 
+v___x_581_ = lean_unsigned_to_nat(1u);
+v___x_582_ = lean_nat_add(v_i_576_, v___x_581_);
+lean_dec(v_i_576_);
+v_i_576_ = v___x_582_;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg___boxed(lean_object* v_p_584_, lean_object* v_xs_585_, lean_object* v_i_586_, lean_object* v_j_587_){
+_start:
+{
+lean_object* v_res_588_; 
+v_res_588_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(v_p_584_, v_xs_585_, v_i_586_, v_j_587_);
+lean_dec(v_j_587_);
+lean_dec_ref(v_xs_585_);
+lean_dec(v_p_584_);
+return v_res_588_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg(lean_object* v_n_589_, lean_object* v_a_590_, lean_object* v_b_591_, lean_object* v_pivot_592_, lean_object* v_p_593_, lean_object* v_xs_594_, lean_object* v_i_595_, lean_object* v_j_596_){
+_start:
+{
+lean_object* v_val_597_; lean_object* v_val_598_; uint8_t v___x_599_; 
+v_val_597_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(v_p_593_, v_xs_594_, v_i_595_, v_j_596_);
+v_val_598_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(v_p_593_, v_xs_594_, v_val_597_, v_j_596_);
+v___x_599_ = lean_nat_dec_lt(v_val_597_, v_val_598_);
+if (v___x_599_ == 0)
+{
+lean_object* v___x_600_; lean_object* v___x_601_; lean_object* v___x_602_; lean_object* v___x_603_; 
+lean_dec(v_val_597_);
+v___x_600_ = lean_array_fswap(v_xs_594_, v_val_598_, v_a_590_);
+v___x_601_ = lean_box(v___x_599_);
+v___x_602_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_602_, 0, v_val_598_);
+lean_ctor_set(v___x_602_, 1, v___x_601_);
+v___x_603_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_603_, 0, v___x_600_);
+lean_ctor_set(v___x_603_, 1, v___x_602_);
+return v___x_603_;
+}
+else
+{
+lean_object* v___x_604_; lean_object* v___x_605_; lean_object* v___x_606_; lean_object* v___x_607_; 
+v___x_604_ = lean_array_fswap(v_xs_594_, v_val_597_, v_val_598_);
+v___x_605_ = lean_unsigned_to_nat(1u);
+v___x_606_ = lean_nat_add(v_val_597_, v___x_605_);
+lean_dec(v_val_597_);
+v___x_607_ = lean_nat_sub(v_val_598_, v___x_605_);
+lean_dec(v_val_598_);
+v_xs_594_ = v___x_604_;
+v_i_595_ = v___x_606_;
+v_j_596_ = v___x_607_;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg___boxed(lean_object* v_n_609_, lean_object* v_a_610_, lean_object* v_b_611_, lean_object* v_pivot_612_, lean_object* v_p_613_, lean_object* v_xs_614_, lean_object* v_i_615_, lean_object* v_j_616_){
+_start:
+{
+lean_object* v_res_617_; 
+v_res_617_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg(v_n_609_, v_a_610_, v_b_611_, v_pivot_612_, v_p_613_, v_xs_614_, v_i_615_, v_j_616_);
+lean_dec(v_p_613_);
+lean_dec(v_pivot_612_);
+lean_dec(v_b_611_);
+lean_dec(v_a_610_);
+lean_dec(v_n_609_);
+return v_res_617_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(lean_object* v_n_618_, lean_object* v_xs_619_, lean_object* v_a_620_, lean_object* v_b_621_, lean_object* v_pivot_622_){
+_start:
+{
+lean_object* v_xs_623_; lean_object* v_p_624_; lean_object* v___x_625_; lean_object* v___x_626_; lean_object* v___x_627_; lean_object* v_val_628_; lean_object* v_val_629_; uint8_t v___x_630_; 
+v_xs_623_ = lean_array_fswap(v_xs_619_, v_a_620_, v_pivot_622_);
+v_p_624_ = lean_array_fget_borrowed(v_xs_623_, v_a_620_);
+v___x_625_ = lean_unsigned_to_nat(1u);
+v___x_626_ = lean_nat_add(v_a_620_, v___x_625_);
+v___x_627_ = lean_nat_sub(v_b_621_, v___x_625_);
+v_val_628_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(v_p_624_, v_xs_623_, v___x_626_, v___x_627_);
+v_val_629_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(v_p_624_, v_xs_623_, v_val_628_, v___x_627_);
+v___x_630_ = lean_nat_dec_lt(v_val_628_, v_val_629_);
+if (v___x_630_ == 0)
+{
+lean_object* v___x_631_; uint8_t v___x_632_; lean_object* v___x_633_; lean_object* v___x_634_; lean_object* v___x_635_; 
+lean_dec(v_val_628_);
+v___x_631_ = lean_array_fswap(v_xs_623_, v_val_629_, v_a_620_);
+v___x_632_ = 1;
+v___x_633_ = lean_box(v___x_632_);
+v___x_634_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_634_, 0, v_val_629_);
+lean_ctor_set(v___x_634_, 1, v___x_633_);
+v___x_635_ = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(v___x_635_, 0, v___x_631_);
+lean_ctor_set(v___x_635_, 1, v___x_634_);
+return v___x_635_;
+}
+else
+{
+lean_object* v___x_636_; lean_object* v___x_637_; lean_object* v___x_638_; lean_object* v___x_639_; 
+lean_inc(v_p_624_);
+v___x_636_ = lean_array_fswap(v_xs_623_, v_val_628_, v_val_629_);
+v___x_637_ = lean_nat_add(v_val_628_, v___x_625_);
+lean_dec(v_val_628_);
+v___x_638_ = lean_nat_sub(v_val_629_, v___x_625_);
+lean_dec(v_val_629_);
+v___x_639_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg(v_n_618_, v_a_620_, v_b_621_, v_pivot_622_, v_p_624_, v___x_636_, v___x_637_, v___x_638_);
+lean_dec(v_p_624_);
+return v___x_639_;
+}
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg___boxed(lean_object* v_n_640_, lean_object* v_xs_641_, lean_object* v_a_642_, lean_object* v_b_643_, lean_object* v_pivot_644_){
+_start:
+{
+lean_object* v_res_645_; 
+v_res_645_ = l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(v_n_640_, v_xs_641_, v_a_642_, v_b_643_, v_pivot_644_);
+lean_dec(v_pivot_644_);
+lean_dec(v_b_643_);
+lean_dec(v_a_642_);
+lean_dec(v_n_640_);
+return v_res_645_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(lean_object* v_n_647_, lean_object* v_lo_648_, lean_object* v_xs_649_, lean_object* v_a_650_, lean_object* v_b_651_, lean_object* v_limit_652_, uint8_t v_balanced_653_, uint8_t v_partitioned_654_, uint8_t v_afterEqual_655_, lean_object* v_fuel_656_){
+_start:
+{
+lean_object* v___x_657_; lean_object* v___x_658_; uint8_t v___x_659_; 
+v___x_657_ = lean_nat_sub(v_b_651_, v_a_650_);
+v___x_658_ = lean_unsigned_to_nat(24u);
+v___x_659_ = lean_nat_dec_le(v___x_657_, v___x_658_);
+if (v___x_659_ == 0)
+{
+lean_object* v___f_660_; lean_object* v___x_661_; uint8_t v___x_662_; 
+v___f_660_ = ((lean_object*)(l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___closed__0));
+v___x_661_ = lean_unsigned_to_nat(0u);
+v___x_662_ = lean_nat_dec_eq(v_limit_652_, v___x_661_);
+if (v___x_662_ == 0)
+{
+uint8_t v_isZero_663_; lean_object* v_one_664_; lean_object* v_n_665_; lean_object* v___y_667_; uint8_t v___y_668_; lean_object* v___y_669_; lean_object* v___y_670_; uint8_t v___y_671_; lean_object* v___y_695_; lean_object* v___y_696_; lean_object* v_fst_697_; uint8_t v_snd_698_; lean_object* v___y_732_; lean_object* v_fst_733_; lean_object* v_fst_734_; uint8_t v_snd_735_; lean_object* v_fst_745_; lean_object* v_snd_746_; 
+v_isZero_663_ = lean_nat_dec_eq(v_fuel_656_, v___x_661_);
+v_one_664_ = lean_unsigned_to_nat(1u);
+v_n_665_ = lean_nat_sub(v_fuel_656_, v_one_664_);
+lean_dec(v_fuel_656_);
+if (v_balanced_653_ == 0)
+{
+lean_object* v___x_759_; lean_object* v___x_760_; 
+v___x_759_ = l_Array_QSort_Internal_breakPatterns___redArg(v_xs_649_, v_a_650_, v_b_651_);
+v___x_760_ = lean_nat_sub(v_limit_652_, v_one_664_);
+lean_dec(v_limit_652_);
+v_fst_745_ = v___x_759_;
+v_snd_746_ = v___x_760_;
+goto v___jp_744_;
+}
+else
+{
+v_fst_745_ = v_xs_649_;
+v_snd_746_ = v_limit_652_;
+goto v___jp_744_;
+}
+v___jp_666_:
+{
+lean_object* v___x_672_; lean_object* v_snd_673_; lean_object* v_fst_674_; lean_object* v_fst_675_; lean_object* v_snd_676_; lean_object* v___x_677_; lean_object* v___x_678_; uint8_t v___x_679_; 
+v___x_672_ = l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(v_n_647_, v___y_667_, v_a_650_, v_b_651_, v___y_670_);
+lean_dec(v___y_670_);
+v_snd_673_ = lean_ctor_get(v___x_672_, 1);
+lean_inc(v_snd_673_);
+v_fst_674_ = lean_ctor_get(v___x_672_, 0);
+lean_inc(v_fst_674_);
+lean_dec_ref(v___x_672_);
+v_fst_675_ = lean_ctor_get(v_snd_673_, 0);
+lean_inc(v_fst_675_);
+v_snd_676_ = lean_ctor_get(v_snd_673_, 1);
+lean_inc(v_snd_676_);
+lean_dec(v_snd_673_);
+v___x_677_ = lean_nat_sub(v_fst_675_, v_a_650_);
+v___x_678_ = lean_nat_sub(v_b_651_, v_fst_675_);
+v___x_679_ = lean_nat_dec_lt(v___x_677_, v___x_678_);
+if (v___x_679_ == 0)
+{
+lean_object* v___x_680_; lean_object* v___x_681_; lean_object* v___x_682_; lean_object* v___x_683_; uint8_t v___x_684_; uint8_t v___x_685_; 
+lean_dec(v___x_677_);
+v___x_680_ = lean_nat_add(v_fst_675_, v_one_664_);
+lean_inc(v_n_665_);
+lean_inc(v___y_669_);
+v___x_681_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_647_, v_lo_648_, v_fst_674_, v___x_680_, v_b_651_, v___y_669_, v___y_668_, v___y_668_, v___x_679_, v_n_665_);
+v___x_682_ = lean_unsigned_to_nat(3u);
+v___x_683_ = lean_nat_shiftr(v___x_657_, v___x_682_);
+lean_dec(v___x_657_);
+v___x_684_ = lean_nat_dec_le(v___x_683_, v___x_678_);
+lean_dec(v___x_678_);
+lean_dec(v___x_683_);
+v___x_685_ = lean_unbox(v_snd_676_);
+lean_dec(v_snd_676_);
+v_xs_649_ = v___x_681_;
+v_b_651_ = v_fst_675_;
+v_limit_652_ = v___y_669_;
+v_balanced_653_ = v___x_684_;
+v_partitioned_654_ = v___x_685_;
+v_afterEqual_655_ = v___x_679_;
+v_fuel_656_ = v_n_665_;
+goto _start;
+}
+else
+{
+lean_object* v___x_687_; lean_object* v___x_688_; lean_object* v___x_689_; lean_object* v___x_690_; uint8_t v___x_691_; uint8_t v___x_692_; 
+lean_dec(v___x_678_);
+lean_inc(v_n_665_);
+lean_inc(v___y_669_);
+lean_inc(v_fst_675_);
+v___x_687_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_647_, v_lo_648_, v_fst_674_, v_a_650_, v_fst_675_, v___y_669_, v___y_668_, v___y_668_, v___y_671_, v_n_665_);
+v___x_688_ = lean_nat_add(v_fst_675_, v_one_664_);
+lean_dec(v_fst_675_);
+v___x_689_ = lean_unsigned_to_nat(3u);
+v___x_690_ = lean_nat_shiftr(v___x_657_, v___x_689_);
+lean_dec(v___x_657_);
+v___x_691_ = lean_nat_dec_le(v___x_690_, v___x_677_);
+lean_dec(v___x_677_);
+lean_dec(v___x_690_);
+v___x_692_ = lean_unbox(v_snd_676_);
+lean_dec(v_snd_676_);
+v_xs_649_ = v___x_687_;
+v_a_650_ = v___x_688_;
+v_limit_652_ = v___y_669_;
+v_balanced_653_ = v___x_691_;
+v_partitioned_654_ = v___x_692_;
+v_afterEqual_655_ = v___y_671_;
+v_fuel_656_ = v_n_665_;
+goto _start;
+}
+}
+v___jp_694_:
+{
+uint8_t v___x_699_; 
+v___x_699_ = 1;
+if (v_afterEqual_655_ == 0)
+{
+uint8_t v___x_700_; 
+v___x_700_ = lean_nat_dec_lt(v_lo_648_, v_a_650_);
+if (v___x_700_ == 0)
+{
+v___y_667_ = v_fst_697_;
+v___y_668_ = v___x_699_;
+v___y_669_ = v___y_695_;
+v___y_670_ = v___y_696_;
+v___y_671_ = v___x_700_;
+goto v___jp_666_;
+}
+else
+{
+lean_object* v___x_701_; lean_object* v___x_702_; lean_object* v___x_703_; uint8_t v___x_704_; 
+v___x_701_ = lean_nat_sub(v_a_650_, v_one_664_);
+v___x_702_ = lean_array_fget_borrowed(v_fst_697_, v___x_701_);
+lean_dec(v___x_701_);
+v___x_703_ = lean_array_fget_borrowed(v_fst_697_, v___y_696_);
+v___x_704_ = lean_nat_dec_lt(v___x_702_, v___x_703_);
+if (v___x_704_ == 0)
+{
+lean_object* v___x_705_; lean_object* v_fst_706_; lean_object* v_snd_707_; 
+lean_dec(v___x_657_);
+v___x_705_ = l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg(v_n_647_, v_fst_697_, v_a_650_, v_b_651_, v___y_696_);
+lean_dec(v___y_696_);
+lean_dec(v_a_650_);
+v_fst_706_ = lean_ctor_get(v___x_705_, 0);
+lean_inc(v_fst_706_);
+v_snd_707_ = lean_ctor_get(v___x_705_, 1);
+lean_inc(v_snd_707_);
+lean_dec_ref(v___x_705_);
+v_xs_649_ = v_fst_706_;
+v_a_650_ = v_snd_707_;
+v_limit_652_ = v___y_695_;
+v_afterEqual_655_ = v___x_699_;
+v_fuel_656_ = v_n_665_;
+goto _start;
+}
+else
+{
+lean_object* v___x_709_; lean_object* v_snd_710_; lean_object* v_fst_711_; lean_object* v_fst_712_; lean_object* v_snd_713_; lean_object* v___x_714_; lean_object* v___x_715_; uint8_t v___x_716_; 
+v___x_709_ = l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(v_n_647_, v_fst_697_, v_a_650_, v_b_651_, v___y_696_);
+lean_dec(v___y_696_);
+v_snd_710_ = lean_ctor_get(v___x_709_, 1);
+lean_inc(v_snd_710_);
+v_fst_711_ = lean_ctor_get(v___x_709_, 0);
+lean_inc(v_fst_711_);
+lean_dec_ref(v___x_709_);
+v_fst_712_ = lean_ctor_get(v_snd_710_, 0);
+lean_inc(v_fst_712_);
+v_snd_713_ = lean_ctor_get(v_snd_710_, 1);
+lean_inc(v_snd_713_);
+lean_dec(v_snd_710_);
+v___x_714_ = lean_nat_sub(v_fst_712_, v_a_650_);
+v___x_715_ = lean_nat_sub(v_b_651_, v_fst_712_);
+v___x_716_ = lean_nat_dec_lt(v___x_714_, v___x_715_);
+if (v___x_716_ == 0)
+{
+lean_object* v___x_717_; lean_object* v___x_718_; lean_object* v___x_719_; lean_object* v___x_720_; uint8_t v___x_721_; uint8_t v___x_722_; 
+lean_dec(v___x_714_);
+v___x_717_ = lean_nat_add(v_fst_712_, v_one_664_);
+lean_inc(v_n_665_);
+lean_inc(v___y_695_);
+v___x_718_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_647_, v_lo_648_, v_fst_711_, v___x_717_, v_b_651_, v___y_695_, v___x_699_, v___x_699_, v___x_716_, v_n_665_);
+v___x_719_ = lean_unsigned_to_nat(3u);
+v___x_720_ = lean_nat_shiftr(v___x_657_, v___x_719_);
+lean_dec(v___x_657_);
+v___x_721_ = lean_nat_dec_le(v___x_720_, v___x_715_);
+lean_dec(v___x_715_);
+lean_dec(v___x_720_);
+v___x_722_ = lean_unbox(v_snd_713_);
+lean_dec(v_snd_713_);
+v_xs_649_ = v___x_718_;
+v_b_651_ = v_fst_712_;
+v_limit_652_ = v___y_695_;
+v_balanced_653_ = v___x_721_;
+v_partitioned_654_ = v___x_722_;
+v_afterEqual_655_ = v___x_716_;
+v_fuel_656_ = v_n_665_;
+goto _start;
+}
+else
+{
+lean_object* v___x_724_; lean_object* v___x_725_; lean_object* v___x_726_; lean_object* v___x_727_; uint8_t v___x_728_; uint8_t v___x_729_; 
+lean_dec(v___x_715_);
+lean_inc(v_n_665_);
+lean_inc(v___y_695_);
+lean_inc(v_fst_712_);
+v___x_724_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_647_, v_lo_648_, v_fst_711_, v_a_650_, v_fst_712_, v___y_695_, v___x_699_, v___x_699_, v_snd_698_, v_n_665_);
+v___x_725_ = lean_nat_add(v_fst_712_, v_one_664_);
+lean_dec(v_fst_712_);
+v___x_726_ = lean_unsigned_to_nat(3u);
+v___x_727_ = lean_nat_shiftr(v___x_657_, v___x_726_);
+lean_dec(v___x_657_);
+v___x_728_ = lean_nat_dec_le(v___x_727_, v___x_714_);
+lean_dec(v___x_714_);
+lean_dec(v___x_727_);
+v___x_729_ = lean_unbox(v_snd_713_);
+lean_dec(v_snd_713_);
+v_xs_649_ = v___x_724_;
+v_a_650_ = v___x_725_;
+v_limit_652_ = v___y_695_;
+v_balanced_653_ = v___x_728_;
+v_partitioned_654_ = v___x_729_;
+v_afterEqual_655_ = v_snd_698_;
+v_fuel_656_ = v_n_665_;
+goto _start;
+}
+}
+}
+}
+else
+{
+v___y_667_ = v_fst_697_;
+v___y_668_ = v___x_699_;
+v___y_669_ = v___y_695_;
+v___y_670_ = v___y_696_;
+v___y_671_ = v_snd_698_;
+goto v___jp_666_;
+}
+}
+v___jp_731_:
+{
+if (v_balanced_653_ == 0)
+{
+v___y_695_ = v___y_732_;
+v___y_696_ = v_fst_734_;
+v_fst_697_ = v_fst_733_;
+v_snd_698_ = v___x_662_;
+goto v___jp_694_;
+}
+else
+{
+if (v_partitioned_654_ == 0)
+{
+v___y_695_ = v___y_732_;
+v___y_696_ = v_fst_734_;
+v_fst_697_ = v_fst_733_;
+v_snd_698_ = v___x_662_;
+goto v___jp_694_;
+}
+else
+{
+uint8_t v___x_736_; uint8_t v___x_737_; 
+v___x_736_ = 1;
+v___x_737_ = l_Array_QSort_Internal_instBEqHint_beq(v_snd_735_, v___x_736_);
+if (v___x_737_ == 0)
+{
+v___y_695_ = v___y_732_;
+v___y_696_ = v_fst_734_;
+v_fst_697_ = v_fst_733_;
+v_snd_698_ = v___x_737_;
+goto v___jp_694_;
+}
+else
+{
+lean_object* v___x_738_; lean_object* v_snd_739_; uint8_t v___x_740_; 
+v___x_738_ = l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg(v_n_647_, v___f_660_, v_fst_733_, v_a_650_, v_b_651_);
+v_snd_739_ = lean_ctor_get(v___x_738_, 1);
+v___x_740_ = lean_unbox(v_snd_739_);
+if (v___x_740_ == 0)
+{
+lean_object* v_fst_741_; uint8_t v___x_742_; 
+lean_inc(v_snd_739_);
+v_fst_741_ = lean_ctor_get(v___x_738_, 0);
+lean_inc(v_fst_741_);
+lean_dec_ref(v___x_738_);
+v___x_742_ = lean_unbox(v_snd_739_);
+lean_dec(v_snd_739_);
+v___y_695_ = v___y_732_;
+v___y_696_ = v_fst_734_;
+v_fst_697_ = v_fst_741_;
+v_snd_698_ = v___x_742_;
+goto v___jp_694_;
+}
+else
+{
+lean_object* v_fst_743_; 
+lean_dec(v_fst_734_);
+lean_dec(v___y_732_);
+lean_dec(v_n_665_);
+lean_dec(v___x_657_);
+lean_dec(v_b_651_);
+lean_dec(v_a_650_);
+v_fst_743_ = lean_ctor_get(v___x_738_, 0);
+lean_inc(v_fst_743_);
+lean_dec_ref(v___x_738_);
+return v_fst_743_;
+}
+}
+}
+}
+}
+v___jp_744_:
+{
+lean_object* v_down_747_; lean_object* v_fst_748_; lean_object* v_snd_749_; uint8_t v___x_750_; uint8_t v___x_751_; uint8_t v___x_752_; 
+v_down_747_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg(v___f_660_, v_fst_745_, v_a_650_, v_b_651_);
+v_fst_748_ = lean_ctor_get(v_down_747_, 0);
+lean_inc(v_fst_748_);
+v_snd_749_ = lean_ctor_get(v_down_747_, 1);
+lean_inc(v_snd_749_);
+lean_dec_ref(v_down_747_);
+v___x_750_ = 2;
+v___x_751_ = lean_unbox(v_snd_749_);
+v___x_752_ = l_Array_QSort_Internal_instBEqHint_beq(v___x_751_, v___x_750_);
+if (v___x_752_ == 0)
+{
+uint8_t v___x_753_; 
+v___x_753_ = lean_unbox(v_snd_749_);
+lean_dec(v_snd_749_);
+v___y_732_ = v_snd_746_;
+v_fst_733_ = v_fst_745_;
+v_fst_734_ = v_fst_748_;
+v_snd_735_ = v___x_753_;
+goto v___jp_731_;
+}
+else
+{
+lean_object* v___x_754_; lean_object* v___x_755_; lean_object* v___x_756_; lean_object* v___x_757_; uint8_t v___x_758_; 
+lean_dec(v_snd_749_);
+lean_inc(v_b_651_);
+lean_inc(v_a_650_);
+v___x_754_ = l_Array_QSort_Internal_reverseRange___redArg(v_fst_745_, v_a_650_, v_b_651_);
+v___x_755_ = lean_nat_sub(v_b_651_, v_one_664_);
+v___x_756_ = lean_nat_sub(v_fst_748_, v_a_650_);
+lean_dec(v_fst_748_);
+v___x_757_ = lean_nat_sub(v___x_755_, v___x_756_);
+lean_dec(v___x_756_);
+lean_dec(v___x_755_);
+v___x_758_ = 1;
+v___y_732_ = v_snd_746_;
+v_fst_733_ = v___x_754_;
+v_fst_734_ = v___x_757_;
+v_snd_735_ = v___x_758_;
+goto v___jp_731_;
+}
+}
+}
+else
+{
+lean_object* v___x_761_; 
+lean_dec(v___x_657_);
+lean_dec(v_fuel_656_);
+lean_dec(v_limit_652_);
+v___x_761_ = l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg(v_n_647_, v___f_660_, v_xs_649_, v_a_650_, v_b_651_);
+lean_dec(v_b_651_);
+lean_dec(v_a_650_);
+return v___x_761_;
+}
+}
+else
+{
+lean_object* v___x_762_; 
+lean_dec(v___x_657_);
+lean_dec(v_fuel_656_);
+lean_dec(v_limit_652_);
+v___x_762_ = l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg(v_n_647_, v_xs_649_, v_a_650_, v_b_651_);
+lean_dec(v_b_651_);
+lean_dec(v_a_650_);
+return v___x_762_;
+}
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg___boxed(lean_object* v_n_763_, lean_object* v_lo_764_, lean_object* v_xs_765_, lean_object* v_a_766_, lean_object* v_b_767_, lean_object* v_limit_768_, lean_object* v_balanced_769_, lean_object* v_partitioned_770_, lean_object* v_afterEqual_771_, lean_object* v_fuel_772_){
+_start:
+{
+uint8_t v_balanced_boxed_773_; uint8_t v_partitioned_boxed_774_; uint8_t v_afterEqual_boxed_775_; lean_object* v_res_776_; 
+v_balanced_boxed_773_ = lean_unbox(v_balanced_769_);
+v_partitioned_boxed_774_ = lean_unbox(v_partitioned_770_);
+v_afterEqual_boxed_775_ = lean_unbox(v_afterEqual_771_);
+v_res_776_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_763_, v_lo_764_, v_xs_765_, v_a_766_, v_b_767_, v_limit_768_, v_balanced_boxed_773_, v_partitioned_boxed_774_, v_afterEqual_boxed_775_, v_fuel_772_);
+lean_dec(v_lo_764_);
+lean_dec(v_n_763_);
+return v_res_776_;
+}
+}
+LEAN_EXPORT lean_object* l_f(lean_object* v_a_777_){
+_start:
+{
+lean_object* v___x_778_; lean_object* v___x_779_; uint8_t v___x_780_; 
+v___x_778_ = lean_array_get_size(v_a_777_);
+v___x_779_ = lean_unsigned_to_nat(0u);
+v___x_780_ = lean_nat_dec_eq(v___x_778_, v___x_779_);
+if (v___x_780_ == 0)
+{
+lean_object* v___x_781_; lean_object* v___y_783_; lean_object* v___y_784_; lean_object* v___x_791_; lean_object* v___y_793_; uint8_t v___x_795_; 
+v___x_781_ = lean_unsigned_to_nat(1u);
+v___x_791_ = lean_nat_sub(v___x_778_, v___x_781_);
+v___x_795_ = lean_nat_dec_le(v___x_779_, v___x_791_);
+if (v___x_795_ == 0)
+{
+lean_inc(v___x_791_);
+v___y_793_ = v___x_791_;
+goto v___jp_792_;
+}
+else
+{
+v___y_793_ = v___x_779_;
+goto v___jp_792_;
+}
+v___jp_782_:
+{
+lean_object* v___x_785_; lean_object* v___x_786_; lean_object* v___x_787_; lean_object* v___x_788_; uint8_t v___x_789_; lean_object* v___x_790_; 
+v___x_785_ = lean_nat_add(v___y_784_, v___x_781_);
+lean_dec(v___y_784_);
+v___x_786_ = lean_nat_sub(v___x_785_, v___y_783_);
+v___x_787_ = lean_nat_log2(v___x_786_);
+v___x_788_ = lean_nat_add(v___x_787_, v___x_781_);
+lean_dec(v___x_787_);
+v___x_789_ = 1;
+lean_inc(v___y_783_);
+v___x_790_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v___x_778_, v___y_783_, v_a_777_, v___y_783_, v___x_785_, v___x_788_, v___x_789_, v___x_789_, v___x_780_, v___x_786_);
+lean_dec(v___y_783_);
+return v___x_790_;
+}
+v___jp_792_:
+{
+uint8_t v___x_794_; 
+v___x_794_ = lean_nat_dec_le(v___y_793_, v___x_791_);
+if (v___x_794_ == 0)
+{
+lean_dec(v___x_791_);
+lean_inc(v___y_793_);
+v___y_783_ = v___y_793_;
+v___y_784_ = v___y_793_;
+goto v___jp_782_;
+}
+else
+{
+v___y_783_ = v___y_793_;
+v___y_784_ = v___x_791_;
+goto v___jp_782_;
+}
+}
+}
+else
+{
+return v_a_777_;
+}
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0(lean_object* v_00_u03b1_796_, lean_object* v_n_797_, lean_object* v_lt_798_, lean_object* v_xs_799_, lean_object* v_a_800_, lean_object* v_b_801_, lean_object* v_hab_802_, lean_object* v_hb_803_){
+_start:
+{
+lean_object* v___x_804_; 
+v___x_804_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___redArg(v_lt_798_, v_xs_799_, v_a_800_, v_b_801_);
+return v___x_804_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0___boxed(lean_object* v_00_u03b1_805_, lean_object* v_n_806_, lean_object* v_lt_807_, lean_object* v_xs_808_, lean_object* v_a_809_, lean_object* v_b_810_, lean_object* v_hab_811_, lean_object* v_hb_812_){
+_start:
+{
+lean_object* v_res_813_; 
+v_res_813_ = l_Array_QSort_Internal_choosePivotM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__0(v_00_u03b1_805_, v_n_806_, v_lt_807_, v_xs_808_, v_a_809_, v_b_810_, v_hab_811_, v_hb_812_);
+lean_dec(v_b_810_);
+lean_dec(v_a_809_);
+lean_dec_ref(v_xs_808_);
+lean_dec(v_n_806_);
+return v_res_813_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0(lean_object* v_n_814_, lean_object* v_lo_815_, lean_object* v_xs_816_, lean_object* v_a_817_, lean_object* v_b_818_, lean_object* v_limit_819_, uint8_t v_balanced_820_, uint8_t v_partitioned_821_, uint8_t v_afterEqual_822_, lean_object* v_fuel_823_, lean_object* v_hf_824_, lean_object* v_hlo_825_, lean_object* v_hab_826_, lean_object* v_hb_827_){
+_start:
+{
+lean_object* v___x_828_; 
+v___x_828_ = l_Array_QSort_Internal_sortM___at___00f_spec__0___redArg(v_n_814_, v_lo_815_, v_xs_816_, v_a_817_, v_b_818_, v_limit_819_, v_balanced_820_, v_partitioned_821_, v_afterEqual_822_, v_fuel_823_);
+return v___x_828_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_sortM___at___00f_spec__0___boxed(lean_object* v_n_829_, lean_object* v_lo_830_, lean_object* v_xs_831_, lean_object* v_a_832_, lean_object* v_b_833_, lean_object* v_limit_834_, lean_object* v_balanced_835_, lean_object* v_partitioned_836_, lean_object* v_afterEqual_837_, lean_object* v_fuel_838_, lean_object* v_hf_839_, lean_object* v_hlo_840_, lean_object* v_hab_841_, lean_object* v_hb_842_){
+_start:
+{
+uint8_t v_balanced_boxed_843_; uint8_t v_partitioned_boxed_844_; uint8_t v_afterEqual_boxed_845_; lean_object* v_res_846_; 
+v_balanced_boxed_843_ = lean_unbox(v_balanced_835_);
+v_partitioned_boxed_844_ = lean_unbox(v_partitioned_836_);
+v_afterEqual_boxed_845_ = lean_unbox(v_afterEqual_837_);
+v_res_846_ = l_Array_QSort_Internal_sortM___at___00f_spec__0(v_n_829_, v_lo_830_, v_xs_831_, v_a_832_, v_b_833_, v_limit_834_, v_balanced_boxed_843_, v_partitioned_boxed_844_, v_afterEqual_boxed_845_, v_fuel_838_, v_hf_839_, v_hlo_840_, v_hab_841_, v_hb_842_);
+lean_dec(v_lo_830_);
+lean_dec(v_n_829_);
+return v_res_846_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1(lean_object* v_n_847_, lean_object* v_xs_848_, lean_object* v_a_849_, lean_object* v_b_850_, lean_object* v_pivot_851_, lean_object* v_hb_852_){
+_start:
+{
+lean_object* v___x_853_; 
+v___x_853_ = l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___redArg(v_n_847_, v_xs_848_, v_a_849_, v_b_850_, v_pivot_851_);
+return v___x_853_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1___boxed(lean_object* v_n_854_, lean_object* v_xs_855_, lean_object* v_a_856_, lean_object* v_b_857_, lean_object* v_pivot_858_, lean_object* v_hb_859_){
+_start:
+{
+lean_object* v_res_860_; 
+v_res_860_ = l_Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1(v_n_854_, v_xs_855_, v_a_856_, v_b_857_, v_pivot_858_, v_hb_859_);
+lean_dec(v_pivot_858_);
+lean_dec(v_b_857_);
+lean_dec(v_a_856_);
+lean_dec(v_n_854_);
+return v_res_860_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2(lean_object* v_n_861_, lean_object* v_xs_862_, lean_object* v_a_863_, lean_object* v_b_864_, lean_object* v_pivot_865_, lean_object* v_hb_866_){
+_start:
+{
+lean_object* v___x_867_; 
+v___x_867_ = l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___redArg(v_n_861_, v_xs_862_, v_a_863_, v_b_864_, v_pivot_865_);
+return v___x_867_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2___boxed(lean_object* v_n_868_, lean_object* v_xs_869_, lean_object* v_a_870_, lean_object* v_b_871_, lean_object* v_pivot_872_, lean_object* v_hb_873_){
+_start:
+{
+lean_object* v_res_874_; 
+v_res_874_ = l_Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2(v_n_868_, v_xs_869_, v_a_870_, v_b_871_, v_pivot_872_, v_hb_873_);
+lean_dec(v_pivot_872_);
+lean_dec(v_b_871_);
+lean_dec(v_a_870_);
+lean_dec(v_n_868_);
+return v_res_874_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3(lean_object* v_00_u03b1_875_, lean_object* v_n_876_, lean_object* v_lt_877_, lean_object* v_xs_878_, lean_object* v_a_879_, lean_object* v_b_880_, lean_object* v_hab_881_, lean_object* v_hb_882_){
+_start:
+{
+lean_object* v___x_883_; 
+v___x_883_ = l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___redArg(v_n_876_, v_lt_877_, v_xs_878_, v_a_879_, v_b_880_);
+return v___x_883_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3___boxed(lean_object* v_00_u03b1_884_, lean_object* v_n_885_, lean_object* v_lt_886_, lean_object* v_xs_887_, lean_object* v_a_888_, lean_object* v_b_889_, lean_object* v_hab_890_, lean_object* v_hb_891_){
+_start:
+{
+lean_object* v_res_892_; 
+v_res_892_ = l_Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3(v_00_u03b1_884_, v_n_885_, v_lt_886_, v_xs_887_, v_a_888_, v_b_889_, v_hab_890_, v_hb_891_);
+lean_dec(v_b_889_);
+lean_dec(v_a_888_);
+lean_dec(v_n_885_);
+return v_res_892_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4(lean_object* v_00_u03b1_893_, lean_object* v_n_894_, lean_object* v_lt_895_, lean_object* v_xs_896_, lean_object* v_a_897_, lean_object* v_b_898_, lean_object* v_hab_899_, lean_object* v_hb_900_){
+_start:
+{
+lean_object* v___x_901_; 
+v___x_901_ = l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___redArg(v_n_894_, v_lt_895_, v_xs_896_, v_a_897_, v_b_898_);
+return v___x_901_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4___boxed(lean_object* v_00_u03b1_902_, lean_object* v_n_903_, lean_object* v_lt_904_, lean_object* v_xs_905_, lean_object* v_a_906_, lean_object* v_b_907_, lean_object* v_hab_908_, lean_object* v_hb_909_){
+_start:
+{
+lean_object* v_res_910_; 
+v_res_910_ = l_Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4(v_00_u03b1_902_, v_n_903_, v_lt_904_, v_xs_905_, v_a_906_, v_b_907_, v_hab_908_, v_hb_909_);
+lean_dec(v_b_907_);
+lean_dec(v_a_906_);
+lean_dec(v_n_903_);
+return v_res_910_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5(lean_object* v_n_911_, lean_object* v_xs_912_, lean_object* v_a_913_, lean_object* v_b_914_, lean_object* v_hb_915_){
+_start:
+{
+lean_object* v___x_916_; 
+v___x_916_ = l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___redArg(v_n_911_, v_xs_912_, v_a_913_, v_b_914_);
+return v___x_916_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5___boxed(lean_object* v_n_917_, lean_object* v_xs_918_, lean_object* v_a_919_, lean_object* v_b_920_, lean_object* v_hb_921_){
+_start:
+{
+lean_object* v_res_922_; 
+v_res_922_ = l_Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5(v_n_917_, v_xs_918_, v_a_919_, v_b_920_, v_hb_921_);
+lean_dec(v_b_920_);
+lean_dec(v_a_919_);
+lean_dec(v_n_917_);
+return v_res_922_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2(lean_object* v_n_923_, lean_object* v_a_924_, lean_object* v_b_925_, lean_object* v_pivot_926_, lean_object* v_hb_927_, lean_object* v_p_928_, lean_object* v_xs_929_, lean_object* v_i_930_, lean_object* v_j_931_, lean_object* v_h1_932_, lean_object* v_h2_933_, lean_object* v_h3_934_){
+_start:
+{
+lean_object* v___x_935_; 
+v___x_935_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___redArg(v_p_928_, v_xs_929_, v_i_930_, v_j_931_);
+return v___x_935_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2___boxed(lean_object* v_n_936_, lean_object* v_a_937_, lean_object* v_b_938_, lean_object* v_pivot_939_, lean_object* v_hb_940_, lean_object* v_p_941_, lean_object* v_xs_942_, lean_object* v_i_943_, lean_object* v_j_944_, lean_object* v_h1_945_, lean_object* v_h2_946_, lean_object* v_h3_947_){
+_start:
+{
+lean_object* v_res_948_; 
+v_res_948_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanUp___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__2(v_n_936_, v_a_937_, v_b_938_, v_pivot_939_, v_hb_940_, v_p_941_, v_xs_942_, v_i_943_, v_j_944_, v_h1_945_, v_h2_946_, v_h3_947_);
+lean_dec(v_j_944_);
+lean_dec_ref(v_xs_942_);
+lean_dec(v_p_941_);
+lean_dec(v_pivot_939_);
+lean_dec(v_b_938_);
+lean_dec(v_a_937_);
+lean_dec(v_n_936_);
+return v_res_948_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3(lean_object* v_n_949_, lean_object* v_a_950_, lean_object* v_b_951_, lean_object* v_pivot_952_, lean_object* v_hb_953_, lean_object* v_p_954_, lean_object* v_xs_955_, lean_object* v_i_956_, lean_object* v_j_957_, lean_object* v_h1_958_, lean_object* v_h2_959_, lean_object* v_h3_960_){
+_start:
+{
+lean_object* v___x_961_; 
+v___x_961_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___redArg(v_p_954_, v_xs_955_, v_i_956_, v_j_957_);
+return v___x_961_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3___boxed(lean_object* v_n_962_, lean_object* v_a_963_, lean_object* v_b_964_, lean_object* v_pivot_965_, lean_object* v_hb_966_, lean_object* v_p_967_, lean_object* v_xs_968_, lean_object* v_i_969_, lean_object* v_j_970_, lean_object* v_h1_971_, lean_object* v_h2_972_, lean_object* v_h3_973_){
+_start:
+{
+lean_object* v_res_974_; 
+v_res_974_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_scanDown___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__3(v_n_962_, v_a_963_, v_b_964_, v_pivot_965_, v_hb_966_, v_p_967_, v_xs_968_, v_i_969_, v_j_970_, v_h1_971_, v_h2_972_, v_h3_973_);
+lean_dec(v_i_969_);
+lean_dec_ref(v_xs_968_);
+lean_dec(v_p_967_);
+lean_dec(v_pivot_965_);
+lean_dec(v_b_964_);
+lean_dec(v_a_963_);
+lean_dec(v_n_962_);
+return v_res_974_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4(lean_object* v_n_975_, lean_object* v_a_976_, lean_object* v_b_977_, lean_object* v_pivot_978_, lean_object* v_hb_979_, lean_object* v_p_980_, lean_object* v_xs_981_, lean_object* v_i_982_, lean_object* v_j_983_, lean_object* v_h1_984_, lean_object* v_h2_985_, lean_object* v_h3_986_){
+_start:
+{
+lean_object* v___x_987_; 
+v___x_987_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___redArg(v_n_975_, v_a_976_, v_b_977_, v_pivot_978_, v_p_980_, v_xs_981_, v_i_982_, v_j_983_);
+return v___x_987_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4___boxed(lean_object* v_n_988_, lean_object* v_a_989_, lean_object* v_b_990_, lean_object* v_pivot_991_, lean_object* v_hb_992_, lean_object* v_p_993_, lean_object* v_xs_994_, lean_object* v_i_995_, lean_object* v_j_996_, lean_object* v_h1_997_, lean_object* v_h2_998_, lean_object* v_h3_999_){
+_start:
+{
+lean_object* v_res_1000_; 
+v_res_1000_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionM_loop___at___00Array_QSort_Internal_partitionM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__1_spec__4(v_n_988_, v_a_989_, v_b_990_, v_pivot_991_, v_hb_992_, v_p_993_, v_xs_994_, v_i_995_, v_j_996_, v_h1_997_, v_h2_998_, v_h3_999_);
+lean_dec(v_p_993_);
+lean_dec(v_pivot_991_);
+lean_dec(v_b_990_);
+lean_dec(v_a_989_);
+lean_dec(v_n_988_);
+return v_res_1000_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6(lean_object* v_n_1001_, lean_object* v_a_1002_, lean_object* v_b_1003_, lean_object* v_pivot_1004_, lean_object* v_hb_1005_, lean_object* v_p_1006_, lean_object* v_xs_1007_, lean_object* v_i_1008_, lean_object* v_j_1009_, lean_object* v_h1_1010_, lean_object* v_h2_1011_, lean_object* v_h3_1012_){
+_start:
+{
+lean_object* v___x_1013_; 
+v___x_1013_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___redArg(v_n_1001_, v_a_1002_, v_b_1003_, v_pivot_1004_, v_p_1006_, v_xs_1007_, v_i_1008_, v_j_1009_);
+return v___x_1013_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6___boxed(lean_object* v_n_1014_, lean_object* v_a_1015_, lean_object* v_b_1016_, lean_object* v_pivot_1017_, lean_object* v_hb_1018_, lean_object* v_p_1019_, lean_object* v_xs_1020_, lean_object* v_i_1021_, lean_object* v_j_1022_, lean_object* v_h1_1023_, lean_object* v_h2_1024_, lean_object* v_h3_1025_){
+_start:
+{
+lean_object* v_res_1026_; 
+v_res_1026_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6(v_n_1014_, v_a_1015_, v_b_1016_, v_pivot_1017_, v_hb_1018_, v_p_1019_, v_xs_1020_, v_i_1021_, v_j_1022_, v_h1_1023_, v_h2_1024_, v_h3_1025_);
+lean_dec(v_p_1019_);
+lean_dec(v_pivot_1017_);
+lean_dec(v_b_1016_);
+lean_dec(v_a_1015_);
+lean_dec(v_n_1014_);
+return v_res_1026_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8(lean_object* v_00_u03b1_1027_, lean_object* v_n_1028_, lean_object* v_lt_1029_, lean_object* v_a_1030_, lean_object* v_b_1031_, lean_object* v_hb_1032_, lean_object* v_xs_1033_, lean_object* v_i_1034_, lean_object* v_steps_1035_, lean_object* v_h1_1036_, lean_object* v_h2_1037_){
+_start:
+{
+lean_object* v___x_1038_; 
+v___x_1038_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___redArg(v_n_1028_, v_lt_1029_, v_a_1030_, v_b_1031_, v_xs_1033_, v_i_1034_, v_steps_1035_);
+return v___x_1038_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8___boxed(lean_object* v_00_u03b1_1039_, lean_object* v_n_1040_, lean_object* v_lt_1041_, lean_object* v_a_1042_, lean_object* v_b_1043_, lean_object* v_hb_1044_, lean_object* v_xs_1045_, lean_object* v_i_1046_, lean_object* v_steps_1047_, lean_object* v_h1_1048_, lean_object* v_h2_1049_){
+_start:
+{
+lean_object* v_res_1050_; 
+v_res_1050_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8(v_00_u03b1_1039_, v_n_1040_, v_lt_1041_, v_a_1042_, v_b_1043_, v_hb_1044_, v_xs_1045_, v_i_1046_, v_steps_1047_, v_h1_1048_, v_h2_1049_);
+lean_dec(v_b_1043_);
+lean_dec(v_a_1042_);
+lean_dec(v_n_1040_);
+return v_res_1050_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10(lean_object* v_00_u03b1_1051_, lean_object* v_n_1052_, lean_object* v_lt_1053_, lean_object* v_a_1054_, lean_object* v_b_1055_, lean_object* v_hab_1056_, lean_object* v_hb_1057_, lean_object* v_xs_1058_, lean_object* v_a_1059_){
+_start:
+{
+lean_object* v___x_1060_; 
+v___x_1060_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___redArg(v_n_1052_, v_lt_1053_, v_a_1054_, v_b_1055_, v_xs_1058_, v_a_1059_);
+return v___x_1060_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10___boxed(lean_object* v_00_u03b1_1061_, lean_object* v_n_1062_, lean_object* v_lt_1063_, lean_object* v_a_1064_, lean_object* v_b_1065_, lean_object* v_hab_1066_, lean_object* v_hb_1067_, lean_object* v_xs_1068_, lean_object* v_a_1069_){
+_start:
+{
+lean_object* v_res_1070_; 
+v_res_1070_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10(v_00_u03b1_1061_, v_n_1062_, v_lt_1063_, v_a_1064_, v_b_1065_, v_hab_1066_, v_hb_1067_, v_xs_1068_, v_a_1069_);
+lean_dec(v_b_1065_);
+lean_dec(v_a_1064_);
+lean_dec(v_n_1062_);
+return v_res_1070_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11(lean_object* v_00_u03b1_1071_, lean_object* v_n_1072_, lean_object* v_lt_1073_, lean_object* v_a_1074_, lean_object* v_b_1075_, lean_object* v_hab_1076_, lean_object* v_hb_1077_, lean_object* v_xs_1078_, lean_object* v_i_1079_, lean_object* v_a_1080_){
+_start:
+{
+lean_object* v___x_1081_; 
+v___x_1081_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___redArg(v_n_1072_, v_lt_1073_, v_a_1074_, v_xs_1078_, v_i_1079_);
+return v___x_1081_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11___boxed(lean_object* v_00_u03b1_1082_, lean_object* v_n_1083_, lean_object* v_lt_1084_, lean_object* v_a_1085_, lean_object* v_b_1086_, lean_object* v_hab_1087_, lean_object* v_hb_1088_, lean_object* v_xs_1089_, lean_object* v_i_1090_, lean_object* v_a_1091_){
+_start:
+{
+lean_object* v_res_1092_; 
+v_res_1092_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_pop___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__11(v_00_u03b1_1082_, v_n_1083_, v_lt_1084_, v_a_1085_, v_b_1086_, v_hab_1087_, v_hb_1088_, v_xs_1089_, v_i_1090_, v_a_1091_);
+lean_dec(v_b_1086_);
+lean_dec(v_a_1085_);
+lean_dec(v_n_1083_);
+return v_res_1092_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13(lean_object* v_n_1093_, lean_object* v_a_1094_, lean_object* v_b_1095_, lean_object* v_hb_1096_, lean_object* v_xs_1097_, lean_object* v_i_1098_){
+_start:
+{
+lean_object* v___x_1099_; 
+v___x_1099_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___redArg(v_n_1093_, v_a_1094_, v_b_1095_, v_xs_1097_, v_i_1098_);
+return v___x_1099_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13___boxed(lean_object* v_n_1100_, lean_object* v_a_1101_, lean_object* v_b_1102_, lean_object* v_hb_1103_, lean_object* v_xs_1104_, lean_object* v_i_1105_){
+_start:
+{
+lean_object* v_res_1106_; 
+v_res_1106_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13(v_n_1100_, v_a_1101_, v_b_1102_, v_hb_1103_, v_xs_1104_, v_i_1105_);
+lean_dec(v_b_1102_);
+lean_dec(v_a_1101_);
+lean_dec(v_n_1100_);
+return v_res_1106_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7(lean_object* v_n_1107_, lean_object* v_a_1108_, lean_object* v_b_1109_, lean_object* v_pivot_1110_, lean_object* v_hb_1111_, lean_object* v_p_1112_, lean_object* v_xs_1113_, lean_object* v_i_1114_, lean_object* v_j_1115_, lean_object* v_h1_1116_, lean_object* v_h2_1117_, lean_object* v_h3_1118_){
+_start:
+{
+lean_object* v___x_1119_; 
+v___x_1119_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___redArg(v_p_1112_, v_xs_1113_, v_i_1114_, v_j_1115_);
+return v___x_1119_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7___boxed(lean_object* v_n_1120_, lean_object* v_a_1121_, lean_object* v_b_1122_, lean_object* v_pivot_1123_, lean_object* v_hb_1124_, lean_object* v_p_1125_, lean_object* v_xs_1126_, lean_object* v_i_1127_, lean_object* v_j_1128_, lean_object* v_h1_1129_, lean_object* v_h2_1130_, lean_object* v_h3_1131_){
+_start:
+{
+lean_object* v_res_1132_; 
+v_res_1132_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanUp___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__7(v_n_1120_, v_a_1121_, v_b_1122_, v_pivot_1123_, v_hb_1124_, v_p_1125_, v_xs_1126_, v_i_1127_, v_j_1128_, v_h1_1129_, v_h2_1130_, v_h3_1131_);
+lean_dec(v_j_1128_);
+lean_dec_ref(v_xs_1126_);
+lean_dec(v_p_1125_);
+lean_dec(v_pivot_1123_);
+lean_dec(v_b_1122_);
+lean_dec(v_a_1121_);
+lean_dec(v_n_1120_);
+return v_res_1132_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8(lean_object* v_n_1133_, lean_object* v_a_1134_, lean_object* v_b_1135_, lean_object* v_pivot_1136_, lean_object* v_hb_1137_, lean_object* v_p_1138_, lean_object* v_xs_1139_, lean_object* v_i_1140_, lean_object* v_j_1141_, lean_object* v_h1_1142_, lean_object* v_h2_1143_, lean_object* v_h3_1144_){
+_start:
+{
+lean_object* v___x_1145_; 
+v___x_1145_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___redArg(v_p_1138_, v_xs_1139_, v_i_1140_, v_j_1141_);
+return v___x_1145_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8___boxed(lean_object* v_n_1146_, lean_object* v_a_1147_, lean_object* v_b_1148_, lean_object* v_pivot_1149_, lean_object* v_hb_1150_, lean_object* v_p_1151_, lean_object* v_xs_1152_, lean_object* v_i_1153_, lean_object* v_j_1154_, lean_object* v_h1_1155_, lean_object* v_h2_1156_, lean_object* v_h3_1157_){
+_start:
+{
+lean_object* v_res_1158_; 
+v_res_1158_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_scanDown___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partitionEqualM_loop___at___00Array_QSort_Internal_partitionEqualM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__2_spec__6_spec__8(v_n_1146_, v_a_1147_, v_b_1148_, v_pivot_1149_, v_hb_1150_, v_p_1151_, v_xs_1152_, v_i_1153_, v_j_1154_, v_h1_1155_, v_h2_1156_, v_h3_1157_);
+lean_dec(v_i_1153_);
+lean_dec_ref(v_xs_1152_);
+lean_dec(v_p_1151_);
+lean_dec(v_pivot_1149_);
+lean_dec(v_b_1148_);
+lean_dec(v_a_1147_);
+lean_dec(v_n_1146_);
+return v_res_1158_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11(lean_object* v_00_u03b1_1159_, lean_object* v_n_1160_, lean_object* v_lt_1161_, lean_object* v_a_1162_, lean_object* v_b_1163_, lean_object* v_hb_1164_, lean_object* v_xs_1165_, lean_object* v_i_1166_, lean_object* v_h1_1167_, lean_object* v_h2_1168_){
+_start:
+{
+lean_object* v___x_1169_; 
+v___x_1169_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___redArg(v_lt_1161_, v_b_1163_, v_xs_1165_, v_i_1166_);
+return v___x_1169_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11___boxed(lean_object* v_00_u03b1_1170_, lean_object* v_n_1171_, lean_object* v_lt_1172_, lean_object* v_a_1173_, lean_object* v_b_1174_, lean_object* v_hb_1175_, lean_object* v_xs_1176_, lean_object* v_i_1177_, lean_object* v_h1_1178_, lean_object* v_h2_1179_){
+_start:
+{
+lean_object* v_res_1180_; 
+v_res_1180_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_scan___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__11(v_00_u03b1_1170_, v_n_1171_, v_lt_1172_, v_a_1173_, v_b_1174_, v_hb_1175_, v_xs_1176_, v_i_1177_, v_h1_1178_, v_h2_1179_);
+lean_dec_ref(v_xs_1176_);
+lean_dec(v_b_1174_);
+lean_dec(v_a_1173_);
+lean_dec(v_n_1171_);
+return v_res_1180_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12(lean_object* v_00_u03b1_1181_, lean_object* v_n_1182_, lean_object* v_lt_1183_, lean_object* v_a_1184_, lean_object* v_b_1185_, lean_object* v_hb_1186_, lean_object* v_xs_1187_, lean_object* v_j_1188_, lean_object* v_hj_1189_){
+_start:
+{
+lean_object* v___x_1190_; 
+v___x_1190_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___redArg(v_lt_1183_, v_b_1185_, v_xs_1187_, v_j_1188_);
+return v___x_1190_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12___boxed(lean_object* v_00_u03b1_1191_, lean_object* v_n_1192_, lean_object* v_lt_1193_, lean_object* v_a_1194_, lean_object* v_b_1195_, lean_object* v_hb_1196_, lean_object* v_xs_1197_, lean_object* v_j_1198_, lean_object* v_hj_1199_){
+_start:
+{
+lean_object* v_res_1200_; 
+v_res_1200_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_riseRight___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__12(v_00_u03b1_1191_, v_n_1192_, v_lt_1193_, v_a_1194_, v_b_1195_, v_hb_1196_, v_xs_1197_, v_j_1198_, v_hj_1199_);
+lean_dec(v_b_1195_);
+lean_dec(v_a_1194_);
+lean_dec(v_n_1192_);
+return v_res_1200_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13(lean_object* v_00_u03b1_1201_, lean_object* v_n_1202_, lean_object* v_lt_1203_, lean_object* v_a_1204_, lean_object* v_b_1205_, lean_object* v_hb_1206_, lean_object* v_xs_1207_, lean_object* v_j_1208_, lean_object* v_hj_1209_){
+_start:
+{
+lean_object* v___x_1210_; 
+v___x_1210_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___redArg(v_lt_1203_, v_a_1204_, v_xs_1207_, v_j_1208_);
+return v___x_1210_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13___boxed(lean_object* v_00_u03b1_1211_, lean_object* v_n_1212_, lean_object* v_lt_1213_, lean_object* v_a_1214_, lean_object* v_b_1215_, lean_object* v_hb_1216_, lean_object* v_xs_1217_, lean_object* v_j_1218_, lean_object* v_hj_1219_){
+_start:
+{
+lean_object* v_res_1220_; 
+v_res_1220_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_sinkLeft___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_partialInsertionSortM_step___at___00Array_QSort_Internal_partialInsertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__3_spec__8_spec__13(v_00_u03b1_1211_, v_n_1212_, v_lt_1213_, v_a_1214_, v_b_1215_, v_hb_1216_, v_xs_1217_, v_j_1218_, v_hj_1219_);
+lean_dec(v_b_1215_);
+lean_dec(v_a_1214_);
+lean_dec(v_n_1212_);
+return v_res_1220_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16(lean_object* v_00_u03b1_1221_, lean_object* v_n_1222_, lean_object* v_lt_1223_, lean_object* v_xs_1224_, lean_object* v_root_1225_, lean_object* v_hi_1226_, lean_object* v_first_1227_, lean_object* v_h_1228_){
+_start:
+{
+lean_object* v___x_1229_; 
+v___x_1229_ = l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___redArg(v_lt_1223_, v_xs_1224_, v_root_1225_, v_hi_1226_, v_first_1227_);
+return v___x_1229_;
+}
+}
+LEAN_EXPORT lean_object* l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16___boxed(lean_object* v_00_u03b1_1230_, lean_object* v_n_1231_, lean_object* v_lt_1232_, lean_object* v_xs_1233_, lean_object* v_root_1234_, lean_object* v_hi_1235_, lean_object* v_first_1236_, lean_object* v_h_1237_){
+_start:
+{
+lean_object* v_res_1238_; 
+v_res_1238_ = l_Array_QSort_Internal_siftDownM___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_heapSortM_build___at___00Array_QSort_Internal_heapSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__4_spec__10_spec__16(v_00_u03b1_1230_, v_n_1231_, v_lt_1232_, v_xs_1233_, v_root_1234_, v_hi_1235_, v_first_1236_, v_h_1237_);
+lean_dec(v_first_1236_);
+lean_dec(v_hi_1235_);
+lean_dec(v_n_1231_);
+return v_res_1238_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20(lean_object* v_n_1239_, lean_object* v_a_1240_, lean_object* v_b_1241_, lean_object* v_xs_1242_, lean_object* v_j_1243_, lean_object* v_hj_1244_){
+_start:
+{
+lean_object* v___x_1245_; 
+v___x_1245_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___redArg(v_a_1240_, v_xs_1242_, v_j_1243_);
+return v___x_1245_;
+}
+}
+LEAN_EXPORT lean_object* l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20___boxed(lean_object* v_n_1246_, lean_object* v_a_1247_, lean_object* v_b_1248_, lean_object* v_xs_1249_, lean_object* v_j_1250_, lean_object* v_hj_1251_){
+_start:
+{
+lean_object* v_res_1252_; 
+v_res_1252_ = l___private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_sink___at___00__private_Init_Data_Array_QSort_Basic_0__Array_QSort_Internal_insertionSortM_outer___at___00Array_QSort_Internal_insertionSortM___at___00Array_QSort_Internal_sortM___at___00f_spec__0_spec__5_spec__13_spec__20(v_n_1246_, v_a_1247_, v_b_1248_, v_xs_1249_, v_j_1250_, v_hj_1251_);
+lean_dec(v_b_1248_);
+lean_dec(v_a_1247_);
+lean_dec(v_n_1246_);
+return v_res_1252_;
+}
+}
+lean_object* runtime_initialize_Init(uint8_t builtin);
+void lean_initialize_runtime_module();
+static bool _G_runtime_initialized = false;
+LEAN_EXPORT lean_object* runtime_initialize_Mod(uint8_t builtin) {
+lean_object * res;
+if (_G_runtime_initialized) return lean_io_result_mk_ok(lean_box(0));
+_G_runtime_initialized = true;
+lean_initialize_runtime_module();
+res = runtime_initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+return lean_io_result_mk_ok(lean_box(0));
+}
+lean_object* runtime_initialize_Init(uint8_t builtin);
+static bool _G_meta_initialized = false;
+LEAN_EXPORT lean_object* meta_initialize_Mod(uint8_t builtin) {
+lean_object * res;
+if (_G_meta_initialized) return lean_io_result_mk_ok(lean_box(0));
+_G_meta_initialized = true;
+res = runtime_initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+return lean_io_result_mk_ok(lean_box(0));
+}
+lean_object* initialize_Init(uint8_t builtin);
+lean_object* initialize_Init(uint8_t builtin);
+static bool _G_initialized = false;
+LEAN_EXPORT lean_object* initialize_Mod(uint8_t builtin) {
+lean_object * res;
+if (_G_initialized) return lean_io_result_mk_ok(lean_box(0));
+_G_initialized = true;
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Init(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = runtime_initialize_Mod(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = meta_initialize_Mod(builtin);
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+return initialize_Mod(builtin);
+}
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,1 @@
+part trials=300000 bad=0 already=133404 alreadyButMoved=6727

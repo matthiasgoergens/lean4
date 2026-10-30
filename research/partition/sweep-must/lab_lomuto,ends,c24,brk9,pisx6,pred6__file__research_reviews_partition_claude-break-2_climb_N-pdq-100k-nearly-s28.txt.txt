@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pisx6,pred6 nat file:research/reviews/partition/claude-break-2/climb/N-pdq-100k-nearly-s28.txt 100000: cmps/n=19.27 swaps/n=8.35 partitions=3963 unbalanced=2 partitioned-elems/n=11.44 heaps=0 heap-elems/n=0.00 pis=367/1243 pis-won-elems/n=0.38 ins-elems/n=0.58 equal=0 breaks=0 reversals=38 ins=2.58 other=0.04 part=11.77 pis=4.53 pivot=0.35

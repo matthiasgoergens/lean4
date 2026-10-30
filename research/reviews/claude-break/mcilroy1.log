@@ -1,0 +1,54 @@
+adversary against core, n=1000: 253496 comparisons = 25.436633 n log2 n (8 ms)
+  core: 253496 comparisons = 25.436633 n log2 n, 7945 us, ok=true
+  pdq: 9267 comparisons = 0.929882 n log2 n, 328 us, ok=true
+  adaptive: 9299 comparisons = 0.933093 n log2 n, 276 us, ok=true
+  merge: 5294 comparisons = 0.531218 n log2 n, 428 us, ok=true
+  heap: 17508 comparisons = 1.756811 n log2 n, 1279 us, ok=true
+adversary against core, n=4096: 4208636 comparisons = 85.624919 n log2 n (126 ms)
+  core: 4208636 comparisons = 85.624919 n log2 n, 127299 us, ok=true
+  pdq: 46200 comparisons = 0.939941 n log2 n, 1186 us, ok=true
+  adaptive: 46328 comparisons = 0.942546 n log2 n, 1214 us, ok=true
+  merge: 26633 comparisons = 0.541850 n log2 n, 1977 us, ok=true
+  heap: 88991 comparisons = 1.810527 n log2 n, 5202 us, ok=true
+adversary against core, n=16384: 67166204 comparisons = 292.821411 n log2 n (2448 ms)
+  core: 67166204 comparisons = 292.821411 n log2 n, 2085934 us, ok=true
+  pdq: 217592 comparisons = 0.948626 n log2 n, 7338 us, ok=true
+  adaptive: 217848 comparisons = 0.949742 n log2 n, 7231 us, ok=true
+  merge: 122891 comparisons = 0.535762 n log2 n, 8036 us, ok=true
+  heap: 421654 comparisons = 1.838266 n log2 n, 15178 us, ok=true
+adversary against pdq, n=1000: 7199 comparisons = 0.722372 n log2 n (0 ms)
+  core: 106955 comparisons = 10.732221 n log2 n, 3363 us, ok=true
+  pdq: 7199 comparisons = 0.722372 n log2 n, 224 us, ok=true
+  adaptive: 1112 comparisons = 0.111582 n log2 n, 70 us, ok=true
+  merge: 5075 comparisons = 0.509242 n log2 n, 393 us, ok=true
+  heap: 17633 comparisons = 1.769354 n log2 n, 623 us, ok=true
+adversary against pdq, n=4096: 28911 comparisons = 0.588196 n log2 n (0 ms)
+  core: 1726135 comparisons = 35.118306 n log2 n, 106336 us, ok=true
+  pdq: 28911 comparisons = 0.588196 n log2 n, 1126 us, ok=true
+  adaptive: 4234 comparisons = 0.086141 n log2 n, 178 us, ok=true
+  merge: 24623 comparisons = 0.500956 n log2 n, 1847 us, ok=true
+  heap: 88970 comparisons = 1.810099 n log2 n, 3104 us, ok=true
+adversary against pdq, n=16384: 114969 comparisons = 0.501225 n log2 n (4 ms)
+  core: 27355709 comparisons = 119.261427 n log2 n, 882503 us, ok=true
+  pdq: 114969 comparisons = 0.501225 n log2 n, 3671 us, ok=true
+  adaptive: 16548 comparisons = 0.072144 n log2 n, 694 us, ok=true
+  merge: 114745 comparisons = 0.500249 n log2 n, 8462 us, ok=true
+  heap: 421871 comparisons = 1.839212 n log2 n, 17419 us, ok=true
+adversary against adaptive, n=1000: 999 comparisons = 0.100243 n log2 n (0 ms)
+  core: 11974 comparisons = 1.201511 n log2 n, 391 us, ok=true
+  pdq: 1011 comparisons = 0.101447 n log2 n, 37 us, ok=true
+  adaptive: 999 comparisons = 0.100243 n log2 n, 36 us, ok=true
+  merge: 5044 comparisons = 0.506132 n log2 n, 777 us, ok=true
+  heap: 17583 comparisons = 1.764337 n log2 n, 638 us, ok=true
+adversary against adaptive, n=4096: 4095 comparisons = 0.083313 n log2 n (0 ms)
+  core: 57342 comparisons = 1.166626 n log2 n, 1785 us, ok=true
+  pdq: 4107 comparisons = 0.083557 n log2 n, 134 us, ok=true
+  adaptive: 4095 comparisons = 0.083313 n log2 n, 125 us, ok=true
+  merge: 24576 comparisons = 0.500000 n log2 n, 4711 us, ok=true
+  heap: 88835 comparisons = 1.807353 n log2 n, 5923 us, ok=true
+adversary against adaptive, n=16384: 16383 comparisons = 0.071424 n log2 n (0 ms)
+  core: 262142 comparisons = 1.142848 n log2 n, 8373 us, ok=true
+  pdq: 16395 comparisons = 0.071477 n log2 n, 575 us, ok=true
+  adaptive: 16383 comparisons = 0.071424 n log2 n, 580 us, ok=true
+  merge: 114688 comparisons = 0.500000 n log2 n, 8222 us, ok=true
+  heap: 421566 comparisons = 1.837882 n log2 n, 13082 us, ok=true

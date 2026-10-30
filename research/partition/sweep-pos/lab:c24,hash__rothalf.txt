@@ -1,0 +1,1 @@
+lab:c24,hash nat rothalf 100000: cmps/n=7.24 swaps/n=2.56 partitions=538 unbalanced=39 partitioned-elems/n=5.05 heaps=0 heap-elems/n=0.00 pis=101/184 pis-won-elems/n=0.93 ins-elems/n=0.06 equal=0 breaks=35 reversals=56 ins=0.24 other=0.01 part=5.04 pis=1.89 pivot=0.06

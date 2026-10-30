@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,gold nat nearly5000 100000: cmps/n=17.70 swaps/n=14.92 partitions=5746 unbalanced=26 partitioned-elems/n=12.91 heaps=0 heap-elems/n=0.00 pis=138/1130 pis-won-elems/n=0.06 ins-elems/n=0.88 equal=0 breaks=17 reversals=0 ins=2.76 other=0.06 part=12.91 pis=1.52 pivot=0.45

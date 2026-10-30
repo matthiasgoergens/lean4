@@ -1,0 +1,20 @@
+✔ [2/10] Built Sorts.ThreeWay (6.4s)
+✔ [3/10] Built Sorts.ThreeWay:c.o (408ms)
+✔ [4/10] Built Sorts.Pdq (9.3s)
+✔ [5/10] Built Sorts.Pdq:c.o (4.1s)
+⚠ [6/10] Built Sorts.Adaptive (12s)
+warning: Sorts/Adaptive.lean:171:74: Variable name `hlo` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlo
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [7/10] Built Sorts.Adaptive:c.o (2.1s)
+✔ [8/10] Built Main (4.2s)
+✔ [9/10] Built Main:c.o (16s)
+✔ [10/10] Built sorts:exe (577ms)
+Build completed successfully (10 jobs).
+
+real	0m44.070s
+user	0m59.744s
+sys	0m2.841s

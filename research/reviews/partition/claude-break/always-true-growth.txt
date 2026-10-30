@@ -1,0 +1,10 @@
+unlawful algo=lab:lomuto,ends,c24,brk9 kind=true n=1000 lo=0 hi=99999999999 cmps=31815 perNlogN=3.192423 ns=815598 perm=true outsideUnchanged=true
+unlawful algo=pdq kind=true n=1000 lo=0 hi=99999999999 cmps=31815 perNlogN=3.192423 ns=894066 perm=true outsideUnchanged=true
+unlawful algo=lab:lomuto,ends,c24,brk9 kind=true n=10000 lo=0 hi=99999999999 cmps=426907 perNlogN=3.212795 ns=10426426 perm=true outsideUnchanged=true
+unlawful algo=pdq kind=true n=10000 lo=0 hi=99999999999 cmps=426907 perNlogN=3.212795 ns=13006491 perm=true outsideUnchanged=true
+unlawful algo=lab:lomuto,ends,c24,brk9 kind=true n=100000 lo=0 hi=99999999999 cmps=5237329 perNlogN=3.153186 ns=125945145 perm=true outsideUnchanged=true
+unlawful algo=pdq kind=true n=100000 lo=0 hi=99999999999 cmps=5237329 perNlogN=3.153186 ns=123590001 perm=true outsideUnchanged=true
+unlawful algo=lab:lomuto,ends,c24,brk9 kind=true n=1000000 lo=0 hi=99999999999 cmps=61902074 perNlogN=3.105730 ns=1657213101 perm=true outsideUnchanged=true
+unlawful algo=pdq kind=true n=1000000 lo=0 hi=99999999999 cmps=61902074 perNlogN=3.105730 ns=1527257003 perm=true outsideUnchanged=true
+unlawful algo=lab:lomuto,ends,c24,brk9 kind=true n=10000000 lo=0 hi=99999999999 cmps=726444398 perNlogN=3.124022 ns=19497864667 perm=true outsideUnchanged=true
+unlawful algo=pdq kind=true n=10000000 lo=0 hi=99999999999 cmps=726444398 perNlogN=3.124022 ns=37964856151 perm=true outsideUnchanged=true

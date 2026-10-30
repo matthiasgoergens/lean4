@@ -1,0 +1,15 @@
+bitrev n=16384 minRun=128:  pdq 19949us 254849cmp  adaptive 25663us 217715cmp  merge 23789us 171905cmp
+bitrev n=16384 minRun=128:  pdq 26061us 254849cmp  adaptive 32951us 217715cmp  merge 26689us 171905cmp
+bitrev n=16384 minRun=128:  pdq 26366us 254849cmp  adaptive 30670us 217715cmp  merge 28418us 171905cmp
+bitrev n=65536 minRun=256:  pdq 117852us 1189341cmp  adaptive 194269us 984561cmp  merge 218561us 786177cmp
+bitrev n=65536 minRun=256:  pdq 107362us 1189341cmp  adaptive 251010us 984561cmp  merge 127361us 786177cmp
+bitrev n=65536 minRun=256:  pdq 226626us 1189341cmp  adaptive 159225us 984561cmp  merge 370479us 786177cmp
+bitrev n=262144 minRun=512:  pdq 761166us 5404653cmp  adaptive 830808us 4394479cmp  merge 1160738us 3538433cmp
+bitrev n=262144 minRun=512:  pdq 878094us 5404653cmp  adaptive 625098us 4394479cmp  merge 922548us 3538433cmp
+bitrev n=262144 minRun=512:  pdq 611529us 5404653cmp  adaptive 633873us 4394479cmp  merge 551974us 3538433cmp
+bitrev n=1048576 minRun=1024:  pdq 2602777us 24368514cmp  adaptive 3107628us 19406829cmp  merge 3266063us 15727617cmp
+bitrev n=1048576 minRun=1024:  pdq 2417065us 24368514cmp  adaptive 3028050us 19406829cmp  merge 3740154us 15727617cmp
+bitrev n=1048576 minRun=1024:  pdq 3016294us 24368514cmp  adaptive 1687917us 19406829cmp  merge 1005154us 15727617cmp
+bitrev n=4194304 minRun=2048:  pdq 3777044us 105081306cmp  adaptive 5555639us 84953067cmp  merge 4898966us 69203969cmp
+bitrev n=4194304 minRun=2048:  pdq 11684079us 105081306cmp  adaptive 13653025us 84953067cmp  merge 12310888us 69203969cmp
+bitrev n=4194304 minRun=2048:  pdq 3630846us 105081306cmp  adaptive 5132880us 84953067cmp  merge 4230870us 69203969cmp

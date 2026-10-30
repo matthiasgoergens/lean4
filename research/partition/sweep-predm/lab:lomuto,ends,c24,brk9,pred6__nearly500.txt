@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pred6 nat nearly500 100000: cmps/n=13.74 swaps/n=2.99 partitions=874 unbalanced=0 partitioned-elems/n=8.95 heaps=0 heap-elems/n=0.00 pis=480/707 pis-won-elems/n=0.92 ins-elems/n=0.07 equal=0 breaks=0 reversals=0 ins=0.10 other=0.01 part=9.08 pis=4.40 pivot=0.14

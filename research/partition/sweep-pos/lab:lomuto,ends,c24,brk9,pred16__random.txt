@@ -1,0 +1,1 @@
+lab:lomuto,ends,c24,brk9,pred16 nat random 100000: cmps/n=19.27 swaps/n=9.19 partitions=6484 unbalanced=212 partitioned-elems/n=13.57 heaps=0 heap-elems/n=0.00 pis=0/181 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=127 reversals=1 ins=4.46 other=0.06 part=14.27 pis=0.00 pivot=0.47

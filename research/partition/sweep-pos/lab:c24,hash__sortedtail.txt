@@ -1,0 +1,1 @@
+lab:c24,hash nat sortedtail 100000: cmps/n=6.28 swaps/n=0.26 partitions=116 unbalanced=4 partitioned-elems/n=3.11 heaps=0 heap-elems/n=0.00 pis=13/21 pis-won-elems/n=0.98 ins-elems/n=0.01 equal=0 breaks=3 reversals=0 ins=0.07 other=0.00 part=3.11 pis=3.10 pivot=0.01

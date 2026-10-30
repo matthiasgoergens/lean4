@@ -1,0 +1,537 @@
+0 problems
+
+nat-blocks16-100000
+  lab:lomuto,ends,c24,brk9,pisx median     3.9 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.05 ms
+  pdq        median     4.6 ms
+nat-blocks2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.82 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.23 ms
+  pdq        median    3.28 ms
+nat-blocks256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.83 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.96 ms
+  pdq        median    5.88 ms
+nat-constant-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.101 ms
+  pdq        median   0.102 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.102 ms
+nat-dups4-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.561 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.571 ms
+  pdq        median   0.956 ms
+nat-dupsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    1.37 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.38 ms
+  pdq        median    3.95 ms
+nat-headsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median     3.6 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.94 ms
+  pdq        median    7.72 ms
+nat-nearly-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.474 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.645 ms
+  pdq        median   0.865 ms
+nat-nearly-1000000
+  pdq        median    6.66 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    6.76 ms
+  lab:lomuto,ends,c24,brk9,pisx median    7.15 ms
+nat-ninther-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.963 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.01 ms
+  pdq        median    1.02 ms
+nat-ninther-1000000
+  lab:lomuto,ends,c24,brk9,pisx median    9.08 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    9.58 ms
+  pdq        median    9.88 ms
+nat-organ-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.48 ms
+  pdq        median    2.74 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.83 ms
+nat-organ-1000000
+  lab:lomuto,ends,c24,brk9,pisx median    27.3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    30.3 ms
+  pdq        median    30.4 ms
+nat-pathological-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.221 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.228 ms
+  pdq        median   0.228 ms
+nat-random-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.63 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     3.7 ms
+  pdq        median    7.72 ms
+nat-random-1000000
+  none       median  0.0113 ms   / core: 0.000126 [0.000113, 0.000139] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median    39.8 ms   / core: 0.429 [0.423, 0.435] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median    40.7 ms   / core: 0.442 [0.431, 0.453] (n=18)
+  pdq        median      90 ms   / core: 0.978 [0.966, 0.991] (n=18)
+  core       median      92 ms
+nat-random-1000000-chunk256
+  lab:lomuto,ends,c24,brk9,pisx median    26.5 ms   / core: 0.568 [0.553, 0.584] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median    27.6 ms   / core: 0.587 [0.577, 0.598] (n=18)
+  pdq        median    38.6 ms   / core: 0.822 [0.806, 0.837] (n=18)
+  core       median    47.3 ms
+nat-random-1000000-chunk32
+  lab:lomuto,ends,c24,brk9,pisx,pred median    28.2 ms   / core: 0.661 [0.647, 0.677] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median    28.6 ms   / core: 0.681 [0.661, 0.701] (n=18)
+  pdq        median    30.9 ms   / core: 0.73 [0.712, 0.749] (n=18)
+  core       median    42.8 ms
+nat-random-1000000-chunk8
+  pdq        median    53.2 ms   / core: 0.86 [0.827, 0.894] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median    53.5 ms   / core: 0.856 [0.831, 0.882] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median      54 ms   / core: 0.876 [0.845, 0.908] (n=18)
+  core       median    62.3 ms
+nat-reversed-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.172 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.176 ms
+  pdq        median   0.177 ms
+nat-runs11-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.62 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.78 ms
+  pdq        median    4.16 ms
+nat-runs12-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.01 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.02 ms
+  pdq        median    4.66 ms
+nat-runs16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.95 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.01 ms
+  pdq        median     4.7 ms
+nat-runs16-1000000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    44.3 ms
+  lab:lomuto,ends,c24,brk9,pisx median    44.6 ms
+  pdq        median    51.7 ms
+nat-runs2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.29 ms
+  pdq        median     2.8 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.81 ms
+nat-runs256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.66 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.92 ms
+  pdq        median       6 ms
+nat-runs3-100000
+  pdq        median    2.57 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.67 ms
+  lab:lomuto,ends,c24,brk9,pisx median    2.95 ms
+nat-runs3-1000000
+  pdq        median    28.6 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    30.6 ms
+  lab:lomuto,ends,c24,brk9,pisx median    32.8 ms
+nat-runs4-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.28 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.35 ms
+  pdq        median     4.7 ms
+nat-runs5-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.64 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     3.7 ms
+  pdq        median    3.99 ms
+nat-runs5-1000000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    40.1 ms
+  lab:lomuto,ends,c24,brk9,pisx median    40.6 ms
+  pdq        median    43.1 ms
+nat-runs6-100000
+  lab:lomuto,ends,c24,brk9,pisx median     3.4 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.81 ms
+  pdq        median    3.89 ms
+nat-runs64-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.87 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.97 ms
+  pdq        median    5.35 ms
+nat-runs7-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.53 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     3.8 ms
+  pdq        median    4.01 ms
+nat-runs8-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.04 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.22 ms
+  pdq        median    4.53 ms
+nat-runs9-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.67 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     3.9 ms
+  pdq        median    4.46 ms
+nat-runs9-1000000
+  lab:lomuto,ends,c24,brk9,pisx median    40.9 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median      43 ms
+  pdq        median    48.3 ms
+nat-sorted-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median     0.1 ms
+  pdq        median     0.1 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.102 ms
+nat-sortedtail-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.497 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.507 ms
+  pdq        median   0.536 ms
+nat-sortedtail-1000000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    5.23 ms
+  lab:lomuto,ends,c24,brk9,pisx median     5.3 ms
+  pdq        median    5.82 ms
+nat-tripledesc-100000
+  lab:lomuto,ends,c24,brk9,pisx median     3.5 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.66 ms
+  pdq        median     7.7 ms
+rec-blocks16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.34 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.42 ms
+  pdq        median    5.04 ms
+rec-blocks2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.12 ms
+  pdq        median    3.49 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.49 ms
+rec-blocks256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.25 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.46 ms
+  pdq        median    6.65 ms
+rec-constant-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.171 ms
+  pdq        median   0.177 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.194 ms
+rec-dups4-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.748 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.765 ms
+  pdq        median    1.17 ms
+rec-dupsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.04 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.05 ms
+  pdq        median    4.96 ms
+rec-headsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.42 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.75 ms
+  pdq        median    8.91 ms
+rec-nearly-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.588 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.784 ms
+  pdq        median   0.995 ms
+rec-ninther-100000
+  lab:lomuto,ends,c24,brk9,pisx median    1.13 ms
+  pdq        median    1.15 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.17 ms
+rec-organ-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.74 ms
+  pdq        median    2.99 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.03 ms
+rec-pathological-100000
+  pdq        median   0.308 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.316 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.335 ms
+rec-random-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.33 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     4.5 ms
+  pdq        median    9.03 ms
+rec-random-1000000
+  none       median   0.011 ms   / core: 7.45e-05 [6.76e-05, 8.2e-05] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median     106 ms   / core: 0.747 [0.722, 0.772] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median     106 ms   / core: 0.745 [0.714, 0.776] (n=18)
+  pdq        median     141 ms   / core: 0.974 [0.951, 0.999] (n=18)
+  core       median     143 ms
+rec-reversed-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.271 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.275 ms
+  pdq        median   0.277 ms
+rec-runs11-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.03 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.18 ms
+  pdq        median     4.6 ms
+rec-runs12-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.44 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.47 ms
+  pdq        median    5.17 ms
+rec-runs16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.33 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     4.4 ms
+  pdq        median    5.23 ms
+rec-runs2-100000
+  lab:lomuto,ends,c24,brk9,pisx median     2.5 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.06 ms
+  pdq        median    3.07 ms
+rec-runs256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.22 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.43 ms
+  pdq        median    6.74 ms
+rec-runs3-100000
+  pdq        median    2.73 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.87 ms
+  lab:lomuto,ends,c24,brk9,pisx median    3.26 ms
+rec-runs4-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.68 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.76 ms
+  pdq        median    5.18 ms
+rec-runs5-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.07 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.11 ms
+  pdq        median    4.35 ms
+rec-runs6-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.72 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.12 ms
+  pdq        median    4.32 ms
+rec-runs64-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.38 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.46 ms
+  pdq        median    5.95 ms
+rec-runs7-100000
+  lab:lomuto,ends,c24,brk9,pisx median     3.9 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.27 ms
+  pdq        median    4.39 ms
+rec-runs8-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median     4.5 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.51 ms
+  pdq        median    4.98 ms
+rec-runs9-100000
+  lab:lomuto,ends,c24,brk9,pisx median    4.03 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.29 ms
+  pdq        median     4.9 ms
+rec-sorted-100000
+  pdq        median   0.159 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.174 ms
+  lab:lomuto,ends,c24,brk9,pisx median     0.2 ms
+rec-sortedtail-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.609 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.656 ms
+  pdq        median   0.661 ms
+rec-tripledesc-100000
+  lab:lomuto,ends,c24,brk9,pisx median     4.3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.48 ms
+  pdq        median    9.03 ms
+str-blocks16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    10.8 ms
+  pdq        median    10.9 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    11.2 ms
+str-blocks2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    7.09 ms
+  pdq        median    7.87 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    8.08 ms
+str-blocks256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    13.1 ms
+  pdq        median    13.1 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    13.6 ms
+str-constant-100000
+  pdq        median    0.27 ms
+  lab:lomuto,ends,c24,brk9,pisx median    0.28 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     0.3 ms
+str-dups4-100000
+  pdq        median    2.96 ms
+  lab:lomuto,ends,c24,brk9,pisx median    2.96 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.97 ms
+str-dupsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    9.27 ms
+  lab:lomuto,ends,c24,brk9,pisx median    9.37 ms
+  pdq        median    9.95 ms
+str-headsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    17.4 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    18.7 ms
+  pdq        median    19.7 ms
+str-nearly-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.72 ms
+  lab:lomuto,ends,c24,brk9,pisx median    2.12 ms
+  pdq        median    2.97 ms
+str-ninther-100000
+  lab:lomuto,ends,c24,brk9,pisx median       3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.19 ms
+  pdq        median     3.2 ms
+str-organ-100000
+  lab:lomuto,ends,c24,brk9,pisx median    6.94 ms
+  pdq        median    7.38 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    7.58 ms
+str-pathological-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.782 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.783 ms
+  pdq        median   0.789 ms
+str-random-100000
+  lab:lomuto,ends,c24,brk9,pisx median    17.4 ms
+  pdq        median    17.7 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    17.9 ms
+str-random-1000000
+  none       median  0.0112 ms   / core: 3.07e-05 [2.91e-05, 3.25e-05] (n=18)
+  pdq        median     335 ms   / core: 0.919 [0.885, 0.955] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median     336 ms   / core: 0.92 [0.897, 0.944] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median     343 ms   / core: 0.931 [0.909, 0.954] (n=18)
+  core       median     368 ms
+str-reversed-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.617 ms
+  pdq        median   0.622 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.639 ms
+str-runs11-100000
+  pdq        median    9.56 ms
+  lab:lomuto,ends,c24,brk9,pisx median    9.76 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    9.99 ms
+str-runs12-100000
+  lab:lomuto,ends,c24,brk9,pisx median    10.8 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    10.9 ms
+  pdq        median    11.1 ms
+str-runs16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    10.9 ms
+  pdq        median      11 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    11.3 ms
+str-runs2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    6.72 ms
+  pdq        median    7.81 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    7.82 ms
+str-runs256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    12.5 ms
+  pdq        median      13 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    13.5 ms
+str-runs3-100000
+  pdq        median    7.14 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    7.85 ms
+  lab:lomuto,ends,c24,brk9,pisx median     7.9 ms
+str-runs4-100000
+  lab:lomuto,ends,c24,brk9,pisx median    10.6 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    10.8 ms
+  pdq        median    11.6 ms
+str-runs5-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    9.31 ms
+  lab:lomuto,ends,c24,brk9,pisx median    9.31 ms
+  pdq        median    9.52 ms
+str-runs6-100000
+  lab:lomuto,ends,c24,brk9,pisx median    8.81 ms
+  pdq        median    9.09 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     9.7 ms
+str-runs64-100000
+  pdq        median    11.8 ms
+  lab:lomuto,ends,c24,brk9,pisx median      12 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    12.6 ms
+str-runs7-100000
+  lab:lomuto,ends,c24,brk9,pisx median    9.13 ms
+  pdq        median    9.33 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    9.74 ms
+str-runs8-100000
+  lab:lomuto,ends,c24,brk9,pisx median    10.6 ms
+  pdq        median    10.8 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    10.9 ms
+str-runs9-100000
+  lab:lomuto,ends,c24,brk9,pisx median    9.79 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    10.3 ms
+  pdq        median    10.5 ms
+str-sorted-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.292 ms
+  pdq        median   0.296 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.298 ms
+str-sortedtail-100000
+  lab:lomuto,ends,c24,brk9,pisx median    1.71 ms
+  pdq        median    1.71 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.72 ms
+str-tripledesc-100000
+  lab:lomuto,ends,c24,brk9,pisx median    18.6 ms
+  pdq        median    19.3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    20.3 ms
+u64-blocks16-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.93 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.94 ms
+  pdq        median     4.5 ms
+u64-blocks2-100000
+  lab:lomuto,ends,c24,brk9,pisx median     2.8 ms
+  pdq        median    3.04 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.04 ms
+u64-blocks256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.86 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.96 ms
+  pdq        median    6.07 ms
+u64-constant-100000
+  lab:lomuto,ends,c24,brk9,pisx median  0.0954 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median  0.0955 ms
+  pdq        median  0.0964 ms
+u64-dups4-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.658 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.672 ms
+  pdq        median    1.08 ms
+u64-dupsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    1.68 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    1.69 ms
+  pdq        median    4.41 ms
+u64-headsqrt-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.96 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median     4.3 ms
+  pdq        median    8.23 ms
+u64-nearly-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.539 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.701 ms
+  pdq        median   0.901 ms
+u64-ninther-100000
+  pdq        median   0.972 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.983 ms
+  lab:lomuto,ends,c24,brk9,pisx median    1.01 ms
+u64-organ-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.48 ms
+  pdq        median    2.55 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.65 ms
+u64-pathological-100000
+  pdq        median   0.297 ms
+  lab:lomuto,ends,c24,brk9,pisx median     0.3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.307 ms
+u64-random-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.96 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.06 ms
+  pdq        median    8.44 ms
+u64-random-6250000
+  none       median  0.0104 ms   / core: 9.63e-06 [8.69e-06, 1.07e-05] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx median     812 ms   / core: 0.775 [0.746, 0.806] (n=18)
+  lab:lomuto,ends,c24,brk9,pisx,pred median     832 ms   / core: 0.79 [0.756, 0.826] (n=18)
+  core       median     1.07 s
+  pdq        median     1.09 s   / core: 1.03 [1.01, 1.05] (n=18)
+u64-reversed-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.269 ms
+  lab:lomuto,ends,c24,brk9,pisx median   0.269 ms
+  pdq        median   0.273 ms
+u64-runs11-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.71 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.76 ms
+  pdq        median    4.13 ms
+u64-runs12-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.97 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.11 ms
+  pdq        median    4.67 ms
+u64-runs16-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.96 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.02 ms
+  pdq        median    4.77 ms
+u64-runs2-100000
+  lab:lomuto,ends,c24,brk9,pisx median    2.26 ms
+  pdq        median    2.63 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.64 ms
+u64-runs256-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.83 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.99 ms
+  pdq        median    6.13 ms
+u64-runs3-100000
+  pdq        median     2.3 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    2.38 ms
+  lab:lomuto,ends,c24,brk9,pisx median    2.97 ms
+u64-runs4-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.22 ms
+  lab:lomuto,ends,c24,brk9,pisx median    4.33 ms
+  pdq        median    4.63 ms
+u64-runs5-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.62 ms
+  lab:lomuto,ends,c24,brk9,pisx median    3.72 ms
+  pdq        median    3.93 ms
+u64-runs6-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.46 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.71 ms
+  pdq        median    3.85 ms
+u64-runs64-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.99 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.04 ms
+  pdq        median    5.44 ms
+u64-runs7-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.59 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.77 ms
+  pdq        median    4.02 ms
+u64-runs8-100000
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.09 ms
+  lab:lomuto,ends,c24,brk9,pisx median     4.1 ms
+  pdq        median    4.51 ms
+u64-runs9-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.75 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    3.83 ms
+  pdq        median    4.39 ms
+u64-sorted-100000
+  lab:lomuto,ends,c24,brk9,pisx median  0.0952 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median  0.0955 ms
+  pdq        median  0.0956 ms
+u64-sortedtail-100000
+  lab:lomuto,ends,c24,brk9,pisx median   0.566 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median   0.572 ms
+  pdq        median   0.612 ms
+u64-tripledesc-100000
+  lab:lomuto,ends,c24,brk9,pisx median    3.91 ms
+  lab:lomuto,ends,c24,brk9,pisx,pred median    4.02 ms
+  pdq        median    8.31 ms

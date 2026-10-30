@@ -1,0 +1,1 @@
+lab:c24,brk9 nat cluster10x4x3 100000: cmps/n=6.50 swaps/n=0.77 partitions=23 unbalanced=0 partitioned-elems/n=4.13 heaps=0 heap-elems/n=0.00 pis=24/34 pis-won-elems/n=1.00 ins-elems/n=0.00 equal=0 breaks=0 reversals=0 other=0.00 part=4.13 pis=2.36 pivot=0.01

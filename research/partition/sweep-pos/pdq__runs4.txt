@@ -1,0 +1,1 @@
+pdq nat runs4 100000: cmps/n=27.63 swaps/n=6.91 partitions=6812 unbalanced=808 partitioned-elems/n=22.52 heaps=0 heap-elems/n=0.00 pis=0/184 pis-won-elems/n=0.00 ins-elems/n=0.93 equal=0 breaks=673 reversals=31 ins=4.38 other=0.07 part=22.48 pis=0.18 pivot=0.52

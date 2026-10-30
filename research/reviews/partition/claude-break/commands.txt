@@ -1,0 +1,22 @@
+Run record (2026-10-27, a laptop with an Intel i9-13980HX; timings pinned to CPU 6).
+Code under test: matthias/qsort at commit in scripts/base-commit.txt, Lean v4.34.1 (elan), built with
+  cd sorts && lake build sorts sorttest brk
+where brk is the scratch harness scripts/Break.lean added to the lakefile (scripts/lakefile.diff).
+L  = lab:lomuto,ends,c24,brk9      LN = lab:lomuto,ends,c24,brk9,nochild
+
+Comparison counts: brk count ALGO FILE  (comparator counted through an IO.Ref; validated equal to
+  Pdq.count/PdqCost's state-monad count for pdq on 6 inputs, and equal to scripts/port.py on 36 runs:
+  validate-port.txt).
+Inputs: scripts/gen.py SPEC N OUT (SPEC e.g. nearly:300:2 = sorted 0..n-1 with 300 random swaps, seed 2).
+Sweeps: scripts/sweep.py OUT.tsv N SPEC...  -> sweep-*.tsv (columns: spec n L LN pdq core ratios)
+Timing: scripts/timeit.py FILE BLOCKS REPS ALGO...  (randomised blocks, taskset CPU 6) -> time-*.txt
+Instructions: perf stat -e cpu_core/instructions/u, (6 sorts - 1 sort)/5 -> instructions-1M.txt
+Traces / per-phase counts: scripts/port.py ALGO FILE trace -> trace-*.txt
+McIlroy adversary: scripts/adv.py ALGO N mcilroy OUT (Python port), replayed in Lean -> adversary-py.txt, mcilroy-growth.txt
+  (adversary-lean-broken.txt: a first Lean-side adversary whose comparator the compiler evidently
+  did not run per call; its numbers are not adversarial and are not used.)
+Phase-aware unlawful adversary: scripts/phaseadv.py -> phase-adversary.txt
+Unlawful comparators + subranges: brk unlawful ALGO KIND N SEED LO HI -> unlawful.txt
+  (unlawful-run1-constant-folded.txt: first run, where constant comparators were folded to one call; superseded.)
+Partition contract: brk part 300000 -> partition-contract.txt ; predecessor lower bound: scripts/invariant.py -> lower-bound-invariant.txt
+Hill climbing: brk climb ALGO REF N ITERS SEED INIT DUPS OUT -> climb/

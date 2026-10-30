@@ -1,0 +1,16 @@
+cluster:5:9:2 algo=pdq cmps=8065739 perNlogN=0.404672 ok=true
+cluster:5:9:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 cmps=14834299 perNlogN=0.744261 ok=true
+cluster:5:9:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred16 cmps=13793165 perNlogN=0.692026 ok=true
+cluster:5:9:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6,hybp cmps=12037722 perNlogN=0.603953 ok=true
+cluster:5:9:3 algo=pdq cmps=5604990 perNlogN=0.281212 ok=true
+cluster:5:9:3 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 cmps=18093588 perNlogN=0.907785 ok=true
+cluster:5:9:3 algo=lab:lomuto,ends,c24,brk9,pisx6,pred16 cmps=15641384 perNlogN=0.784754 ok=true
+cluster:5:9:3 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6,hybp cmps=9343352 perNlogN=0.468772 ok=true
+cluster:5:12:2 algo=pdq cmps=6530886 perNlogN=0.327665 ok=true
+cluster:5:12:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 cmps=21263641 perNlogN=1.066832 ok=true
+cluster:5:12:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred16 cmps=18407909 perNlogN=0.923555 ok=true
+cluster:5:12:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6,hybp cmps=6863056 perNlogN=0.344331 ok=true
+cluster:10:10:2 algo=pdq cmps=14354022 perNlogN=0.720165 ok=true
+cluster:10:10:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6 cmps=20868454 perNlogN=1.047005 ok=true
+cluster:10:10:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred16 cmps=18285148 perNlogN=0.917396 ok=true
+cluster:10:10:2 algo=lab:lomuto,ends,c24,brk9,pisx6,pred6,hybp cmps=16921858 perNlogN=0.848998 ok=true

@@ -1,0 +1,1 @@
+pdq nat m3killer 100000: cmps/n=10.62 swaps/n=3.80 partitions=2882 unbalanced=15 partitioned-elems/n=7.59 heaps=0 heap-elems/n=0.00 pis=4/7 pis-won-elems/n=0.50 ins-elems/n=0.47 equal=0 breaks=4 reversals=0 ins=2.30 other=0.03 part=7.58 pis=0.50 pivot=0.21

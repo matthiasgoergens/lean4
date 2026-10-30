@@ -1,0 +1,25 @@
+Fraction of full specialisation's instruction saving kept, (I_closure - I_split) / (I_closure - I_pdq),
+sort instructions = count - none's; deterministic counts (perf stat instructions:u).
+
+== spec-instr/instr.txt
+workload                             hot     cold-hp    cold-hpp   leaves-hp  leaves-hpp
+nat-dups4-100000-0                 0.877       1.000       0.877       1.000       0.877
+nat-nearly300-1000000-0            0.811       0.999       0.811       0.999       0.811
+nat-random-1000000-0               0.986       0.986       0.986       0.980       0.980
+nat-random-1000000-256             0.967       0.968       0.967       0.954       0.953
+nat-random-1000000-8               1.000       0.991       0.991       0.793       0.780
+nat-runs16-100000-0                0.985       0.985       0.985       0.979       0.979
+str-random-1000000-0               0.985       0.985       0.985       0.980       0.980
+u64-random-6250000-0               0.987       0.987       0.987       0.983       0.982
+
+== spec-instr5/instr.txt
+workload                            c5-h       c5-he       c5-hp      c5-hpe
+nat-dups4-100000-0                 1.000       0.956       0.878       0.833
+nat-nearly300-1000000-0            1.000       1.000       0.812       0.812
+nat-random-1000000-0               1.000       1.000       1.000       1.000
+nat-random-1000000-256             1.000       1.000       0.999       0.999
+nat-random-1000000-8               0.998       0.998       0.999       0.999
+nat-runs16-100000-0                1.000       1.000       0.999       0.999
+str-random-1000000-0               1.000       1.000       1.000       1.000
+u64-random-6250000-0               1.000       1.000       1.000       1.000
+

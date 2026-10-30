@@ -1,0 +1,181 @@
+HASH MISMATCH: nat-ninther-100000: {'lab:lomuto,ends,c24,brk9,nochild': {'13245061215223232256'}, 'lab:lomuto,ends,c24,brk9': {'13245061215223232256'}, 'pdq': {'13245061215223232256'}, 'none': {'12367316050717389568'}, 'lab-c24': {'13245061215223232256'}, 'lab:hyb,bl,c24,brk9': {'13245061215223232256'}}
+HASH MISMATCH: rec-nearly-100000: {'lab:hyb,bl,c24,brk9': {'8610417914972036352'}, 'lab:lomuto,ends,c24,brk9': {'8610417914972036352'}, 'lab:lomuto,ends,c24,brk9,nochild': {'8610417914972036352'}, 'none': {'16820897367323376800'}, 'lab-c24': {'8610417914972036352'}, 'pdq': {'8610417914972036352'}}
+HASH MISMATCH: nat-runs5-1000000: {'lab:lomuto,ends,c24,brk9': {'16012264530786851664'}, 'pdq': {'16012264530786851664'}, 'lab:hyb,bl,c24,brk9': {'16012264530786851664'}, 'none': {'13453737629419778272'}, 'lab-c24': {'16012264530786851664'}, 'lab:lomuto,ends,c24,brk9,nochild': {'16012264530786851664'}}
+HASH MISMATCH: rec-runs64-100000: {'none': {'12077291612684061088'}, 'lab:hyb,bl,c24,brk9': {'8624115251478036128'}, 'lab-c24': {'8624115251478036128'}, 'lab:lomuto,ends,c24,brk9': {'8624115251478036128'}, 'lab:lomuto,ends,c24,brk9,nochild': {'8624115251478036128'}, 'pdq': {'8624115251478036128'}}
+HASH MISMATCH: nat-runs64-100000: {'lab:hyb,bl,c24,brk9': {'8624115251478036128'}, 'lab:lomuto,ends,c24,brk9,nochild': {'8624115251478036128'}, 'lab:lomuto,ends,c24,brk9': {'8624115251478036128'}, 'lab-c24': {'8624115251478036128'}, 'pdq': {'8624115251478036128'}, 'none': {'12077291612684061088'}}
+HASH MISMATCH: rec-runs5-100000: {'lab-c24': {'6026500225834487760'}, 'lab:lomuto,ends,c24,brk9': {'6026500225834487760'}, 'lab:lomuto,ends,c24,brk9,nochild': {'6026500225834487760'}, 'lab:hyb,bl,c24,brk9': {'6026500225834487760'}, 'pdq': {'6026500225834487760'}, 'none': {'11246523567285195872'}}
+HASH MISMATCH: nat-organ-100000: {'pdq': {'12917963963171419504'}, 'lab:lomuto,ends,c24,brk9,nochild': {'12917963963171419504'}, 'lab:lomuto,ends,c24,brk9': {'12917963963171419504'}, 'none': {'15365812117496031056'}, 'lab:hyb,bl,c24,brk9': {'12917963963171419504'}, 'lab-c24': {'12917963963171419504'}}
+HASH MISMATCH: nat-nearly-100000: {'pdq': {'8610417914972036352'}, 'lab:hyb,bl,c24,brk9': {'8610417914972036352'}, 'lab:lomuto,ends,c24,brk9': {'8610417914972036352'}, 'lab:lomuto,ends,c24,brk9,nochild': {'8610417914972036352'}, 'lab-c24': {'8610417914972036352'}, 'none': {'16820897367323376800'}}
+HASH MISMATCH: nat-runs16-100000: {'lab:lomuto,ends,c24,brk9': {'16380510706126002480'}, 'lab:lomuto,ends,c24,brk9,nochild': {'16380510706126002480'}, 'lab-c24': {'16380510706126002480'}, 'lab:hyb,bl,c24,brk9': {'16380510706126002480'}, 'none': {'8181198795261089232'}, 'pdq': {'16380510706126002480'}}
+HASH MISMATCH: rec-random-1000000: {'pdq': {'7301018313514939397'}, 'core': {'7301018313514939397'}, 'lab:hyb,bl,c24,brk9': {'7301018313514939397'}, 'lab:lomuto,ends,c24,brk9,nochild': {'7301018313514939397'}, 'lab:lomuto,ends,c24,brk9': {'7301018313514939397'}, 'none': {'17784281608604441037'}, 'lab-c24': {'7301018313514939397'}}
+HASH MISMATCH: nat-runs5-100000: {'lab:lomuto,ends,c24,brk9,nochild': {'6026500225834487760'}, 'lab:hyb,bl,c24,brk9': {'6026500225834487760'}, 'pdq': {'6026500225834487760'}, 'lab-c24': {'6026500225834487760'}, 'none': {'11246523567285195872'}, 'lab:lomuto,ends,c24,brk9': {'6026500225834487760'}}
+HASH MISMATCH: nat-runs4-100000: {'lab:lomuto,ends,c24,brk9,nochild': {'6361666690512023404'}, 'pdq': {'6361666690512023404'}, 'none': {'17382749295625639292'}, 'lab-c24': {'6361666690512023404'}, 'lab:lomuto,ends,c24,brk9': {'6361666690512023404'}, 'lab:hyb,bl,c24,brk9': {'6361666690512023404'}}
+HASH MISMATCH: rec-sortedtail-100000: {'lab-c24': {'12096500974763184171'}, 'pdq': {'12096500974763184171'}, 'lab:hyb,bl,c24,brk9': {'12096500974763184171'}, 'lab:lomuto,ends,c24,brk9': {'12096500974763184171'}, 'lab:lomuto,ends,c24,brk9,nochild': {'12096500974763184171'}, 'none': {'8434381050399226093'}}
+HASH MISMATCH: rec-ninther-100000: {'lab:lomuto,ends,c24,brk9,nochild': {'13245061215223232256'}, 'pdq': {'13245061215223232256'}, 'lab:hyb,bl,c24,brk9': {'13245061215223232256'}, 'lab:lomuto,ends,c24,brk9': {'13245061215223232256'}, 'none': {'12367316050717389568'}, 'lab-c24': {'13245061215223232256'}}
+HASH MISMATCH: nat-sortedtail-100000: {'lab-c24': {'12096500974763184171'}, 'lab:lomuto,ends,c24,brk9,nochild': {'12096500974763184171'}, 'lab:lomuto,ends,c24,brk9': {'12096500974763184171'}, 'none': {'8434381050399226093'}, 'pdq': {'12096500974763184171'}, 'lab:hyb,bl,c24,brk9': {'12096500974763184171'}}
+HASH MISMATCH: rec-runs4-100000: {'lab:lomuto,ends,c24,brk9,nochild': {'6361666690512023404'}, 'lab-c24': {'6361666690512023404'}, 'lab:lomuto,ends,c24,brk9': {'6361666690512023404'}, 'lab:hyb,bl,c24,brk9': {'6361666690512023404'}, 'pdq': {'6361666690512023404'}, 'none': {'17382749295625639292'}}
+HASH MISMATCH: nat-ninther-1000000: {'pdq': {'14441313716240211200'}, 'lab-c24': {'14441313716240211200'}, 'none': {'4724219391075502848'}, 'lab:lomuto,ends,c24,brk9,nochild': {'14441313716240211200'}, 'lab:lomuto,ends,c24,brk9': {'14441313716240211200'}, 'lab:hyb,bl,c24,brk9': {'14441313716240211200'}}
+HASH MISMATCH: rec-runs16-100000: {'pdq': {'16380510706126002480'}, 'none': {'8181198795261089232'}, 'lab:hyb,bl,c24,brk9': {'16380510706126002480'}, 'lab:lomuto,ends,c24,brk9,nochild': {'16380510706126002480'}, 'lab:lomuto,ends,c24,brk9': {'16380510706126002480'}, 'lab-c24': {'16380510706126002480'}}
+HASH MISMATCH: nat-random-1000000: {'core': {'7301018313514939397'}, 'lab:lomuto,ends,c24,brk9': {'7301018313514939397'}, 'lab-c24': {'7301018313514939397'}, 'lab:lomuto,ends,c24,brk9,nochild': {'7301018313514939397'}, 'lab:hyb,bl,c24,brk9': {'7301018313514939397'}, 'pdq': {'7301018313514939397'}, 'none': {'17784281608604441037'}}
+HASH MISMATCH: rec-organ-100000: {'lab:hyb,bl,c24,brk9': {'12917963963171419504'}, 'lab:lomuto,ends,c24,brk9': {'12917963963171419504'}, 'none': {'15365812117496031056'}, 'pdq': {'12917963963171419504'}, 'lab:lomuto,ends,c24,brk9,nochild': {'12917963963171419504'}, 'lab-c24': {'12917963963171419504'}}
+HASH MISMATCH: u64-random-6250000: {'pdq': {'4326050871801838341'}, 'lab:hyb,bl,c24,brk9': {'4326050871801838341'}, 'core': {'4326050871801838341'}, 'lab:lomuto,ends,c24,brk9,nochild': {'4326050871801838341'}, 'lab-c24': {'4326050871801838341'}, 'none': {'7818787703393317527'}, 'lab:lomuto,ends,c24,brk9': {'4326050871801838341'}}
+HASH MISMATCH: nat-nearly-1000000: {'lab:lomuto,ends,c24,brk9,nochild': {'4646587707647723520'}, 'pdq': {'4646587707647723520'}, 'lab:lomuto,ends,c24,brk9': {'4646587707647723520'}, 'lab-c24': {'4646587707647723520'}, 'lab:hyb,bl,c24,brk9': {'4646587707647723520'}, 'none': {'6474524566107630156'}}
+22 problems
+
+nat-nearly-100000
+  none       median 0.00638 ms
+  lab:lomuto,ends,c24,brk9 median   0.825 ms
+  lab:hyb,bl,c24,brk9 median   0.846 ms
+  lab-c24    median   0.851 ms
+  pdq        median   0.863 ms
+  lab:lomuto,ends,c24,brk9,nochild median   0.915 ms
+nat-nearly-1000000
+  none       median 0.00987 ms
+  lab-c24    median    6.67 ms
+  pdq        median    6.76 ms
+  lab:hyb,bl,c24,brk9 median    6.78 ms
+  lab:lomuto,ends,c24,brk9 median    6.93 ms
+  lab:lomuto,ends,c24,brk9,nochild median    8.33 ms
+nat-ninther-100000
+  none       median 0.00645 ms
+  lab-c24    median    1.02 ms
+  pdq        median    1.03 ms
+  lab:lomuto,ends,c24,brk9,nochild median     1.1 ms
+  lab:lomuto,ends,c24,brk9 median    1.11 ms
+  lab:hyb,bl,c24,brk9 median    1.71 ms
+nat-ninther-1000000
+  none       median  0.0103 ms
+  pdq        median      10 ms
+  lab-c24    median    10.1 ms
+  lab:lomuto,ends,c24,brk9,nochild median    10.3 ms
+  lab:lomuto,ends,c24,brk9 median      11 ms
+  lab:hyb,bl,c24,brk9 median    16.9 ms
+nat-organ-100000
+  none       median 0.00659 ms
+  lab:lomuto,ends,c24,brk9,nochild median    2.46 ms
+  lab:lomuto,ends,c24,brk9 median    2.48 ms
+  lab-c24    median    2.75 ms
+  pdq        median    2.89 ms
+  lab:hyb,bl,c24,brk9 median    3.05 ms
+nat-random-1000000
+  none       median  0.0112 ms   / core: 0.000121 [0.000108, 0.000135] (n=18)
+  lab:lomuto,ends,c24,brk9 median    39.7 ms   / core: 0.423 [0.419, 0.427] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild median    39.9 ms   / core: 0.426 [0.423, 0.43] (n=18)
+  lab:hyb,bl,c24,brk9 median    41.3 ms   / core: 0.441 [0.438, 0.445] (n=18)
+  lab-c24    median    90.3 ms   / core: 0.964 [0.955, 0.972] (n=18)
+  core       median    93.9 ms
+  pdq        median    94.4 ms   / core: 1.01 [1, 1.02] (n=18)
+nat-runs16-100000
+  none       median 0.00681 ms
+  lab:lomuto,ends,c24,brk9,nochild median    3.88 ms
+  lab:lomuto,ends,c24,brk9 median    3.94 ms
+  lab:hyb,bl,c24,brk9 median    4.15 ms
+  lab-c24    median    4.75 ms
+  pdq        median    5.17 ms
+nat-runs4-100000
+  none       median  0.0072 ms
+  lab:lomuto,ends,c24,brk9,nochild median    4.22 ms
+  lab:lomuto,ends,c24,brk9 median    4.31 ms
+  lab:hyb,bl,c24,brk9 median    4.58 ms
+  lab-c24    median    4.76 ms
+  pdq        median     5.1 ms
+nat-runs5-100000
+  none       median 0.00675 ms
+  lab:lomuto,ends,c24,brk9,nochild median     3.5 ms
+  lab:hyb,bl,c24,brk9 median    3.97 ms
+  lab-c24    median    4.01 ms
+  pdq        median    4.42 ms
+  lab:lomuto,ends,c24,brk9 median    4.59 ms
+nat-runs5-1000000
+  none       median  0.0108 ms
+  lab:lomuto,ends,c24,brk9,nochild median    38.5 ms
+  lab-c24    median    43.5 ms
+  lab:hyb,bl,c24,brk9 median    44.1 ms
+  pdq        median    47.1 ms
+  lab:lomuto,ends,c24,brk9 median    51.9 ms
+nat-runs64-100000
+  none       median 0.00659 ms
+  lab:lomuto,ends,c24,brk9,nochild median    3.85 ms
+  lab:lomuto,ends,c24,brk9 median    3.86 ms
+  lab:hyb,bl,c24,brk9 median    4.06 ms
+  lab-c24    median    5.34 ms
+  pdq        median    5.75 ms
+nat-sortedtail-100000
+  none       median 0.00675 ms
+  lab:lomuto,ends,c24,brk9,nochild median   0.497 ms
+  lab:lomuto,ends,c24,brk9 median   0.505 ms
+  lab:hyb,bl,c24,brk9 median    0.51 ms
+  lab-c24    median    0.54 ms
+  pdq        median   0.548 ms
+rec-nearly-100000
+  none       median 0.00901 ms
+  lab:lomuto,ends,c24,brk9 median   0.976 ms
+  pdq        median   0.999 ms
+  lab:hyb,bl,c24,brk9 median    1.01 ms
+  lab-c24    median    1.02 ms
+  lab:lomuto,ends,c24,brk9,nochild median    1.08 ms
+rec-ninther-100000
+  none       median 0.00961 ms
+  lab-c24    median    1.17 ms
+  pdq        median    1.21 ms
+  lab:lomuto,ends,c24,brk9 median    1.28 ms
+  lab:lomuto,ends,c24,brk9,nochild median    1.33 ms
+  lab:hyb,bl,c24,brk9 median    1.98 ms
+rec-organ-100000
+  none       median 0.00951 ms
+  lab:lomuto,ends,c24,brk9,nochild median    2.71 ms
+  lab:lomuto,ends,c24,brk9 median    2.76 ms
+  lab-c24    median    3.01 ms
+  pdq        median     3.2 ms
+  lab:hyb,bl,c24,brk9 median    3.54 ms
+rec-random-1000000
+  none       median  0.0119 ms   / core: 8.47e-05 [7.41e-05, 9.69e-05] (n=18)
+  lab:lomuto,ends,c24,brk9 median     102 ms   / core: 0.708 [0.666, 0.752] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild median     108 ms   / core: 0.722 [0.68, 0.766] (n=18)
+  lab:hyb,bl,c24,brk9 median     123 ms   / core: 0.823 [0.783, 0.865] (n=18)
+  lab-c24    median     144 ms   / core: 0.989 [0.947, 1.03] (n=18)
+  pdq        median     147 ms   / core: 0.994 [0.961, 1.03] (n=18)
+  core       median     148 ms
+rec-runs16-100000
+  none       median 0.00941 ms
+  lab:lomuto,ends,c24,brk9,nochild median    4.38 ms
+  lab:lomuto,ends,c24,brk9 median    4.42 ms
+  lab:hyb,bl,c24,brk9 median     4.7 ms
+  lab-c24    median    5.31 ms
+  pdq        median    5.73 ms
+rec-runs4-100000
+  none       median  0.0094 ms
+  lab:lomuto,ends,c24,brk9,nochild median    4.68 ms
+  lab:lomuto,ends,c24,brk9 median    4.77 ms
+  lab-c24    median     5.2 ms
+  lab:hyb,bl,c24,brk9 median    5.25 ms
+  pdq        median    5.57 ms
+rec-runs5-100000
+  none       median 0.00933 ms
+  lab:lomuto,ends,c24,brk9,nochild median    3.89 ms
+  lab-c24    median    4.43 ms
+  lab:hyb,bl,c24,brk9 median    4.48 ms
+  pdq        median    4.83 ms
+  lab:lomuto,ends,c24,brk9 median     5.1 ms
+rec-runs64-100000
+  none       median 0.00928 ms
+  lab:lomuto,ends,c24,brk9 median    4.36 ms
+  lab:lomuto,ends,c24,brk9,nochild median    4.37 ms
+  lab:hyb,bl,c24,brk9 median    4.66 ms
+  lab-c24    median    6.02 ms
+  pdq        median    6.49 ms
+rec-sortedtail-100000
+  none       median  0.0086 ms
+  lab:lomuto,ends,c24,brk9,nochild median   0.663 ms
+  lab-c24    median    0.67 ms
+  pdq        median   0.682 ms
+  lab:hyb,bl,c24,brk9 median   0.691 ms
+  lab:lomuto,ends,c24,brk9 median   0.692 ms
+u64-random-6250000
+  none       median  0.0111 ms   / core: 1.06e-05 [9.17e-06, 1.22e-05] (n=18)
+  lab:lomuto,ends,c24,brk9 median     846 ms   / core: 0.777 [0.746, 0.81] (n=18)
+  lab:lomuto,ends,c24,brk9,nochild median     867 ms   / core: 0.772 [0.746, 0.799] (n=18)
+  lab:hyb,bl,c24,brk9 median     909 ms   / core: 0.822 [0.792, 0.854] (n=18)
+  lab-c24    median     1.11 s   / core: 1.01 [0.984, 1.03] (n=18)
+  core       median     1.12 s
+  pdq        median     1.13 s   / core: 1.03 [1, 1.06] (n=18)

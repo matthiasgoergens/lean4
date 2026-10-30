@@ -1,0 +1,4 @@
+part lomutoEndsPred maxFlips=0 trials=300000 bad=0 already=111353 alreadyButMoved=5246
+part lomutoEndsPred maxFlips=3 trials=300000 bad=0 already=111353 alreadyButMoved=5246
+part lomutoEndsPred maxFlips=6 trials=300000 bad=0 already=111353 alreadyButMoved=5246
+part lomutoEndsPred maxFlips=1000 trials=300000 bad=0 already=111353 alreadyButMoved=5246

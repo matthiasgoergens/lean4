@@ -1,0 +1,167 @@
+0 problems; load average median 60, range 55-70
+
+heap-nat-random-1000000   (ns)
+  pdq              median     343.5 ms
+  spec-share       median     551.6 ms   / pdq  1.679 [ 1.446,  1.950]   kept   0.36 [-0.28,  0.62]
+  spec-hot         median     576.3 ms   / pdq  1.696 [ 1.477,  1.946]   kept   0.28 [-0.24,  0.60]
+  spec-closure     median     668.7 ms   / pdq  1.794 [ 1.548,  2.081]
+nat-dups4-100000   (ns)
+  pdq              median       1.0 ms
+  spec-nopiv       median       1.0 ms   / pdq  0.999 [ 0.945,  1.055]   kept   0.98 [ 0.93,  1.04]
+  spec-cold-hp     median       1.1 ms   / pdq  1.031 [ 0.966,  1.099]   kept   0.98 [ 0.96,  1.02]
+  spec-leaves-hp   median       1.1 ms   / pdq  1.032 [ 0.960,  1.109]   kept   0.97 [ 0.92,  1.03]
+  spec-ctl         median       1.1 ms   / pdq  1.045 [ 1.002,  1.089]   kept   0.96 [ 0.94,  1.01]
+  spec-leaves-hpp  median       1.3 ms   / pdq  1.315 [ 1.198,  1.442]   kept   0.90 [ 0.75,  0.97]
+  spec-cold-hpp    median       1.4 ms   / pdq  1.371 [ 1.262,  1.490]   kept   0.84 [ 0.67,  0.91]
+  spec-hot         median       1.5 ms   / pdq  1.339 [ 1.252,  1.432]   kept   0.80 [ 0.69,  0.92]
+  spec-closure     median       3.7 ms   / pdq  3.309 [ 2.939,  3.726]
+nat-jitter64-1000000   (ns)
+  spec-leaves-hp   median      45.4 ms   / pdq  1.030 [ 0.965,  1.100]   kept   1.00 [ 0.97,  1.03]
+  pdq              median      45.5 ms
+  spec-cold-hp     median      46.3 ms   / pdq  1.066 [ 0.987,  1.152]   kept   0.99 [ 0.95,  1.02]
+  spec-nopiv       median      47.5 ms   / pdq  1.061 [ 1.001,  1.124]   kept   0.99 [ 0.96,  1.01]
+  spec-leaves-hpp  median      47.5 ms   / pdq  1.124 [ 1.034,  1.223]   kept   0.99 [ 0.95,  1.01]
+  spec-cold-hpp    median      47.5 ms   / pdq  1.036 [ 1.000,  1.073]   kept   0.99 [ 0.98,  1.01]
+  spec-ctl         median      47.8 ms   / pdq  1.017 [ 0.942,  1.099]   kept   0.99 [ 0.94,  1.02]
+  spec-hot         median      53.1 ms   / pdq  1.117 [ 1.007,  1.239]   kept   0.95 [ 0.90,  1.01]
+  spec-closure     median     211.3 ms   / pdq  4.453 [ 3.980,  4.982]
+nat-nearly-1000000   (ns)
+  pdq              median       8.2 ms
+  spec-leaves-hp   median       8.8 ms   / pdq  0.966 [ 0.761,  1.227]   kept   0.99 [ 0.97,  1.05]
+  spec-ctl         median       8.8 ms   / pdq  1.024 [ 0.744,  1.411]   kept   0.99 [ 0.91,  1.05]
+  spec-cold-hp     median       9.2 ms   / pdq  1.023 [ 0.765,  1.368]   kept   0.98 [ 0.94,  1.03]
+  spec-nopiv       median       9.6 ms   / pdq  0.955 [ 0.760,  1.199]   kept   0.97 [ 0.94,  1.04]
+  spec-cold-hpp    median      26.2 ms   / pdq  2.754 [ 2.041,  3.717]   kept   0.61 [ 0.39,  0.82]
+  spec-leaves-hpp  median      28.0 ms   / pdq  2.786 [ 2.050,  3.787]   kept   0.57 [ 0.36,  0.82]
+  spec-hot         median      33.7 ms   / pdq  3.117 [ 2.188,  4.440]   kept   0.45 [ 0.24,  0.79]
+  spec-closure     median      54.3 ms   / pdq  6.426 [ 4.836,  8.538]
+nat-nearly300-1000000   (ns)
+  spec-leaves-hp   median      11.7 ms   / pdq  0.873 [ 0.723,  1.055]   kept   1.02 [ 0.98,  1.10]
+  spec-ctl         median      12.0 ms   / pdq  0.892 [ 0.730,  1.090]   kept   1.01 [ 0.98,  1.09]
+  spec-nopiv       median      13.0 ms   / pdq  0.897 [ 0.730,  1.102]   kept   1.00 [ 0.96,  1.10]
+  pdq              median      13.0 ms
+  spec-cold-hp     median      13.4 ms   / pdq  0.973 [ 0.847,  1.119]   kept   0.99 [ 0.96,  1.06]
+  spec-cold-hpp    median      23.3 ms   / pdq  1.994 [ 1.664,  2.388]   kept   0.86 [ 0.63,  0.93]
+  spec-leaves-hpp  median      25.0 ms   / pdq  1.957 [ 1.709,  2.241]   kept   0.83 [ 0.79,  0.92]
+  spec-hot         median      34.9 ms   / pdq  2.292 [ 1.801,  2.916]   kept   0.70 [ 0.56,  0.86]
+  spec-closure     median      85.0 ms   / pdq  6.655 [ 5.608,  7.897]
+nat-nearly5000-1000000   (ns)
+  pdq              median      17.0 ms
+  spec-ctl         median      17.7 ms   / pdq  0.980 [ 0.934,  1.029]   kept   0.99 [ 0.98,  1.02]
+  spec-nopiv       median      19.4 ms   / pdq  1.097 [ 0.987,  1.218]   kept   0.98 [ 0.97,  1.00]
+  spec-cold-hp     median      20.9 ms   / pdq  1.098 [ 0.956,  1.261]   kept   0.96 [ 0.91,  1.01]
+  spec-leaves-hp   median      21.3 ms   / pdq  1.103 [ 0.988,  1.230]   kept   0.96 [ 0.95,  1.01]
+  spec-cold-hpp    median      33.6 ms   / pdq  1.961 [ 1.841,  2.089]   kept   0.84 [ 0.81,  0.91]
+  spec-leaves-hpp  median      50.2 ms   / pdq  2.308 [ 1.866,  2.855]   kept   0.68 [ 0.61,  0.86]
+  spec-hot         median      50.8 ms   / pdq  2.345 [ 1.991,  2.762]   kept   0.67 [ 0.64,  0.85]
+  spec-closure     median     121.0 ms   / pdq  7.357 [ 6.397,  8.461]
+nat-organ-100000   (ns)
+  pdq              median       2.9 ms
+  spec-cold-hp     median       3.1 ms   / pdq  1.098 [ 0.974,  1.238]   kept   0.97 [ 0.92,  1.05]
+  spec-nopiv       median       3.1 ms   / pdq  1.105 [ 0.972,  1.257]   kept   0.97 [ 0.92,  1.05]
+  spec-ctl         median       3.4 ms   / pdq  1.046 [ 0.925,  1.183]   kept   0.95 [ 0.88,  1.04]
+  spec-cold-hpp    median       3.6 ms   / pdq  1.107 [ 1.008,  1.217]   kept   0.93 [ 0.90,  0.99]
+  spec-leaves-hp   median       3.7 ms   / pdq  1.149 [ 1.047,  1.262]   kept   0.92 [ 0.89,  0.98]
+  spec-hot         median       3.7 ms   / pdq  1.128 [ 1.030,  1.236]   kept   0.92 [ 0.90,  0.99]
+  spec-leaves-hpp  median       3.8 ms   / pdq  1.171 [ 1.011,  1.355]   kept   0.91 [ 0.84,  1.01]
+  spec-closure     median      13.5 ms   / pdq  5.031 [ 4.310,  5.872]
+nat-pathological-1000000   (ns)
+  spec-cold-hp     median       3.4 ms   / pdq  0.850 [ 0.595,  1.214]   kept   1.03 [ 0.94,  1.36]
+  spec-ctl         median       3.5 ms   / pdq  1.034 [ 0.686,  1.557]   kept   1.02 [ 0.78,  1.25]
+  pdq              median       3.8 ms
+  spec-leaves-hp   median       4.1 ms   / pdq  0.955 [ 0.667,  1.369]   kept   0.97 [ 0.92,  1.25]
+  spec-nopiv       median       4.3 ms   / pdq  1.067 [ 0.722,  1.577]   kept   0.95 [ 0.77,  1.21]
+  spec-leaves-hpp  median       9.1 ms   / pdq  2.584 [ 1.827,  3.654]   kept   0.53 [ 0.43,  0.80]
+  spec-cold-hpp    median       9.5 ms   / pdq  2.521 [ 1.757,  3.618]   kept   0.49 [ 0.39,  0.74]
+  spec-hot         median      13.4 ms   / pdq  3.007 [ 2.187,  4.134]   kept   0.14 [-0.05,  0.61]
+  spec-closure     median      15.1 ms   / pdq  4.312 [ 3.111,  5.976]
+nat-random-1000000   (ns)
+  pdq              median      94.3 ms
+  spec-cold-hp     median      95.5 ms   / pdq  1.027 [ 1.014,  1.041]   kept   0.99 [ 0.96,  1.00]
+  spec-ctl         median      96.4 ms   / pdq  1.029 [ 0.974,  1.088]   kept   0.99 [ 0.94,  1.03]
+  spec-cold-hpp    median      96.4 ms   / pdq  1.028 [ 0.996,  1.060]   kept   0.99 [ 0.96,  1.00]
+  spec-leaves-hp   median      97.4 ms   / pdq  1.039 [ 1.000,  1.080]   kept   0.98 [ 0.94,  1.00]
+  spec-leaves-hpp  median      97.6 ms   / pdq  1.031 [ 1.017,  1.045]   kept   0.98 [ 0.96,  1.00]
+  spec-nopiv       median     101.7 ms   / pdq  1.061 [ 1.009,  1.116]   kept   0.96 [ 0.88,  1.01]
+  spec-hot         median     104.2 ms   / pdq  1.064 [ 1.015,  1.114]   kept   0.94 [ 0.89,  0.99]
+  spec-closure     median     260.8 ms   / pdq  2.678 [ 2.414,  2.972]
+nat-random-1000000-chunk256   (ns)
+  pdq              median      44.4 ms
+  spec-ctl         median      45.6 ms   / pdq  1.000 [ 0.921,  1.085]   kept   0.98 [ 0.93,  1.05]
+  spec-cold-hpp    median      47.8 ms   / pdq  1.065 [ 1.016,  1.116]   kept   0.95 [ 0.90,  0.98]
+  spec-leaves-hp   median      48.3 ms   / pdq  1.063 [ 0.972,  1.163]   kept   0.94 [ 0.84,  1.02]
+  spec-nopiv       median      49.3 ms   / pdq  1.064 [ 0.970,  1.168]   kept   0.92 [ 0.82,  1.02]
+  spec-hot         median      50.1 ms   / pdq  1.080 [ 0.972,  1.200]   kept   0.91 [ 0.83,  1.04]
+  spec-cold-hp     median      50.4 ms   / pdq  1.101 [ 1.013,  1.196]   kept   0.91 [ 0.84,  0.99]
+  spec-leaves-hpp  median      50.9 ms   / pdq  1.115 [ 1.012,  1.228]   kept   0.90 [ 0.82,  0.97]
+  spec-closure     median     107.9 ms   / pdq  2.504 [ 2.303,  2.721]
+nat-random-1000000-chunk32   (ns)
+  spec-hot         median      41.0 ms   / pdq  0.955 [ 0.869,  1.049]   kept   1.01 [ 0.88,  1.37]
+  spec-cold-hp     median      41.1 ms   / pdq  0.985 [ 0.831,  1.168]   kept   1.01 [ 0.73,  1.56]
+  pdq              median      41.4 ms
+  spec-leaves-hp   median      42.3 ms   / pdq  0.984 [ 0.842,  1.148]   kept   0.98 [ 0.77,  1.51]
+  spec-nopiv       median      45.6 ms   / pdq  1.074 [ 0.933,  1.236]   kept   0.88 [ 0.65,  1.29]
+  spec-leaves-hpp  median      47.1 ms   / pdq  1.061 [ 0.861,  1.306]   kept   0.84 [ 0.59,  1.39]
+  spec-ctl         median      48.5 ms   / pdq  1.117 [ 0.886,  1.408]   kept   0.81 [ 0.39,  1.25]
+  spec-cold-hpp    median      52.5 ms   / pdq  1.156 [ 0.937,  1.427]   kept   0.70 [ 0.32,  1.25]
+  spec-closure     median      78.3 ms   / pdq  1.838 [ 1.640,  2.060]
+nat-random-1000000-chunk8   (ns)
+  spec-hot         median      73.7 ms   / pdq  1.069 [ 0.880,  1.298]   kept   1.29 [-3.67,  5.19]
+  pdq              median      80.3 ms
+  spec-leaves-hp   median     100.0 ms   / pdq  1.155 [ 0.965,  1.382]   kept   0.13 [-1.20,  2.62]
+  spec-nopiv       median     101.7 ms   / pdq  1.171 [ 0.917,  1.495]   kept   0.06 [-2.85,  3.97]
+  spec-cold-hpp    median     102.7 ms   / pdq  1.168 [ 1.006,  1.355]   kept   0.01 [-1.82,  2.08]
+  spec-closure     median     103.0 ms   / pdq  1.288 [ 1.101,  1.508]
+  spec-cold-hp     median     103.5 ms   / pdq  1.244 [ 0.973,  1.591]   kept  -0.02 [-3.38,  3.57]
+  spec-ctl         median     110.3 ms   / pdq  1.298 [ 1.042,  1.616]   kept  -0.32 [-4.16,  2.39]
+  spec-leaves-hpp  median     115.6 ms   / pdq  1.301 [ 1.072,  1.578]   kept  -0.55 [-4.40,  3.43]
+nat-runs16-100000   (ns)
+  pdq              median       4.9 ms
+  spec-cold-hpp    median       5.1 ms   / pdq  1.065 [ 1.008,  1.125]   kept   0.98 [ 0.96,  1.05]
+  spec-hot         median       5.2 ms   / pdq  1.049 [ 1.005,  1.095]   kept   0.98 [ 0.97,  1.06]
+  spec-ctl         median       5.4 ms   / pdq  1.040 [ 0.989,  1.094]   kept   0.96 [ 0.91,  1.01]
+  spec-leaves-hpp  median       5.8 ms   / pdq  1.120 [ 1.023,  1.227]   kept   0.93 [ 0.87,  1.02]
+  spec-leaves-hp   median       6.3 ms   / pdq  1.142 [ 1.066,  1.223]   kept   0.90 [ 0.87,  0.98]
+  spec-nopiv       median       6.4 ms   / pdq  1.143 [ 1.048,  1.247]   kept   0.89 [ 0.87,  0.98]
+  spec-cold-hp     median       6.4 ms   / pdq  1.128 [ 1.050,  1.213]   kept   0.89 [ 0.87,  0.99]
+  spec-closure     median      18.4 ms   / pdq  3.990 [ 3.596,  4.428]
+nat-sortedtail-100000   (ns)
+  spec-nopiv       median       0.6 ms   / pdq  1.002 [ 0.934,  1.076]   kept   1.00 [ 0.99,  1.03]
+  pdq              median       0.6 ms
+  spec-leaves-hp   median       0.6 ms   / pdq  1.088 [ 0.976,  1.213]   kept   0.99 [ 0.96,  1.02]
+  spec-cold-hp     median       0.6 ms   / pdq  1.093 [ 1.026,  1.163]   kept   0.99 [ 0.96,  1.00]
+  spec-ctl         median       0.7 ms   / pdq  1.144 [ 1.008,  1.300]   kept   0.97 [ 0.94,  1.00]
+  spec-cold-hpp    median       1.4 ms   / pdq  2.766 [ 2.425,  3.155]   kept   0.79 [ 0.65,  0.84]
+  spec-leaves-hpp  median       1.5 ms   / pdq  2.743 [ 2.422,  3.106]   kept   0.78 [ 0.65,  0.84]
+  spec-hot         median       1.6 ms   / pdq  2.983 [ 2.604,  3.418]   kept   0.76 [ 0.62,  0.82]
+  spec-closure     median       4.6 ms   / pdq  7.170 [ 6.173,  8.329]
+rec-random-1000000   (ns)
+  spec-hot         median     227.2 ms   / pdq  0.992 [ 0.819,  1.202]   kept   1.00 [ 0.78,  1.23]
+  pdq              median     227.9 ms
+  spec-cold-hpp    median     240.1 ms   / pdq  1.011 [ 0.906,  1.128]   kept   0.97 [ 0.85,  1.11]
+  spec-ctl         median     249.5 ms   / pdq  1.082 [ 0.885,  1.322]   kept   0.94 [ 0.75,  1.09]
+  spec-nopiv       median     266.7 ms   / pdq  1.058 [ 0.882,  1.269]   kept   0.90 [ 0.64,  1.16]
+  spec-leaves-hpp  median     270.2 ms   / pdq  1.137 [ 0.925,  1.397]   kept   0.89 [ 0.76,  1.07]
+  spec-leaves-hp   median     275.1 ms   / pdq  1.125 [ 0.904,  1.400]   kept   0.87 [ 0.64,  1.07]
+  spec-cold-hp     median     295.3 ms   / pdq  1.231 [ 1.075,  1.411]   kept   0.82 [ 0.63,  0.99]
+  spec-closure     median     599.5 ms   / pdq  2.665 [ 2.233,  3.180]
+str-random-1000000   (ns)
+  spec-cold-hpp    median     562.5 ms   / pdq  1.006 [ 0.825,  1.226]   kept   1.06 [ 0.78,  1.28]
+  spec-nopiv       median     592.6 ms   / pdq  1.121 [ 0.936,  1.343]   kept   1.01 [ 0.70,  1.14]
+  pdq              median     596.5 ms
+  spec-hot         median     605.7 ms   / pdq  1.013 [ 0.921,  1.114]   kept   0.98 [ 0.85,  1.08]
+  spec-leaves-hp   median     640.7 ms   / pdq  1.102 [ 0.939,  1.293]   kept   0.93 [ 0.66,  1.05]
+  spec-cold-hp     median     643.4 ms   / pdq  1.131 [ 0.937,  1.365]   kept   0.92 [ 0.70,  1.16]
+  spec-ctl         median     644.6 ms   / pdq  1.086 [ 0.910,  1.297]   kept   0.92 [ 0.69,  1.10]
+  spec-leaves-hpp  median     679.7 ms   / pdq  1.189 [ 0.935,  1.510]   kept   0.86 [ 0.64,  1.07]
+  spec-closure     median    1199.5 ms   / pdq  2.232 [ 1.899,  2.622]
+u64-random-6250000   (ns)
+  spec-hot         median    1517.7 ms   / pdq  0.987 [ 0.881,  1.105]   kept   1.02 [ 0.98,  1.11]
+  pdq              median    1610.7 ms
+  spec-nopiv       median    1695.0 ms   / pdq  1.121 [ 0.913,  1.377]   kept   0.98 [ 0.76,  1.03]
+  spec-cold-hp     median    1803.9 ms   / pdq  1.038 [ 0.934,  1.153]   kept   0.96 [ 0.88,  1.04]
+  spec-leaves-hpp  median    1878.1 ms   / pdq  1.046 [ 0.925,  1.183]   kept   0.94 [ 0.88,  1.02]
+  spec-cold-hpp    median    2007.5 ms   / pdq  1.091 [ 0.904,  1.317]   kept   0.91 [ 0.83,  1.04]
+  spec-ctl         median    2052.1 ms   / pdq  1.141 [ 0.986,  1.321]   kept   0.90 [ 0.84,  0.98]
+  spec-leaves-hp   median    2135.0 ms   / pdq  1.196 [ 1.026,  1.394]   kept   0.88 [ 0.83,  1.00]
+  spec-closure     median    6120.2 ms   / pdq  3.578 [ 3.013,  4.248]

@@ -1,0 +1,9 @@
+adv algo=pdq n=10000 cmps=70179 perNlogN=0.528150
+adv algo=lab:lomuto,ends,c24,brk9 n=10000 cmps=62613 perNlogN=0.471210
+adv algo=lab:lomuto,ends,c24,brk9,nochild n=10000 cmps=159656 perNlogN=1.201531
+adv algo=core n=10000 cmps=25034996 perNlogN=188.407118
+adv algo=pdq n=100000 cmps=700279 perNlogN=0.421610
+adv algo=lab:lomuto,ends,c24,brk9 n=100000 cmps=625145 perNlogN=0.376375
+adv algo=lab:lomuto,ends,c24,brk9,nochild n=100000 cmps=1855775 perNlogN=1.117288
+adv algo=core n=100000 cmps=2500349996 perNlogN=1505.360697
+Terminated                 $B adv $a $n inputs/adv-$a-$n.txt

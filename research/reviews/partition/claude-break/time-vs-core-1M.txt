@@ -1,0 +1,10 @@
+file=inputs/rblocks:5-1M.txt blocks=5 reps=3 hashes_agree=True
+  core                                          median_ms=  159.176 ratio= 1.000 per_block_ms=[87.97, 168.0, 155.17, 159.18, 217.12]
+  pdq                                           median_ms=  130.019 ratio= 0.817 per_block_ms=[136.24, 130.02, 114.76, 122.04, 153.67]
+  lab:lomuto,ends,c24,brk9                      median_ms=  145.784 ratio= 0.916 per_block_ms=[85.07, 165.48, 141.95, 145.78, 158.92]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=  112.059 ratio= 0.704 per_block_ms=[64.47, 169.94, 114.09, 112.06, 110.74]
+file=inputs/randsorted_tail:10-1M.txt blocks=5 reps=3 hashes_agree=True
+  core                                          median_ms=  161.580 ratio= 1.000 per_block_ms=[179.57, 187.4, 149.64, 161.58, 158.52]
+  pdq                                           median_ms=  151.013 ratio= 0.935 per_block_ms=[164.04, 194.02, 135.6, 137.81, 151.01]
+  lab:lomuto,ends,c24,brk9                      median_ms=  117.829 ratio= 0.729 per_block_ms=[142.75, 116.75, 112.21, 121.94, 117.83]
+  lab:lomuto,ends,c24,brk9,nochild              median_ms=  101.019 ratio= 0.625 per_block_ms=[120.57, 98.84, 101.02, 101.8, 96.49]

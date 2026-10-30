@@ -1,0 +1,21 @@
+diff --git a/sorts/Sorts/Pdq.lean b/sorts/Sorts/Pdq.lean
+index 2cbf2ce..0fef718 100644
+--- a/sorts/Sorts/Pdq.lean
++++ b/sorts/Sorts/Pdq.lean
+@@ -254,7 +254,7 @@ length of the range, so that the recursion is structural. -/
+     (balanced partitioned : Bool) (fuel : Nat) (hf : b - a ≤ fuel) (hlo : lo ≤ a) (hab : a ≤ b)
+     (hb : b ≤ n) : Vector α n :=
+   if h12 : b - a ≤ 12 then insertionSort lt v a b hb
+-  else if limit = 0 then heapSort lt v a b hab hb
++  else if limit = 0 then dbgTrace s!"heap {a} {b}" fun _ => heapSort lt v a b hab hb
+   else match fuel with
+   | 0 => absurd hf (by omega)
+   | fuel + 1 =>
+@@ -269,6 +269,7 @@ length of the range, so that the recursion is structural. -/
+         partialInsertionSort lt v a b (by omega) hb
+       else (v, false)
+     if done then v
++    else if lt v[pivot.1] v[pivot.1] then reverseRange v a b hb
+     else if hp : lo < a ∧ !lt v[a - 1] v[pivot.1] then
+       let (v, ⟨mid, hm⟩) := partitionEqual lt v a b pivot hb
+       sort lt lo v mid b limit balanced partitioned fuel (by omega) (by omega) (by omega) hb

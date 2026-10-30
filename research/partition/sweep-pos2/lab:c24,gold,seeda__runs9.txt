@@ -1,0 +1,1 @@
+lab:c24,gold,seeda nat runs9 100000: cmps/n=21.09 swaps/n=8.52 partitions=6490 unbalanced=303 partitioned-elems/n=14.51 heaps=0 heap-elems/n=0.00 pis=0/170 pis-won-elems/n=0.00 ins-elems/n=0.94 equal=0 breaks=216 reversals=30 ins=4.50 other=0.06 part=14.47 pis=1.56 pivot=0.49
