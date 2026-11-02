@@ -8,6 +8,8 @@ module
 prelude
 public import Lean.Compiler.LCNF.PassManager
 public import Lean.Compiler.LCNF.PublicDeclsExt
+import Lean.Compiler.InitAttr
+import Lean.Compiler.ExportAttr
 
 public section
 
@@ -216,6 +218,58 @@ def getLocalDeclAt? (declName : Name) (phase : Phase) : CompilerM (Option (Decl 
 def getLocalDecl? (declName : Name) : CompilerM (Option ((pu : Purity) × Decl pu)) := do
   let some decl ← getLocalDeclAt? declName (← getPhase) | return none
   return some ⟨_, decl⟩
+
+/--
+Whether the attributes of `declName` still allow it to be lazy: `[init]`/`[builtin_init]`
+declarations are set by the module initialiser, and `@[export]`ed ones may be read directly by C
+code.
+-/
+def lazyConstAttrsAllow (env : Environment) (declName : Name) : Bool :=
+  !hasInitAttr env declName && !isIOUnitInitFn env declName &&
+    (getExportNameFor? env declName).isNone
+
+/--
+Arity-0 declarations that the C emitter initialises lazily: instead of being computed by the
+module initialiser, each gets a once cell and is computed on first use (see `detectLazyConst`).
+
+The set is persistent because importing modules need it to read such a constant: a lazy constant
+must be read through its once cell, while an eager one (or a statically initialised one, which
+importers cannot otherwise tell apart from an eager one) is read directly. Recording the decision
+of the module that emitted the constant, rather than recomputing it in importers, also keeps
+modules compiled by an older compiler (stage 0 output, for instance) readable: they have no
+entries, so all their constants are read directly.
+
+The decision is taken when the constant is compiled, but `attribute [init f] c` or
+`attribute [export n] c` can still be applied to it later in the same module, and both make it
+ineligible (see `Decl.isLazyConstCandidate`). So the entries are filtered again, with the final
+attributes, when they are exported and when the defining module emits its C code
+(`isLazyConst`).
+-/
+builtin_initialize lazyConstExt : PersistentEnvExtension Name Name (PHashMap Name Unit) ←
+  registerPersistentEnvExtension {
+    mkInitial := pure {},
+    addImportedFn := fun _ => pure {},
+    addEntryFn := fun s n => s.insert n ()
+    exportEntriesFnEx env s := Id.run do
+      let all := s.foldl (init := #[]) (fun ns n _ => ns.push n) |>.qsort Name.quickLt
+      let all := all.filter (lazyConstAttrsAllow env ·)
+      -- Same visibility as `impureSigExt`: an importer that can see the signature sees the tag.
+      let exported := all.filter (isDeclPublic env ·)
+      return { exported, server := exported, «private» := all }
+    asyncMode := .sync,
+    replay? := some fun oldState newState _ otherState =>
+      PersistentHashMap.foldlNewEntries (·.insert · ·) newState oldState otherState
+  }
+
+def markLazyConst (env : Environment) (declName : Name) : Environment :=
+  lazyConstExt.addEntry env declName
+
+/-- Whether `declName` (local or imported) is initialised lazily through a once cell. -/
+def isLazyConst (env : Environment) (declName : Name) : Bool :=
+  (findExtEntry? env lazyConstExt declName
+    (fun names n => names.binSearch n Name.quickLt)
+    (fun s n => if s.contains n then some n else none)
+  |>.isSome) && lazyConstAttrsAllow env declName
 
 builtin_initialize declOrderExt : EnvExtension (List Name × NameSet) ← mkOrderedDeclSetExt
 

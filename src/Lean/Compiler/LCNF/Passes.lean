@@ -30,6 +30,7 @@ public import Lean.Compiler.LCNF.CoalesceRC
 public import Lean.Compiler.LCNF.Toposort
 public import Lean.Compiler.LCNF.ExpandResetReuse
 public import Lean.Compiler.LCNF.SimpleGroundExpr
+public import Lean.Compiler.LCNF.LazyConst
 
 public section
 
@@ -153,6 +154,7 @@ def builtinPassManager : PassManager := {
     coalesceRC,
     pushProj (occurrence := 1),
     detectSimpleGround,
+    detectLazyConst,
     inferVisibility (phase := .impure),
     toposortPass,
     saveImpure, -- End of impure phase

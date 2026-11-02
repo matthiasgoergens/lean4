@@ -445,6 +445,16 @@ where
 def toOnceTokenName (cppBaseName : String) : String :=
   s!"{cppBaseName}_once"
 
+/--
+Name of the once cell of a lazily initialised top-level constant (see `isLazyConst`). Unlike the
+cells of closed terms, these are visible to other modules, so the name must not clash with any
+mangled declaration name: `cppBaseName ++ "_once"` would be the mangling of `c.once` for a
+constant `c`. Symbol stems start with `l_` or `lp_` (`mkPackageSymbolPrefix`), and lazy constants
+are never `@[export]`ed, so a prefix (like the `_init_` of initialisers) is safe.
+-/
+def toLazyConstOnceName (cppBaseName : String) : String :=
+  s!"_once_{cppBaseName}"
+
 @[inline]
 def paramsWithoutVoid (ps : Array (Param .impure)) :=
   ps.filter (!·.type.isVoid)
@@ -457,7 +467,10 @@ def emitFnDecls : EmitM Unit := do
   (← getOtherModuleDecls).forM fun sig => do
     match getExternNameFor (← getEnv) `c sig.name with
     | some externName => emitExternDecl sig externName
-    | none => emitFnDeclStandard sig true
+    | none =>
+      emitFnDeclStandard sig true
+      if isLazyConst (← getEnv) sig.name then
+        emitLazyConstExtraDecls sig "extern " ""
   (← getLocalDecls).forM fun decl => do
     match getExternNameFor (← getEnv) `c decl.name with
     | some externName => emitExternDecl decl.toSignature externName
@@ -477,6 +490,19 @@ where
       emitFnDeclClosed decl cppBaseName
     else
       emitFnDeclStandard decl.toSignature isExternal
+      if isLazyConst env decl.name then
+        emitLazyConstExtraDecls decl.toSignature "LEAN_EXPORT " " = LEAN_ONCE_CELL_INITIALIZER"
+
+  /--
+  The once cell and the initialiser of a lazily initialised constant, which (unlike those of closed
+  terms) are exported so that importing modules can read the constant through `lean_*_once` too.
+  -/
+  emitLazyConstExtraDecls (sig : Signature .impure) (linkage : String) (cellInit : String) :
+      EmitM Unit := do
+    let cppBaseName ← toCName sig.name
+    emitLn s!"{linkage}lean_once_cell_t {toLazyConstOnceName cppBaseName}{cellInit};"
+    let initLinkage := if linkage == "extern " then "" else linkage
+    emitLn s!"{initLinkage}{sig.type.toCType} {← toCInitName sig.name}(void);"
 
   emitFnDeclClosed (decl : Decl .impure) (cppBaseName : String) : EmitM Unit := do
     emitLn s!"static lean_once_cell_t {toOnceTokenName cppBaseName} = LEAN_ONCE_CELL_INITIALIZER;"
@@ -632,6 +658,14 @@ where
       let tokenRef := s!"&{toOnceTokenName cname}"
       let initName ← toCInitName f
       emitCApp3 ty.closedTermReadOpName cnameRef tokenRef initName
+    else if isLazyConst env f then
+      -- Read through the constant's own type: the global and the initialiser are declared with it.
+      let some sig ← getImpureSignature? f | unreachable!
+      let cname ← toCName f
+      let cnameRef := s!"&{cname}"
+      let tokenRef := s!"&{toLazyConstOnceName cname}"
+      let initName ← toCInitName f
+      emitCApp3 sig.type.closedTermReadOpName cnameRef tokenRef initName
     else
       emitCName f
 
@@ -931,10 +965,11 @@ def emitDecl (decl : Decl .impure) : EmitM Unit := do
   | .code code =>
     let baseName ← toCName decl.name
     let ps := decl.params
-    if ps.isEmpty then
+    if ps.isEmpty && !isLazyConst env decl.name then
       emit "static "
     else
-      -- make the symbol visible to the interpreter for native execution
+      -- make the symbol visible to the interpreter for native execution, and the initialisers of
+      -- lazy constants to importing modules
       emit "LEAN_EXPORT "
 
     emit decl.type.toCType; emit " "
@@ -1000,7 +1035,10 @@ def emitDeclInit (decl : Decl .impure) (isBuiltin : Bool) : EmitM Unit := do
         emitLn " = lean_io_result_get_value(res);"
         emitMarkPersistent decl
       emitLn "lean_dec_ref(res);"
-    else if !(isClosedTermName env decl.name || isSimpleGroundDecl env decl.name) then
+    else if !(isClosedTermName env decl.name || isSimpleGroundDecl env decl.name ||
+        isLazyConst env decl.name) then
+      -- Lazy constants are initialised by their first reader, which also marks them persistent
+      -- (`lean_obj_once_cold`).
       emitCName decl.name; emit " = "; emitCInitName decl.name; emitLn "();"
       emitMarkPersistent decl
 

@@ -370,6 +370,11 @@ struct native_symbol_cache_entry {
     void * m_addr;
     // true iff we chose the boxed version of a function where the IR uses the unboxed version
     bool m_boxed;
+    // for a lazily initialised native constant (see `isLazyConst` in `PhaseExt.lean`), its once cell
+    // (`_once_<stem>`) and initialiser (`_init_<stem>`); `nullptr` for eagerly initialised constants
+    // and for functions
+    void * m_once = nullptr;
+    void * m_init = nullptr;
 };
 
 // Caches native symbol lookup successes _and_ failures; we assume no native code is loaded or
@@ -867,6 +872,19 @@ private:
                 if (void *p = lookup_symbol_in_cur_exe(mangled.data())) {
                     // if there is no boxed version, there are no unboxed parameters, so use default version
                     e_new.m_native.m_addr = p;
+                    // A lazily initialised constant is computed by its first reader, so its global
+                    // may still be unset: it must be read through its once cell. Such constants are
+                    // never `@[export]`ed, so the stem is the right base name.
+                    if (decl_params(e_new.m_decl).size() == 0 && !get_export_name_for(m_env, fn)) {
+                        std::string once_name = std::string("_once_") + mangled.data();
+                        std::string init_name = std::string("_init_") + mangled.data();
+                        void * once = lookup_symbol_in_cur_exe(once_name.c_str());
+                        void * init = once ? lookup_symbol_in_cur_exe(init_name.c_str()) : nullptr;
+                        if (once && init) {
+                            e_new.m_native.m_once = once;
+                            e_new.m_native.m_init = init;
+                        }
+                    }
                 }
             }
         }
@@ -898,6 +916,33 @@ private:
         }
 
         const symbol_cache_entry& e = lookup_symbol(fn);
+        if (e.m_native.m_addr && e.m_native.m_once) {
+            // lazily initialised native constant: force it through its once cell, which also marks
+            // an object value persistent
+            void * addr = e.m_native.m_addr;
+            lean_once_cell_t * once = static_cast<lean_once_cell_t *>(e.m_native.m_once);
+            void * init = e.m_native.m_init;
+            switch (t) {
+                case type::Float:
+                    return value::from_float(lean_float_once(static_cast<double *>(addr), once, reinterpret_cast<double (*)(void)>(init)));
+                case type::Float32:
+                    return value::from_float32(lean_float32_once(static_cast<float *>(addr), once, reinterpret_cast<float (*)(void)>(init)));
+                case type::UInt8: return lean_uint8_once(static_cast<uint8 *>(addr), once, reinterpret_cast<uint8 (*)(void)>(init));
+                case type::UInt16: return lean_uint16_once(static_cast<uint16 *>(addr), once, reinterpret_cast<uint16 (*)(void)>(init));
+                case type::UInt32: return lean_uint32_once(static_cast<uint32 *>(addr), once, reinterpret_cast<uint32 (*)(void)>(init));
+                case type::UInt64: return lean_uint64_once(static_cast<uint64 *>(addr), once, reinterpret_cast<uint64 (*)(void)>(init));
+                case type::USize: return lean_usize_once(static_cast<size_t *>(addr), once, reinterpret_cast<size_t (*)(void)>(init));
+                case type::Object:
+                case type::Tagged:
+                case type::TObject:
+                case type::Irrelevant:
+                case type::Void:
+                    return lean_obj_once(static_cast<object **>(addr), once, reinterpret_cast<object * (*)(void)>(init));
+                case type::Struct:
+                case type::Union:
+                    throw exception("not implemented yet");
+            }
+        }
         if (e.m_native.m_addr) {
             // we can assume that all native code has been initialized (see e.g. `evalConst`)
 

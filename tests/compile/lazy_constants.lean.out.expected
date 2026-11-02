@@ -1,0 +1,9 @@
+main started
+computing noisyNat
+noisyNat = 499500
+noisyNat again = 499500
+derived = 499501
+computing noisyU64
+noisyU64 = 4950
+computing noisyFloat
+noisyFloat = 1.500000
