@@ -5,6 +5,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Author: Leonardo de Moura
 */
 #include <algorithm>
+#include "util/name_hash_map.h"
 #include "runtime/sstream.h"
 #include "runtime/utf8.h"
 #include "util/name_generator.h"
@@ -754,7 +755,58 @@ public:
             ms.append(m_rec_infos[i].m_minors);
     }
 
-    recursor_rules mk_rec_rules(size_t d_idx, buffer<expr> const & Cs, buffer<expr> const & minors, size_t & minor_idx) {
+    typedef name_hash_map<size_t> fvar_index;
+
+    /** \brief As `abstract(e, n, fvars)` for the `fvars` that `index` maps to their positions, but finding each free
+        variable in the hash map rather than by scanning `fvars`, so that the cost does not grow with `n`. */
+    static expr abstract_indexed(expr const & e, size_t n, fvar_index const & index) {
+        if (!has_fvar(e))
+            return e;
+        return replace_tpl(e, [&](expr const & m, unsigned offset) -> optional<expr> {
+                if (is_fvar(m)) {
+                    auto it = index.find(fvar_name(m));
+                    if (it != index.end() && it->second < n)
+                        return some_expr(mk_bvar(offset + n - it->second - 1));
+                }
+                return none_expr();
+            }, true, [](expr const & m, unsigned) { return !has_fvar(m); });
+    }
+
+    /** \brief The binders every recursor rule of the declaration starts with: the parameters, the motives and the
+        minor premises, with each binder's type abstracted over the binders before it.  Built once and shared by all
+        rules.  Building them per rule, as `mk_lambda` does, copied every minor premise's type into every rule, so the
+        rules took space and time quadratic in the number of constructors times their size. */
+    struct rec_rule_prefix {
+        buffer<expr> m_fvars;
+        fvar_index   m_index;
+        buffer<expr> m_types;
+    };
+
+    void mk_rec_rule_prefix(buffer<expr> const & Cs, buffer<expr> const & minors, rec_rule_prefix & p) {
+        p.m_fvars.append(m_params);
+        p.m_fvars.append(Cs);
+        p.m_fvars.append(minors);
+        for (size_t i = 0; i < p.m_fvars.size(); i++)
+            p.m_index[fvar_name(p.m_fvars[i])] = i;
+        for (size_t i = 0; i < p.m_fvars.size(); i++)
+            p.m_types.push_back(abstract_indexed(m_lctx.get_local_decl(fvar_name(p.m_fvars[i])).get_type(), i, p.m_index));
+    }
+
+    /** \brief `mk_lambda(p.m_fvars, body)`, with the prefix's shared binder types. */
+    expr mk_rec_rule_rhs(rec_rule_prefix const & p, expr const & body) {
+        size_t n = p.m_fvars.size();
+        expr r   = abstract_indexed(body, n, p.m_index);
+        size_t i = n;
+        while (i > 0) {
+            --i;
+            local_decl const & decl = m_lctx.get_local_decl(fvar_name(p.m_fvars[i]));
+            r = ::lean::mk_lambda(decl.get_user_name(), p.m_types[i], r, decl.get_info());
+        }
+        return r;
+    }
+
+    recursor_rules mk_rec_rules(size_t d_idx, buffer<expr> const & Cs, buffer<expr> const & minors,
+                                rec_rule_prefix const & prefix, size_t & minor_idx) {
         inductive_type const & d = m_ind_types[d_idx];
         levels lvls = get_rec_levels();
         buffer<recursor_rule> rules;
@@ -793,7 +845,7 @@ public:
                 v.push_back(mk_lambda(xs, rec_app));
             }
             expr e_app    = mk_app(mk_app(minors[minor_idx], b_u), v);
-            expr comp_rhs = mk_lambda(m_params, mk_lambda(Cs, mk_lambda(minors, mk_lambda(b_u, e_app))));
+            expr comp_rhs = mk_rec_rule_rhs(prefix, mk_lambda(b_u, e_app));
             rules.push_back(recursor_rule(constructor_name(cnstr), b_u.size(), comp_rhs));
             minor_idx++;
         }
@@ -808,6 +860,8 @@ public:
         size_t nmotives  = Cs.size();
         names all          = get_all_inductive_names();
         size_t minor_idx = 0;
+        rec_rule_prefix prefix;
+        mk_rec_rule_prefix(Cs, minors, prefix);
         for (size_t d_idx = 0; d_idx < m_ind_types.size(); d_idx++) {
             rec_info const & info = m_rec_infos[d_idx];
             expr C_app            = mk_app(mk_app(info.m_C, info.m_indices), info.m_major);
@@ -817,7 +871,7 @@ public:
             rec_ty                = mk_pi(Cs, rec_ty);
             rec_ty                = mk_pi(m_params, rec_ty);
             rec_ty                = infer_implicit(rec_ty, true /* strict */);
-            recursor_rules rules  = mk_rec_rules(d_idx, Cs, minors, minor_idx);
+            recursor_rules rules  = mk_rec_rules(d_idx, Cs, minors, prefix, minor_idx);
             name rec_name         = mk_rec_name(m_ind_types[d_idx].get_name());
             names rec_lparams     = get_rec_lparams();
             m_env.check_name(rec_name);
