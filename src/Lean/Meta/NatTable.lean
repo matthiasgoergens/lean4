@@ -37,4 +37,28 @@ public def mkNatLookupTable (i : Expr) (type : Expr) (es : Array Expr) : MetaM E
         return mkApp4 (mkConst ``cond [u]) type (mkApp2 (mkConst ``Nat.ble) i (mkRawNatLit (mid-1))) low high
     go 0 es.size
 
+/--
+Builds a closed expression of type `Nat → $type` that returns `es[i]`, using binary search, like
+`mkNatLookupTable`. Each subtree is itself a closed function `fun i => …`, so substituting for
+the variables bound around an application of the table never traverses it, and reducing the
+application at a literal visits one path from the root to a leaf. `type` and the entries of `es`
+must be closed. The array must be non-empty.
+-/
+public def mkClosedNatLookupTable (type : Expr) (es : Array Expr) : MetaM Expr := do
+  if h : es.size = 0 then
+    panic! "mkClosedNatLookupTable: expected non-empty array"
+  else
+    let fnType := mkForall `i .default (mkConst ``Nat) type
+    let u ← getLevel fnType
+    let rec go (start stop : Nat) (hstart : start < stop := by omega)
+        (hstop : stop ≤ es.size := by omega) : Expr :=
+      if h : start + 1 = stop then
+        mkLambda `i .default (mkConst ``Nat) es[start]
+      else
+        let mid := (start + stop) / 2
+        let branch := mkApp4 (mkConst ``cond [u]) fnType
+          (mkApp2 (mkConst ``Nat.ble) (mkBVar 0) (mkRawNatLit (mid-1))) (go start mid) (go mid stop)
+        mkLambda `i .default (mkConst ``Nat) (mkApp branch (mkBVar 0))
+    return go 0 es.size
+
 end Lean

@@ -40,15 +40,6 @@ def mkPULift (r : Level) (t : Expr) : MetaM Expr := do
   let s ← getLevel t
   return mkApp (mkConst `PULift [r,s]) t
 
-def withMkPULiftUp (t : Expr) (k : Expr → MetaM Expr) : MetaM Expr := do
-  let t ← whnf t
-  if t.isAppOfArity `PULift 1 then
-    let t' := t.appArg!
-    let e ← k t'
-    return mkApp2 (mkConst `PULift.up (t.appFn!.constLevels!)) t' e
-  else
-    throwError "withMkPULiftUp: expected PULift type, got {t}"
-
 def mkPULiftDown (e : Expr) : MetaM Expr := do
   let t ← whnf (← inferType e)
   if t.isAppOfArity `PULift 1 then
@@ -56,12 +47,6 @@ def mkPULiftDown (e : Expr) : MetaM Expr := do
     return mkApp2 (mkConst `PULift.down t.appFn!.constLevels!) t' e
   else
     throwError "mkULiftDown: expected ULift type, got {t}"
-
-def mkNatLookupTableLifting (n : Expr) (es : Array Expr) : MetaM Expr := do
-  let u ← maxLevels es
-  let u' := reassocMax (mkLevelMax' u 1).normalize
-  let es ← es.mapM (mkPULift u)
-  mkNatLookupTable n (.sort u') es
 
 def mkCtorElimTypeName (indName : Name) : Name :=
   Name.str indName "ctorElimType"
@@ -89,9 +74,16 @@ def mkCtorElimType (indName : Name) : MetaM Unit := do
     -- let majorArg := xs[info.numParams + 1 + info.numIndices]!
     let alts : Array Expr := xs[info.numParams + 1 + info.numIndices + 1:]
     withLocalDeclD `ctorIdx (mkConst ``Nat) fun ctorIdx => do
+      -- The table is closed over the parameters and the motive, which each entry takes as
+      -- arguments, so that unfolding `ctorElimType` at a constructor index (as checking each
+      -- `T.ctor.elim` does) costs the depth of the table rather than its size.
+      let paramsMotive := params.push motive
       let es ← alts.mapM inferType
-      let e ← mkNatLookupTableLifting ctorIdx es
-      mkLambdaFVars (params ++ #[motive, ctorIdx]) e
+      let u ← maxLevels es
+      let u' := reassocMax (mkLevelMax' u 1).normalize
+      let es ← es.mapM fun e => do mkLambdaFVars paramsMotive (← mkPULift u e)
+      let table ← mkClosedNatLookupTable (← mkForallFVars paramsMotive (.sort u')) es
+      mkLambdaFVars (paramsMotive.push ctorIdx) (mkAppN (mkApp table ctorIdx) paramsMotive)
 
   let declName := mkCtorElimTypeName indName
   addAndCompile (.defnDecl (← mkDefinitionValInferringUnsafe
@@ -168,46 +160,50 @@ def mkConstructorElim (indName : Name) : MetaM Unit := do
   let casesOnInfo ← getConstVal casesOnName
   let v::us := casesOnInfo.levelParams.map mkLevelParam | panic! "unexpected universe levels on `casesOn`"
   let CtorElimName := mkCtorElimName indName
-  let CtorElimTypeName := mkCtorElimTypeName indName
-  let casesOnInfo ← getConstVal casesOnName
-  -- Now specialize for each constructor
-  for i in [:info.numCtors] do
-    let declName := mkConstructorElimName indName info.ctors[i]!
-    let e ← forallTelescope casesOnInfo.type fun xs _ => do
-      let params : Array Expr := xs[:info.numParams]
-      let motive := xs[info.numParams]!
-      let indices : Array Expr := xs[info.numParams + 1:info.numParams + 1 + info.numIndices]
-      let majorArg := xs[info.numParams + 1 + info.numIndices]!
-      let ism := indices.push majorArg
-      let alts := xs[info.numParams + 1 + info.numIndices + 1:]
+  -- One telescope for all constructors: opening the `casesOn` type afresh for each would cost the
+  -- number of constructors each time.
+  forallTelescope casesOnInfo.type fun xs _ => do
+    let params : Array Expr := xs[:info.numParams]
+    let motive := xs[info.numParams]!
+    let indices : Array Expr := xs[info.numParams + 1:info.numParams + 1 + info.numIndices]
+    let majorArg := xs[info.numParams + 1 + info.numIndices]!
+    let ism := indices.push majorArg
+    let alts := xs[info.numParams + 1 + info.numIndices + 1:]
+    let ctorApp := mkAppN (mkConst (mkCtorIdxName indName) us) (params ++ ism)
+    -- `ctorElimType` at index `i` is `PULift.{uLift} (alts[i]'s type)`, as `mkCtorElimType`
+    -- builds it, so the lifted alternative is built directly rather than by reducing it.
+    let altTypes ← alts.toArray.mapM inferType
+    let uLift ← maxLevels altTypes
+    -- Now specialize for each constructor
+    for i in [:info.numCtors] do
+      let declName := mkConstructorElimName indName info.ctors[i]!
       let alt := alts[i]!
-      let ctorApp := mkAppN (mkConst (mkCtorIdxName indName) us) (params ++ ism)
+      let altType := altTypes[i]!
       let hType ← mkEq ctorApp (mkRawNatLit i)
-      withLocalDeclD `h hType fun h => do
+      let e ← withLocalDeclD `h hType fun h => do
         let e := mkConst CtorElimName (v :: us)
         let e := mkAppN e params
         let e := mkApp e motive
         let e := mkApp e (mkRawNatLit i)
         let e := mkAppN e ism
         let e := mkApp e (← mkEqSymm h)
-        let CtorElimTypeApp := mkAppN (mkConst CtorElimTypeName (v :: us)) ((params.push motive).push (mkRawNatLit i))
-        let e := mkApp e (← withMkPULiftUp CtorElimTypeApp fun _ => pure alt)
+        let e := mkApp e (mkApp2 (mkConst ``PULift.up [uLift, ← getLevel altType]) altType alt)
         mkLambdaFVars (params ++ #[motive] ++ ism ++ #[h, alt]) e
-    let declType ← inferType e
+      let declType ← inferType e
 
-    addAndCompile (.defnDecl (← mkDefinitionValInferringUnsafe
-      (name        := declName)
-      (levelParams := casesOnInfo.levelParams)
-      (type        := declType)
-      (value       := e)
-      (hints       := ReducibilityHints.abbrev)
-    ))
-    modifyEnv fun env => markAuxRecursor env declName
-    modifyEnv fun env => markSparseCasesOn env declName
-    modifyEnv fun env => addToCompletionBlackList env declName
-    modifyEnv fun env => addProtected env declName
-    Elab.Term.elabAsElim.setTag declName
-    setReducibleAttribute declName
+      addAndCompile (.defnDecl (← mkDefinitionValInferringUnsafe
+        (name        := declName)
+        (levelParams := casesOnInfo.levelParams)
+        (type        := declType)
+        (value       := e)
+        (hints       := ReducibilityHints.abbrev)
+      ))
+      modifyEnv fun env => markAuxRecursor env declName
+      modifyEnv fun env => markSparseCasesOn env declName
+      modifyEnv fun env => addToCompletionBlackList env declName
+      modifyEnv fun env => addProtected env declName
+      Elab.Term.elabAsElim.setTag declName
+      setReducibleAttribute declName
 
 public def mkCtorElim (indName : Name) : MetaM Unit := do
   -- We need the `.ctorIdx` function to exist
