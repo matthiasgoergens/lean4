@@ -328,13 +328,18 @@ structure RecursorRule where
   ctor : Name
   /-- Number of fields (i.e., without counting inductive datatype parameters) -/
   nfields : Nat
-  /-- Right hand side of the reduction rule -/
+  /-- Position of this constructor's minor premise among the recursor's minor premises -/
+  minorIdx : Nat
+  /-- Right hand side of the reduction rule: a function of the recursor's parameters and motives, of one recursive
+  call per motive (see `RecursorVal.recs`), of this constructor's minor premise and of the constructor's fields. -/
   rhs : Expr
   deriving Inhabited, BEq
 
 structure RecursorVal extends ConstantVal where
   /-- List of all inductive datatypes in the mutual declaration that generated this recursor -/
   all : List Name
+  /-- The recursors of the declaration, one per motive: more than `all` for nested inductives -/
+  recs : List Name
   /-- Number of parameters -/
   numParams : Nat
   /-- Number of indices -/
@@ -360,9 +365,9 @@ structure RecursorVal extends ConstantVal where
   deriving Inhabited, BEq
 
 @[export lean_mk_recursor_val]
-def mkRecursorValEx (name : Name) (levelParams : List Name) (type : Expr) (all : List Name) (numParams numIndices numMotives numMinors : Nat)
+def mkRecursorValEx (name : Name) (levelParams : List Name) (type : Expr) (all : List Name) (recs : List Name) (numParams numIndices numMotives numMinors : Nat)
     (rules : List RecursorRule) (k isUnsafe : Bool) : RecursorVal := {
-  name, levelParams, type, all, numParams, numIndices,
+  name, levelParams, type, all, recs, numParams, numIndices,
   numMotives, numMinors, rules, k, isUnsafe
 }
 

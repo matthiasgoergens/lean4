@@ -230,6 +230,15 @@ expr const & get_app_fn(expr const & e) {
     return *it;
 }
 
+expr const & get_app_fn_n(expr const & e, size_t k) {
+    expr const * it = &e;
+    while (is_app(*it) && k > 0) {
+        it = &(app_fn(*it));
+        k--;
+    }
+    return *it;
+}
+
 size_t get_app_num_args(expr const & e) {
     expr const * it = &e;
     size_t n = 0;

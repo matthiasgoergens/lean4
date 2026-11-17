@@ -260,6 +260,12 @@ private def isMajorProof (recVal : RecursorVal) (recLvls : List Level) (major : 
       let lvls := recLvls.tail!
       isPropFormerType (← instantiateTypeLevelParams indInfo lvls)
 
+/-- The body under the first `n` lambdas of `e`, or `none` if `e` has fewer. -/
+private def lambdaBodyN? : Nat → Expr → Option Expr
+  | 0, e => some e
+  | n + 1, .lam _ _ b _ => lambdaBodyN? n b
+  | _, _ => none
+
 /-- Auxiliary function for reducing recursor applications. -/
 private def reduceRec (recVal : RecursorVal) (recLvls : List Level) (recArgs : Array Expr) (failK : Unit → MetaM α) (successK : Expr → MetaM α) : MetaM α :=
   let majorIdx := recVal.getMajorIdx
@@ -283,12 +289,26 @@ private def reduceRec (recVal : RecursorVal) (recLvls : List Level) (recArgs : A
     match getRecRuleFor recVal major with
     | some rule =>
       let majorArgs := major.getAppArgs
-      if recLvls.length != recVal.levelParams.length then
+      let npm := recVal.numParams + recVal.numMotives
+      let nminors := recVal.numMinors
+      if recLvls.length != recVal.levelParams.length || recVal.recs.length != recVal.numMotives then
         failK ()
-      else
-        let rhs := rule.rhs.instantiateLevelParams recVal.levelParams recLvls
-        -- Apply parameters, motives and minor premises from recursor application.
-        let rhs := mkAppRange rhs 0 (recVal.numParams+recVal.numMotives+recVal.numMinors) recArgs
+      else if h : npm + rule.minorIdx < recArgs.size ∧ rule.minorIdx < nminors then
+        -- The rule is `fun params motives recs => t`.  Substitute the parameters and motives of the
+        -- application, and for each recursive call `t` uses, the recursor applied to the application's
+        -- parameters, motives and minor premises.  Building a call costs the number of minor premises,
+        -- so with several motives (mutual or nested inductives) only the calls `t` uses are built.
+        let nrecs := recVal.numMotives
+        let some t := lambdaBodyN? (npm + nrecs) (rule.rhs.instantiateLevelParams recVal.levelParams recLvls)
+          | failK ()
+        let recCalls := recVal.recs.toArray.mapIdx fun j recName =>
+          if t.hasLooseBVar (nrecs - 1 - j) then
+            mkAppRange (mkConst recName recLvls) 0 (npm + nminors) recArgs
+          else
+            mkSort Level.zero -- does not occur in `t`, so never substituted
+        let rhs := t.instantiateRev (recArgs.extract 0 npm ++ recCalls)
+        -- Apply this constructor's minor premise.
+        let rhs := mkApp rhs recArgs[npm + rule.minorIdx]
         /- The number of parameters in the constructor is not necessarily
            equal to the number of parameters in the recursor when we have
            nested inductive types. -/
@@ -296,6 +316,8 @@ private def reduceRec (recVal : RecursorVal) (recLvls : List Level) (recArgs : A
         let rhs := mkAppRange rhs nparams majorArgs.size majorArgs
         let rhs := mkAppRange rhs (majorIdx + 1) recArgs.size recArgs
         successK rhs
+      else
+        failK ()
     | none => failK ()
   else
     failK ()

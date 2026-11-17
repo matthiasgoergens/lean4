@@ -419,6 +419,7 @@ def parseRecInfo (json : Json) : M Unit := do
   let some (.arr levelParamsIdxs) := data["levelParams"]? | fail s!"recInfo invalid"
   let some (.num (typeIdx : Nat)) := data["type"]? | fail s!"recInfo invalid"
   let some (.arr allIdxs) := data["all"]? | fail s!"recInfo invalid"
+  let some (.arr recsIdxs) := data["recs"]? | fail s!"recInfo invalid"
   let some (.num (numParams : Nat)) := data["numParams"]? | fail s!"recInfo invalid"
   let some (.num (numIndices : Nat)) := data["numIndices"]? | fail s!"recInfo invalid"
   let some (.num (numMotives : Nat)) := data["numMotives"]? | fail s!"recInfo invalid"
@@ -431,21 +432,24 @@ def parseRecInfo (json : Json) : M Unit := do
   let levelParams ← getNameList levelParamsIdxs
   let type ← getExpr typeIdx
   let all ← getNameList allIdxs
+  let recs ← getNameList recsIdxs
   let rules ← rules.toList.mapM fun rule => do
     let .obj rule := rule | fail s!"recInfo invalid"
     let some (.num (ctorIdx : Nat)) := rule["ctor"]? | fail s!"recInfo invalid"
     let some (.num (nfields : Nat)) := rule["nfields"]? | fail s!"recInfo invalid"
+    let some (.num (minorIdx : Nat)) := rule["minorIdx"]? | fail s!"recInfo invalid"
     let some (.num (rhsIdx : Nat)) := rule["rhs"]? | fail s!"recInfo invalid"
 
     let ctor ← getName ctorIdx
     let rhs ← getExpr rhsIdx
-    return { ctor, nfields, rhs }
+    return { ctor, nfields, minorIdx, rhs }
 
   addConst name <| .recInfo {
     name,
     levelParams,
     type,
     all,
+    recs,
     numParams,
     numIndices,
     numMotives,

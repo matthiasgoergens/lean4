@@ -751,20 +751,20 @@ public:
             }, true, [](expr const & m, unsigned) { return !has_fvar(m); });
     }
 
-    /** \brief The binders every recursor rule of the declaration starts with: the parameters, the motives and the
-        minor premises, with each binder's type abstracted over the binders before it.  Built once and shared by all
-        rules.  Building them per rule, as `mk_lambda` does, copied every minor premise's type into every rule, so the
-        rules took space and time quadratic in the number of constructors times their size. */
+    /** \brief The binders every recursor rule of the declaration starts with: the parameters, the motives and one
+        recursive call per motive, with each binder's type abstracted over the binders before it.  Built once and
+        shared by all rules.  A rule then binds only its own minor premise and the constructor's fields, so the rules
+        of a declaration with `n` constructors take space linear in `n`, not quadratic. */
     struct rec_rule_prefix {
         buffer<expr> m_fvars;
         fvar_index   m_index;
         buffer<expr> m_types;
     };
 
-    void mk_rec_rule_prefix(buffer<expr> const & Cs, buffer<expr> const & minors, rec_rule_prefix & p) {
+    void mk_rec_rule_prefix(buffer<expr> const & Cs, buffer<expr> const & recs, rec_rule_prefix & p) {
         p.m_fvars.append(m_params);
         p.m_fvars.append(Cs);
-        p.m_fvars.append(minors);
+        p.m_fvars.append(recs);
         for (size_t i = 0; i < p.m_fvars.size(); i++)
             p.m_index[fvar_name(p.m_fvars[i])] = i;
         for (size_t i = 0; i < p.m_fvars.size(); i++)
@@ -784,10 +784,24 @@ public:
         return r;
     }
 
-    recursor_rules mk_rec_rules(size_t d_idx, buffer<expr> const & Cs, buffer<expr> const & minors,
+    /** \brief The recursive-call binders of the rules: for each motive `C_k`, a variable of type
+        `(indices : ...) -> (t : I_k params indices) -> C_k indices t`.  Reduction instantiates it with the
+        recursor `I_k.rec` applied to the parameters, motives and minor premises of the application being reduced. */
+    void mk_rec_call_fvars(buffer<expr> & recs) {
+        for (size_t i = 0; i < m_ind_types.size(); i++) {
+            rec_info const & info = m_rec_infos[i];
+            expr C_app  = mk_app(mk_app(info.m_C, info.m_indices), info.m_major);
+            expr rec_ty = mk_pi(info.m_indices, mk_pi(info.m_major, C_app));
+            name rec_name("rec");
+            if (m_ind_types.size() > 1)
+                rec_name = rec_name.append_after(i + 1);
+            recs.push_back(mk_local_decl(rec_name, rec_ty));
+        }
+    }
+
+    recursor_rules mk_rec_rules(size_t d_idx, buffer<expr> const & minors, buffer<expr> const & recs,
                                 rec_rule_prefix const & prefix, size_t & minor_idx) {
         inductive_type const & d = m_ind_types[d_idx];
-        levels lvls = get_rec_levels();
         buffer<recursor_rule> rules;
         for (constructor const & cnstr : d.get_cnstrs()) {
             buffer<expr> b_u;
@@ -818,14 +832,15 @@ public:
                 }
                 buffer<expr> it_indices;
                 size_t it_idx = get_I_indices(u_i_ty, it_indices);
-                name rec_name   = mk_rec_name(m_ind_types[it_idx].get_name());
-                expr rec_app    = mk_constant(rec_name, lvls);
-                rec_app         = mk_app(mk_app(mk_app(mk_app(mk_app(rec_app, m_params), Cs), minors), it_indices), mk_app(u_i, xs));
+                expr rec_app    = mk_app(mk_app(recs[it_idx], it_indices), mk_app(u_i, xs));
                 v.push_back(mk_lambda(xs, rec_app));
             }
             expr e_app    = mk_app(mk_app(minors[minor_idx], b_u), v);
-            expr comp_rhs = mk_rec_rule_rhs(prefix, mk_lambda(b_u, e_app));
-            rules.push_back(recursor_rule(constructor_name(cnstr), b_u.size(), comp_rhs));
+            buffer<expr> minor_and_fields;
+            minor_and_fields.push_back(minors[minor_idx]);
+            minor_and_fields.append(b_u);
+            expr comp_rhs = mk_rec_rule_rhs(prefix, mk_lambda(minor_and_fields, e_app));
+            rules.push_back(recursor_rule(constructor_name(cnstr), b_u.size(), minor_idx, comp_rhs));
             minor_idx++;
         }
         return recursor_rules(rules);
@@ -838,9 +853,13 @@ public:
         size_t nminors   = minors.size();
         size_t nmotives  = Cs.size();
         names all          = get_all_inductive_names();
+        names rec_names;
+        for (size_t i = m_ind_types.size(); i > 0; i--)
+            rec_names = names(mk_rec_name(m_ind_types[i - 1].get_name()), rec_names);
         size_t minor_idx = 0;
+        buffer<expr> recs; mk_rec_call_fvars(recs);
         rec_rule_prefix prefix;
-        mk_rec_rule_prefix(Cs, minors, prefix);
+        mk_rec_rule_prefix(Cs, recs, prefix);
         for (size_t d_idx = 0; d_idx < m_ind_types.size(); d_idx++) {
             rec_info const & info = m_rec_infos[d_idx];
             expr C_app            = mk_app(mk_app(info.m_C, info.m_indices), info.m_major);
@@ -850,11 +869,11 @@ public:
             rec_ty                = mk_pi(Cs, rec_ty);
             rec_ty                = mk_pi(m_params, rec_ty);
             rec_ty                = infer_implicit(rec_ty, true /* strict */);
-            recursor_rules rules  = mk_rec_rules(d_idx, Cs, minors, prefix, minor_idx);
+            recursor_rules rules  = mk_rec_rules(d_idx, minors, recs, prefix, minor_idx);
             name rec_name         = mk_rec_name(m_ind_types[d_idx].get_name());
             names rec_lparams     = get_rec_lparams();
             m_env.check_name(rec_name);
-            m_env.add_core(constant_info(recursor_val(rec_name, rec_lparams, rec_ty, all,
+            m_env.add_core(constant_info(recursor_val(rec_name, rec_lparams, rec_ty, all, rec_names,
                                                       m_nparams, m_nindices[d_idx], nmotives, nminors,
                                                       rules, m_K_target, m_is_unsafe)));
         }
@@ -1312,6 +1331,10 @@ environment environment::add_inductive(declaration const & d) const {
             expr new_rec_type      = res.restore_nested(rec_info.get_type(), aux_env, aux_rec_name_map);
             recursor_val rec_val   = rec_info.to_recursor_val();
             buffer<recursor_rule> new_rules;
+            names new_recs = map(rec_val.get_recs(), [&](name const & n) {
+                    name const * new_name = aux_rec_name_map.find(n);
+                    return new_name ? *new_name : n;
+                });
             for (recursor_rule const & rule : rec_val.get_rules()) {
                 expr new_rhs        = res.restore_nested(rule.get_rhs(), aux_env, aux_rec_name_map);
                 name cnstr_name     = rule.get_cnstr();
@@ -1320,11 +1343,11 @@ environment environment::add_inductive(declaration const & d) const {
                     /* We need to fix the constructor name */
                     new_cnstr_name  = res.restore_constructor_name(aux_env, cnstr_name);
                 }
-                new_rules.push_back(recursor_rule(new_cnstr_name, rule.get_nfields(), new_rhs));
+                new_rules.push_back(recursor_rule(new_cnstr_name, rule.get_nfields(), rule.get_minor_idx(), new_rhs));
             }
             new_env.check_name(new_rec_name);
             new_env.add_core(constant_info(recursor_val(new_rec_name, rec_info.get_lparams(), new_rec_type,
-                                                        all_ind_names, rec_val.get_nparams(), rec_val.get_nindices(), rec_val.get_nmotives(),
+                                                        all_ind_names, new_recs, rec_val.get_nparams(), rec_val.get_nindices(), rec_val.get_nmotives(),
                                                         rec_val.get_nminors(), recursor_rules(new_rules),
                                                         rec_val.is_k(), rec_val.is_unsafe())));
             new_rec_names.push_back(new_rec_name);

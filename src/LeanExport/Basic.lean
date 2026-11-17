@@ -395,6 +395,7 @@ public partial def dumpConstant (c : Name) : M Unit := do
           ("levelParams", ← dumpUparams recursorVal.levelParams),
           ("type", ← dumpExpr recursorVal.type),
           ("all", ← dumpNames recursorVal.all),
+          ("recs", ← dumpNames recursorVal.recs),
           ("numParams", recursorVal.numParams),
           ("numIndices", recursorVal.numIndices),
           ("numMotives", recursorVal.numMotives),
@@ -423,6 +424,7 @@ where
     return Json.mkObj [
       ("ctor", ← dumpName rule.ctor),
       ("nfields", rule.nfields),
+      ("minorIdx", rule.minorIdx),
       ("rhs", ← dumpExpr rule.rhs),
     ]
   dumpObj (fields : List (String × Json)) : M Unit :=

@@ -117,9 +117,37 @@ inline optional<expr> inductive_reduce_rec(environment const & env, expr const &
     get_app_args(major, major_args);
     if (rule->get_nfields() > major_args.size()) return none_expr();
     if (length(const_levels(rec_fn)) != length(rec_info->get_lparams())) return none_expr();
-    expr rhs = instantiate_lparams(rule->get_rhs(), rec_info->get_lparams(), const_levels(rec_fn));
-    /* apply parameters, motives and minor premises from recursor application. */
-    rhs      = mk_app(rhs, rec_val.get_nparams() + rec_val.get_nmotives() + rec_val.get_nminors(), rec_args.data());
+    size_t npm     = rec_val.get_nparams() + rec_val.get_nmotives();
+    size_t nminors = rec_val.get_nminors();
+    if (rule->get_minor_idx() >= nminors) return none_expr();
+    if (length(rec_val.get_recs()) != rec_val.get_nmotives()) return none_expr();
+    size_t nrecs   = rec_val.get_nmotives();
+    /* The rule is `fun params motives recs => t`: substitute the parameters and motives of the application, and for
+       each recursive call `t` uses, the recursor applied to the application's parameters, motives and minor
+       premises.  With one motive that is a prefix of `e` itself.  With several (mutual or nested inductives), a
+       call is built only if `t` uses it: each costs the number of minor premises. */
+    expr t = instantiate_lparams(rule->get_rhs(), rec_info->get_lparams(), const_levels(rec_fn));
+    for (size_t i = 0; i < npm + nrecs; i++) {
+        if (!is_lambda(t)) return none_expr();
+        t = binding_body(t);
+    }
+    buffer<expr> subst;
+    subst.append(npm, rec_args.data());
+    if (nrecs == 1) {
+        subst.push_back(get_app_fn_n(e, rec_args.size() - (npm + nminors)));
+    } else {
+        size_t j = 0;
+        for (name const & rec_name : rec_val.get_recs()) {
+            if (has_loose_bvar(t, nrecs - 1 - j))
+                subst.push_back(mk_app(mk_constant(rec_name, const_levels(rec_fn)), npm + nminors, rec_args.data()));
+            else
+                subst.push_back(rec_fn); /* does not occur in `t`, so never substituted */
+            j++;
+        }
+    }
+    expr rhs = instantiate_rev(t, subst.size(), subst.data());
+    /* apply this constructor's minor premise. */
+    rhs      = mk_app(rhs, rec_args[npm + rule->get_minor_idx()]);
     /* The number of parameters in the constructor is not necessarily
        equal to the number of parameters in the recursor when we have
        nested inductive types. */

@@ -131,36 +131,43 @@ where
   construction, *not* the number of inductive parameters for the type being nested through.
   -/
   mkRuleMsg (rule : RecursorRule) : TermElabM MessageData := do
-    lambdaTelescope rule.rhs fun xs rhs => do
-      -- Start building the recursor application, applying parameters, motives, and minor premises
-      let numRecArgs := recInfo.numParams + recInfo.numMotives + recInfo.numMinors
-      let levels := recInfo.levelParams.map Level.param
-      let recApp := mkAppN (.const recInfo.name levels) xs[0...numRecArgs]
-      -- The remaining rule parameters correspond to constructor fields. These are the last `nfields`
-      -- of the constructor. Note that in nested inductive types, the number of inductive parameters
-      -- for the constructor might not equal the number of inductive parameters for the recursor.
-      let fields := xs[numRecArgs...*]
-      assert! fields.size == rule.nfields
-      -- We can get the constructor inductive parameters from the type of the major premise,
-      -- taking all arguments before the reported number of indices.
-      -- We can also get the constructor universe levels from this.
-      let (majorLevels, params) ←
-        forallBoundedTelescope (← inferType recApp) (some (recInfo.numIndices + 1)) fun xs' _ => do
-          let major := xs'[recInfo.numIndices]!
-          (← inferType major).withApp fun t args => do
-            let us := t.constLevels!
-            let params := args[0...(args.size - recInfo.numIndices)]
-            pure (us, params)
-      -- Now we can build the major premise
-      let major := mkAppN (mkAppN (.const rule.ctor majorLevels) params) fields
-      -- From this we can compute the indices for the recursor
-      let majorTypeArgs := (← inferType major).getAppArgs
-      let indices := majorTypeArgs[(majorTypeArgs.size - recInfo.numIndices)...*]
-      -- Then we can build the left-hand side of the rule and the final message
-      let lhs := mkApp (mkAppN recApp indices) major
-      -- Inductive predicates should pretty print. We universally enable pretty printing proofs here.
-      withOptions (fun opts => opts.set pp.proofs.name true) do
-        addMessageContext <| lhs ++ indentD m!"==> {rhs}"
+    -- Start building the recursor application, applying parameters, motives, and minor premises
+    let numRecArgs := recInfo.numParams + recInfo.numMotives + recInfo.numMinors
+    let levels := recInfo.levelParams.map Level.param
+    forallBoundedTelescope recInfo.type (some numRecArgs) fun recArgs _ => do
+      let recApp := mkAppN (.const recInfo.name levels) recArgs
+      -- A rule binds the parameters, the motives, one recursive call per motive and its own minor premise,
+      -- followed by the constructor fields.
+      let npm := recInfo.numParams + recInfo.numMotives
+      let some minor := recArgs[npm + rule.minorIdx]?
+        | throwError "recursor rule for {rule.ctor} names minor premise {rule.minorIdx}, out of range"
+      let recCalls := recInfo.recs.toArray.map fun r => mkAppN (.const r levels) recArgs
+      let ruleArgs := (recArgs.extract 0 npm ++ recCalls).push minor
+      lambdaTelescope (rule.rhs.beta ruleArgs) fun fields rhs => do
+        -- The remaining rule parameters correspond to constructor fields. These are the last `nfields`
+        -- of the constructor. Note that in nested inductive types, the number of inductive parameters
+        -- for the constructor might not equal the number of inductive parameters for the recursor.
+        assert! fields.size == rule.nfields
+        -- We can get the constructor inductive parameters from the type of the major premise,
+        -- taking all arguments before the reported number of indices.
+        -- We can also get the constructor universe levels from this.
+        let (majorLevels, params) ←
+          forallBoundedTelescope (← inferType recApp) (some (recInfo.numIndices + 1)) fun xs' _ => do
+            let major := xs'[recInfo.numIndices]!
+            (← inferType major).withApp fun t args => do
+              let us := t.constLevels!
+              let params := args[0...(args.size - recInfo.numIndices)]
+              pure (us, params)
+        -- Now we can build the major premise
+        let major := mkAppN (mkAppN (.const rule.ctor majorLevels) params) fields
+        -- From this we can compute the indices for the recursor
+        let majorTypeArgs := (← inferType major).getAppArgs
+        let indices := majorTypeArgs[(majorTypeArgs.size - recInfo.numIndices)...*]
+        -- Then we can build the left-hand side of the rule and the final message
+        let lhs := mkApp (mkAppN recApp indices) major
+        -- Inductive predicates should pretty print. We universally enable pretty printing proofs here.
+        withOptions (fun opts => opts.set pp.proofs.name true) do
+          addMessageContext <| lhs ++ indentD m!"==> {rhs}"
 
 /--
 Computes the origin of a field. Returns its `StructureFieldInfo` at the origin.

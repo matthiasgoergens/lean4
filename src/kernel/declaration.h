@@ -318,18 +318,20 @@ public:
 structure RecursorRule where
   ctor : Name   -- Reduction rule for this Constructor
   nfields : Nat -- Number of fields (i.e., without counting inductive datatype parameters)
+  minorIdx : Nat -- Position of this constructor's minor premise among the recursor's minor premises
   rhs : Expr    -- Right hand side of the reduction rule
 */
 class recursor_rule : public object_ref {
 public:
-    recursor_rule(name const & cnstr, size_t nfields, expr const & rhs);
+    recursor_rule(name const & cnstr, size_t nfields, size_t minor_idx, expr const & rhs);
     recursor_rule(recursor_rule const & other):object_ref(other) {}
     recursor_rule(recursor_rule && other) noexcept:object_ref(std::move(other)) {}
     recursor_rule & operator=(recursor_rule const & other) { object_ref::operator=(other); return *this; }
     recursor_rule & operator=(recursor_rule && other) noexcept { object_ref::operator=(std::move(other)); return *this; }
     name const & get_cnstr() const { return static_cast<name const &>(cnstr_get_ref(*this, 0)); }
     size_t get_nfields() const { return static_cast<nat const &>(cnstr_get_ref(*this, 1)).get_small_value(); }
-    expr const & get_rhs() const { return static_cast<expr const &>(cnstr_get_ref(*this, 2)); }
+    size_t get_minor_idx() const { return static_cast<nat const &>(cnstr_get_ref(*this, 2)).get_small_value(); }
+    expr const & get_rhs() const { return static_cast<expr const &>(cnstr_get_ref(*this, 3)); }
 };
 
 typedef list_ref<recursor_rule> recursor_rules;
@@ -337,6 +339,7 @@ typedef list_ref<recursor_rule> recursor_rules;
 /*
 structure RecursorVal extends ConstantVal where
   all : List Name  -- List of all inductive datatypes in the mutual declaration that generated this recursor
+  recs : List Name -- The recursors of the declaration, one per motive (more than `all` for nested inductives)
   numParams : Nat
   numIndices : Nat
   numMotives : Nat
@@ -348,7 +351,7 @@ structure RecursorVal extends ConstantVal where
 class recursor_val : public object_ref {
 public:
     recursor_val(name const & n, names const & lparams, expr const & type,
-                 names const & all, size_t nparams, size_t nindices, size_t nmotives,
+                 names const & all, names const & recs, size_t nparams, size_t nindices, size_t nmotives,
                  size_t nminors, recursor_rules const & rules, bool k, bool is_unsafe);
     recursor_val(recursor_val const & other):object_ref(other) {}
     recursor_val(recursor_val && other) noexcept:object_ref(std::move(other)) {}
@@ -358,12 +361,13 @@ public:
     name const & get_name() const { return to_constant_val().get_name(); }
     name const & get_major_induct() const;
     names const & get_all() const { return static_cast<names const &>(cnstr_get_ref(*this, 1)); }
-    size_t get_nparams() const { return static_cast<nat const &>(cnstr_get_ref(*this, 2)).get_small_value(); }
-    size_t get_nindices() const { return static_cast<nat const &>(cnstr_get_ref(*this, 3)).get_small_value(); }
-    size_t get_nmotives() const { return static_cast<nat const &>(cnstr_get_ref(*this, 4)).get_small_value(); }
-    size_t get_nminors() const { return static_cast<nat const &>(cnstr_get_ref(*this, 5)).get_small_value(); }
+    names const & get_recs() const { return static_cast<names const &>(cnstr_get_ref(*this, 2)); }
+    size_t get_nparams() const { return static_cast<nat const &>(cnstr_get_ref(*this, 3)).get_small_value(); }
+    size_t get_nindices() const { return static_cast<nat const &>(cnstr_get_ref(*this, 4)).get_small_value(); }
+    size_t get_nmotives() const { return static_cast<nat const &>(cnstr_get_ref(*this, 5)).get_small_value(); }
+    size_t get_nminors() const { return static_cast<nat const &>(cnstr_get_ref(*this, 6)).get_small_value(); }
     size_t get_major_idx() const { return get_nparams() + get_nmotives() + get_nminors() + get_nindices(); }
-    recursor_rules const & get_rules() const { return static_cast<recursor_rules const &>(cnstr_get_ref(*this, 6)); }
+    recursor_rules const & get_rules() const { return static_cast<recursor_rules const &>(cnstr_get_ref(*this, 7)); }
     bool is_k() const;
     bool is_unsafe() const;
 };

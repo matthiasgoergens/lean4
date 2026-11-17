@@ -296,6 +296,8 @@ expr const & get_app_args(expr const & e, buffer<expr> & args);
 expr const & get_app_rev_args(expr const & e, buffer<expr> & args);
 /** \brief Given \c e of the form <tt>(...(f a_1) ... a_n)</tt>, return \c f. If \c e is not an application, then return \c e. */
 expr const & get_app_fn(expr const & e);
+/** \brief Given \c e of the form <tt>(...(f a_1) ... a_n)</tt> and \c k <= n, return <tt>(...(f a_1) ... a_(n-k))</tt>. */
+expr const & get_app_fn_n(expr const & e, size_t k);
 /** \brief Given \c e of the form <tt>(...(f a_1) ... a_n)</tt>, return \c n. If \c e is not an application, then return 0. */
 size_t get_app_num_args(expr const & e);
 
