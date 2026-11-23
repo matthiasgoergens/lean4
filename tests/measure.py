@@ -101,6 +101,27 @@ class MeasureResult:
     stderr: str
 
 
+def is_hybrid_cpu() -> bool:
+    """Whether the CPU has several core types, each with its own PMU."""
+    devices = Path("/sys/bus/event_source/devices")
+    if not devices.is_dir():
+        return False
+    return sum(1 for pmu in devices.iterdir() if (pmu / "cpus").exists()) > 1
+
+
+def normalize_hybrid_event(event: str) -> str:
+    """
+    On a hybrid CPU, perf counts a hardware event once per PMU and reports it as
+    `cpu_core/instructions/u`, `cpu_atom/instructions/u` and so on. Map these names
+    back to the requested event (`instructions:u`) so that the counts are added up.
+    """
+    parts = event.split("/")
+    if len(parts) != 3:
+        return event
+    _, name, modifiers = parts
+    return f"{name}:{modifiers}" if modifiers else name
+
+
 def measure_perf(
     cmd: list[str], events: set[str], capture: bool, allow_failure: bool = False
 ) -> MeasureResult:
@@ -113,6 +134,9 @@ def measure_perf(
         # Hence, we reset the PATH inside of perf using env.
         cmd = [
             *("perf", "stat", "-j", "-o", tmp.name),
+            # On a hybrid CPU, each PMU counts only while the command runs on its core
+            # type, and perf would extrapolate those partial counts to the whole run.
+            *(["--no-scale"] if is_hybrid_cpu() else []),
             *(arg for event in sorted(events) for arg in ["-e", event]),
             "--",
             *("env", f"PATH={env['PATH']}"),
@@ -136,10 +160,16 @@ def measure_perf(
         for line in tmp:
             data = json.loads(line)
             if "event" in data and "counter-value" in data:
-                perf[data["event"]] = PerfResult(
-                    value=float(data["counter-value"]),
-                    unit=data["unit"],
-                )
+                # A PMU the command never ran on reports "<not counted>".
+                try:
+                    value = float(data["counter-value"])
+                except ValueError:
+                    continue
+                event = normalize_hybrid_event(data["event"])
+                if event in perf:
+                    perf[event].value += value
+                else:
+                    perf[event] = PerfResult(value=value, unit=data["unit"])
 
         return MeasureResult(
             perf=perf,
