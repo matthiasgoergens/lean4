@@ -235,10 +235,68 @@ protected def _root_.USize.repr (n : USize) : String :=
 private def reprArray : Array String := Id.run do
   List.range 128 |>.map (·.toUSize.repr) |> Array.mk
 
+/-
+Numbers that do not fit in a `USize` are converted by divide and conquer (Brent and Zimmermann,
+*Modern Computer Arithmetic*, §1.7): split `n` by the largest `10 ^ (w * 2 ^ i)` below it and
+convert both halves recursively, padding the lower half with zeros. With subquadratic division, as
+in GMP, this takes `O(M(k) log k)` time for `k` digits, where `toDigits` takes `O(k²)`. The leaves
+are `w`-digit chunks small enough to be scalars. `Nat.reprFast_eq_repr` proves that the result is
+`Nat.repr`.
+
+`String.append` exists here only as an opaque external function, which proofs cannot see through,
+so the digits are pushed one at a time onto an accumulator. Each step consumes the accumulator, so
+it stays unshared and `String.push` works in place.
+-/
+
+/-- Digits per leaf chunk, so that `10 ^ reprChunkDigits` is a scalar on every platform. -/
+private def reprChunkDigits : Nat := if System.Platform.numBits = 32 then 9 else 18
+
+/--
+Appends the `k` decimal digits `x / d % 10`, `x / (d / 10) % 10`, …, where `d = 10 ^ (k - 1)`:
+the last `k` digits of `x`, with leading zeros.
+-/
+private def reprPushDigits (acc : String) (x : Nat) : (d k : Nat) → String
+  | _, 0 => acc
+  | d, k + 1 => reprPushDigits (acc.push (digitChar (x / d % 10))) x (d / 10) k
+
+/--
+Appends `n < 10 ^ (w * 2 ^ ps.length)` as exactly `w * 2 ^ ps.length` decimal digits, with leading
+zeros, where `d = 10 ^ (w - 1)` and `ps = [10 ^ (w * 2 ^ (ps.length - 1)), …, 10 ^ (w * 2), 10 ^ w]`.
+-/
+private def reprPadded (w d : Nat) : List Nat → Nat → String → String
+  | [], n, acc => reprPushDigits acc n d w
+  | p :: ps, n, acc =>
+    let q := n / p
+    -- `n - q * p` is `n % p` without a second division.
+    reprPadded w d ps (n - q * p) (reprPadded w d ps q acc)
+
+/--
+Appends the decimal digits of `n`, with `w`, `d` and `ps` as for `reprPadded`. The result is
+correct for every `n`; the powers in `ps` only decide how the work is split.
+-/
+private def reprUnpadded (w d : Nat) : List Nat → Nat → String → String
+  | [], n, acc => (toDigits 10 n).foldl String.push acc
+  | p :: ps, n, acc =>
+    if n < p then reprUnpadded w d ps n acc else
+    let q := n / p
+    reprPadded w d ps (n - q * p) (reprUnpadded w d ps q acc)
+
+/-- Conses `p`, `p ^ 2`, `p ^ 4`, … onto `acc` while they are at most `n`, for at most `fuel` steps. -/
+private def reprPowers (n : Nat) (p : Nat) (acc : List Nat) : (fuel : Nat) → List Nat
+  | 0 => acc
+  | fuel + 1 => if p ≤ n then reprPowers n (p * p) (p :: acc) fuel else acc
+
+/-- Converts `n ≥ 10 ^ reprChunkDigits` to decimal by divide and conquer. -/
+private def reprBig (n : Nat) : String :=
+  let w := reprChunkDigits
+  -- Starting from `[10 ^ w]` and `10 ^ w * 10 ^ w`, which are computed once, numbers below
+  -- `10 ^ (2 * w)` need no multiplication here. 64 squarings exceed any number that fits in memory.
+  reprUnpadded w (10 ^ (w - 1)) (reprPowers n (10 ^ w * 10 ^ w) [10 ^ w] 64) n ""
+
 def reprFast (n : Nat) : String :=
   if h : n < Nat.reprArray.size then Nat.reprArray.getInternal n h else
   if h : n < USize.size then (USize.ofNatLT n h).repr
-  else String.ofList (toDigits 10 n)
+  else reprBig n
 
 /--
 Converts a natural number to its decimal string representation.

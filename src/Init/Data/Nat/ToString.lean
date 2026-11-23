@@ -21,6 +21,9 @@ import Init.Data.Nat.Simproc
 import Init.WFTactics
 import Init.Data.Char.Lemmas
 import Init.Data.Nat.Div.Lemmas
+import Init.Data.Nat.Mod
+import Init.Data.UInt.Lemmas
+import Init.Data.List.Range
 
 public section
 
@@ -281,6 +284,145 @@ theorem length_repr_pos {n : Nat} :
 theorem length_repr_le_iff {n k : Nat} (h : 0 < k) :
     n.repr.length ≤ k ↔ n < 10 ^ k := by
   simpa [repr_eq_ofList_toDigits] using length_toDigits_le_iff (by omega) h
+
+/-- The last `k` decimal digits of `n`, with leading zeros. -/
+private def lowDigits : Nat → Nat → List Char
+  | 0, _ => []
+  | k + 1, n => lowDigits k (n / 10) ++ [digitChar (n % 10)]
+
+private theorem lowDigits_add (k j n : Nat) :
+    lowDigits (k + j) n = lowDigits k (n / 10 ^ j) ++ lowDigits j (n % 10 ^ j) := by
+  induction j generalizing n with
+  | zero => simp [lowDigits]
+  | succ j ih =>
+    have h₁ : n / 10 / 10 ^ j = n / 10 ^ (j + 1) := by
+      rw [Nat.div_div_eq_div_mul, Nat.pow_succ']
+    have h₂ : n % 10 ^ (j + 1) / 10 = n / 10 % 10 ^ j := by
+      rw [Nat.pow_succ', Nat.mod_mul_right_div_self]
+    have h₃ : n % 10 ^ (j + 1) % 10 = n % 10 := by
+      rw [Nat.pow_succ', Nat.mod_mul_right_mod]
+    rw [← Nat.add_assoc, lowDigits, ih, h₁]
+    conv => rhs; rw [lowDigits, h₂, h₃]
+    rw [List.append_assoc]
+
+private theorem lowDigits_mod (j n : Nat) : lowDigits j (n % 10 ^ j) = lowDigits j n := by
+  simpa [lowDigits] using (lowDigits_add 0 j n).symm
+
+private theorem toDigits_mul_pow_add {q r : Nat} (j : Nat) (hq : 0 < q) (hr : r < 10 ^ j) :
+    toDigits 10 (q * 10 ^ j + r) = toDigits 10 q ++ lowDigits j r := by
+  induction j generalizing r with
+  | zero =>
+    have : r = 0 := by simpa using hr
+    simp [this, lowDigits]
+  | succ j ih =>
+    have hpow : q * 10 ^ (j + 1) = q * 10 ^ j * 10 := by rw [Nat.pow_succ, Nat.mul_assoc]
+    have hpos : 0 < q * 10 ^ j := Nat.mul_pos hq (Nat.pow_pos (by decide))
+    have hr' : r / 10 < 10 ^ j := by
+      rw [Nat.div_lt_iff_lt_mul (by decide), ← Nat.pow_succ]; exact hr
+    have hdiv : ∀ x, (x * 10 + r) / 10 = x + r / 10 := fun x => by
+      rw [Nat.add_comm, Nat.add_mul_div_right _ _ (by decide), Nat.add_comm]
+    have hmod : ∀ x, (x * 10 + r) % 10 = r % 10 := fun x => by
+      rw [Nat.add_comm, Nat.add_mul_mod_self_right]
+    rw [hpow, toDigits_of_base_le (by decide) (Nat.le_add_right_of_le (Nat.le_mul_of_pos_left 10 hpos)),
+      hdiv, hmod, ih hr', lowDigits, List.append_assoc]
+
+private theorem foldl_push (l : List Char) (acc : String) :
+    l.foldl String.push acc = acc ++ String.ofList l := by
+  induction l generalizing acc with
+  | nil => apply String.toList_injective; simp
+  | cons c l ih =>
+    apply String.toList_injective
+    simp [List.foldl, ih, String.toList_push]
+
+private theorem reprPushDigits_eq (k : Nat) (acc : String) (x : Nat) :
+    reprPushDigits acc x (10 ^ k) (k + 1) = acc ++ String.ofList (lowDigits (k + 1) x) := by
+  induction k generalizing acc with
+  | zero =>
+    apply String.toList_injective
+    simp [reprPushDigits, lowDigits, String.toList_push]
+  | succ k ih =>
+    rw [reprPushDigits, Nat.pow_succ, Nat.mul_div_cancel _ (by decide), ih,
+      show k + 1 + 1 = 1 + (k + 1) by omega, lowDigits_add 1 (k + 1), lowDigits_mod]
+    apply String.toList_injective
+    simp [lowDigits, String.toList_push, Nat.pow_succ]
+
+/-- `ps = [10 ^ (w * 2 ^ (k - 1)), …, 10 ^ w]`. -/
+private def Chain (w : Nat) : List Nat → Prop
+  | [] => True
+  | p :: ps => p = 10 ^ (w * 2 ^ ps.length) ∧ Chain w ps
+
+private theorem reprPadded_eq {w : Nat} (hw : 0 < w) :
+    ∀ {ps n acc}, Chain w ps → n < 10 ^ (w * 2 ^ ps.length) →
+      reprPadded w (10 ^ (w - 1)) ps n acc = acc ++ String.ofList (lowDigits (w * 2 ^ ps.length) n)
+  | [], n, acc, _, _ => by
+    obtain ⟨k, rfl⟩ : ∃ k, w = k + 1 := ⟨w - 1, by omega⟩
+    simpa [reprPadded] using reprPushDigits_eq k acc n
+  | p :: ps, n, acc, ⟨hp, hc⟩, hn => by
+    have hW : w * 2 ^ (p :: ps).length = w * 2 ^ ps.length + w * 2 ^ ps.length := by
+      rw [List.length_cons, Nat.pow_succ, Nat.mul_two, Nat.mul_add]
+    have hpos : 0 < p := hp ▸ Nat.pow_pos (by decide)
+    rw [hW, Nat.pow_add, ← hp] at hn
+    have hq : n / p < p := (Nat.div_lt_iff_lt_mul hpos).2 hn
+    have hr : n - n / p * p = n % p := by rw [Nat.mod_eq_sub_div_mul]
+    rw [reprPadded, hr, reprPadded_eq hw hc (hp ▸ Nat.mod_lt n hpos), reprPadded_eq hw hc (hp ▸ hq),
+      hW, lowDigits_add, ← hp, String.append_assoc, ← String.ofList_append]
+
+/-- Converting with `reprUnpadded` gives `toDigits`, whatever `n` is. -/
+private theorem reprUnpadded_eq {w : Nat} (hw : 0 < w) :
+    ∀ {ps n acc}, Chain w ps →
+      reprUnpadded w (10 ^ (w - 1)) ps n acc = acc ++ String.ofList (toDigits 10 n)
+  | [], n, acc, _ => foldl_push _ _
+  | p :: ps, n, acc, ⟨hp, hc⟩ => by
+    have hpos : 0 < p := hp ▸ Nat.pow_pos (by decide)
+    rw [reprUnpadded]
+    split
+    · exact reprUnpadded_eq hw hc
+    · rename_i hn
+      have hq : 0 < n / p := Nat.div_pos (by omega) hpos
+      have hr : n - n / p * p = n % p := by rw [Nat.mod_eq_sub_div_mul]
+      dsimp only
+      rw [hr, reprUnpadded_eq hw hc, reprPadded_eq hw hc (hp ▸ Nat.mod_lt n hpos),
+        String.append_assoc, ← String.ofList_append,
+        ← toDigits_mul_pow_add _ hq (hp ▸ Nat.mod_lt n hpos), ← hp, Nat.div_add_mod']
+
+private theorem chain_reprPowers {w n : Nat} :
+    ∀ {acc p fuel}, Chain w acc → p = 10 ^ (w * 2 ^ acc.length) → Chain w (reprPowers n p acc fuel)
+  | _, _, 0, h, _ => h
+  | acc, p, fuel + 1, h, hp => by
+    rw [reprPowers]
+    split
+    · refine chain_reprPowers ⟨hp, h⟩ ?_
+      rw [hp, ← Nat.pow_add, List.length_cons, Nat.pow_succ, Nat.mul_two, Nat.mul_add]
+    · exact h
+
+private theorem reprChunkDigits_pos : 0 < reprChunkDigits := by
+  unfold reprChunkDigits; split <;> decide
+
+private theorem reprBig_eq (n : Nat) : reprBig n = n.repr := by
+  have h : Chain reprChunkDigits [10 ^ reprChunkDigits] := ⟨by simp, trivial⟩
+  rw [reprBig, reprUnpadded_eq reprChunkDigits_pos
+    (chain_reprPowers h (by simp [← Nat.pow_add, ← Nat.mul_two]))]
+  simp [Nat.repr]
+
+private theorem repr_ofNat_eq {n : Nat} (h : n < USize.size) : (USize.ofNat n).repr = n.repr := by
+  simp [USize.repr, Nat.repr, USize.toNat_ofNat_of_lt' h]
+
+/-- `Nat.reprFast`, which implements `Nat.repr` at runtime, agrees with it. -/
+theorem reprFast_eq_repr (n : Nat) : reprFast n = n.repr := by
+  have h128 : 128 ≤ USize.size := by rcases USize.size_eq with h | h <;> simp [h]
+  rw [reprFast]
+  split
+  · rename_i h
+    have hA : reprArray = ⟨(List.range 128).map (fun x => (USize.ofNat x).repr)⟩ := rfl
+    have h' : n < 128 := by simpa [hA] using h
+    have key : ∀ (a : Array String) (_ : a = ⟨(List.range 128).map (fun x => (USize.ofNat x).repr)⟩)
+        (h : n < a.size), a.getInternal n h = (USize.ofNat n).repr := by
+      rintro a rfl h
+      simp [Array.getInternal]
+    exact (key _ hA h).trans (repr_ofNat_eq (by omega))
+  · split
+    · simp [USize.repr, Nat.repr]
+    · exact reprBig_eq n
 
 /--
 Transforms a list of characters into a natural number, *assuming that all characters are in the
