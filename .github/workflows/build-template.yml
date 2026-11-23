@@ -279,7 +279,7 @@ jobs:
         name: Upload Lake Cache
         # Caching on cancellation created some mysterious issues perhaps related to improper build
         # shutdown. Also, since this needs access to secrets, it cannot be run on forks.
-        if: matrix.lake-cache && !cancelled() && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+        if: matrix.lake-cache && !cancelled() && github.repository == 'leanprover/lean4' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
         # only reads stage1/, so it can overlap with installing and testing
         background: true
         run: |
