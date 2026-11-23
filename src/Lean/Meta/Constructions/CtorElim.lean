@@ -74,16 +74,16 @@ def mkCtorElimType (indName : Name) : MetaM Unit := do
     -- let majorArg := xs[info.numParams + 1 + info.numIndices]!
     let alts : Array Expr := xs[info.numParams + 1 + info.numIndices + 1:]
     withLocalDeclD `ctorIdx (mkConst ``Nat) fun ctorIdx => do
-      -- The table is closed over the parameters and the motive, which each entry takes as
-      -- arguments, so that unfolding `ctorElimType` at a constructor index (as checking each
-      -- `T.ctor.elim` does) costs the depth of the table rather than its size.
+      -- The table is closed, taking the parameters and the motive as arguments, so that reducing
+      -- `ctorElimType` at a constructor index (as checking each `T.ctor.elim` does) selects one
+      -- path through it.
       let paramsMotive := params.push motive
       let es ← alts.mapM inferType
       let u ← maxLevels es
       let u' := reassocMax (mkLevelMax' u 1).normalize
-      let es ← es.mapM fun e => do mkLambdaFVars paramsMotive (← mkPULift u e)
-      let table ← mkClosedNatLookupTable (← mkForallFVars paramsMotive (.sort u')) es
-      mkLambdaFVars (paramsMotive.push ctorIdx) (mkAppN (mkApp table ctorIdx) paramsMotive)
+      let es ← es.mapM (mkPULift u)
+      let table ← mkClosedNatLookupTable paramsMotive (.sort u') es
+      mkLambdaFVars (paramsMotive.push ctorIdx) (mkAppN table (#[ctorIdx] ++ paramsMotive))
 
   let declName := mkCtorElimTypeName indName
   addAndCompile (.defnDecl (← mkDefinitionValInferringUnsafe
