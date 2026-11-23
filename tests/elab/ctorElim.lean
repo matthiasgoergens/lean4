@@ -49,3 +49,25 @@ trace: [Compiler.saveBase] size: 3
 -/
 #guard_msgs in
 def testDecl2 := @Vec.cons.elim
+
+set_option trace.Compiler.saveBase false
+
+/-!
+`ctorElimType` reduces at a numeral to the lifted alternative, and at any other index to nested
+`cond`s over the lifted alternatives.
+-/
+
+inductive Three where
+  | a | b | c
+
+example {motive : Three → Sort u} :
+    Three.ctorElimType (motive := motive) 1 = PULift.{u, u} (motive .b) := rfl
+
+example {motive : Three → Sort u} (i : Nat) : Three.ctorElimType (motive := motive) i =
+    (bif i.ble 0 then PULift.{u, u} (motive .a)
+     else bif i.ble 1 then PULift.{u, u} (motive .b) else PULift.{u, u} (motive .c)) := rfl
+
+example {motive : (n : Nat) → Vec Bool n → Sort u} (i : Nat) :
+    Vec.ctorElimType (motive := motive) i =
+    (bif i.ble 0 then PULift.{u, u} (motive 0 .nil)
+     else PULift.{u, u} ({n : Nat} → (a : Bool) → (v : Vec Bool n) → motive (n + 1) (.cons a v))) := rfl
